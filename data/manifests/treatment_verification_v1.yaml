@@ -1,0 +1,34 @@
+schema_version: 1
+campaign_id: treatment_verification_v1
+purpose: close v3 treatment-observability gaps for localisation reset and semantic corruption
+supersedes: []
+allowed_splits: [development]
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  stop_on_invalid: true
+  concurrency: 1
+
+controls: []
+fault_matrix:
+  episode_suffix: "301"
+  severities: [low, medium, high]
+  defaults:
+    map: dev_00
+    route: dev_00_r0
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 5.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+  families:
+    localisation_perturbation: {system: s0, seed_base: 61400}
+    semantic_corruption: {system: s3, seed_base: 61700}
+
+audit_policy:
+  required_label_only_topics:
+    - /initialpose
+    - /research2/raw/semantic/risk_grid
+    - /research2/raw/semantic/risk_grid_odom
+  protected_test_used: false
+  admission_effect: engineering treatment verification only; does not replace human causal-label audit

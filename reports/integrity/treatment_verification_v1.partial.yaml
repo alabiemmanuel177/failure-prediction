@@ -1,0 +1,45 @@
+schema_version: 1
+campaign_id: treatment_verification_v1
+purpose: label-only causal schedule and fault-treatment integrity audit
+deployable_feature_use: forbidden
+episode_count: 3
+passed_count: 2
+failed_count: 1
+episodes:
+- episode_key: localisation_perturbation-medium-301
+  run_id: 25c9147b-430c-486b-b371-08f1ddb04f03
+  family: localisation_perturbation
+  severity: medium
+  terminal_state: false_arrival
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: recorded /initialpose compared with source AMCL estimate
+    translation_m: 0.5
+    yaw_rad: 0.35
+    passed: true
+  passed: true
+- episode_key: localisation_perturbation-high-301
+  run_id: d293e0e9-6c7a-4a6d-8082-f642993f1778
+  family: localisation_perturbation
+  severity: high
+  terminal_state: planner_failure
+  causal_schedule_passed: false
+  event_parameters_match_summary: false
+  treatment:
+    method: not evaluated
+    passed: false
+  passed: false
+- episode_key: localisation_perturbation-low-301
+  run_id: ee84cb73-545a-4d5f-a04b-743ca394f349
+  family: localisation_perturbation
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: recorded /initialpose compared with source AMCL estimate
+    translation_m: 0.15
+    yaw_rad: 0.1
+    passed: true
+  passed: true

@@ -1,0 +1,45 @@
+schema_version: 1
+identity:
+  run_id: TODO
+  parent_research1_run_id: TODO
+  timestamp_utc: TODO
+  git_commit: TODO
+  container_digest: TODO
+  protocol_version: "1.0"
+environment:
+  map_id: TODO
+  route_id: TODO
+  start_pose: TODO
+  goal_pose: TODO
+  seed: TODO
+  simulator_build: TODO
+label_only:
+  fault_family: TODO
+  severity: TODO
+  planned_onset: TODO
+  actual_onset: TODO
+  duration: TODO
+  eligibility_result: TODO
+system:
+  predictor_id: null
+  checkpoint_hash: null
+  feature_schema_hash: null
+  calibration_id: null
+  threshold_id: null
+  recovery_policy_id: null
+outcome:
+  first_event_class: TODO
+  event_time: TODO
+  success: TODO
+  collision: TODO
+  timeout: TODO
+  abort: TODO
+  recovery_action: TODO
+  recovery_result: TODO
+integrity:
+  bag_path: TODO
+  bag_checksum_sha256: TODO
+  message_counts: {}
+  missing_topic_flags: []
+  extraction_version: null
+

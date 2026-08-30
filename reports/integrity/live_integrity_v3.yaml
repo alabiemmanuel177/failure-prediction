@@ -1,0 +1,281 @@
+schema_version: 1
+campaign_id: live_integrity_v3
+purpose: label-only causal schedule and fault-treatment integrity audit
+deployable_feature_use: forbidden
+episode_count: 21
+passed_count: 15
+failed_count: 6
+episodes:
+- episode_key: camera_occlusion-high-201
+  run_id: 05ed9e9d-a50c-4d2d-890a-7c231e67e65c
+  family: camera_occlusion
+  severity: high
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw images
+    raw_post_onset: 155
+    expected_and_realized_drops: 26
+    exact_output_matches: 129
+    expected_outputs: 129
+    unexpected_missing_outputs: 0
+    passed: true
+  passed: true
+- episode_key: camera_occlusion-low-201
+  run_id: 097aa26f-e58d-4e83-967e-93e31bade745
+  family: camera_occlusion
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw images
+    raw_post_onset: 137
+    expected_and_realized_drops: 0
+    exact_output_matches: 136
+    expected_outputs: 137
+    unexpected_missing_outputs: 1
+    passed: true
+  passed: true
+- episode_key: camera_occlusion-medium-201
+  run_id: 1b9bac59-84b0-403e-aa0d-aaa52d8cbba1
+  family: camera_occlusion
+  severity: medium
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw images
+    raw_post_onset: 135
+    expected_and_realized_drops: 6
+    exact_output_matches: 129
+    expected_outputs: 129
+    unexpected_missing_outputs: 0
+    passed: true
+  passed: true
+- episode_key: lidar_dropout-high-201
+  run_id: 45d7bca0-006f-45ab-9a45-2277a44540b7
+  family: lidar_dropout
+  severity: high
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw scans
+    matched_post_onset_scans: 136
+    exact_output_matches: 136
+    passed: true
+  passed: true
+- episode_key: localisation_perturbation-medium-201
+  run_id: 47cc659b-2820-4d25-8290-13e1d3ea2b40
+  family: localisation_perturbation
+  severity: medium
+  terminal_state: false_arrival
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: recorded /initialpose compared with source AMCL estimate
+    passed: false
+    reason: /initialpose was not retained by this recording policy
+  passed: false
+- episode_key: semantic_corruption-medium-201
+  run_id: 51493307-1a2f-457e-9301-434e5c9aed53
+  family: semantic_corruption
+  severity: medium
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw semantic grids
+    passed: false
+    reason: raw semantic grids were not retained by this recording policy
+  passed: false
+- episode_key: localisation_perturbation-high-201
+  run_id: 5a8c4c64-ae8a-46c5-ab6f-8dd3fd8532b1
+  family: localisation_perturbation
+  severity: high
+  terminal_state: false_arrival
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: recorded /initialpose compared with source AMCL estimate
+    passed: false
+    reason: /initialpose was not retained by this recording policy
+  passed: false
+- episode_key: planner_oscillation-medium-201
+  run_id: 611ce5e7-2984-4c99-b503-428a6c9d807d
+  family: planner_oscillation
+  severity: medium
+  terminal_state: planner_failure
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: injection_started is emitted only after ros_gz_sim create succeeds
+    spawn_success_event: true
+    passed: true
+  passed: true
+- episode_key: planner_oscillation-high-201
+  run_id: 64b94f6a-399a-487d-b3a5-19467a4e7b41
+  family: planner_oscillation
+  severity: high
+  terminal_state: planner_failure
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: injection_started is emitted only after ros_gz_sim create succeeds
+    spawn_success_event: true
+    passed: true
+  passed: true
+- episode_key: lidar_dropout-medium-201
+  run_id: 81d9b0fd-23f8-402e-847e-4c99ab6ff099
+  family: lidar_dropout
+  severity: medium
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw scans
+    matched_post_onset_scans: 135
+    exact_output_matches: 135
+    passed: true
+  passed: true
+- episode_key: semantic_corruption-low-201
+  run_id: 8402ee7a-2186-4cd2-a772-e781413c05de
+  family: semantic_corruption
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw semantic grids
+    passed: false
+    reason: raw semantic grids were not retained by this recording policy
+  passed: false
+- episode_key: wheel_slip-low-201
+  run_id: 8d722d33-c440-466d-9968-517118a74f9d
+  family: wheel_slip
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: raw/deployed odometry comparison
+    matched_post_onset_odometry: 381
+    exact_twist_scale_matches: 381
+    altered_pose_messages: 381
+    passed: true
+  passed: true
+- episode_key: lidar_dropout-low-201
+  run_id: ab2f96ce-4486-4a9b-84a7-3bac35285543
+  family: lidar_dropout
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw scans
+    matched_post_onset_scans: 136
+    exact_output_matches: 136
+    passed: true
+  passed: true
+- episode_key: dynamic_blockage-low-201
+  run_id: af068cd4-784e-43e7-a0b4-c7e37335e914
+  family: dynamic_blockage
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: injection_started is emitted only after ros_gz_sim create succeeds
+    spawn_success_event: true
+    passed: true
+  passed: true
+- episode_key: semantic_corruption-high-201
+  run_id: b257e5d6-3410-4ab7-b08a-8a41f430348b
+  family: semantic_corruption
+  severity: high
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw semantic grids
+    passed: false
+    reason: raw semantic grids were not retained by this recording policy
+  passed: false
+- episode_key: planner_oscillation-low-201
+  run_id: bd56dede-8a88-4c6d-93a6-e3fb9bdf5aae
+  family: planner_oscillation
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: injection_started is emitted only after ros_gz_sim create succeeds
+    spawn_success_event: true
+    passed: true
+  passed: true
+- episode_key: localisation_perturbation-low-201
+  run_id: cc8b7541-2e11-4ed6-b1f7-4e32b8a02f8a
+  family: localisation_perturbation
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: recorded /initialpose compared with source AMCL estimate
+    passed: false
+    reason: /initialpose was not retained by this recording policy
+  passed: false
+- episode_key: wheel_slip-high-201
+  run_id: cffdc51f-3cbd-4ff5-a86a-100bc5959ee3
+  family: wheel_slip
+  severity: high
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: raw/deployed odometry comparison
+    matched_post_onset_odometry: 372
+    exact_twist_scale_matches: 372
+    altered_pose_messages: 372
+    passed: true
+  passed: true
+- episode_key: dynamic_blockage-high-201
+  run_id: e34c3417-a4eb-409b-8bd5-39e3103ea679
+  family: dynamic_blockage
+  severity: high
+  terminal_state: planner_failure
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: injection_started is emitted only after ros_gz_sim create succeeds
+    spawn_success_event: true
+    passed: true
+  passed: true
+- episode_key: dynamic_blockage-medium-201
+  run_id: e3d7de09-b6f8-43bc-8931-8019fe4823e5
+  family: dynamic_blockage
+  severity: medium
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: injection_started is emitted only after ros_gz_sim create succeeds
+    spawn_success_event: true
+    passed: true
+  passed: true
+- episode_key: wheel_slip-medium-201
+  run_id: f62c7142-0ec6-4078-adf3-de58f942658c
+  family: wheel_slip
+  severity: medium
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: raw/deployed odometry comparison
+    matched_post_onset_odometry: 384
+    exact_twist_scale_matches: 384
+    altered_pose_messages: 384
+    passed: true
+  passed: true

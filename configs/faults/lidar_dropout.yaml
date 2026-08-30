@@ -1,0 +1,8 @@
+family: lidar_dropout
+status: candidate
+mechanism: deterministic contiguous invalid-return sector
+severities:
+  low: {invalid_fraction: 0.10}
+  medium: {invalid_fraction: 0.35}
+  high: {invalid_fraction: 0.70}
+

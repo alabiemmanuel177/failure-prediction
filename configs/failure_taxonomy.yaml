@@ -1,0 +1,96 @@
+schema_version: 1
+taxonomy_version: "1.0.0"
+protocol_version: "1.0"
+
+principles:
+  - fault_injection_is_not_failure
+  - first_terminal_event_is_primary
+  - mechanism_and_outcome_are_separate_fields
+  - no_induced_failure_is_a_valid_non_event
+  - natural_failures_use_the_same_outcome_rules
+  - ambiguous_cases_are_retained_and_flagged
+
+fault_families:
+  none:
+    description: No planned injected fault.
+    source_layer: none
+  camera_occlusion:
+    description: Image content is masked or frames are suspended.
+    source_layer: perception
+    allowed_severities: [low, medium, high]
+  lidar_dropout:
+    description: LiDAR beams, sectors, or complete scans are removed.
+    source_layer: perception
+    allowed_severities: [low, medium, high]
+  wheel_slip:
+    description: Wheel-ground friction or odometry-to-motion agreement is degraded.
+    source_layer: actuation
+    allowed_severities: [low, medium, high]
+  localisation_perturbation:
+    description: Pose or localisation observations receive a bounded perturbation.
+    source_layer: localisation
+    allowed_severities: [low, medium, high]
+  dynamic_blockage:
+    description: Dynamic actors obstruct or repeatedly cross the planned corridor.
+    source_layer: environment
+    allowed_severities: [low, medium, high]
+  planner_oscillation:
+    description: Geometry or a frozen episode-start parameter induces repeated local choices.
+    source_layer: planning_control
+    allowed_severities: [low, medium, high]
+  semantic_corruption:
+    description: Selected semantic classes are swapped or suppressed without changing geometry.
+    source_layer: perception
+    allowed_severities: [low, medium, high]
+
+terminal_outcomes:
+  collision:
+    definition: Confirmed contact, or frozen unsafe minimum-range condition while motion is commanded.
+    evidence_required: [contact_or_range, commanded_velocity]
+  navigation_abort:
+    definition: NavigateToPose reaches an aborted terminal state before goal completion.
+    evidence_required: [nav2_action_result]
+  false_arrival:
+    definition: Nav2 reports success while label-only ground truth remains outside the frozen goal tolerance.
+    evidence_required: [nav2_action_result, label_only_ground_truth_pose, frozen_goal_tolerance]
+  localisation_loss:
+    definition: Frozen pose-error threshold is exceeded continuously for the required duration.
+    evidence_required: [label_only_ground_truth_pose, estimated_pose]
+  immobilisation:
+    definition: Motion is commanded but measured progress remains below the frozen threshold for the required duration.
+    evidence_required: [commanded_velocity, odometry_or_progress]
+  unsafe_perception:
+    definition: A critical obstacle is missed in the protected stopping region and emergency intervention is required.
+    evidence_required: [label_only_obstacle_truth, emergency_intervention]
+  mission_timeout:
+    definition: Goal is not reached within the route-specific frozen time budget.
+    evidence_required: [route_budget, experiment_clock, goal_status]
+
+nonterminal_observations:
+  injection_eligible: Planned eligibility condition was met.
+  injection_ineligible: Injection did not begin because its eligibility condition was not met.
+  injection_no_terminal_event: Injection occurred but no terminal outcome followed.
+  recovery_guard_rejection: Requested recovery was rejected by the independent guard layer.
+  infrastructure_failure: Recording, simulator, or experiment-control failure invalidated the episode.
+
+causal_role:
+  deployable_observation: Available to the online predictor at or before decision time.
+  label_only: Available only to offline labeling and evaluation.
+  provenance_only: Identifies the run but is excluded from model matrices.
+
+exclusion_reasons:
+  infrastructure_failure:
+    exclude_episode: true
+  injection_ineligible:
+    exclude_episode: true
+    condition: injection_never_began
+  post_event_window:
+    exclude_episode: false
+  too_late_window:
+    exclude_episode: false
+  insufficient_history:
+    exclude_episode: false
+  near_event_or_injection_guard:
+    exclude_episode: false
+  subjective_visual_dislike:
+    permitted: false

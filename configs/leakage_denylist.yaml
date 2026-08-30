@@ -1,0 +1,54 @@
+schema_version: 1
+protocol_version: "1.0"
+policy: fail_closed
+
+forbidden_topic_patterns:
+  - "*ground_truth*"
+  - "*fault_inject*"
+  - "*injection*"
+  - "*contact*"
+  - "*model_states*"
+  - "*link_states*"
+  - "*recovery_result*"
+  - "/research2/events"
+  - "*integrity*"
+
+forbidden_field_patterns:
+  - family
+  - severity
+  - planned_onset
+  - actual_onset
+  - injection_timestamp
+  - event_time
+  - t_f
+  - terminal_status
+  - terminal_result
+  - success
+  - collision
+  - timeout
+  - abort
+  - recovery_action
+  - recovery_result
+  - run_id
+  - protocol_version
+  - research1_platform_commit
+  - research1_repository_head
+  - recorder_loss
+  - bag_checksum
+  - message_count_total
+
+forbidden_transformations:
+  - centered_rolling_window
+  - backward_fill
+  - future_interpolation
+  - whole_episode_normalisation
+  - time_to_event_as_feature
+
+label_only_namespace: label_only
+deployable_namespace: features
+
+review_required:
+  - exact Research 1 fault-control topics
+  - Gazebo ground-truth topics and services
+  - experiment-controller outcome fields
+  - Nav2 action result fields that become known only at termination

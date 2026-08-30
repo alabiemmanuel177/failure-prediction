@@ -1,0 +1,19 @@
+schema_version: 1
+protocol_version: "1.0"
+run_id: TODO
+family: TODO
+severity: TODO
+seed: TODO
+clean_prefix_seconds: 10.0
+planned_onset_seconds: 15.0
+maximum_duration_seconds: 20.0
+eligibility:
+  require_source_messages: true
+  require_commanded_motion: true
+  minimum_command_speed_mps: 0.05
+  maximum_wait_after_planned_onset_seconds: 10.0
+route_context:
+  map_id: TODO
+  route_id: TODO
+  injection_pose_xy: TODO
+

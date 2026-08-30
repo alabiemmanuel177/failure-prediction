@@ -1,0 +1,31 @@
+schema_version: 1
+campaign_id: treatment_verification_semantic_low_v1
+purpose: replacement for pre-injection-invalid low semantic treatment verification
+status: superseded_before_execution
+superseded_by: treatment_verification_semantic_low_medium_v1
+allowed_splits: [development]
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  stop_on_invalid: true
+  concurrency: 1
+controls: []
+fault_matrix:
+  episode_suffix: "302"
+  severities: [low]
+  defaults:
+    map: dev_00
+    route: dev_00_r1
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 5.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+  families:
+    semantic_corruption: {system: s3, seed_base: 62700}
+audit_policy:
+  replacement_for: treatment_verification_v1/semantic_corruption-low-301
+  required_label_only_topics:
+    - /research2/raw/semantic/risk_grid
+    - /research2/raw/semantic/risk_grid_odom
+  protected_test_used: false

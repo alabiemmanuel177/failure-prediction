@@ -1,0 +1,18 @@
+schema_version: 1
+campaign_id: live_integrity_v2
+decision_date: "2026-08-30"
+status: quarantined_engineering_only
+admissible_for_training: false
+admissible_for_validation: false
+admissible_for_threshold_tuning: false
+admissible_for_manual_label_agreement: false
+attempts: 25
+summaries: 24
+findings:
+  - the first two S3 controls predate reliable late-publisher recording and omit semantic topics
+  - one camera-low attempt was operator-interrupted after the S3 artifact defect
+  - wheel-slip-high omitted deployed scan messages due an unpinned recorder QoS race
+  - every faulted summary contains injection_planned but no injection_started event because the scheduler armed from a wall-stamped BehaviorTreeLog
+root_cause: mixed BehaviorTreeLog wall timestamp and simulation-time sensor schedule
+replacement: live_integrity_v3
+protected_test_used: false

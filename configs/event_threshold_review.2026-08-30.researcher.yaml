@@ -1,0 +1,34 @@
+schema_version: 1
+protocol_version: "1.0"
+proposal_file: configs/event_threshold_proposals.yaml
+reviewer_name: Emmanuel Alabi Olasubomi
+reviewer_role: Researcher
+reviewed_utc: "2026-08-30"
+protected_outcomes_consulted: false
+
+decisions:
+  localisation_loss:
+    decision: accept
+    translation_error_m: 0.50
+    yaw_error_rad: 0.50
+    persistence_seconds: 2.0
+    threshold_logic: either_translation_or_yaw_continuously
+    rationale: Accepted prospectively as proposed, before label extraction or protected-map evaluation.
+  immobilisation:
+    decision: accept
+    minimum_command_speed_mps: 0.05
+    maximum_progress_m: 0.50
+    persistence_seconds: 10.0
+    angular_only_commands_count: false
+    progress_measure: planar_odometry_displacement
+    rationale: Accepted prospectively with the recommended linear-command and planar-displacement interpretation.
+  unsafe_perception:
+    decision: accept
+    protected_stopping_region_m_from_footprint: 0.42
+    added_braking_or_latency_margin_m: 0.0
+    rationale: Accepted prospectively without an additional braking or latency margin.
+
+overall_decision: approved
+requires_protocol_version_change: false
+requires_existing_development_data_invalidation: false
+supervisor_signoff_status: pending

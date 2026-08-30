@@ -1,0 +1,86 @@
+schema_version: 1
+campaign_id: live_integrity_v3
+purpose: definitive pre-model integrity and manual-audit campaign after clock and recorder repairs
+supersedes: [live_integrity_v1, live_integrity_v2]
+allowed_splits: [development]
+minimum_valid_episodes_for_manual_audit: 20
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  stop_on_invalid: true
+  concurrency: 1
+
+controls:
+  - {episode_key: control-s0-201, map: dev_00, route: dev_00_r0, system: s0, seed: 51001}
+  - {episode_key: control-s0-202, map: dev_00, route: dev_00_r1, system: s0, seed: 51002}
+  - {episode_key: control-s3-201, map: dev_00, route: dev_00_r0, system: s3, seed: 51003}
+  - {episode_key: control-s3-202, map: dev_00, route: dev_00_r1, system: s3, seed: 51004}
+
+fault_matrix:
+  episode_suffix: "201"
+  severities: [low, medium, high]
+  defaults:
+    map: dev_00
+    route: dev_00_r0
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 5.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+  families:
+    camera_occlusion: {system: s3, seed_base: 51100}
+    lidar_dropout: {system: s0, seed_base: 51200}
+    wheel_slip: {system: s0, seed_base: 51300}
+    localisation_perturbation: {system: s0, seed_base: 51400}
+    dynamic_blockage:
+      system: s0
+      seed_base: 51500
+      injection_x: -0.5
+      injection_y: -0.5
+      injection_yaw: 0.0
+    planner_oscillation:
+      system: s0
+      seed_base: 51600
+      injection_x: -0.5
+      injection_y: -0.5
+      injection_yaw: 0.0
+    semantic_corruption: {system: s3, seed_base: 51700}
+
+audit_sampling:
+  primary_episode_keys:
+    - control-s0-201
+    - control-s0-202
+    - control-s3-201
+    - control-s3-202
+    - camera_occlusion-low-201
+    - camera_occlusion-medium-201
+    - camera_occlusion-high-201
+    - lidar_dropout-low-201
+    - lidar_dropout-medium-201
+    - lidar_dropout-high-201
+    - wheel_slip-low-201
+    - wheel_slip-medium-201
+    - localisation_perturbation-low-201
+    - localisation_perturbation-medium-201
+    - dynamic_blockage-low-201
+    - dynamic_blockage-medium-201
+    - planner_oscillation-low-201
+    - planner_oscillation-medium-201
+    - semantic_corruption-low-201
+    - semantic_corruption-medium-201
+  infrastructure_invalid_reserve_keys:
+    - wheel_slip-high-201
+    - localisation_perturbation-high-201
+    - dynamic_blockage-high-201
+    - planner_oscillation-high-201
+    - semantic_corruption-high-201
+  replacement_rule: reserve_order_skipping_only_prespecified_infrastructure_invalid_attempts
+  select_before_reviewing_terminal_outcomes: true
+  second_reviewer_required: true
+
+admission_evidence:
+  injector_clock_smoke_run_id: 229b96f0-c8fd-412f-902d-e3df7769759b
+  qos_and_onset_smoke_run_id: 95ec15d0-0ae4-41e5-82cc-cc57b52cf44c
+  qos_and_onset_smoke_artifact_validation: passed
+  event_sequence: [injection_planned, injection_started, injection_ended]
+  protected_test_used: false

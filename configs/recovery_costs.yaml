@@ -1,0 +1,12 @@
+schema_version: 1
+protocol_version: "1.0"
+status: relative_order_frozen_numeric_weights_pending_validation
+dominance_order:
+  - collision
+  - mission_abort
+  - failed_recovery
+  - excessive_delay
+  - path_overhead
+  - unnecessary_intervention
+selector_training_rule: actions_rejected_by_guard_are_never_training_targets
+

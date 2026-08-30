@@ -1,0 +1,8 @@
+family: dynamic_blockage
+status: candidate
+mechanism: deterministic obstacle entity spawned at a frozen route-relative pose
+severities:
+  low: {width_m: 0.35, depth_m: 0.20, duration_seconds: 4.0}
+  medium: {width_m: 0.65, depth_m: 0.25, duration_seconds: 10.0}
+  high: {width_m: 0.90, depth_m: 0.30, duration_seconds: 20.0}
+

@@ -1,0 +1,77 @@
+schema_version: 1
+protocol_version: "1.0"
+storage_id: mcap
+clock: simulation_time
+recording_policy: continuous_confirmatory
+recorder_loss_monitoring: independent_topic_health_reconciled_with_mcap_metadata
+rosbag2_jazzy_cli_lost_message_statistics_available: false
+record_services: false
+record_hidden_topics: false
+
+required_topics:
+  - /clock
+  - /cmd_vel
+  - /odom
+  - /amcl_pose
+  - /scan
+  - /tf
+  - /tf_static
+  - /diagnostics
+  - /research2/events
+  - /research2/raw/camera/image
+  - /research2/raw/scan
+  - /research2/raw/odom
+  - /initialpose
+  - /research2/raw/semantic/risk_grid
+  - /research2/raw/semantic/risk_grid_odom
+
+resolved_research1_topics:
+  contact_sensor: /collision_event
+  navigate_to_pose_action: /navigate_to_pose
+  global_plan: /plan
+  local_plan: /local_plan
+  controller_trace: /behavior_tree_log
+  global_costmap: /global_costmap/costmap
+  local_costmap: /local_costmap/costmap
+  perception_confidence: /semantic/confidence
+  perception_uncertainty: /semantic/uncertainty
+  perception_latency: /semantic/inference_latency_ms
+  ground_truth_pose_label_only: /ground_truth_pose
+  semantic_ground_truth_label_only: /camera/segmentation
+  fault_and_episode_events_label_only: /research2/events
+  localisation_reset_label_only: /initialpose
+  semantic_risk_raw_label_only:
+    - /research2/raw/semantic/risk_grid
+    - /research2/raw/semantic/risk_grid_odom
+
+research2_event_contract:
+  topic: /research2/events
+  message_type: diagnostic_msgs/msg/DiagnosticArray
+  durability: transient_local
+  reliability: reliable
+  label_only: true
+  required_event_types:
+    - episode_started
+    - no_injection_control
+    - injection_planned
+    - injection_started
+    - injection_ended
+    - injection_ineligible
+    - terminal_event
+    - recovery_started
+    - recovery_finished
+
+integrity:
+  checksum: sha256
+  raw_bags_immutable: true
+  require_metadata_yaml: true
+  require_message_counts: true
+  flag_any_recorder_loss: true
+  count_reconciliation_tolerance: "max(5 messages, 5 percent of larger count)"
+  reject_mixed_clock_sources: true
+
+storage_options:
+  compression: Zstd
+  compression_level: Fast
+  no_message_index: false
+  no_summary: false

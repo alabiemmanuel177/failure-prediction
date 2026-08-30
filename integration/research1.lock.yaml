@@ -1,0 +1,47 @@
+schema_version: 1
+research1_root: /home/eao/risk-calibrated-nav
+# G6 is the scientific platform boundary. Later Research 1 commits are permitted only
+# when every locked Git object below is unchanged and the current commit descends from
+# this boundary. This lets campaign-operations documentation evolve without silently
+# changing the simulator used by Research 2.
+commit_sha: dac1d21d57a6c11077608f03b12c225b217efc0d
+boundary_mode: git_path_objects
+allow_descendant_operations_commits: true
+verified_date: "2026-08-30"
+required_ros_distro: jazzy
+allowed_splits: [development, validation]
+forbidden_splits: [test]
+
+locked_git_objects:
+  configs/dds/cyclonedds.xml: e737eb8efc6058018d5f3bcd70b7bdcb9f39ff45
+  configs/nav2/nav2_common.yaml: 1eb77d3a181f9bce4655e172cfad6b51fd1cd818
+  configs/systems: b0ca37495fc6cff36cf36e2fdacbd22c0f4d94ae
+  configs/routes: 1925c8fbc4c7b0c8babe9700711828057a09c399
+  data/development: 8999205af17d4c3f51858c6b85c3d0df7a25e185
+  data/validation: f1b0e8fb46456459fd2af896491257ad0535e30f
+  src/simulation_worlds: 5f120c21f093a9f3c40f728d779e6e3060492caa
+  src/robot_description: 02d2eebd7fdc2708b45484b19eabdfda0a3efd78
+  src/episode_logger: c64a504ea46e1dfcc6910b443c5105b961beb9ff
+  src/experiment_controller: 9a2e1bab7af3f7972fbcd972890171d5d08b517e
+  src/semantic_perception: 6e77ea8b4e07f13c7fe2190bdd1952a7e9f42adc
+  src/risk_costmap_layer: 22e1430f9a68a0b14d69af0c60667b18315191d8
+  src/uncertainty_estimation: 2fece3b9e22604c807f602a96780d3b9ae1e6637
+
+reused_interfaces:
+  simulator_package: simulation_worlds
+  robot_package: robot_description
+  episode_controller_package: experiment_controller
+  logger_package: episode_logger
+  semantic_package: semantic_perception
+  risk_layer_package: risk_costmap_layer
+  nav2_parameters: configs/nav2/nav2_common.yaml
+  route_definitions: configs/routes
+
+known_limitations:
+  - Research 1 retains successful bags only when explicitly requested.
+  - Existing bags contain no /research2/events topic.
+  - Existing distribution shifts are not delayed Research 2 fault injections.
+  - Existing summaries do not provide an exact simulation timestamp for every terminal event.
+  - Research 1 lists /episode_state and /recovery_event for recording but does not publish them.
+  - Research 1 does not provide rosbag recorder-loss event monitoring.
+  - Research 2 protected-map work must wait for its own predictor and policy freeze.

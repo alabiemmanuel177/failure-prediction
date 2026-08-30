@@ -1,0 +1,22 @@
+{
+  "clock": "simulation_time",
+  "counts": {
+    "/amcl_pose": 2,
+    "/camera/image": 616,
+    "/cmd_vel": 0,
+    "/odom": 1760,
+    "/research2/events": 0,
+    "/scan": 616
+  },
+  "maximum_gap_seconds": {
+    "/amcl_pose": 21.792,
+    "/camera/image": 25.969,
+    "/cmd_vel": 0.0,
+    "/odom": 25.917,
+    "/research2/events": 0.0,
+    "/scan": 25.983
+  },
+  "recording_window_ended": false,
+  "recording_window_started": false,
+  "run_id": "e4806d8d-3731-490a-bdb2-608bfea96729"
+}

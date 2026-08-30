@@ -1,0 +1,26 @@
+schema_version: 1
+taxonomy_version: 1.0.0
+protocol_version: '1.0'
+run_id: af068cd4-784e-43e7-a0b4-c7e37335e914
+annotator: automatic_event_extractor
+annotation_timestamp_utc: '2026-08-30T23:11:20Z'
+episode:
+  start_time: 10.62
+  end_time: 94.377
+  termination_reason: success
+injections:
+- family: dynamic_blockage
+  severity: low
+  planned_onset: 15.62
+  actual_onset: 15.702
+  duration_seconds: 4.098000000000001
+  eligible: true
+events: []
+episode_exclusion:
+  excluded: false
+  reason: null
+  notes: null
+review:
+  second_reviewer: null
+  adjudication_status: pending
+  disagreements: []

@@ -1,0 +1,8 @@
+family: semantic_corruption
+status: candidate
+mechanism: deterministic corruption of semantic risk-grid cells without geometry changes
+severities:
+  low: {corruption_probability: 0.10, risk_scale: 0.80}
+  medium: {corruption_probability: 0.35, risk_scale: 0.50}
+  high: {corruption_probability: 0.70, risk_scale: 0.10}
+

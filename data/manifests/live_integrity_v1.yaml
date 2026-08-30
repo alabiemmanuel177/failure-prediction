@@ -1,0 +1,89 @@
+schema_version: 1
+campaign_id: live_integrity_v1
+purpose: qualify all candidate faults at three severities and retain successful negatives
+allowed_splits: [development]
+minimum_valid_episodes_for_manual_audit: 20
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  stop_on_invalid: true
+  concurrency: 1
+
+controls:
+  - {episode_key: control-s0-001, map: dev_00, route: dev_00_r0, system: s0, seed: 21001}
+  - {episode_key: control-s0-002, map: dev_00, route: dev_00_r1, system: s0, seed: 21002}
+  - {episode_key: control-s3-001, map: dev_00, route: dev_00_r0, system: s3, seed: 21003}
+  - {episode_key: control-s3-002, map: dev_00, route: dev_00_r1, system: s3, seed: 21004}
+
+fault_matrix:
+  severities: [low, medium, high]
+  defaults:
+    map: dev_00
+    route: dev_00_r0
+    clean_prefix_seconds: 10.0
+    planned_onset_seconds: 15.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 10.0
+  families:
+    camera_occlusion:
+      system: s3
+      seed_base: 21100
+    lidar_dropout:
+      system: s0
+      seed_base: 21200
+    wheel_slip:
+      system: s0
+      seed_base: 21300
+    localisation_perturbation:
+      system: s0
+      seed_base: 21400
+    dynamic_blockage:
+      system: s0
+      seed_base: 21500
+      injection_x: -0.5
+      injection_y: -0.5
+      injection_yaw: 0.0
+      placement_status: candidate_corridor_midpoint_requires_live_witness
+    planner_oscillation:
+      system: s0
+      seed_base: 21600
+      injection_x: -0.5
+      injection_y: -0.5
+      injection_yaw: 0.0
+      placement_status: candidate_corridor_midpoint_requires_live_witness
+    semantic_corruption:
+      system: s3
+      seed_base: 21700
+
+audit_sampling:
+  primary_episode_keys:
+    - control-s0-001
+    - control-s0-002
+    - control-s3-001
+    - control-s3-002
+    - camera_occlusion-low-001
+    - camera_occlusion-medium-001
+    - camera_occlusion-high-001
+    - lidar_dropout-low-001
+    - lidar_dropout-medium-001
+    - lidar_dropout-high-001
+    - wheel_slip-low-001
+    - wheel_slip-medium-001
+    - localisation_perturbation-low-001
+    - localisation_perturbation-medium-001
+    - dynamic_blockage-low-001
+    - dynamic_blockage-medium-001
+    - planner_oscillation-low-001
+    - planner_oscillation-medium-001
+    - semantic_corruption-low-001
+    - semantic_corruption-medium-001
+  infrastructure_invalid_reserve_keys:
+    - wheel_slip-high-001
+    - localisation_perturbation-high-001
+    - dynamic_blockage-high-001
+    - planner_oscillation-high-001
+    - semantic_corruption-high-001
+  replacement_rule: reserve_order_only_for_prespecified_infrastructure_invalid_primary_attempts
+  select_before_reviewing_terminal_outcomes: true
+  second_reviewer_required: true

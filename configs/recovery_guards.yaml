@@ -1,0 +1,15 @@
+schema_version: 1
+protocol_version: "1.0"
+status: replay_ready_live_validation_pending
+final_authority: independent_guard_layer
+collision_checking_bypass: forbidden
+minimum_rear_clearance_m: 0.35
+minimum_rotation_clearance_m: 0.40
+maximum_repeated_recoveries: 2
+fallback_order: [controlled_stop, request_assistance]
+required_live_evidence_before_execution:
+  - rear_clearance_sensor_and_frame_validated
+  - rotation_swept_volume_clearance_validated
+  - stop_command_and_nav2_cancel_order_validated
+  - every_guard_rejection_logged
+

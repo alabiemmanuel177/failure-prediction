@@ -1,0 +1,90 @@
+/research2/raw/camera/image:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/research2/raw/scan:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/research2/raw/odom:
+  history: keep_last
+  depth: 50
+  reliability: best_effort
+  durability: volatile
+/camera/image:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/camera/depth_image:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/camera/camera_info:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/camera/segmentation:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/scan:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/imu:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/odom:
+  history: keep_last
+  depth: 50
+  reliability: best_effort
+  durability: volatile
+/semantic/classes:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/semantic/confidence:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/semantic/uncertainty:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/semantic/inference_latency_ms:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/semantic/risk_grid:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/semantic/risk_grid_odom:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/collision_event:
+  history: keep_last
+  depth: 20
+  reliability: best_effort
+  durability: volatile
+/ground_truth_pose:
+  history: keep_last
+  depth: 50
+  reliability: best_effort
+  durability: volatile

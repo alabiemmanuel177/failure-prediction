@@ -1,0 +1,26 @@
+schema_version: 1
+taxonomy_version: 1.0.0
+protocol_version: '1.0'
+run_id: 097aa26f-e58d-4e83-967e-93e31bade745
+annotator: automatic_event_extractor
+annotation_timestamp_utc: '2026-08-30T23:00:01Z'
+episode:
+  start_time: 15.087
+  end_time: 33.006
+  termination_reason: success
+injections:
+- family: camera_occlusion
+  severity: low
+  planned_onset: 20.087
+  actual_onset: 20.1
+  duration_seconds: null
+  eligible: true
+events: []
+episode_exclusion:
+  excluded: false
+  reason: null
+  notes: null
+review:
+  second_reviewer: null
+  adjudication_status: pending
+  disagreements: []

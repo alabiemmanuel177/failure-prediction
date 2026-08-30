@@ -1,0 +1,31 @@
+schema_version: 1
+campaign_id: treatment_verification_localisation_high_v1
+purpose: replacement for pre-injection-invalid high localisation treatment verification
+status: executed_infrastructure_invalid
+allowed_splits: [development]
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  stop_on_invalid: true
+  concurrency: 1
+controls: []
+fault_matrix:
+  episode_suffix: "302"
+  severities: [high]
+  defaults:
+    map: dev_00
+    route: dev_00_r1
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 5.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+  families:
+    localisation_perturbation: {system: s0, seed_base: 62400}
+audit_policy:
+  replacement_for: treatment_verification_v1/localisation_perturbation-high-301
+  required_label_only_topic: /initialpose
+  protected_test_used: false
+  execution_result:
+    run_id: 177ba714-3184-49e0-ab9b-e71aac6ddfa1
+    reason: readiness gate rejected AMCL transform-tolerance future dating before recording

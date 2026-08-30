@@ -1,0 +1,32 @@
+schema_version: 1
+protocol_version: "1.0"
+status: researcher_approved_supervisor_review_required
+purpose: numerical proposals awaiting approval before transfer into failure_events.yaml
+protected_data_used: false
+
+localisation_loss:
+  translation_error_m: 0.50
+  yaw_error_rad: 0.50
+  persistence_seconds: 2.0
+  rationale:
+    - translation is twice the frozen Research 1 goal tolerance of 0.25 m
+    - yaw matches the frozen Research 1 goal tolerance of 0.50 rad
+    - persistence rejects isolated AMCL resets and timestamp-matching transients
+  review_question: confirm that exceeding either threshold continuously constitutes terminal localisation loss
+
+immobilisation:
+  minimum_command_speed_mps: 0.05
+  maximum_progress_m: 0.50
+  persistence_seconds: 10.0
+  rationale:
+    - command threshold matches the Research 2 fault-eligibility motion guard
+    - progress and persistence match Research 1 Nav2 SimpleProgressChecker settings
+  review_question: confirm whether angular-only commands count as commanded movement
+
+unsafe_perception:
+  protected_stopping_region_m_from_footprint: 0.42
+  rationale:
+    - Research 1 freezes forward velocity at 0.35 m/s
+    - collision monitor freezes time_before_collision at 1.2 s
+    - 0.35 multiplied by 1.2 gives a 0.42 m approach region beyond the footprint
+  review_question: confirm whether braking margin should be added before protocol freeze

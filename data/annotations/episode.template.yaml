@@ -1,0 +1,35 @@
+schema_version: 1
+taxonomy_version: "1.0.0"
+protocol_version: "1.0"
+run_id: TODO
+annotator: TODO
+annotation_timestamp_utc: TODO
+episode:
+  start_time: TODO_SECONDS
+  end_time: TODO_SECONDS
+  termination_reason: TODO
+injections:
+  - family: none
+    severity: null
+    planned_onset: null
+    actual_onset: null
+    duration_seconds: null
+    eligible: null
+events: []
+# Event example:
+# - event_id: event-001
+#   class: collision
+#   time: 42.5
+#   terminal: true
+#   confirmation_sources: [/contacts, /cmd_vel]
+#   confidence: confirmed
+#   notes: "First confirmed contact while commanded speed was nonzero."
+episode_exclusion:
+  excluded: false
+  reason: null
+  notes: null
+review:
+  second_reviewer: null
+  adjudication_status: pending
+  disagreements: []
+

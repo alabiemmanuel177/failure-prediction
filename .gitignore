@@ -1,0 +1,29 @@
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Raw and derived research data are registered by manifests, not committed by default.
+data/raw/
+data/derived/
+*.mcap
+*.db3
+
+
+# Engineering/smoke episode outputs are evidence archived by manifest and
+# checksum, not source. Same treatment as data/raw and data/derived.
+data/engineering/
+
+# Editor and OS noise
+.DS_Store
+*.swp
+
+# Per-process ROS/Gazebo runtime logs. Regenerated on every run and not
+# evidence. The research log, campaign records and topic-health summaries in
+# logs/ ARE kept.
+logs/ros/
+logs/gazebo/
+
+# colcon workspace build artefacts
+ros_ws/build/
+ros_ws/install/
+ros_ws/log/

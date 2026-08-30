@@ -1,0 +1,79 @@
+schema_version: 1
+protocol_version: "1.0"
+time_base: simulation_time
+primary_event_policy: first_terminal_event
+
+windowing:
+  history_seconds: 5.0
+  warning_horizon_seconds: 10.0
+  too_late_guard_seconds: 1.0
+  negative_guard_seconds: 20.0
+  decision_stride_seconds: 0.5
+
+event_precedence:
+  - collision
+  - false_arrival
+  - navigation_abort
+  - localisation_loss
+  - immobilisation
+  - unsafe_perception
+  - mission_timeout
+
+events:
+  collision:
+    terminal: true
+    contact_topic: /collision_event
+    command_topic: /cmd_vel
+    minimum_range_m: null
+    minimum_command_speed_mps: 0.05
+    range_rule_enabled: false
+    confirmation: full_body_contact
+    provenance: Research 1 G6 full-body contact endpoint; range-only collision disabled until separately validated
+  navigation_abort:
+    terminal: true
+    action_name: /navigate_to_pose
+    terminal_status: aborted
+  false_arrival:
+    terminal: true
+    navigation_status: succeeded
+    ground_truth_goal_distance_m: 0.25
+    confirmation: label_only_ground_truth_outside_frozen_goal_tolerance
+    provenance: Research 1 frozen map goal_tolerance_m
+  localisation_loss:
+    terminal: true
+    ground_truth_topic: /ground_truth_pose
+    estimated_pose_topic: /amcl_pose
+    translation_error_m: 0.50
+    yaw_error_rad: 0.50
+    persistence_seconds: 2.0
+    threshold_logic: either_translation_or_yaw_strictly_exceeds_continuously
+    approval: researcher_approved_pending_supervisor_signoff
+  immobilisation:
+    terminal: true
+    command_topic: /cmd_vel
+    odometry_topic: /odom
+    minimum_command_speed_mps: 0.05
+    maximum_progress_m: 0.50
+    persistence_seconds: 10.0
+    angular_only_commands_count: false
+    progress_measure: planar_odometry_displacement
+    approval: researcher_approved_pending_supervisor_signoff
+  unsafe_perception:
+    terminal: true
+    ground_truth_topic: /camera/segmentation
+    protected_stopping_region_m: 0.42
+    added_braking_or_latency_margin_m: 0.0
+    requires_emergency_intervention: true
+    approval: researcher_approved_pending_supervisor_signoff
+  mission_timeout:
+    terminal: true
+    route_budget_source: route_manifest
+    analyse_separately: true
+
+label_rules:
+  positive: "decision_time >= event_time - warning_horizon_seconds and decision_time <= event_time - too_late_guard_seconds"
+  eligible_negative: "at least negative_guard_seconds from every event and injected onset"
+  excluded:
+    - post_event
+    - post_termination
+    - inside_too_late_guard

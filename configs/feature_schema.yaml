@@ -1,0 +1,62 @@
+schema_version: 1
+protocol_version: "1.0"
+decision_rate_hz: 2.0
+required_channels_per_feature: [value, age_seconds, missing]
+normalisation_fit_split: development
+
+groups:
+  motion:
+    enabled: true
+    sources: [/cmd_vel, /odom]
+    features: [command_linear, command_angular, measured_linear, measured_angular, tracking_error, jerk, progress_slope, stopped_while_commanded]
+  localisation:
+    enabled: true
+    sources: [/amcl_pose, /tf, /tf_static]
+    features: [covariance_trace, pose_jump, tf_age, path_tracking_error]
+  range_sensing:
+    enabled: true
+    sources: [/scan]
+    features: [valid_return_fraction, minimum_front_range, minimum_left_range, minimum_right_range, near_obstacle_trend, left_right_imbalance]
+  perception_confidence:
+    enabled: true
+    status: enabled_for_perception_systems_missing_mask_for_s0
+    sources: [/semantic/confidence, /semantic/uncertainty, /semantic/inference_latency_ms]
+    features: [confidence_mean, entropy, temporal_disagreement, missed_frame_rate, inference_latency]
+  planning:
+    enabled: true
+    status: mapped_from_research1_g6
+    sources: [/plan, /local_plan, /behavior_tree_log, /global_costmap/costmap, /local_costmap/costmap, /cmd_vel]
+    features: [global_path_age, local_path_age, replan_rate, path_curvature, command_sign_changes, cost_trend]
+  system:
+    enabled: true
+    sources: [/diagnostics]
+    features: [topic_stale, message_rate, cpu_load, gpu_load]
+    exclusions: [research_event_count, recorder_loss, run_id, provenance_fields]
+  goal_context:
+    enabled: true
+    status: map_frame_goal_from_frozen_route_manifest
+    sources: [/amcl_pose, /tf, route_manifest]
+    features: [goal_distance, goal_bearing, elapsed_time, route_budget_remaining, remaining_distance_slope]
+
+causality:
+  maximum_source_timestamp: decision_time
+  interpolation: past_only
+  forward_fill:
+    allowed: true
+    always_emit_age: true
+    maximum_age_by_source_seconds:
+      /cmd_vel: 0.5
+      /odom: 0.5
+      /scan: 0.5
+      /amcl_pose: 2.0
+      /tf: 0.5
+      /plan: 2.0
+      /local_plan: 1.0
+      /behavior_tree_log: 2.0
+      /global_costmap/costmap: 2.0
+      /local_costmap/costmap: 1.0
+      /semantic/confidence: 1.0
+      /semantic/uncertainty: 1.0
+      /semantic/inference_latency_ms: 1.0
+    expiry_rule: emit_missing_true_and_do_not_forward_fill_after_maximum_age
+  future_interpolation: forbidden

@@ -1,0 +1,26 @@
+schema_version: 1
+audited_utc: "2026-08-30T21:52:39Z"
+research1_g6_commit: dac1d21d57a6c11077608f03b12c225b217efc0d
+research1_head_at_audit: a6d5bf49f549c88317a4db5b6488ce451aeae88a
+gates_reported_by_research1:
+  G0_environment: passed
+  G1_baseline: passed
+  G2_logging: passed
+  G3_perception: passed
+  G4_integration: passed
+  G5_pilot: passed_3648_of_3648
+  G6_confirmatory_freeze: passed
+  G7_release: passed_2026_08_30
+post_g6_change_scope:
+  shared_platform_paths_changed: false
+  changed_categories: [campaign_operations, systemd_recovery, documentation, results_audit, release_tests]
+  uncommitted_locked_paths_at_audit: []
+  uncommitted_nonplatform_paths_at_audit: []
+research1_release_evidence:
+  confirmatory_rows: 6840_of_6840
+  independent_reproduction: byte_identical
+  campaign_service: inactive
+  source_worktree: clean
+protected_outcomes_inspected_for_research2_tuning: false
+decision: accept_g6_as_research2_shared_platform_content_boundary
+verification_command: python3 scripts/check_research1_boundary.py

@@ -1,0 +1,17 @@
+schema_version: 1
+status: passed_engineering_only
+run_id: 4b89eb09-ab29-4693-a609-746c91a370a2
+campaign_id: integration_repair_smoke_v1
+map_id: dev_00
+route_id: dev_00_r0
+terminal_state: success
+duration_s: 18.316
+path_length_m: 2.7969
+goal_distance_gt_m: 0.2115
+collision: false
+artifact_validation: passed
+recorded_messages: 20853
+nav2_simulation_time_activation: passed
+topic_health_mcap_reconciliation: passed
+research_evidence: false
+protected_test_used: false

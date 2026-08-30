@@ -1,0 +1,13 @@
+schema_version: 1
+protocol_version: "1.0"
+selection_split: validation
+threshold: null
+false_alert_budget_per_clean_mission: 0.10
+persistence:
+  required_above_threshold: 2
+  decisions_considered: 3
+cooldown_seconds: 10.0
+minimum_useful_lead_seconds: 1.0
+decision_rate_hz: 2.0
+test_threshold_adaptation: forbidden
+

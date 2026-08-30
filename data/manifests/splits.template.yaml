@@ -1,0 +1,81 @@
+schema_version: 1
+protocol_version: "1.0"
+independent_unit: episode
+split_before_window_extraction: true
+protected_splits_read_only: true
+
+development:
+  maps: [dev_00, dev_01, dev_02, dev_03, dev_04, dev_05]
+  routes:
+    - dev_00_r0
+    - dev_00_r1
+    - dev_01_r0
+    - dev_01_r1
+    - dev_01_r2
+    - dev_01_r3
+    - dev_01_r4
+    - dev_01_r5
+    - dev_02_r0
+    - dev_02_r1
+    - dev_02_r2
+    - dev_02_r2_repl1
+    - dev_02_r3
+    - dev_02_r4
+    - dev_02_r5
+    - dev_03_r0
+    - dev_03_r1
+    - dev_03_r2
+    - dev_03_r3
+    - dev_03_r4
+    - dev_03_r5
+    - dev_04_r0
+    - dev_04_r1
+    - dev_04_r2
+    - dev_04_r3
+    - dev_04_r4
+    - dev_04_r5
+    - dev_05_r0
+    - dev_05_r1
+    - dev_05_r2
+    - dev_05_r2_repl1
+    - dev_05_r3
+    - dev_05_r4
+    - dev_05_r5
+validation:
+  maps: [val_00, val_01, val_02]
+  routes:
+    - val_00_r0
+    - val_00_r1
+    - val_00_r2
+    - val_00_r3
+    - val_00_r4
+    - val_00_r5
+    - val_01_r0
+    - val_01_r1
+    - val_01_r2
+    - val_01_r3
+    - val_01_r4
+    - val_01_r5
+    - val_02_r0
+    - val_02_r1
+    - val_02_r2
+    - val_02_r3
+    - val_02_r4
+    - val_02_r5
+held_out_map_test:
+  maps: []
+  routes: []
+  inspect_only_after_policy_freeze: true
+  status: deliberately_unassigned_until_research1_g7_and_research2_policy_freeze
+natural_failure_audit:
+  source_condition: no_injection
+  merge_with_injected_results: false
+
+unseen_family_folds:
+  - camera_occlusion
+  - lidar_dropout
+  - wheel_slip
+  - localisation_perturbation
+  - dynamic_blockage
+  - planner_oscillation
+  - semantic_corruption

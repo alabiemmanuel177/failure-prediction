@@ -1,0 +1,20 @@
+schema_version: 1
+campaign_id: live_integrity_v2
+decision_date: "2026-08-30"
+decision_basis: infrastructure integrity only; no model or protected outcome was inspected
+episodes:
+  - episode_key: control-s3-101
+    reason: rosbag began before semantic publishers existed and omitted required semantic topics
+    summary_preserved: true
+  - episode_key: control-s3-102
+    reason: rosbag began before semantic publishers existed and omitted required semantic topics
+    summary_preserved: true
+  - episode_key: camera_occlusion-low-101
+    reason: operator fail-stop after detecting the prior S3 artifact defect
+    summary_preserved: false
+    partial_run_id: 08fae49e-4866-4313-86c5-9a35a71be689
+  - episode_key: wheel_slip-high-101
+    reason: MCAP retained raw scans but recorded zero deployed scans while independent health observed 186
+    summary_preserved: true
+replacement_order: prespecified_reserve_order_skipping_infrastructure_invalid_reserves
+protected_test_used: false

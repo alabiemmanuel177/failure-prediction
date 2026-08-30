@@ -1,0 +1,25 @@
+schema_version: 1
+campaign_id: live_integrity_v1
+decision_date: "2026-08-30"
+status: quarantined_engineering_only
+admissible_for_training: false
+admissible_for_validation: false
+admissible_for_threshold_tuning: false
+admissible_for_manual_label_agreement: false
+attempts: 25
+artifact_sets: 24
+findings:
+  - one pre-simulation import failure caused by a missing Research 1 repository Python path
+  - 24 false arrivals caused by Nav2 wall time mixed with simulation-time transforms
+  - all 24 artifact sets failed topic-health/MCAP interval reconciliation
+root_causes:
+  nav2_clock: Research 1 G6 starts Nav2 on wall time and requires explicit post-lifecycle simulation-time activation; the initial Research 2 runner omitted that activation
+  recorder_interval: topic-health began with simulation while rosbag began only after navigation setup
+preservation:
+  campaign_ledger: logs/campaigns/live_integrity_v1.jsonl
+  summaries: data/raw/summaries
+  bags: data/raw/bags
+  events: data/raw/events
+  topic_health: logs/topic-health
+replacement_rule: issue a new versioned manifest with new episode keys and seeds only after a repaired clean smoke passes
+protected_test_used: false

@@ -1,0 +1,27 @@
+schema_version: 1
+protocol_version: "1.0"
+status: requires_development_and_validation_tuning
+selection_split: validation
+forbidden_selection_split: held_out_map_test
+rules:
+  covariance_high:
+    feature: pose_covariance_trace
+    direction: above
+    threshold: null
+  progress_low_while_commanded:
+    feature: progress_slope
+    direction: below
+    threshold: null
+    gate_feature: command_linear
+    gate_direction: above
+    gate_threshold: 0.05
+  scan_dropout_high:
+    feature: valid_return_fraction
+    direction: below
+    threshold: null
+  oscillation_high:
+    feature: command_sign_changes
+    direction: above
+    threshold: null
+freeze_rule: all_thresholds_and_alarm_policy_timestamped_before_any_held_out_prediction
+

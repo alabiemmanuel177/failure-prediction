@@ -1,0 +1,23 @@
+schema_version: 1
+campaign_id: treatment_verification_v1
+episodes:
+  - episode_key: localisation_perturbation-high-301
+    run_id: d293e0e9-6c7a-4a6d-8082-f642993f1778
+    reason: navigation terminated before injector arm and clean prefix; no treatment was delivered
+    disposition: retained, excluded from treatment-verification evidence, replacement required
+    protected_test_used: false
+  - episode_key: semantic_corruption-low-301
+    run_id: 089b6272-c868-440b-822b-ccc6427a860d
+    reason: map-to-base_link TF chain disconnected before goal execution; no treatment was delivered
+    disposition: retained, excluded from treatment-verification evidence, replacement required
+    protected_test_used: false
+  - episode_key: semantic_corruption-medium-301
+    run_id: 59578c64-3cd2-4c07-9c7c-5cb996be5b0e
+    reason: stale TF passed the first connectivity-only gate; Nav2 had no live map-to-base_link chain at dispatch
+    disposition: retained, excluded from treatment-verification evidence, replacement required
+    protected_test_used: false
+  - episode_key: semantic_corruption-high-301
+    run_id: null
+    reason: direct TF2 readiness observer rejected duplicate simulator transforms and timed out before recording; no bag or treatment was created
+    disposition: controller log retained, excluded from treatment-verification evidence, replacement required
+    protected_test_used: false

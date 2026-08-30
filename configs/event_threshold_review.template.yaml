@@ -1,0 +1,34 @@
+schema_version: 1
+protocol_version: "1.0"
+proposal_file: configs/event_threshold_proposals.yaml
+reviewer_name: TODO_REVIEWER
+reviewer_role: TODO_REVIEWER_ROLE
+reviewed_utc: TODO_REVIEW_DATE
+protected_outcomes_consulted: false
+
+decisions:
+  localisation_loss:
+    decision: pending  # accept | revise | reject
+    translation_error_m: 0.50
+    yaw_error_rad: 0.50
+    persistence_seconds: 2.0
+    threshold_logic: either_translation_or_yaw_continuously
+    rationale: TODO_REVIEW_RATIONALE
+  immobilisation:
+    decision: pending
+    minimum_command_speed_mps: 0.05
+    maximum_progress_m: 0.50
+    persistence_seconds: 10.0
+    angular_only_commands_count: false
+    progress_measure: planar_odometry_displacement
+    rationale: TODO_REVIEW_RATIONALE
+  unsafe_perception:
+    decision: pending
+    protected_stopping_region_m_from_footprint: 0.42
+    added_braking_or_latency_margin_m: 0.0
+    rationale: TODO_REVIEW_RATIONALE
+
+overall_decision: pending
+requires_protocol_version_change: false
+requires_existing_development_data_invalidation: false
+

@@ -1,0 +1,14 @@
+schema_version: 1
+status: passed_engineering_only
+run_id: 56c80320-7055-4105-9e10-22d066cfe6c4
+campaign_id: bounded_marker_smoke_v1
+system_id: S3
+map_id: dev_00
+route_id: dev_00_r0
+terminal_state: success
+semantic_topics_present: true
+recording_window_started: true
+recording_window_ended: true
+artifact_validation: passed
+research_evidence: false
+protected_test_used: false

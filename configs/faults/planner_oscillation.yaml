@@ -1,0 +1,8 @@
+family: planner_oscillation
+status: candidate
+mechanism: symmetric paired obstacles spawned around the local route corridor
+severities:
+  low: {pair_separation_m: 1.10, obstacle_depth_m: 0.30}
+  medium: {pair_separation_m: 0.90, obstacle_depth_m: 0.45}
+  high: {pair_separation_m: 0.75, obstacle_depth_m: 0.60}
+
