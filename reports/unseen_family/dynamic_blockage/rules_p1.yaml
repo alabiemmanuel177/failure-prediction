@@ -1,0 +1,30 @@
+schema_version: 1
+protocol_version: '1.0'
+status: frozen_after_validation_tuning
+selection_split: validation
+forbidden_selection_split: held_out_map_test
+rules:
+  covariance_high:
+    feature: pose_covariance_trace
+    direction: above
+    threshold: 1.3912890441715717
+  progress_low_while_commanded:
+    feature: progress_slope
+    direction: below
+    threshold: -0.6585816442966461
+    gate_feature: command_linear
+    gate_direction: above
+    gate_threshold: 0.05
+  scan_dropout_high:
+    feature: valid_return_fraction
+    direction: below
+    threshold: 0.2999999523162842
+  oscillation_high:
+    feature: command_sign_changes
+    direction: above
+    threshold: 10.0
+freeze_rule: all_thresholds_and_alarm_policy_timestamped_before_any_held_out_prediction
+excluded_family: dynamic_blockage
+tuning_record: reports/unseen_family/dynamic_blockage/tuning_p1.yaml
+tuning_record_sha256: 83586711a27ae494ad30d109529b0d42f6735b732680092a5d85a03cc2f3c9e9
+frozen_utc: '2026-09-06T10:31:26.073132+00:00'

@@ -1,0 +1,74 @@
+schema_version: 1
+campaign_id: concurrency_shift_check_v2
+wave: 1
+recording_profiles:
+  compact_v2: 12
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 12
+  usable: 12
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 1
+  successes: 11
+  collisions: 0
+event_prevalence: 0.08333333333333333
+bag_gib: 0.032026514410972595
+duration_seconds:
+  total: 539.838
+  median: 42.824
+by_terminal_state:
+  false_arrival: 1
+  success: 11
+by_event_class:
+  false_arrival: 1
+perception_metric_summaries: 1
+episode_keys:
+- dev_00-dev_00_r0-clean_s0-r0
+- dev_01-dev_01_r0-clean_s0-r0
+- dev_01-dev_01_r1-clean_s0-r0
+- dev_02-dev_02_r0-clean_s0-r0
+- dev_02-dev_02_r1-clean_s0-r0
+- dev_03-dev_03_r0-clean_s0-r0
+- dev_00-dev_00_r1-clean_s0-r0
+- dev_04-dev_04_r0-clean_s0-r0
+- dev_04-dev_04_r1-clean_s0-r0
+- dev_03-dev_03_r1-clean_s0-r0
+- dev_05-dev_05_r0-clean_s0-r0
+- dev_00-dev_00_r0-clean_s3-r0
+training_admission: human_gate_passed_dataset_campaign_in_progress
+execution_provenance:
+  dispatcher:
+  - run_campaign_parallel_v1
+  dispatched_rows: 12
+  sequential_rows: 0
+  concurrency_workers:
+  - 6
+  system_concurrency:
+    s3: 1
+  worker_slots:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ros_domain_ids:
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  gz_partitions:
+  - research2_w0
+  - research2_w1
+  - research2_w2
+  - research2_w3
+  - research2_w4
+  - research2_w5
+  episodes_by_system:
+    s0: 11
+    s3: 1

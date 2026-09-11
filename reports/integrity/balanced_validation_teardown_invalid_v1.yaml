@@ -1,0 +1,42 @@
+schema_version: 1
+status: retained_excluded_replacement_completed
+protected_test_used: false
+parent_campaign_id: balanced_validation_v1
+attempt_number: 284
+episode_key: val_01-val_01_r1-oscillation-r5
+run_id: 0f44f8bc-2e88-4d56-90fb-f8901866aee1
+declared_fault_family: planner_oscillation
+declared_severity: medium
+seed: 911507
+observed:
+  episode_returncode: 1
+  artifact_validation_returncode: null
+  retained_mcap_count: 1
+  retained_mcap_bytes: 6317924
+  retained_metadata_bytes: 22360
+  summary_written: false
+  event_sidecar_written: false
+  topic_health_written: true
+  teardown_error: 'PermissionError: [Errno 1] Operation not permitted'
+interpretation: The recorder produced a non-empty bag, but the shared stack teardown
+  raised before the required immutable summary and event sidecar were published. The
+  attempt therefore cannot enter the scientific inventory and remains retained as an
+  infrastructure-invalid attempt.
+root_cause: Research 2 did not set RCN_WORKER_ID before launching the shared Research
+  1 stack. Research 1 consequently entered its legacy global orphan-sweep mode and
+  attempted to signal a matching process outside the episode teardown boundary.
+repair: Every Research 2 episode now assigns a UUID-derived RCN_WORKER_ID before any
+  shared stack process is launched, restricting the inherited orphan sweep to that
+  episode's subprocesses. A regression test verifies that the identifier overrides
+  any inherited value.
+replacement:
+  campaign_id: balanced_validation_teardown_replacements_v1
+  episode_key: val_01-val_01_r1-oscillation-r5-infra-replacement-001
+  run_id: fa1f82d2-b1a7-4ad7-86a7-d3f5f5772977
+  maximum_attempts: 1
+  same_map_route_system_condition_seed: true
+  artifact_validation: passed
+  messages: 103972
+  duration_seconds: 86.942
+admission_effect: Original contributes zero scientific episodes; the validated
+  replacement contributes exactly once for the original design cell.

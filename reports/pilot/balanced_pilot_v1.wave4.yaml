@@ -1,0 +1,27 @@
+schema_version: 1
+campaign_id: balanced_pilot_v1
+wave: 4
+recording_profile: compact_v1
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 18
+  usable: 18
+  invalid: 0
+  terminal_events: 4
+  successes: 14
+  collisions: 0
+event_prevalence: 0.2222222222222222
+bag_gib: 0.3847728976979852
+duration_seconds:
+  total: 791.451
+  median: 47.6005
+by_terminal_state:
+  false_arrival: 1
+  planner_failure: 3
+  success: 14
+by_event_class:
+  false_arrival: 1
+  navigation_abort: 3
+perception_metric_summaries: 6
+training_admission: blocked_pending_human_gate

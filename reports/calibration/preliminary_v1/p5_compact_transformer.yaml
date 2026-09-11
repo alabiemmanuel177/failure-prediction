@@ -1,0 +1,394 @@
+schema_version: 1
+protocol_version: '1.1'
+generated_utc: '2026-09-03T02:09:15.388025+00:00'
+model_id: p5_compact_transformer
+calibration_id: p5_compact_transformer:isotonic_regression:4c22937e2f79
+scope: validation_only_selection
+confirmatory: false
+protected_test_used: false
+inputs:
+  prediction_table: /home/eao/failure-prediction/reports/predictions/preliminary_v1/p5_compact_transformer.validation.raw.csv
+  prediction_table_sha256: fa4e0a61ce93d0af0018cf091d8982794dfe067a22fd0e45c1ad32d0dc79341e
+  calibration_policy: /home/eao/failure-prediction/configs/calibration_policy.yaml
+  calibration_policy_sha256: f75990ca4095068723fbeb7228b5acab4db1db8cff70431d88465592595a8513
+  alarm_policy: /home/eao/failure-prediction/configs/alarm_policy.yaml
+  alarm_policy_sha256: 8ac8e25f6e00a2aef01f4f06d7adf704b051ce55a73fe4645be93dad06bd7457
+calibrator_artifact: /home/eao/failure-prediction/reports/calibration/preliminary_v1/p5_compact_transformer.calibrator.json
+calibrator_artifact_sha256: 4c22937e2f7949e53a74272a1b5d15f34b7e25f342a8348cb083a48251bf0b57
+selection_split: validation
+objective: minimum_validation_ece
+constraints:
+  brier_must_not_increase: true
+  brier_tolerance: 0.0
+  event_recall_at_budget_max_drop: 0.02
+reliability_bins: 10
+candidate_methods:
+- identity
+- temperature_scaling
+- platt_scaling
+- isotonic_regression
+chosen_method: isotonic_regression
+chosen_calibrator_sha256: 4c22937e2f7949e53a74272a1b5d15f34b7e25f342a8348cb083a48251bf0b57
+before: &id001
+  method: identity
+  calibrator_sha256: 1b23e6eec3dbb2e13ba84b0fc3e73d56e4f7cbeb56fbf4151699aab17df7f3c2
+  params: {}
+  fit_summary:
+    fit_rows: 32327
+    positive_rows: 1098
+    nll_before: 0.21136659418388445
+    nll_after: 0.21136659418388445
+  brier_score: 0.06058951368638334
+  ece: 0.060063691217867414
+  eligible_decision_count: 32327
+  reliability_bins:
+  - bin_index: 0
+    lower: 0.0
+    upper: 0.1
+    count: 28096
+    mean_predicted_risk: 0.011140340048405466
+    observed_event_frequency: 0.01914863325740319
+    absolute_gap: 0.008008293208997725
+  - bin_index: 1
+    lower: 0.1
+    upper: 0.2
+    count: 823
+    mean_predicted_risk: 0.14825370230862697
+    observed_event_frequency: 0.09234507897934387
+    absolute_gap: 0.055908623329283105
+  - bin_index: 2
+    lower: 0.2
+    upper: 0.3
+    count: 556
+    mean_predicted_risk: 0.24583883633093526
+    observed_event_frequency: 0.08992805755395683
+    absolute_gap: 0.15591077877697843
+  - bin_index: 3
+    lower: 0.3
+    upper: 0.4
+    count: 398
+    mean_predicted_risk: 0.3475431507537688
+    observed_event_frequency: 0.10050251256281408
+    absolute_gap: 0.24704063819095473
+  - bin_index: 4
+    lower: 0.4
+    upper: 0.5
+    count: 290
+    mean_predicted_risk: 0.446926
+    observed_event_frequency: 0.11724137931034483
+    absolute_gap: 0.32968462068965515
+  - bin_index: 5
+    lower: 0.5
+    upper: 0.6
+    count: 249
+    mean_predicted_risk: 0.5501639959839357
+    observed_event_frequency: 0.09236947791164658
+    absolute_gap: 0.45779451807228916
+  - bin_index: 6
+    lower: 0.6
+    upper: 0.7
+    count: 279
+    mean_predicted_risk: 0.6488303189964159
+    observed_event_frequency: 0.10752688172043011
+    absolute_gap: 0.5413034372759857
+  - bin_index: 7
+    lower: 0.7
+    upper: 0.8
+    count: 328
+    mean_predicted_risk: 0.7520065945121951
+    observed_event_frequency: 0.07317073170731707
+    absolute_gap: 0.6788358628048781
+  - bin_index: 8
+    lower: 0.8
+    upper: 0.9
+    count: 552
+    mean_predicted_risk: 0.8518069583333334
+    observed_event_frequency: 0.09782608695652174
+    absolute_gap: 0.7539808713768117
+  - bin_index: 9
+    lower: 0.9
+    upper: 1.0
+    count: 756
+    mean_predicted_risk: 0.9460025634920636
+    observed_event_frequency: 0.3029100529100529
+    absolute_gap: 0.6430925105820107
+  threshold_at_budget: 0.958508
+  event_recall_at_budget: 0.3225806451612903
+  false_alerts_per_clean_mission_at_budget: 0.05555555555555555
+  median_useful_lead_seconds_at_budget: 4.925000000000004
+  constraint_violations: []
+  feasible: true
+after: &id002
+  method: isotonic_regression
+  calibrator_sha256: 4c22937e2f7949e53a74272a1b5d15f34b7e25f342a8348cb083a48251bf0b57
+  params:
+    block_count: 36
+  fit_summary:
+    fit_rows: 32327
+    positive_rows: 1098
+    block_count: 36
+    nll_before: 0.21136659418388445
+    nll_after: 0.12027374266262982
+  brier_score: 0.028883625806911773
+  ece: 3.3512837727504425e-18
+  eligible_decision_count: 32327
+  reliability_bins:
+  - bin_index: 0
+    lower: 0.0
+    upper: 0.1
+    count: 31226
+    mean_predicted_risk: 0.026420290783321587
+    observed_event_frequency: 0.02642029078332159
+    absolute_gap: 3.469446951953614e-18
+  - bin_index: 1
+    lower: 0.1
+    upper: 0.2
+    count: 761
+    mean_predicted_risk: 0.11695137976346912
+    observed_event_frequency: 0.11695137976346912
+    absolute_gap: 0.0
+  - bin_index: 2
+    lower: 0.2
+    upper: 0.3
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  - bin_index: 3
+    lower: 0.3
+    upper: 0.4
+    count: 84
+    mean_predicted_risk: 0.34523809523809523
+    observed_event_frequency: 0.34523809523809523
+    absolute_gap: 0.0
+  - bin_index: 4
+    lower: 0.4
+    upper: 0.5
+    count: 72
+    mean_predicted_risk: 0.4583333333333333
+    observed_event_frequency: 0.4583333333333333
+    absolute_gap: 0.0
+  - bin_index: 5
+    lower: 0.5
+    upper: 0.6
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  - bin_index: 6
+    lower: 0.6
+    upper: 0.7
+    count: 117
+    mean_predicted_risk: 0.6153846153846154
+    observed_event_frequency: 0.6153846153846154
+    absolute_gap: 0.0
+  - bin_index: 7
+    lower: 0.7
+    upper: 0.8
+    count: 58
+    mean_predicted_risk: 0.7068965517241379
+    observed_event_frequency: 0.7068965517241379
+    absolute_gap: 0.0
+  - bin_index: 8
+    lower: 0.8
+    upper: 0.9
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  - bin_index: 9
+    lower: 0.9
+    upper: 1.0
+    count: 9
+    mean_predicted_risk: 1.0
+    observed_event_frequency: 1.0
+    absolute_gap: 0.0
+  threshold_at_budget: 0.375
+  event_recall_at_budget: 0.3225806451612903
+  false_alerts_per_clean_mission_at_budget: 0.05555555555555555
+  median_useful_lead_seconds_at_budget: 4.925000000000004
+  constraint_violations: []
+  feasible: true
+candidates:
+- *id001
+- method: temperature_scaling
+  calibrator_sha256: 73f08ba06c163bb1749b0d2830df2f6896d3e53fd8b23a2d1e389390d37e8d67
+  params:
+    temperature: 1.372829523970843
+  fit_summary:
+    fit_rows: 32327
+    positive_rows: 1098
+    nll_before: 0.21136659418388445
+    nll_after: 0.19540176481115706
+  brier_score: 0.057214380718663936
+  ece: 0.06579931124133098
+  eligible_decision_count: 32327
+  reliability_bins:
+  - bin_index: 0
+    lower: 0.0
+    upper: 0.1
+    count: 27112
+    mean_predicted_risk: 0.030342445431172527
+    observed_event_frequency: 0.017446149306580113
+    absolute_gap: 0.012896296124592414
+  - bin_index: 1
+    lower: 0.1
+    upper: 0.2
+    count: 1253
+    mean_predicted_risk: 0.14101855494547555
+    observed_event_frequency: 0.06943335993615324
+    absolute_gap: 0.07158519500932231
+  - bin_index: 2
+    lower: 0.2
+    upper: 0.3
+    count: 785
+    mean_predicted_risk: 0.24847401923800158
+    observed_event_frequency: 0.09171974522292993
+    absolute_gap: 0.15675427401507164
+  - bin_index: 3
+    lower: 0.3
+    upper: 0.4
+    count: 599
+    mean_predicted_risk: 0.346716341002696
+    observed_event_frequency: 0.09181969949916527
+    absolute_gap: 0.25489664150353075
+  - bin_index: 4
+    lower: 0.4
+    upper: 0.5
+    count: 414
+    mean_predicted_risk: 0.44677590340764667
+    observed_event_frequency: 0.12318840579710146
+    absolute_gap: 0.3235874976105452
+  - bin_index: 5
+    lower: 0.5
+    upper: 0.6
+    count: 351
+    mean_predicted_risk: 0.5511064441881766
+    observed_event_frequency: 0.10826210826210826
+    absolute_gap: 0.4428443359260683
+  - bin_index: 6
+    lower: 0.6
+    upper: 0.7
+    count: 373
+    mean_predicted_risk: 0.6510863744602801
+    observed_event_frequency: 0.07506702412868632
+    absolute_gap: 0.5760193503315938
+  - bin_index: 7
+    lower: 0.7
+    upper: 0.8
+    count: 521
+    mean_predicted_risk: 0.754608619108581
+    observed_event_frequency: 0.08829174664107485
+    absolute_gap: 0.6663168724675061
+  - bin_index: 8
+    lower: 0.8
+    upper: 0.9
+    count: 603
+    mean_predicted_risk: 0.8508365341876625
+    observed_event_frequency: 0.12271973466003316
+    absolute_gap: 0.7281167995276293
+  - bin_index: 9
+    lower: 0.9
+    upper: 1.0
+    count: 316
+    mean_predicted_risk: 0.9352980601082246
+    observed_event_frequency: 0.5506329113924051
+    absolute_gap: 0.38466514871581947
+  threshold_at_budget: 0.9078078246549114
+  event_recall_at_budget: 0.3225806451612903
+  false_alerts_per_clean_mission_at_budget: 0.05555555555555555
+  median_useful_lead_seconds_at_budget: 4.925000000000004
+  constraint_violations: []
+  feasible: true
+- method: platt_scaling
+  calibrator_sha256: 63495e9bf42bb5ec6ec031550644eec9ccd0de264980c6d6264ad229c9c1715c
+  params:
+    slope: 0.3969515986804315
+    intercept: -2.12196991482355
+  fit_summary:
+    fit_rows: 32327
+    positive_rows: 1098
+    ridge: 0.0001
+    nll_before: 0.21136659418388445
+    nll_after: 0.12732780788742584
+  brier_score: 0.03014015327415646
+  ece: 0.008591765187828096
+  eligible_decision_count: 32327
+  reliability_bins:
+  - bin_index: 0
+    lower: 0.0
+    upper: 0.1
+    count: 30043
+    mean_predicted_risk: 0.021616012539332284
+    observed_event_frequency: 0.02399893486003395
+    absolute_gap: 0.0023829223207016657
+  - bin_index: 1
+    lower: 0.1
+    upper: 0.2
+    count: 1337
+    mean_predicted_risk: 0.14723908735757388
+    observed_event_frequency: 0.09498878085265519
+    absolute_gap: 0.05225030650491869
+  - bin_index: 2
+    lower: 0.2
+    upper: 0.3
+    count: 676
+    mean_predicted_risk: 0.24030204569261557
+    observed_event_frequency: 0.13313609467455623
+    absolute_gap: 0.10716595101805934
+  - bin_index: 3
+    lower: 0.3
+    upper: 0.4
+    count: 242
+    mean_predicted_risk: 0.34703795150855865
+    observed_event_frequency: 0.5702479338842975
+    absolute_gap: 0.22320998237573886
+  - bin_index: 4
+    lower: 0.4
+    upper: 0.5
+    count: 29
+    mean_predicted_risk: 0.4194413956598093
+    observed_event_frequency: 0.7586206896551724
+    absolute_gap: 0.33917929399536306
+  - bin_index: 5
+    lower: 0.5
+    upper: 0.6
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  - bin_index: 6
+    lower: 0.6
+    upper: 0.7
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  - bin_index: 7
+    lower: 0.7
+    upper: 0.8
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  - bin_index: 8
+    lower: 0.8
+    upper: 0.9
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  - bin_index: 9
+    lower: 0.9
+    upper: 1.0
+    count: 0
+    mean_predicted_risk: null
+    observed_event_frequency: null
+    absolute_gap: null
+  threshold_at_budget: 0.29409234492882763
+  event_recall_at_budget: 0.3225806451612903
+  false_alerts_per_clean_mission_at_budget: 0.05555555555555555
+  median_useful_lead_seconds_at_budget: 4.925000000000004
+  constraint_violations: []
+  feasible: true
+- *id002

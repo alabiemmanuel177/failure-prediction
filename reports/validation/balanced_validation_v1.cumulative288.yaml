@@ -1,0 +1,80 @@
+schema_version: 1
+campaign_id: balanced_validation_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 324
+  observed: 288
+  usable: 288
+  infrastructure_invalid_attempts: 4
+  infrastructure_replacements: 4
+  terminal_events: 58
+  non_events: 230
+event_prevalence: 0.2013888888888889
+duration_seconds:
+  total: 21479.438
+  median: 71.3735
+by_terminal_state:
+  false_arrival: 51
+  planner_failure: 7
+  success: 230
+by_attempt_terminal_state:
+  false_arrival: 51
+  invalid: 3
+  planner_failure: 7
+  success: 227
+by_fault_family:
+  camera_occlusion: 32
+  dynamic_blockage: 32
+  lidar_dropout: 32
+  localisation_perturbation: 32
+  none: 64
+  planner_oscillation: 32
+  semantic_corruption: 32
+  wheel_slip: 32
+by_map:
+  val_00: 99
+  val_01: 99
+  val_02: 90
+integrity:
+  missing_episode_keys:
+  - val_00-val_00_r1-blockage-r5
+  - val_00-val_00_r1-camera-r5
+  - val_00-val_00_r1-clean_s0-r5
+  - val_00-val_00_r1-clean_s3-r5
+  - val_00-val_00_r1-lidar-r5
+  - val_00-val_00_r1-localisation-r5
+  - val_00-val_00_r1-oscillation-r5
+  - val_00-val_00_r1-semantic-r5
+  - val_00-val_00_r1-wheel-r5
+  - val_01-val_01_r0-blockage-r5
+  - val_01-val_01_r0-camera-r5
+  - val_01-val_01_r0-clean_s0-r5
+  - val_01-val_01_r0-clean_s3-r5
+  - val_01-val_01_r0-lidar-r5
+  - val_01-val_01_r0-localisation-r5
+  - val_01-val_01_r0-oscillation-r5
+  - val_01-val_01_r0-semantic-r5
+  - val_01-val_01_r0-wheel-r5
+  - val_02-val_02_r0-blockage-r5
+  - val_02-val_02_r0-camera-r5
+  - val_02-val_02_r0-clean_s0-r5
+  - val_02-val_02_r0-clean_s3-r5
+  - val_02-val_02_r0-lidar-r5
+  - val_02-val_02_r0-localisation-r5
+  - val_02-val_02_r0-oscillation-r5
+  - val_02-val_02_r0-semantic-r5
+  - val_02-val_02_r0-wheel-r5
+  - val_02-val_02_r1-blockage-r5
+  - val_02-val_02_r1-camera-r5
+  - val_02-val_02_r1-clean_s0-r5
+  - val_02-val_02_r1-clean_s3-r5
+  - val_02-val_02_r1-lidar-r5
+  - val_02-val_02_r1-localisation-r5
+  - val_02-val_02_r1-oscillation-r5
+  - val_02-val_02_r1-semantic-r5
+  - val_02-val_02_r1-wheel-r5
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

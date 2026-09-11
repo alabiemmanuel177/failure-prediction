@@ -1,0 +1,49 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: paired_recovery_artifact_loss_replacements_v1
+parent_campaign_id: paired_recovery_v1
+campaign_kind: held_out_confirmatory_replacement
+status: preregistered_post_goal_artifact_validation_replacement
+allowed_splits:
+- held_out_map_test
+protected_test_used: true
+parallel_execution_admitted_by: PA-2026-09-04-02
+replacement_policy:
+  original_invalid_kind: post_goal_artifact_validation_failure
+  original_attempt_and_complete_bag_are_retained: true
+  original_scientific_admission: excluded_because_a_required_topic_was_not_recorded
+  replacement_uses_same_map_route_system_condition_seed_and_recovery_policy: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+  execution: sequential_alone_after_all_phases_no_other_simulator_running
+episodes:
+- episode_key: test_02-test_02_r5-camera-r13-R2-infra-replacement-001
+  replaces_episode_key: test_02-test_02_r5-camera-r13-R2
+  replaces_run_id: 73926869-8a84-42c2-91d4-9bebb2b8f6ae
+  map: test_02
+  route: test_02_r5
+  system: s3
+  family: camera_occlusion
+  severity: medium
+  seed: 32501300
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  recovery_policy_id: R2
+  pair_key: test_02-test_02_r5-camera-r13
+infrastructure_replacements:
+- original_episode_key: test_02-test_02_r5-camera-r13-R2
+  original_run_id: 73926869-8a84-42c2-91d4-9bebb2b8f6ae
+  original_attempt_number: 1295
+  invalid_reason: required_topic_not_recorded
+  invalid_detail: 'required topic has no recorded messages: /research2/features/perception;
+    artifact validation failed (outcome not consulted)'
+  original_bag_mcap_count: 1
+  replacement_campaign_id: paired_recovery_artifact_loss_replacements_v1
+  replacement_episode_key: test_02-test_02_r5-camera-r13-R2-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1

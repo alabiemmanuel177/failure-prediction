@@ -1,0 +1,21 @@
+schema_version: 1
+campaign_id: treatment_verification_localisation_high_v3
+purpose: label-only causal schedule and fault-treatment integrity audit
+deployable_feature_use: forbidden
+episode_count: 1
+passed_count: 1
+failed_count: 0
+episodes:
+- episode_key: localisation_perturbation-high-304
+  run_id: 8b05d6b7-1a31-45b1-8f86-23aa60d9dcdb
+  family: localisation_perturbation
+  severity: high
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: recorded /initialpose compared with source AMCL estimate
+    translation_m: 1.0
+    yaw_rad: 0.7
+    passed: true
+  passed: true

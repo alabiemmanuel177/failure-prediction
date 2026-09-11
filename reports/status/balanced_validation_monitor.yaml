@@ -1,0 +1,34 @@
+schema_version: 1
+observed_utc: '2026-09-02T13:39:43Z'
+campaign_id: balanced_validation_v1
+state: complete
+runner_lock_held: false
+counts:
+  expected_design_keys: 324
+  attempted_design_keys: 324
+  successful_parent_artifacts: 320
+  failed_parent_attempts: 3
+  valid_declared_replacements: 4
+  scientifically_resolved_design_keys: 324
+  remaining_design_keys: 0
+  unresolved_invalid_attempts: 0
+integrity:
+  duplicate_parent_episode_keys: []
+  unexpected_parent_episode_keys: []
+resolved_replacement_keys:
+- val_01-val_01_r0-clean_s0-r4
+- val_01-val_01_r1-oscillation-r5
+- val_02-val_02_r0-localisation-r1
+- val_02-val_02_r1-clean_s0-r4
+unresolved_invalid_keys: []
+last_ledger_record:
+  artifact_validation_returncode: 0
+  campaign_id: balanced_validation_v1
+  episode_key: val_02-val_02_r1-wheel-r5
+  episode_returncode: 0
+  finished_utc: '2026-09-02T13:39:30Z'
+  returncode: 0
+  started_utc: '2026-09-02T13:38:00Z'
+free_space_gib: 240.575
+protected_test_used: false
+monitor_policy: observe_only_no_restart_no_retry

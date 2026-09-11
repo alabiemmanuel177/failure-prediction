@@ -1,0 +1,205 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: recovery_pilot_treatment_replacements_v1
+parent_campaign_id: recovery_pilot_v1
+campaign_kind: replacement
+status: preregistered_treatment_delivery_replacement
+allowed_splits:
+- validation
+protected_test_used: false
+parallel_execution_admitted_by: PA-2026-09-04-02
+replacement_policy:
+  original_invalid_kind: treatment_delivery_artifact_invalid
+  original_attempt_and_complete_bag_are_retained: true
+  original_scientific_admission: excluded_because_declared_treatment_was_not_delivered
+  replacement_uses_same_map_route_system_condition_seed_and_recovery_policy: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+  execution: sequential_alone_after_all_phases_no_other_simulator_running
+episodes:
+- episode_key: val_01-val_01_r3-blockage-r0-RP_wait-infra-replacement-001
+  replaces_episode_key: val_01-val_01_r3-blockage-r0-RP_wait
+  replaces_run_id: 3e13f4c7-06b0-43d1-98ab-927cd73195e3
+  map: val_01
+  route: val_01_r3
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 41300004
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: RP_wait
+  pair_key: val_01-val_01_r3-blockage-r0
+  recovery_live_execution: true
+- episode_key: val_01-val_01_r4-blockage-r0-RP_wait-infra-replacement-001
+  replaces_episode_key: val_01-val_01_r4-blockage-r0-RP_wait
+  replaces_run_id: e89fc90d-bd41-4403-ba2b-f023bacd5443
+  map: val_01
+  route: val_01_r4
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 41400004
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: RP_wait
+  pair_key: val_01-val_01_r4-blockage-r0
+  recovery_live_execution: true
+- episode_key: val_01-val_01_r5-blockage-r0-R0-infra-replacement-001
+  replaces_episode_key: val_01-val_01_r5-blockage-r0-R0
+  replaces_run_id: a35aa37f-c35c-46f9-a764-5e0b54b6a541
+  map: val_01
+  route: val_01_r5
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 41500004
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: R0
+  pair_key: val_01-val_01_r5-blockage-r0
+- episode_key: val_01-val_01_r5-blockage-r0-RP_backup-infra-replacement-001
+  replaces_episode_key: val_01-val_01_r5-blockage-r0-RP_backup
+  replaces_run_id: 62f9bc70-2b24-4856-aae2-8477d9a6f39f
+  map: val_01
+  route: val_01_r5
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 41500004
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: RP_backup
+  pair_key: val_01-val_01_r5-blockage-r0
+  recovery_live_execution: true
+- episode_key: val_01-val_01_r5-blockage-r0-RP_wait-infra-replacement-001
+  replaces_episode_key: val_01-val_01_r5-blockage-r0-RP_wait
+  replaces_run_id: b408900c-348a-4176-bf3f-0786292e8153
+  map: val_01
+  route: val_01_r5
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 41500004
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: RP_wait
+  pair_key: val_01-val_01_r5-blockage-r0
+  recovery_live_execution: true
+- episode_key: val_02-val_02_r0-localisation-r0-RP_wait-infra-replacement-001
+  replaces_episode_key: val_02-val_02_r0-localisation-r0-RP_wait
+  replaces_run_id: 7bb474e0-176f-4b3b-982d-5e1815331d39
+  map: val_02
+  route: val_02_r0
+  system: s0
+  family: localisation_perturbation
+  severity: medium
+  seed: 42000003
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  recovery_policy_id: RP_wait
+  pair_key: val_02-val_02_r0-localisation-r0
+  recovery_live_execution: true
+infrastructure_replacements:
+- original_episode_key: val_01-val_01_r3-blockage-r0-RP_wait
+  original_run_id: 3e13f4c7-06b0-43d1-98ab-927cd73195e3
+  original_attempt_number: 73
+  invalid_reason: missing_injection_started_event
+  invalid_detail: faulted episode has no injection_started event; recording-window
+    marker absent (planner_failure before the dynamic_blockage injection)
+  original_bag_mcap_count: 1
+  replacement_campaign_id: recovery_pilot_treatment_replacements_v1
+  replacement_episode_key: val_01-val_01_r3-blockage-r0-RP_wait-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1
+- original_episode_key: val_01-val_01_r4-blockage-r0-RP_wait
+  original_run_id: e89fc90d-bd41-4403-ba2b-f023bacd5443
+  original_attempt_number: 78
+  invalid_reason: missing_injection_started_event
+  invalid_detail: faulted episode has no injection_planned/injection_started event;
+    recording-window marker absent (planner_failure before the dynamic_blockage injection)
+  original_bag_mcap_count: 1
+  replacement_campaign_id: recovery_pilot_treatment_replacements_v1
+  replacement_episode_key: val_01-val_01_r4-blockage-r0-RP_wait-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1
+- original_episode_key: val_01-val_01_r5-blockage-r0-R0
+  original_run_id: a35aa37f-c35c-46f9-a764-5e0b54b6a541
+  original_attempt_number: 79
+  invalid_reason: missing_injection_started_event
+  invalid_detail: faulted episode has no injection_started event (timeout before the
+    dynamic_blockage injection)
+  original_bag_mcap_count: 1
+  replacement_campaign_id: recovery_pilot_treatment_replacements_v1
+  replacement_episode_key: val_01-val_01_r5-blockage-r0-R0-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1
+- original_episode_key: val_01-val_01_r5-blockage-r0-RP_backup
+  original_run_id: 62f9bc70-2b24-4856-aae2-8477d9a6f39f
+  original_attempt_number: 82
+  invalid_reason: missing_injection_started_event
+  invalid_detail: faulted episode has no injection_planned/injection_started event;
+    /cmd_vel has no recorded messages (planner_failure before the dynamic_blockage
+    injection)
+  original_bag_mcap_count: 1
+  replacement_campaign_id: recovery_pilot_treatment_replacements_v1
+  replacement_episode_key: val_01-val_01_r5-blockage-r0-RP_backup-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1
+- original_episode_key: val_01-val_01_r5-blockage-r0-RP_wait
+  original_run_id: b408900c-348a-4176-bf3f-0786292e8153
+  original_attempt_number: 84
+  invalid_reason: missing_injection_started_event
+  invalid_detail: faulted episode has no injection_started event (timeout before the
+    dynamic_blockage injection)
+  original_bag_mcap_count: 1
+  replacement_campaign_id: recovery_pilot_treatment_replacements_v1
+  replacement_episode_key: val_01-val_01_r5-blockage-r0-RP_wait-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1
+- original_episode_key: val_02-val_02_r0-localisation-r0-RP_wait
+  original_run_id: 7bb474e0-176f-4b3b-982d-5e1815331d39
+  original_attempt_number: 343
+  invalid_reason: missing_injection_started_event
+  invalid_detail: faulted episode has no injection_started event (success before the
+    localisation_perturbation injection)
+  original_bag_mcap_count: 1
+  replacement_campaign_id: recovery_pilot_treatment_replacements_v1
+  replacement_episode_key: val_02-val_02_r0-localisation-r0-RP_wait-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1

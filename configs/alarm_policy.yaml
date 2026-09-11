@@ -1,8 +1,10 @@
 schema_version: 1
 protocol_version: "1.0"
 selection_split: validation
-threshold: null
+threshold: 0.23509196030026114
 false_alert_budget_per_clean_mission: 0.10
+selection_objective: maximum_event_recall_subject_to_false_alert_budget
+tie_break_order: [lower_false_alert_burden, longer_median_useful_lead_time, higher_threshold]
 persistence:
   required_above_threshold: 2
   decisions_considered: 3
@@ -10,4 +12,3 @@ cooldown_seconds: 10.0
 minimum_useful_lead_seconds: 1.0
 decision_rate_hz: 2.0
 test_threshold_adaptation: forbidden
-

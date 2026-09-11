@@ -1,0 +1,11 @@
+model_id: p1_threshold_rules
+threshold: 0.5
+selection_split: validation
+protected_test_used: false
+selection: fixed decision threshold on the binary rule score; rules tuned by tune_threshold_rules.py
+  under the frozen clean-mission budget
+excluded_family: planner_oscillation
+rules: /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/rules_p1.yaml
+rules_sha256: 7435b334da0cad9706ffd62aced56488c13d981ec15f8430bf8dcd4a78e79479
+tuning_record: /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/tuning_p1.yaml
+tuning_record_sha256: 47bb3bcc17855fd4f9676511ee92d0a2757041db64c8d1468a58c5aa18ecc571

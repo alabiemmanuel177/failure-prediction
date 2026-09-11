@@ -1,0 +1,26 @@
+schema_version: 1
+protocol_version: '1.0'
+status: automatic_review_pending
+run_id: 4a778017-f9eb-4616-9c2a-65bf7b8f5291
+protected_test_used: false
+evidence_source:
+  bag_path: /home/eao/failure-prediction/data/raw/bags/4a778017-f9eb-4616-9c2a-65bf7b8f5291
+  bag_checksum_sha256: b948a7f677259d04ca3bf8fb8d4aee6696d22fbe686b7860ea56f6a7bd202bca
+  event_sidecar: /home/eao/failure-prediction/data/raw/events/4a778017-f9eb-4616-9c2a-65bf7b8f5291.json
+integrity:
+  ground_truth_samples: 564
+  amcl_samples: 11
+  matched_pose_error_samples: 10
+  unmatched_amcl_samples: 1
+  command_samples: 373
+  odometry_samples: 564
+  matched_motion_samples: 517
+  odometry_without_fresh_command: 47
+candidate_event_times:
+  localisation_loss: null
+  immobilisation: null
+primary_candidate: null
+limitations:
+- unsafe_perception requires explicit obstacle-miss and emergency-intervention evidence
+  and is not inferred from fault identity
+- automatic candidates require independent timeline review before causal-label admission

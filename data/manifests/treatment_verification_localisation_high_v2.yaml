@@ -1,6 +1,7 @@
 schema_version: 1
 campaign_id: treatment_verification_localisation_high_v2
 purpose: replacement after correcting the AMCL transform-tolerance freshness bound
+status: executed_infrastructure_invalid
 allowed_splits: [development]
 execution_policy:
   exact_once_per_episode_key: true
@@ -25,3 +26,6 @@ audit_policy:
   replacement_for: treatment_verification_localisation_high_v1/localisation_perturbation-high-302
   freshness_bound_evidence: live_integrity_v3 control map-to-odom timestamps lead clock by approximately 0.9 seconds
   protected_test_used: false
+  execution_result:
+    run_id: 27c1e41e-d727-479f-b551-f29a47793b05
+    reason: foreign simulation clock on shared ROS domain stamped goal at 235.858 seconds while episode TF was near 15 seconds

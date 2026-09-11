@@ -1,0 +1,76 @@
+schema_version: 1
+dataset_id: held_out_map_v1-held_out_map_test-1008
+analysis_unit: episode
+status: held_out_confirmatory_complete
+protected_test_used: true
+counts:
+  scientific_episodes: 1008
+  terminal_events: 153
+  non_events: 855
+  infrastructure_replacements: 14
+event_prevalence: 0.15178571428571427
+duration_seconds:
+  total: 115680.261
+  minimum: 28.889
+  maximum: 240.763
+storage:
+  bag_bytes: 8998452898
+  bag_gib: 8.380462320521474
+distributions:
+  maps:
+    test_00: 336
+    test_01: 336
+    test_02: 336
+  routes:
+    test_00_r0: 56
+    test_00_r1: 56
+    test_00_r2: 56
+    test_00_r3: 56
+    test_00_r4: 56
+    test_00_r5: 56
+    test_01_r0: 56
+    test_01_r1: 56
+    test_01_r2: 56
+    test_01_r3_repl1: 56
+    test_01_r4: 56
+    test_01_r5: 56
+    test_02_r0: 56
+    test_02_r1: 56
+    test_02_r2: 56
+    test_02_r3: 56
+    test_02_r4: 56
+    test_02_r5: 56
+  systems:
+    S0: 702
+    S3: 306
+  fault_families:
+    camera_occlusion: 126
+    dynamic_blockage: 126
+    lidar_dropout: 126
+    localisation_perturbation: 126
+    none: 126
+    planner_oscillation: 126
+    semantic_corruption: 126
+    wheel_slip: 126
+  terminal_states:
+    false_arrival: 107
+    planner_failure: 40
+    success: 855
+    timeout: 6
+  event_classes:
+    false_arrival: 107
+    mission_timeout: 6
+    navigation_abort: 40
+  recording_profiles:
+    compact_v2: 1008
+source_hashes:
+  campaign_manifest_sha256: 9e975af9ec781c5b469e8934a6d6bae4e5b4bdfd349ffbdac5b84cdd85db645d
+  pilot_report_sha256: a18b94c081cf09a0edd592429c42f3e566308ade43611ba6da5e3ac03ce38e50
+episode_inventory:
+  path: data/manifests/held_out_map_v1.episodes.jsonl
+  sha256: 175489c83568ff9e77d7219ce78b6604575c6681b9d6d7b99c92ab435f542aa8
+  rows: 1008
+label_status:
+  episode_outcomes: recorded_and_artifact_validated
+  causal_window_labels: not_admitted_pending_supervisor_and_second_review
+training_admission: forbidden_until_training_readiness_gate_passes

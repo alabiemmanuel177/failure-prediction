@@ -1,0 +1,157 @@
+schema_version: 1
+campaign_id: balanced_pilot_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 648
+  observed: 540
+  usable: 540
+  infrastructure_invalid_attempts: 2
+  infrastructure_replacements: 2
+  terminal_events: 103
+  non_events: 437
+event_prevalence: 0.19074074074074074
+duration_seconds:
+  total: 34757.092
+  median: 53.034
+by_terminal_state:
+  false_arrival: 49
+  planner_failure: 43
+  success: 437
+  timeout: 11
+by_attempt_terminal_state:
+  false_arrival: 49
+  invalid: 2
+  planner_failure: 43
+  success: 435
+  timeout: 11
+by_fault_family:
+  camera_occlusion: 60
+  dynamic_blockage: 60
+  lidar_dropout: 60
+  localisation_perturbation: 60
+  none: 120
+  planner_oscillation: 60
+  semantic_corruption: 60
+  wheel_slip: 60
+by_map:
+  dev_00: 90
+  dev_01: 90
+  dev_02: 90
+  dev_03: 90
+  dev_04: 90
+  dev_05: 90
+integrity:
+  missing_episode_keys:
+  - dev_00-dev_00_r0-blockage-r5
+  - dev_00-dev_00_r0-camera-r5
+  - dev_00-dev_00_r0-clean_s0-r5
+  - dev_00-dev_00_r0-clean_s3-r5
+  - dev_00-dev_00_r0-lidar-r5
+  - dev_00-dev_00_r0-localisation-r5
+  - dev_00-dev_00_r0-oscillation-r5
+  - dev_00-dev_00_r0-semantic-r5
+  - dev_00-dev_00_r0-wheel-r5
+  - dev_00-dev_00_r1-blockage-r5
+  - dev_00-dev_00_r1-camera-r5
+  - dev_00-dev_00_r1-clean_s0-r5
+  - dev_00-dev_00_r1-clean_s3-r5
+  - dev_00-dev_00_r1-lidar-r5
+  - dev_00-dev_00_r1-localisation-r5
+  - dev_00-dev_00_r1-oscillation-r5
+  - dev_00-dev_00_r1-semantic-r5
+  - dev_00-dev_00_r1-wheel-r5
+  - dev_01-dev_01_r0-blockage-r5
+  - dev_01-dev_01_r0-camera-r5
+  - dev_01-dev_01_r0-clean_s0-r5
+  - dev_01-dev_01_r0-clean_s3-r5
+  - dev_01-dev_01_r0-lidar-r5
+  - dev_01-dev_01_r0-localisation-r5
+  - dev_01-dev_01_r0-oscillation-r5
+  - dev_01-dev_01_r0-semantic-r5
+  - dev_01-dev_01_r0-wheel-r5
+  - dev_01-dev_01_r1-blockage-r5
+  - dev_01-dev_01_r1-camera-r5
+  - dev_01-dev_01_r1-clean_s0-r5
+  - dev_01-dev_01_r1-clean_s3-r5
+  - dev_01-dev_01_r1-lidar-r5
+  - dev_01-dev_01_r1-localisation-r5
+  - dev_01-dev_01_r1-oscillation-r5
+  - dev_01-dev_01_r1-semantic-r5
+  - dev_01-dev_01_r1-wheel-r5
+  - dev_02-dev_02_r0-blockage-r5
+  - dev_02-dev_02_r0-camera-r5
+  - dev_02-dev_02_r0-clean_s0-r5
+  - dev_02-dev_02_r0-clean_s3-r5
+  - dev_02-dev_02_r0-lidar-r5
+  - dev_02-dev_02_r0-localisation-r5
+  - dev_02-dev_02_r0-oscillation-r5
+  - dev_02-dev_02_r0-semantic-r5
+  - dev_02-dev_02_r0-wheel-r5
+  - dev_02-dev_02_r1-blockage-r5
+  - dev_02-dev_02_r1-camera-r5
+  - dev_02-dev_02_r1-clean_s0-r5
+  - dev_02-dev_02_r1-clean_s3-r5
+  - dev_02-dev_02_r1-lidar-r5
+  - dev_02-dev_02_r1-localisation-r5
+  - dev_02-dev_02_r1-oscillation-r5
+  - dev_02-dev_02_r1-semantic-r5
+  - dev_02-dev_02_r1-wheel-r5
+  - dev_03-dev_03_r0-blockage-r5
+  - dev_03-dev_03_r0-camera-r5
+  - dev_03-dev_03_r0-clean_s0-r5
+  - dev_03-dev_03_r0-clean_s3-r5
+  - dev_03-dev_03_r0-lidar-r5
+  - dev_03-dev_03_r0-localisation-r5
+  - dev_03-dev_03_r0-oscillation-r5
+  - dev_03-dev_03_r0-semantic-r5
+  - dev_03-dev_03_r0-wheel-r5
+  - dev_03-dev_03_r1-blockage-r5
+  - dev_03-dev_03_r1-camera-r5
+  - dev_03-dev_03_r1-clean_s0-r5
+  - dev_03-dev_03_r1-clean_s3-r5
+  - dev_03-dev_03_r1-lidar-r5
+  - dev_03-dev_03_r1-localisation-r5
+  - dev_03-dev_03_r1-oscillation-r5
+  - dev_03-dev_03_r1-semantic-r5
+  - dev_03-dev_03_r1-wheel-r5
+  - dev_04-dev_04_r0-blockage-r5
+  - dev_04-dev_04_r0-camera-r5
+  - dev_04-dev_04_r0-clean_s0-r5
+  - dev_04-dev_04_r0-clean_s3-r5
+  - dev_04-dev_04_r0-lidar-r5
+  - dev_04-dev_04_r0-localisation-r5
+  - dev_04-dev_04_r0-oscillation-r5
+  - dev_04-dev_04_r0-semantic-r5
+  - dev_04-dev_04_r0-wheel-r5
+  - dev_04-dev_04_r1-blockage-r5
+  - dev_04-dev_04_r1-camera-r5
+  - dev_04-dev_04_r1-clean_s0-r5
+  - dev_04-dev_04_r1-clean_s3-r5
+  - dev_04-dev_04_r1-lidar-r5
+  - dev_04-dev_04_r1-localisation-r5
+  - dev_04-dev_04_r1-oscillation-r5
+  - dev_04-dev_04_r1-semantic-r5
+  - dev_04-dev_04_r1-wheel-r5
+  - dev_05-dev_05_r0-blockage-r5
+  - dev_05-dev_05_r0-camera-r5
+  - dev_05-dev_05_r0-clean_s0-r5
+  - dev_05-dev_05_r0-clean_s3-r5
+  - dev_05-dev_05_r0-lidar-r5
+  - dev_05-dev_05_r0-localisation-r5
+  - dev_05-dev_05_r0-oscillation-r5
+  - dev_05-dev_05_r0-semantic-r5
+  - dev_05-dev_05_r0-wheel-r5
+  - dev_05-dev_05_r1-blockage-r5
+  - dev_05-dev_05_r1-camera-r5
+  - dev_05-dev_05_r1-clean_s0-r5
+  - dev_05-dev_05_r1-clean_s3-r5
+  - dev_05-dev_05_r1-lidar-r5
+  - dev_05-dev_05_r1-localisation-r5
+  - dev_05-dev_05_r1-oscillation-r5
+  - dev_05-dev_05_r1-semantic-r5
+  - dev_05-dev_05_r1-wheel-r5
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

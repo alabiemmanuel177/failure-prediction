@@ -1,0 +1,31 @@
+schema_version: 1
+protocol_version: '1.6'
+frozen: true
+frozen_by: Emmanuel Alabi Olasubomi
+frozen_utc: '2026-09-04T17:22:19.956979+00:00'
+protected_outcomes_consulted: false
+seed_selection: reports/model_selection/final_v1/seed_selection_v2.yaml
+seed_selection_sha256: 29a69f4c1579ac3608bbf7b747487d8d582e65ad04a1ad1a9709e9e00a7cc5c5
+secondary_predictors:
+  p4_gru:
+    model_dir: models/final_v1_seed20260905/p4_gru__seed20260905
+    seed: 20260905
+    selected_tag: final_v1_seed20260905
+    checkpoint_sha256: eea72a911a33b2c6f5695d4ad284cbc75c12353030bcf101b632a4da453065ce
+    calibrator: reports/calibration/final_v1_seed20260905/p4_gru.calibrator.json
+    calibrator_sha256: 8cb82b4cda7d3b6912741d98a3c2a0e5cb26528f5627afe7b91f0e9007b097ac
+    threshold_record: reports/thresholds/final_v1_seed20260905/p4_gru.yaml
+    threshold_sha256: bec2fdc21387c4675b7ee3ee6303cfe2ab6494575a1ace4577c846b145511921
+    threshold: 0.3776690112395885
+    role: secondary_held_out_comparison_not_primary
+  p5_compact_transformer:
+    model_dir: models/final_v1_seed20260904/p5_compact_transformer__seed20260904
+    seed: 20260904
+    selected_tag: final_v1_seed20260904
+    checkpoint_sha256: c0b70ada55404c48011949525bb298152c3834bd973f27ee1989b439acc7c6f5
+    calibrator: reports/calibration/final_v1_seed20260904/p5_compact_transformer.calibrator.json
+    calibrator_sha256: 67892d142d307532a0cdbdeaffbebbeb631ebc382c630fea021ec6a99998b92b
+    threshold_record: reports/thresholds/final_v1_seed20260904/p5_compact_transformer.yaml
+    threshold_sha256: 7af1016a6f630b829c4715ffc14ab797e3ecc09b079e5ef690d15d2a86e67014
+    threshold: 0.2714590056362919
+    role: secondary_held_out_comparison_not_primary

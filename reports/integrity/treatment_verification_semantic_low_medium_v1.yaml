@@ -1,0 +1,34 @@
+schema_version: 1
+campaign_id: treatment_verification_semantic_low_medium_v1
+purpose: label-only causal schedule and fault-treatment integrity audit
+deployable_feature_use: forbidden
+episode_count: 2
+passed_count: 2
+failed_count: 0
+episodes:
+- episode_key: semantic_corruption-low-303
+  run_id: 0a389928-0a8c-4ef6-b62a-41707dd89d6a
+  family: semantic_corruption
+  severity: low
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw semantic grids
+    matched_post_onset_grids: 200
+    exact_output_matches: 200
+    passed: true
+  passed: true
+- episode_key: semantic_corruption-medium-303
+  run_id: cc02bcdd-1268-46ff-8422-64fc586a3464
+  family: semantic_corruption
+  severity: medium
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw semantic grids
+    matched_post_onset_grids: 200
+    exact_output_matches: 200
+    passed: true
+  passed: true

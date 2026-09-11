@@ -1,0 +1,52 @@
+schema_version: 1
+campaign_id: concurrency_shift_check_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 36
+  observed: 25
+  usable: 25
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 3
+  non_events: 22
+event_prevalence: 0.12
+duration_seconds:
+  total: 1480.6879999999999
+  median: 52.22
+by_terminal_state:
+  false_arrival: 2
+  planner_failure: 1
+  success: 22
+by_attempt_terminal_state:
+  false_arrival: 2
+  invalid: 0
+  planner_failure: 1
+  success: 22
+by_fault_family:
+  none: 24
+  planner_oscillation: 1
+by_map:
+  dev_00: 4
+  dev_01: 5
+  dev_02: 4
+  dev_03: 4
+  dev_04: 4
+  dev_05: 4
+integrity:
+  missing_episode_keys:
+  - dev_00-dev_00_r0-oscillation-r0
+  - dev_00-dev_00_r1-oscillation-r0
+  - dev_01-dev_01_r1-oscillation-r0
+  - dev_02-dev_02_r0-oscillation-r0
+  - dev_02-dev_02_r1-oscillation-r0
+  - dev_03-dev_03_r0-oscillation-r0
+  - dev_03-dev_03_r1-oscillation-r0
+  - dev_04-dev_04_r0-oscillation-r0
+  - dev_04-dev_04_r1-oscillation-r0
+  - dev_05-dev_05_r0-oscillation-r0
+  - dev_05-dev_05_r1-oscillation-r0
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Causal Label Review · Research 2</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <div>
+      <p class="kicker">Research 2 · Gate G1</p>
+      <h1>Causal label review</h1>
+      <p class="dek">Inspect the evidence that existed before failure. No model outputs. No protected maps.</p>
+    </div>
+    <div class="gate-seal" aria-label="Training gate status">
+      <span id="gate-state">Gate closed</span>
+      <small id="gate-detail">Loading evidence…</small>
+    </div>
+  </header>
+
+  <nav class="mode-tabs" aria-label="Review mode">
+    <button class="mode-tab active" data-mode="episodes">20-episode audit</button>
+    <button class="mode-tab" data-mode="thresholds">Supervisor thresholds</button>
+    <button class="mode-tab" data-mode="method">Review method</button>
+  </nav>
+
+  <main>
+    <section id="episodes-mode" class="mode-panel active">
+      <aside class="episode-rail">
+        <div class="progress-block">
+          <div class="progress-copy"><span>Independent agreement</span><strong id="progress-count">0 / 20</strong></div>
+          <div class="progress-track"><i id="progress-bar"></i></div>
+          <p id="first-progress">First review: 0 / 20</p>
+        </div>
+        <div class="filter-row">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="pending">Pending</button>
+          <button class="filter" data-filter="complete">Complete</button>
+        </div>
+        <ol id="episode-list" class="episode-list" aria-label="Frozen audit episodes"></ol>
+      </aside>
+
+      <article class="review-desk" id="review-desk">
+        <div class="empty-state">Loading the frozen audit packet…</div>
+      </article>
+    </section>
+
+    <section id="thresholds-mode" class="mode-panel threshold-panel">
+      <div class="threshold-intro">
+        <p class="kicker">Distinct supervisor required</p>
+        <h2>Prospective event thresholds</h2>
+        <p>These values were proposed before protected evaluation. Approval accepts them exactly as written; this screen cannot edit the values.</p>
+      </div>
+      <div id="threshold-cards" class="threshold-cards"></div>
+      <form id="supervisor-form" class="attestation-form">
+        <h3>Supervisor attestation</h3>
+        <label>Supervisor’s full name<input name="reviewer_name" autocomplete="name" required></label>
+        <label>Methodological rationale<textarea name="rationale" rows="3" required>Reviewed prospectively and accepted as operationally clear, measurable, and independent of protected outcomes.</textarea></label>
+        <label class="check"><input type="checkbox" name="role_confirmed" required> I confirm that I am the research supervisor and distinct from the researcher.</label>
+        <label class="check"><input type="checkbox" name="protected_confirmed" required> I confirm that I did not consult protected-map outcomes.</label>
+        <button class="primary" type="submit">Record supervisor approval</button>
+        <p id="supervisor-status" class="form-status" role="status"></p>
+      </form>
+    </section>
+
+    <section id="method-mode" class="mode-panel method-panel">
+      <p class="kicker">The evidence contract</p>
+      <h2>What counts as an independent review</h2>
+      <div class="method-grid">
+        <div><b>01</b><h3>Read the trace</h3><p>Inspect the entire telemetry timeline, injection onset, terminal marker, and operational-event evidence.</p></div>
+        <div><b>02</b><h3>Test causality</h3><p>Confirm that the label uses only evidence available at the decision time. The plot contains no learned-model output.</p></div>
+        <div><b>03</b><h3>Record judgment</h3><p>Agree with the causal fields or flag a specific disagreement. A flag pauses admission for adjudication.</p></div>
+        <div><b>04</b><h3>Repeat independently</h3><p>A different person repeats the review. The gate passes only when all 20 causal signatures agree exactly.</p></div>
+      </div>
+      <div class="warning-note"><strong>Identity rule</strong><span>The researcher, second reviewer, and supervisor are real methodological roles. Entering alternate names for one person would invalidate the audit.</span></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

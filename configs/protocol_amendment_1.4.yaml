@@ -1,0 +1,38 @@
+schema_version: 1
+protocol_version: "1.4"
+amendment_id: PA-2026-09-03-04
+status: approved
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: "2026-09-03"
+protected_outcomes_consulted: false
+scope: execution_plan_concurrency_and_recovery_policy_set
+rationale: >-
+  The researcher requires study completion by 5 September 2026. Sequential execution
+  of the remaining supplement, held-out, severity-stress and paired-recovery campaigns
+  needs about 117 hours of simulation. Research 1 executed its confirmatory campaign
+  with six concurrent simulators on ROS domains 60-65 after smoke qualification on this
+  workstation. Research 2 collected its fitting and selection data sequentially because
+  compute load and perception latency are deployable health features, so concurrent
+  execution is a measurable condition shift and is admitted only under a pre-declared
+  check with a pre-declared fallback.
+decisions:
+  fitting_pool: unchanged (PA-2026-09-03-03; supplement retained)
+  concurrency:
+    admitted_workers: 6
+    ros_domains: [60, 61, 62, 63, 64, 65]
+    admission_condition: reports/integrity/concurrency_shift_check_v1.yaml passed true
+    shift_check_design: 36 development episodes (12 routes x clean_s0, clean_s3, planner_oscillation medium) under six workers, derived through the unchanged pipeline
+    shift_check_policy: configs/concurrency_shift_policy.yaml
+    shift_check_model_proxy: preliminary_v1 P3 with its validation-selected budget threshold, because the frozen model does not exist before the supplement; the check measures execution conditions, not the model
+    fallback: sequential execution for every remaining campaign if the check fails; the deadline then slips and is reported as such
+    campaigns_admitted_if_check_passes: [development_supplement_v1, held_out_map_v1, severity_stress_v1, recovery_pilot_v1, paired_recovery_v1]
+    reporting: every episode records worker slot, domain and partition; concurrency is reported as a deviation in the manuscript and cards
+  severity_stress: retained before the deadline
+  paired_recovery_policies: [R0, R2, R3]
+  deferred_policy: R1 (fixed stop-and-replan) deferred to post-deadline exploratory work
+  recovery_selector_training_source: recovery_pilot_v1 on validation maps after the model freeze, guard-eligible actions only
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  protected_test_access_authorized: false
+  applies_before_model_freeze: true

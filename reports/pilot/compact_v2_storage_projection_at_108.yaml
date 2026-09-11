@@ -1,0 +1,26 @@
+schema_version: 1
+protocol_version: "1.0"
+status: operational_projection_not_research_result
+protected_test_used: false
+checkpoint_scientific_episodes: 108
+checkpoint_original_attempts: 108
+remaining_original_attempts: 540
+free_space_gib_at_checkpoint: 112.762
+frozen_reserve_gib: 100
+compact_v2_observations:
+  artifact_usable_bags: 14
+  systems: [S0, S3]
+  duration_range_seconds: [18.359, 121.945]
+  mean_bag_mib: 6.227
+  median_bag_mib: 5.412
+  maximum_bag_mib: 10.094
+conservative_projection:
+  rule: every_remaining_attempt_equals_largest_observed_compact_v2_bag
+  additional_storage_gib: 5.323
+  projected_final_free_space_gib: 107.439
+  projected_margin_above_reserve_gib: 7.439
+controls:
+  - runner rechecks actual free space before every episode
+  - projection does not override the 100 GiB hard stop
+  - invalid attempts and all earlier bags remain retained
+  - profile identifiers remain provenance-only

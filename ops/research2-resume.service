@@ -1,0 +1,12 @@
+[Unit]
+Description=Research 2: resume the post-freeze confirmatory plan after a reboot (waits for a healthy GPU)
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/eao/failure-prediction
+ExecStart=/usr/bin/bash /home/eao/failure-prediction/scripts/resume_after_reboot.sh
+TimeoutStartSec=2400
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,44 @@
+schema_version: 1
+campaign_id: balanced_pilot_v1
+wave: 2
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 18
+  usable: 18
+  invalid: 0
+  terminal_events: 2
+  successes: 16
+  collisions: 0
+event_prevalence: 0.1111111111111111
+bag_gib: 21.15453779604286
+duration_seconds:
+  total: 1365.224
+  median: 65.1685
+by_terminal_state:
+  planner_failure: 1
+  success: 16
+  timeout: 1
+by_event_class:
+  mission_timeout: 1
+  navigation_abort: 1
+episode_keys:
+- dev_00-dev_00_r1-blockage-r0
+- dev_03-dev_03_r1-blockage-r0
+- dev_00-dev_00_r1-camera-r0
+- dev_03-dev_03_r1-camera-r0
+- dev_00-dev_00_r1-clean_s0-r0
+- dev_03-dev_03_r1-clean_s0-r0
+- dev_00-dev_00_r1-clean_s3-r0
+- dev_03-dev_03_r1-clean_s3-r0
+- dev_00-dev_00_r1-lidar-r0
+- dev_03-dev_03_r1-lidar-r0
+- dev_00-dev_00_r1-localisation-r0
+- dev_03-dev_03_r1-localisation-r0
+- dev_00-dev_00_r1-oscillation-r0
+- dev_03-dev_03_r1-oscillation-r0
+- dev_00-dev_00_r1-semantic-r0
+- dev_03-dev_03_r1-semantic-r0
+- dev_00-dev_00_r1-wheel-r0
+- dev_03-dev_03_r1-wheel-r0
+training_admission: blocked_pending_human_gate

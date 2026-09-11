@@ -1,0 +1,102 @@
+schema_version: 1
+campaign_id: recovery_pilot_v1
+wave: 14
+recording_profiles:
+  compact_v2: 42
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 42
+  usable: 42
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 8
+  successes: 34
+  collisions: 0
+event_prevalence: 0.19047619047619047
+bag_gib: 0.26339811086654663
+duration_seconds:
+  total: 4277.122
+  median: 123.00450000000001
+by_terminal_state:
+  false_arrival: 8
+  success: 34
+by_event_class:
+  false_arrival: 8
+perception_metric_summaries: 0
+episode_keys:
+- val_01-val_01_r0-wheel-r0-RP_relocalise
+- val_00-val_00_r5-wheel-r0-RP_spin_active_rescan
+- val_01-val_01_r0-wheel-r0-RP_replan_clear_costmaps
+- val_00-val_00_r5-wheel-r0-RP_wait
+- val_01-val_01_r0-wheel-r0-RP_backup
+- val_01-val_01_r0-wheel-r0-RP_wait
+- val_01-val_01_r0-wheel-r0-RP_spin_active_rescan
+- val_01-val_01_r1-wheel-r0-R0
+- val_01-val_01_r1-wheel-r0-RP_controlled_stop
+- val_01-val_01_r1-wheel-r0-RP_relocalise
+- val_01-val_01_r1-wheel-r0-RP_replan_clear_costmaps
+- val_01-val_01_r1-wheel-r0-RP_backup
+- val_01-val_01_r1-wheel-r0-RP_wait
+- val_01-val_01_r1-wheel-r0-RP_spin_active_rescan
+- val_01-val_01_r2-wheel-r0-R0
+- val_01-val_01_r2-wheel-r0-RP_relocalise
+- val_01-val_01_r2-wheel-r0-RP_replan_clear_costmaps
+- val_01-val_01_r2-wheel-r0-RP_spin_active_rescan
+- val_01-val_01_r2-wheel-r0-RP_backup
+- val_01-val_01_r2-wheel-r0-RP_controlled_stop
+- val_01-val_01_r2-wheel-r0-RP_wait
+- val_01-val_01_r3-wheel-r0-R0
+- val_01-val_01_r3-wheel-r0-RP_controlled_stop
+- val_01-val_01_r3-wheel-r0-RP_relocalise
+- val_01-val_01_r3-wheel-r0-RP_replan_clear_costmaps
+- val_01-val_01_r3-wheel-r0-RP_backup
+- val_01-val_01_r3-wheel-r0-RP_spin_active_rescan
+- val_01-val_01_r3-wheel-r0-RP_wait
+- val_01-val_01_r4-wheel-r0-R0
+- val_01-val_01_r4-wheel-r0-RP_controlled_stop
+- val_01-val_01_r4-wheel-r0-RP_relocalise
+- val_01-val_01_r4-wheel-r0-RP_backup
+- val_01-val_01_r4-wheel-r0-RP_spin_active_rescan
+- val_01-val_01_r4-wheel-r0-RP_replan_clear_costmaps
+- val_01-val_01_r4-wheel-r0-RP_wait
+- val_01-val_01_r5-wheel-r0-R0
+- val_01-val_01_r5-wheel-r0-RP_relocalise
+- val_01-val_01_r5-wheel-r0-RP_controlled_stop
+- val_01-val_01_r5-wheel-r0-RP_replan_clear_costmaps
+- val_01-val_01_r5-wheel-r0-RP_backup
+- val_02-val_02_r0-wheel-r0-R0
+- val_01-val_01_r5-wheel-r0-RP_spin_active_rescan
+training_admission: human_gate_passed_dataset_campaign_in_progress
+execution_provenance:
+  dispatcher:
+  - run_campaign_parallel_v1
+  dispatched_rows: 42
+  sequential_rows: 0
+  concurrency_workers:
+  - 6
+  system_concurrency: {}
+  worker_slots:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ros_domain_ids:
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  gz_partitions:
+  - research2_w0
+  - research2_w1
+  - research2_w2
+  - research2_w3
+  - research2_w4
+  - research2_w5
+  episodes_by_system:
+    s0: 42

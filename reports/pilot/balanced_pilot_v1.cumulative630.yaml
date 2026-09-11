@@ -1,0 +1,67 @@
+schema_version: 1
+campaign_id: balanced_pilot_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 648
+  observed: 630
+  usable: 630
+  infrastructure_invalid_attempts: 2
+  infrastructure_replacements: 2
+  terminal_events: 123
+  non_events: 507
+event_prevalence: 0.19523809523809524
+duration_seconds:
+  total: 39757.699
+  median: 51.9565
+by_terminal_state:
+  false_arrival: 58
+  planner_failure: 52
+  success: 507
+  timeout: 13
+by_attempt_terminal_state:
+  false_arrival: 58
+  invalid: 2
+  planner_failure: 52
+  success: 505
+  timeout: 13
+by_fault_family:
+  camera_occlusion: 70
+  dynamic_blockage: 70
+  lidar_dropout: 70
+  localisation_perturbation: 70
+  none: 140
+  planner_oscillation: 70
+  semantic_corruption: 70
+  wheel_slip: 70
+by_map:
+  dev_00: 108
+  dev_01: 108
+  dev_02: 99
+  dev_03: 108
+  dev_04: 108
+  dev_05: 99
+integrity:
+  missing_episode_keys:
+  - dev_02-dev_02_r1-blockage-r5
+  - dev_02-dev_02_r1-camera-r5
+  - dev_02-dev_02_r1-clean_s0-r5
+  - dev_02-dev_02_r1-clean_s3-r5
+  - dev_02-dev_02_r1-lidar-r5
+  - dev_02-dev_02_r1-localisation-r5
+  - dev_02-dev_02_r1-oscillation-r5
+  - dev_02-dev_02_r1-semantic-r5
+  - dev_02-dev_02_r1-wheel-r5
+  - dev_05-dev_05_r1-blockage-r5
+  - dev_05-dev_05_r1-camera-r5
+  - dev_05-dev_05_r1-clean_s0-r5
+  - dev_05-dev_05_r1-clean_s3-r5
+  - dev_05-dev_05_r1-lidar-r5
+  - dev_05-dev_05_r1-localisation-r5
+  - dev_05-dev_05_r1-oscillation-r5
+  - dev_05-dev_05_r1-semantic-r5
+  - dev_05-dev_05_r1-wheel-r5
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

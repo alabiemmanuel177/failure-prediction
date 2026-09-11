@@ -1,0 +1,31 @@
+schema_version: 1
+taxonomy_version: 1.0.0
+protocol_version: '1.0'
+run_id: f5aaf759-5702-4fe2-8f72-0f39b8ab6db5
+annotator: automatic_event_extractor
+annotation_timestamp_utc: '2026-08-30T22:58:59Z'
+episode:
+  start_time: 15.21
+  end_time: 122.913
+  termination_reason: success
+injections:
+- family: none
+  severity: null
+  planned_onset: 30.21
+  actual_onset: null
+  duration_seconds: null
+  eligible: false
+events: []
+episode_exclusion:
+  excluded: false
+  reason: null
+  notes: null
+review:
+  second_reviewer: null
+  adjudication_status: pending
+  disagreements: []
+  first_reviewer: Emmanuel Alabi Olasubomi
+  first_reviewed_utc: '2026-08-31T22:11:37.884169Z'
+  first_review_notes: 'Human reviewer agrees with the frozen causal fields after inspecting
+    the episode timeline and operational evidence. AI was used only to cross-check
+    the review. Supporting comparison: reports/manual-audit/provisional-ai-comparison-2026-08-31.md.'

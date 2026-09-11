@@ -1,0 +1,42 @@
+schema_version: 2
+artifact_type: research1_outcome_blind_temporal_structure_catalog
+research1_root: /home/eao/risk-calibrated-nav
+required_topics:
+- /amcl_pose
+- /cmd_vel
+- /odom
+- /plan
+- /scan
+counts:
+  catalog_rows: 1189
+  by_split:
+    development: 825
+    validation: 364
+  development_candidates: 828
+  validation_candidates: 370
+  missing_metadata: 0
+  incompatible_topics: 9
+catalog:
+  path: data/manifests/research1_temporal_catalog_v2.jsonl
+  sha256: a7ac45f0fc275f019989c92fa98c063fe335bb6cd8e8c51e8536553940114e80
+source_audit:
+  path: reports/integrity/research1_reuse_compatibility_v2.yaml
+  sha256: 466052bc0ed7325ccf276355b7c9957d73e19298da24aa62499325b3321ea636
+controls:
+  identity_columns_read:
+  - run_id
+  - map_id
+  - route_id
+  - system_id
+  - seed
+  outcome_columns_exported: []
+  treatment_columns_exported: []
+  nonrequired_topic_names_exported: false
+  protected_test_rows_exported: 0
+  bag_payloads_read: false
+  admitted_for_model_use: false
+  next_gate: distinct human review then causal adapter and label audit
+supersedes:
+  artifact: reports/integrity/research1_temporal_catalog_v1.yaml
+  reason: v1 exported non-required topic names from structural metadata; no outcome
+    values were exported, but v2 minimizes the contract before adapter admission

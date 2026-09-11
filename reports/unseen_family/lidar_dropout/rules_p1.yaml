@@ -1,0 +1,30 @@
+schema_version: 1
+protocol_version: '1.0'
+status: frozen_after_validation_tuning
+selection_split: validation
+forbidden_selection_split: held_out_map_test
+rules:
+  covariance_high:
+    feature: pose_covariance_trace
+    direction: above
+    threshold: 2.0861894376575947
+  progress_low_while_commanded:
+    feature: progress_slope
+    direction: below
+    threshold: -0.023363
+    gate_feature: command_linear
+    gate_direction: above
+    gate_threshold: 0.05
+  scan_dropout_high:
+    feature: valid_return_fraction
+    direction: below
+    threshold: 0.0
+  oscillation_high:
+    feature: command_sign_changes
+    direction: above
+    threshold: 10.0
+freeze_rule: all_thresholds_and_alarm_policy_timestamped_before_any_held_out_prediction
+excluded_family: lidar_dropout
+tuning_record: reports/unseen_family/lidar_dropout/tuning_p1.yaml
+tuning_record_sha256: bf35a74d4e64fad73d97464fde282ecd4bdc7aa1aaedb968498247d712d5216b
+frozen_utc: '2026-09-05T23:51:29.506085+00:00'

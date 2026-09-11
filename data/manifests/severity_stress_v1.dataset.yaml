@@ -1,0 +1,75 @@
+schema_version: 1
+dataset_id: severity_stress_v1-held_out_map_test-1512
+analysis_unit: episode
+status: held_out_confirmatory_complete
+protected_test_used: true
+counts:
+  scientific_episodes: 1512
+  terminal_events: 234
+  non_events: 1278
+  infrastructure_replacements: 12
+event_prevalence: 0.15476190476190477
+duration_seconds:
+  total: 181435.357
+  minimum: 26.094
+  maximum: 240.795
+storage:
+  bag_bytes: 13616594905
+  bag_gib: 12.681442224420607
+distributions:
+  maps:
+    test_00: 504
+    test_01: 504
+    test_02: 504
+  routes:
+    test_00_r0: 84
+    test_00_r1: 84
+    test_00_r2: 84
+    test_00_r3: 84
+    test_00_r4: 84
+    test_00_r5: 84
+    test_01_r0: 84
+    test_01_r1: 84
+    test_01_r2: 84
+    test_01_r3_repl1: 84
+    test_01_r4: 84
+    test_01_r5: 84
+    test_02_r0: 84
+    test_02_r1: 84
+    test_02_r2: 84
+    test_02_r3: 84
+    test_02_r4: 84
+    test_02_r5: 84
+  systems:
+    S0: 1080
+    S3: 432
+  fault_families:
+    camera_occlusion: 216
+    dynamic_blockage: 216
+    lidar_dropout: 216
+    localisation_perturbation: 216
+    planner_oscillation: 216
+    semantic_corruption: 216
+    wheel_slip: 216
+  terminal_states:
+    false_arrival: 164
+    planner_failure: 55
+    success: 1278
+    timeout: 15
+  event_classes:
+    false_arrival: 164
+    mission_timeout: 15
+    navigation_abort: 55
+  recording_profiles:
+    compact_v2: 1512
+source_hashes:
+  campaign_manifest_sha256: f2ae7dad1ab481009c1565b99a095048cc7e67cc221879bcfc660104be029741
+  pilot_report_sha256: 7468a7ada577aa3eb51050468a269b25a0c78ac6d7b75e696b428e29722574ae
+episode_inventory:
+  path: data/manifests/severity_stress_v1.episodes.jsonl
+  sha256: d32f72682d9b299b1a92d34a0a757e71952ea81569c62ee27cdce3f8ea984428
+  rows: 1512
+label_status:
+  episode_outcomes: recorded_and_artifact_validated
+  causal_window_labels: not_admitted_pending_supervisor_and_second_review
+training_admission: forbidden_until_training_readiness_gate_passes

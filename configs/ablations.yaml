@@ -1,0 +1,61 @@
+schema_version: 1
+protocol_version: "1.1"
+status: engineering_contract
+# Feature ablations zero the value channel of every listed primary feature and set
+# missing=1 and age_seconds=max_age for every time step. The column order and the
+# architecture never change between ablations. `max_age` is the frozen
+# raw_feature_contract max_age_seconds for raw features; derived features always
+# carry age 0.0 in the extractor, so their masked age is 0.0 as well.
+masking:
+  value: 0.0
+  missing: 1
+  age_seconds: max_age_seconds
+  derived_feature_masked_age_seconds: 0.0
+
+feature_groups:
+  localisation: [pose_covariance_trace, pose_jump]
+  planner_controller: [global_path_length, global_path_curvature, local_path_length,
+                       local_path_curvature, replan_rate, command_sign_changes, tracking_error]
+  perception_confidence: [confidence_mean, uncertainty_mean, inference_latency_ms]
+  raw_sensor: [valid_return_fraction, minimum_front_range, minimum_left_range,
+               minimum_right_range, valid_return_trend, near_obstacle_trend,
+               left_right_imbalance]
+  motion_and_goal: [command_linear, command_angular, measured_linear, measured_angular,
+                    stopped_while_commanded, jerk, goal_distance,
+                    remaining_distance_slope, progress_slope]
+
+# Names accepted by `train_predictor.py --ablation <name>` and `predict_decisions.py`.
+ablations:
+  no_localisation:
+    kind: feature
+    remove_groups: [localisation]
+    question: Are pose covariance and TF health carrying most of the signal?
+  no_planner_controller:
+    kind: feature
+    remove_groups: [planner_controller]
+    question: Does internal autonomy state add value beyond sensors?
+  no_perception_confidence:
+    kind: feature
+    remove_groups: [perception_confidence]
+    question: Is Research 1 uncertainty useful for failure prediction?
+  no_raw_sensor:
+    kind: feature
+    remove_groups: [raw_sensor]
+    question: Can the predictor operate mainly from system health and motion?
+  no_motion_and_goal:
+    kind: feature
+    remove_groups: [motion_and_goal]
+    question: Supplementary; is motion/goal progress alone a large share of the signal?
+  single_timestamp:
+    kind: feature
+    visible_time_steps: 1
+    question: Is temporal modelling necessary?
+  no_calibration:
+    kind: policy
+    effect: raw sigmoid output is used as risk_score (scripts/apply_calibration.py skipped)
+    question: Does calibration change the warning-cost tradeoff?
+  no_persistence:
+    kind: policy
+    persistence: {required_above_threshold: 1, decisions_considered: 1}
+    cooldown_kept: true
+    question: How much alert stability comes from the decision rule rather than the model?

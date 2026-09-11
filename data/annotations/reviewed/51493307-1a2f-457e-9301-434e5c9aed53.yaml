@@ -1,0 +1,36 @@
+schema_version: 1
+taxonomy_version: 1.0.0
+protocol_version: '1.0'
+run_id: 51493307-1a2f-457e-9301-434e5c9aed53
+annotator: automatic_event_extractor
+annotation_timestamp_utc: '2026-08-30T23:24:32Z'
+episode:
+  start_time: 15.159
+  end_time: 33.174
+  termination_reason: success
+injections:
+- family: semantic_corruption
+  severity: medium
+  planned_onset: 20.159
+  actual_onset: 20.202
+  duration_seconds: null
+  eligible: true
+events: []
+episode_exclusion:
+  excluded: false
+  reason: null
+  notes: null
+review:
+  second_reviewer: Enoch Soyinka
+  adjudication_status: agreed
+  disagreements: []
+  first_reviewer: Emmanuel Alabi Olasubomi
+  first_reviewed_utc: '2026-08-31T22:11:37.854991Z'
+  first_review_notes: 'Human reviewer agrees with the frozen causal fields after inspecting
+    the episode timeline and operational evidence. AI was used only to cross-check
+    the review. Supporting comparison: reports/manual-audit/provisional-ai-comparison-2026-08-31.md.
+    Direct semantic-health telemetry is not shown in the four-panel trace; agreement
+    uses the injection marker, operational evidence, and absence of contradictory
+    terminal evidence.'
+  second_reviewed_utc: '2026-09-04T02:19:31.087865Z'
+  second_review_notes: null

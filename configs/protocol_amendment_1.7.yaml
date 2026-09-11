@@ -1,0 +1,28 @@
+schema_version: 1
+protocol_version: "1.7"
+amendment_id: PA-2026-09-04-03
+status: approved
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: "2026-09-04"
+protected_outcomes_consulted: false
+scope: validation_seed_selection_rule
+rationale: >-
+  Three training seeds were fitted for P3, P4 and P5 on the frozen fitting pool. Their
+  validation AUPRC values differ by at most 0.024 while their event recall at the frozen
+  false-alert budget, the study's primary endpoint, differs by up to a factor of two.
+  Validation exists to select the deployed predictor, so the frozen seed of every learned
+  model is the one with the highest validation event recall at the budget, with validation
+  AUPRC as the tie-break. All seeds are reported; validation estimates for the selected
+  seeds are optimistic by construction and the held-out evaluation is unaffected.
+decisions:
+  selection_metric: event_recall_at_frozen_false_alert_budget
+  tie_break: validation_auprc
+  applies_to: [p3_causal_tcn, p4_gru, p5_compact_transformer]
+  primary_predictor: p3_causal_tcn (unchanged)
+  seeds_reported: all
+  selection_record: reports/model_selection/final_v1/seed_selection_v2.yaml
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  protected_test_access_authorized: false
+  applies_before_model_freeze: true

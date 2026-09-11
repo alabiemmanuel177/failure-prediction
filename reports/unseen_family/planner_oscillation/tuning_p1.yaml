@@ -1,0 +1,130 @@
+schema_version: 1
+model_id: p1_threshold_rules
+selection_split: validation
+protected_test_used: false
+tuned_utc: '2026-09-06T10:56:11.072100+00:00'
+objective: maximum_validation_event_recall_subject_to_false_alert_budget
+false_alert_budget_per_clean_mission: 0.1
+alarm_policy:
+  required_above: 2
+  decisions_considered: 3
+  cooldown_seconds: 10.0
+  score_threshold: 0.5
+candidate_source: development_feature_quantiles
+candidate_thresholds:
+  covariance_high:
+  - -0.9908071607351303
+  - 0.040342
+  - 0.047195
+  - 0.051008
+  - 0.056087
+  - 0.072033
+  - 0.086415
+  - 0.098836
+  - 0.110565
+  - 0.122239
+  - 0.133527
+  - 0.143935
+  - 0.153527
+  - 0.162285
+  - 0.170666
+  - 0.178881
+  - 0.186853
+  - 0.195142
+  - 0.203783
+  - 0.213239
+  - 0.223405
+  - 0.234993
+  - 0.248024
+  - 0.262155
+  - 0.277042
+  - 0.292202
+  - 0.309008
+  - 0.329911
+  - 0.385595
+  - 0.435667
+  - 0.479544
+  - 0.56433
+  - 2.0859220549464226
+  progress_low_while_commanded:
+  - -0.6585816442966461
+  - -0.084064
+  - -0.034554
+  - -0.017923
+  - -0.009709
+  - -0.0
+  - 0.000939
+  - 0.008154
+  - 0.015203
+  - 0.023309
+  - 0.031984
+  - 0.039889
+  - 0.047313
+  - 0.055513
+  - 0.065156
+  - 0.075401
+  - 0.084144
+  - 0.091926
+  - 0.099619
+  - 0.107299
+  - 0.115083
+  - 0.123023
+  - 0.132664
+  - 0.142039
+  - 0.149568
+  - 0.157298
+  - 0.165008
+  - 0.174655
+  - 0.179663
+  - 0.185638
+  - 0.203609
+  - 0.7656587362289429
+  scan_dropout_high:
+  - 0.2999999523162842
+  - 0.65
+  - 1.0
+  - 1.350000023841858
+  oscillation_high:
+  - -5.0
+  - 0.0
+  - 1.0
+  - 2.0
+  - 3.0
+  - 10.0
+selected_thresholds:
+  covariance_high: 2.0859220549464226
+  progress_low_while_commanded: -0.6585816442966461
+  scan_dropout_high: 0.2999999523162842
+  oscillation_high: 10.0
+validation_metrics:
+  event_recall: 0.0
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_mission: 0.0
+  median_useful_lead_seconds_detected: null
+  detected_event_count: 0
+  event_count: 51
+development_metrics_informational:
+  event_recall: 0.0
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_mission: 0.0
+  median_useful_lead_seconds_detected: null
+  detected_event_count: 0
+  event_count: 344
+search_trace: []
+development_datasets:
+- balanced_pilot_v1-development-648
+- targeted_development_v1-development-1212
+- development_supplement_v1-development-504
+validation_dataset: balanced_validation_v1-validation-324
+excluded_family: planner_oscillation
+excluded_episode_counts:
+  development: 120
+  validation: 36
+development_episode_count: 2244
+validation_episode_count: 288
+validation_predictions: reports/unseen_family/planner_oscillation/validation_p1.csv
+validation_predictions_sha256: 9d39ff48936f023427841bb299c837e311df78fb4f6333eb4ae854fef9db5f60
+rules_output: reports/unseen_family/planner_oscillation/rules_p1.yaml
+note: 'leave-one-family-out fold: planner_oscillation episodes were removed from the
+  development quantile grid and the validation tuning set; thresholds are frozen before
+  any protected evaluation of that family.'

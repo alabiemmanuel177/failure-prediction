@@ -1,0 +1,900 @@
+schema_version: 1
+protocol_version: '1.0'
+generated_utc: '2026-09-06T10:28:23.907775+00:00'
+scope: validation_only
+confirmatory: false
+protected_test_used: false
+note: Ablation deltas on validation episodes at the primary frozen threshold rule;
+  exploratory.
+inputs:
+  freeze: /home/eao/failure-prediction/configs/model_freeze.yaml
+  freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  alarm_policy_sha256: eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc
+  ablations_config_sha256: d153611cdecab5131024959fc6bd29182179c281d9e03ea46889eeb04e8a1e00
+  primary_predictions: reports/predictions/final_v1_seed20260904/p3_causal_tcn.validation.calibrated.csv
+  primary_predictions_sha256: 4b807df50f862306a0b564c91859e3e3e1aeb251c186e42f9e326934c3ee32ef
+  train_datasets:
+  - balanced_pilot_v1-development-648
+  - targeted_development_v1-development-1212
+  - development_supplement_v1-development-504
+  selection_dataset: balanced_validation_v1-validation-324
+  validation_datasets:
+  - balanced_validation_v1-validation-324
+  seed: 20260904
+  calibration_mode: refit
+primary:
+  model_id: p3_causal_tcn
+  result:
+    policy:
+      threshold: 0.23509196030026114
+      persistence: 2-of-3
+      cooldown_seconds: 10.0
+    episode_count: 324
+    event_count: 62
+    detected_event_count: 21
+    event_recall: 0.3387096774193548
+    false_alerts_per_clean_mission: 0.09722222222222222
+    false_alerts_per_non_event_mission: 0.1984732824427481
+    lead_time:
+      event_count: 62
+      detected_event_count: 21
+      undetected_event_count: 41
+      median_seconds_detected: 5.700999999999993
+      q1_seconds_detected: 4.49199999999999
+      q3_seconds_detected: 6.063999999999993
+      min_seconds_detected: 2.870999999999995
+      max_seconds_detected: 8.361999999999995
+      fraction_of_all_events_warned_at_least:
+        1s: 0.3387096774193548
+        2s: 0.3387096774193548
+        3s: 0.3064516129032258
+        5s: 0.20967741935483872
+        10s: 0.0
+    discrimination:
+      auprc: 0.20405706169570328
+      auroc: 0.8633356879939895
+      eligible_positive_count: 1098
+      eligible_negative_count: 31229
+      unit: eligible_decision_window
+      role: supporting_metric_only
+    calibration:
+      brier_score: 0.029579626239055325
+      ece: 0.005357780368302284
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 172
+        alerts_per_mission: 0.5308641975308642
+        repeated_alerts_per_mission: 0.1574074074074074
+        time_under_alert_seconds_per_mission: 2.3333333333333335
+        fraction_of_decisions_under_alert: 0.03343209658161235
+      clean:
+        mission_count: 72
+        total_alerts: 11
+        alerts_per_mission: 0.1527777777777778
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.2777777777777778
+        fraction_of_decisions_under_alert: 0.004934616333580064
+      faulted:
+        mission_count: 252
+        total_alerts: 161
+        alerts_per_mission: 0.6388888888888888
+        repeated_alerts_per_mission: 0.20238095238095238
+        time_under_alert_seconds_per_mission: 2.9206349206349205
+        fraction_of_decisions_under_alert: 0.039655172413793106
+ablations:
+  no_localisation:
+    spec:
+      kind: feature
+      remove_groups:
+      - localisation
+      question: Are pose covariance and TF health carrying most of the signal?
+      retrain: true
+    retrained: true
+    commands:
+    - nice -n 19 /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/train_predictor.py
+      --model-id p3_causal_tcn --config configs/models/p3_causal_tcn.yaml --train-dataset
+      balanced_pilot_v1-development-648 --train-dataset targeted_development_v1-development-1212
+      --train-dataset development_supplement_v1-development-504 --selection-dataset
+      balanced_validation_v1-validation-324 --ablation no_localisation --seed 20260904
+      --output-root /home/eao/failure-prediction/models/ablations/no_localisation
+      --run-name p3_causal_tcn__abl-no_localisation__seed20260904
+    - /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+      --model-dir /home/eao/failure-prediction/models/ablations/no_localisation/p3_causal_tcn__abl-no_localisation__seed20260904
+      --dataset balanced_validation_v1-validation-324 --output /home/eao/failure-prediction/reports/predictions/ablations/no_localisation.raw.csv
+    reused_existing_model: true
+    reused_existing_predictions: true
+    model_dir: /home/eao/failure-prediction/models/ablations/no_localisation/p3_causal_tcn__abl-no_localisation__seed20260904
+    raw_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_localisation.raw.csv
+    calibration_mode: refit
+    calibrated_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_localisation.calibrated.csv
+    calibrated_prediction_table_sha256: 2e26f81358c049e29c62bc208090ecff6f85d0082c00a68c7de2474c2694a120
+    calibrator:
+      method: platt_scaling
+      sha256: 19489564a08d758e64b2843dbf733e4f97dd7fac6038e0925b6153b1a301df38
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 2-of-3
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 20
+      event_recall: 0.3225806451612903
+      false_alerts_per_clean_mission: 0.19444444444444445
+      false_alerts_per_non_event_mission: 0.2099236641221374
+      lead_time:
+        event_count: 62
+        detected_event_count: 20
+        undetected_event_count: 42
+        median_seconds_detected: 6.754499999999993
+        q1_seconds_detected: 5.152999999999995
+        q3_seconds_detected: 7.327499999999997
+        min_seconds_detected: 1.921999999999997
+        max_seconds_detected: 9.861999999999995
+        fraction_of_all_events_warned_at_least:
+          1s: 0.3225806451612903
+          2s: 0.3064516129032258
+          3s: 0.2903225806451613
+          5s: 0.25806451612903225
+          10s: 0.0
+      discrimination:
+        auprc: 0.21304050688733206
+        auroc: 0.8710262476712219
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.02874463715392891
+        ece: 0.010294525027299429
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 230
+          alerts_per_mission: 0.7098765432098766
+          repeated_alerts_per_mission: 0.24382716049382716
+          time_under_alert_seconds_per_mission: 3.404320987654321
+          fraction_of_decisions_under_alert: 0.04877725202317251
+        clean:
+          mission_count: 72
+          total_alerts: 15
+          alerts_per_mission: 0.20833333333333334
+          repeated_alerts_per_mission: 0.0
+          time_under_alert_seconds_per_mission: 0.625
+          fraction_of_decisions_under_alert: 0.011102886750555145
+        faulted:
+          mission_count: 252
+          total_alerts: 215
+          alerts_per_mission: 0.8531746031746031
+          repeated_alerts_per_mission: 0.3134920634920635
+          time_under_alert_seconds_per_mission: 4.198412698412699
+          fraction_of_decisions_under_alert: 0.057004310344827586
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: -0.016129032258064516
+      confidence: 0.95
+      confidence_interval:
+      - -0.3333333333333333
+      - 0.08653846153846154
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.3225806451612903
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324
+  no_planner_controller:
+    spec:
+      kind: feature
+      remove_groups:
+      - planner_controller
+      question: Does internal autonomy state add value beyond sensors?
+      retrain: true
+    retrained: true
+    commands:
+    - nice -n 19 /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/train_predictor.py
+      --model-id p3_causal_tcn --config configs/models/p3_causal_tcn.yaml --train-dataset
+      balanced_pilot_v1-development-648 --train-dataset targeted_development_v1-development-1212
+      --train-dataset development_supplement_v1-development-504 --selection-dataset
+      balanced_validation_v1-validation-324 --ablation no_planner_controller --seed
+      20260904 --output-root /home/eao/failure-prediction/models/ablations/no_planner_controller
+      --run-name p3_causal_tcn__abl-no_planner_controller__seed20260904
+    - /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+      --model-dir /home/eao/failure-prediction/models/ablations/no_planner_controller/p3_causal_tcn__abl-no_planner_controller__seed20260904
+      --dataset balanced_validation_v1-validation-324 --output /home/eao/failure-prediction/reports/predictions/ablations/no_planner_controller.raw.csv
+    reused_existing_model: true
+    reused_existing_predictions: true
+    model_dir: /home/eao/failure-prediction/models/ablations/no_planner_controller/p3_causal_tcn__abl-no_planner_controller__seed20260904
+    raw_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_planner_controller.raw.csv
+    calibration_mode: refit
+    calibrated_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_planner_controller.calibrated.csv
+    calibrated_prediction_table_sha256: a69258a949543bbd4c84d272fbce91d9a105566af43f3f8b345dd9509b8058a4
+    calibrator:
+      method: platt_scaling
+      sha256: dad59aa18d3b6c65f4923b4adde358e7944d635abff6e602eb1118fdbdda8573
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 2-of-3
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 21
+      event_recall: 0.3387096774193548
+      false_alerts_per_clean_mission: 0.09722222222222222
+      false_alerts_per_non_event_mission: 0.18702290076335878
+      lead_time:
+        event_count: 62
+        detected_event_count: 21
+        undetected_event_count: 41
+        median_seconds_detected: 4.292000000000002
+        q1_seconds_detected: 2.7280000000000086
+        q3_seconds_detected: 6.822999999999993
+        min_seconds_detected: 1.034000000000006
+        max_seconds_detected: 9.99199999999999
+        fraction_of_all_events_warned_at_least:
+          1s: 0.3387096774193548
+          2s: 0.2903225806451613
+          3s: 0.24193548387096775
+          5s: 0.14516129032258066
+          10s: 0.0
+      discrimination:
+        auprc: 0.1692512667311623
+        auroc: 0.8226596979910026
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.030553732899191895
+        ece: 0.008291460041370984
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 209
+          alerts_per_mission: 0.6450617283950617
+          repeated_alerts_per_mission: 0.2623456790123457
+          time_under_alert_seconds_per_mission: 2.8287037037037037
+          fraction_of_decisions_under_alert: 0.04052978375270862
+        clean:
+          mission_count: 72
+          total_alerts: 10
+          alerts_per_mission: 0.1388888888888889
+          repeated_alerts_per_mission: 0.013888888888888888
+          time_under_alert_seconds_per_mission: 0.2361111111111111
+          fraction_of_decisions_under_alert: 0.004194423883543055
+        faulted:
+          mission_count: 252
+          total_alerts: 199
+          alerts_per_mission: 0.7896825396825397
+          repeated_alerts_per_mission: 0.3333333333333333
+          time_under_alert_seconds_per_mission: 3.5694444444444446
+          fraction_of_decisions_under_alert: 0.048464439655172414
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: 0.0
+      confidence: 0.95
+      confidence_interval:
+      - -0.16666666666666666
+      - 0.5
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.3387096774193548
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324
+  no_perception_confidence:
+    spec:
+      kind: feature
+      remove_groups:
+      - perception_confidence
+      question: Is Research 1 uncertainty useful for failure prediction?
+      retrain: true
+    retrained: true
+    commands:
+    - nice -n 19 /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/train_predictor.py
+      --model-id p3_causal_tcn --config configs/models/p3_causal_tcn.yaml --train-dataset
+      balanced_pilot_v1-development-648 --train-dataset targeted_development_v1-development-1212
+      --train-dataset development_supplement_v1-development-504 --selection-dataset
+      balanced_validation_v1-validation-324 --ablation no_perception_confidence --seed
+      20260904 --output-root /home/eao/failure-prediction/models/ablations/no_perception_confidence
+      --run-name p3_causal_tcn__abl-no_perception_confidence__seed20260904
+    - /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+      --model-dir /home/eao/failure-prediction/models/ablations/no_perception_confidence/p3_causal_tcn__abl-no_perception_confidence__seed20260904
+      --dataset balanced_validation_v1-validation-324 --output /home/eao/failure-prediction/reports/predictions/ablations/no_perception_confidence.raw.csv
+    reused_existing_model: true
+    reused_existing_predictions: true
+    model_dir: /home/eao/failure-prediction/models/ablations/no_perception_confidence/p3_causal_tcn__abl-no_perception_confidence__seed20260904
+    raw_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_perception_confidence.raw.csv
+    calibration_mode: refit
+    calibrated_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_perception_confidence.calibrated.csv
+    calibrated_prediction_table_sha256: ff5451e1cd6f546e2335e649f3627417ddfaef29ed55a310c84474214d5ee2db
+    calibrator:
+      method: platt_scaling
+      sha256: 3732ebc47828e0257a99112334e3c6fbfd3a46bbab60fe93ff83d785be78b586
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 2-of-3
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 24
+      event_recall: 0.3870967741935484
+      false_alerts_per_clean_mission: 0.09722222222222222
+      false_alerts_per_non_event_mission: 0.12213740458015267
+      lead_time:
+        event_count: 62
+        detected_event_count: 24
+        undetected_event_count: 38
+        median_seconds_detected: 4.558499999999995
+        q1_seconds_detected: 3.1877500000000047
+        q3_seconds_detected: 5.20399999999999
+        min_seconds_detected: 1.2360000000000184
+        max_seconds_detected: 7.813999999999993
+        fraction_of_all_events_warned_at_least:
+          1s: 0.3870967741935484
+          2s: 0.3548387096774194
+          3s: 0.3064516129032258
+          5s: 0.16129032258064516
+          10s: 0.0
+      discrimination:
+        auprc: 0.26785866933263786
+        auroc: 0.8810353490150117
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.028184124390154157
+        ece: 0.0111910884118091
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 156
+          alerts_per_mission: 0.48148148148148145
+          repeated_alerts_per_mission: 0.1728395061728395
+          time_under_alert_seconds_per_mission: 2.0277777777777777
+          fraction_of_decisions_under_alert: 0.029054083934020255
+        clean:
+          mission_count: 72
+          total_alerts: 10
+          alerts_per_mission: 0.1388888888888889
+          repeated_alerts_per_mission: 0.0
+          time_under_alert_seconds_per_mission: 0.1597222222222222
+          fraction_of_decisions_under_alert: 0.002837404391808537
+        faulted:
+          mission_count: 252
+          total_alerts: 146
+          alerts_per_mission: 0.5793650793650794
+          repeated_alerts_per_mission: 0.2222222222222222
+          time_under_alert_seconds_per_mission: 2.5615079365079363
+          fraction_of_decisions_under_alert: 0.034779094827586204
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: 0.04838709677419355
+      confidence: 0.95
+      confidence_interval:
+      - -0.3
+      - 0.19642857142857142
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.3870967741935484
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324
+  no_raw_sensor:
+    spec:
+      kind: feature
+      remove_groups:
+      - raw_sensor
+      question: Can the predictor operate mainly from system health and motion?
+      retrain: true
+    retrained: true
+    commands:
+    - nice -n 19 /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/train_predictor.py
+      --model-id p3_causal_tcn --config configs/models/p3_causal_tcn.yaml --train-dataset
+      balanced_pilot_v1-development-648 --train-dataset targeted_development_v1-development-1212
+      --train-dataset development_supplement_v1-development-504 --selection-dataset
+      balanced_validation_v1-validation-324 --ablation no_raw_sensor --seed 20260904
+      --output-root /home/eao/failure-prediction/models/ablations/no_raw_sensor --run-name
+      p3_causal_tcn__abl-no_raw_sensor__seed20260904
+    - /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+      --model-dir /home/eao/failure-prediction/models/ablations/no_raw_sensor/p3_causal_tcn__abl-no_raw_sensor__seed20260904
+      --dataset balanced_validation_v1-validation-324 --output /home/eao/failure-prediction/reports/predictions/ablations/no_raw_sensor.raw.csv
+    model_dir: /home/eao/failure-prediction/models/ablations/no_raw_sensor/p3_causal_tcn__abl-no_raw_sensor__seed20260904
+    raw_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_raw_sensor.raw.csv
+    calibration_mode: refit
+    calibrated_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_raw_sensor.calibrated.csv
+    calibrated_prediction_table_sha256: 81cbd5a79eea0ab0c189a4b2d2563bffa7557429f76e78fbab2465c5bc6aeae8
+    calibrator:
+      method: platt_scaling
+      sha256: 128f0b16c4a622cd00a5f965e666a3f7a4a34afe4e39f59b8a5157a94ad0a381
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 2-of-3
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 4
+      event_recall: 0.06451612903225806
+      false_alerts_per_clean_mission: 0.0
+      false_alerts_per_non_event_mission: 0.0
+      lead_time:
+        event_count: 62
+        detected_event_count: 4
+        undetected_event_count: 58
+        median_seconds_detected: 2.8429999999999964
+        q1_seconds_detected: 2.6965000000000003
+        q3_seconds_detected: 2.9817499999999946
+        min_seconds_detected: 2.341000000000008
+        max_seconds_detected: 3.313999999999993
+        fraction_of_all_events_warned_at_least:
+          1s: 0.06451612903225806
+          2s: 0.06451612903225806
+          3s: 0.016129032258064516
+          5s: 0.0
+          10s: 0.0
+      discrimination:
+        auprc: 0.1867318349626752
+        auroc: 0.7889138878375449
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.030791371393430616
+        ece: 0.005042470597581814
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 23
+          alerts_per_mission: 0.07098765432098765
+          repeated_alerts_per_mission: 0.009259259259259259
+          time_under_alert_seconds_per_mission: 0.2839506172839506
+          fraction_of_decisions_under_alert: 0.004068456197762349
+        clean:
+          mission_count: 72
+          total_alerts: 0
+          alerts_per_mission: 0.0
+          repeated_alerts_per_mission: 0.0
+          time_under_alert_seconds_per_mission: 0.0
+          fraction_of_decisions_under_alert: 0.0
+        faulted:
+          mission_count: 252
+          total_alerts: 23
+          alerts_per_mission: 0.09126984126984126
+          repeated_alerts_per_mission: 0.011904761904761904
+          time_under_alert_seconds_per_mission: 0.36507936507936506
+          fraction_of_decisions_under_alert: 0.004956896551724138
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: -0.27419354838709675
+      confidence: 0.95
+      confidence_interval:
+      - -0.39623454782042944
+      - 0.0
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.06451612903225806
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324
+  no_motion_and_goal:
+    spec:
+      kind: feature
+      remove_groups:
+      - motion_and_goal
+      question: Supplementary; is motion/goal progress alone a large share of the
+        signal?
+      retrain: true
+    retrained: true
+    commands:
+    - nice -n 19 /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/train_predictor.py
+      --model-id p3_causal_tcn --config configs/models/p3_causal_tcn.yaml --train-dataset
+      balanced_pilot_v1-development-648 --train-dataset targeted_development_v1-development-1212
+      --train-dataset development_supplement_v1-development-504 --selection-dataset
+      balanced_validation_v1-validation-324 --ablation no_motion_and_goal --seed 20260904
+      --output-root /home/eao/failure-prediction/models/ablations/no_motion_and_goal
+      --run-name p3_causal_tcn__abl-no_motion_and_goal__seed20260904
+    - /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+      --model-dir /home/eao/failure-prediction/models/ablations/no_motion_and_goal/p3_causal_tcn__abl-no_motion_and_goal__seed20260904
+      --dataset balanced_validation_v1-validation-324 --output /home/eao/failure-prediction/reports/predictions/ablations/no_motion_and_goal.raw.csv
+    model_dir: /home/eao/failure-prediction/models/ablations/no_motion_and_goal/p3_causal_tcn__abl-no_motion_and_goal__seed20260904
+    raw_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_motion_and_goal.raw.csv
+    calibration_mode: refit
+    calibrated_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/no_motion_and_goal.calibrated.csv
+    calibrated_prediction_table_sha256: 16b25d01d7afb0ec86d74a72d01a58bbed87fe628821c984dfe9b580552081cc
+    calibrator:
+      method: platt_scaling
+      sha256: f55bebffe3a66ce76a723e2e24f8b16c818a49a856c1aef3c1c6619660ff4bf5
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 2-of-3
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 5
+      event_recall: 0.08064516129032258
+      false_alerts_per_clean_mission: 0.013888888888888888
+      false_alerts_per_non_event_mission: 0.13358778625954199
+      lead_time:
+        event_count: 62
+        detected_event_count: 5
+        undetected_event_count: 57
+        median_seconds_detected: 6.841000000000008
+        q1_seconds_detected: 5.814999999999998
+        q3_seconds_detected: 7.361999999999995
+        min_seconds_detected: 1.8709999999999951
+        max_seconds_detected: 9.313999999999993
+        fraction_of_all_events_warned_at_least:
+          1s: 0.08064516129032258
+          2s: 0.06451612903225806
+          3s: 0.06451612903225806
+          5s: 0.06451612903225806
+          10s: 0.0
+      discrimination:
+        auprc: 0.1402276015900441
+        auroc: 0.8102011692112109
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.031438239996578195
+        ece: 0.007879719729750694
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 132
+          alerts_per_mission: 0.4074074074074074
+          repeated_alerts_per_mission: 0.16358024691358025
+          time_under_alert_seconds_per_mission: 2.478395061728395
+          fraction_of_decisions_under_alert: 0.0355105470304692
+        clean:
+          mission_count: 72
+          total_alerts: 1
+          alerts_per_mission: 0.013888888888888888
+          repeated_alerts_per_mission: 0.0
+          time_under_alert_seconds_per_mission: 0.04861111111111111
+          fraction_of_decisions_under_alert: 0.0008635578583765112
+        faulted:
+          mission_count: 252
+          total_alerts: 131
+          alerts_per_mission: 0.5198412698412699
+          repeated_alerts_per_mission: 0.21031746031746032
+          time_under_alert_seconds_per_mission: 3.1726190476190474
+          fraction_of_decisions_under_alert: 0.04307650862068965
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: -0.25806451612903225
+      confidence: 0.95
+      confidence_interval:
+      - -0.38897058823529396
+      - 0.0
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.08064516129032258
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324
+  single_timestamp:
+    spec:
+      kind: feature
+      visible_time_steps: 1
+      question: Is temporal modelling necessary?
+      retrain: true
+    retrained: true
+    commands:
+    - nice -n 19 /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/train_predictor.py
+      --model-id p3_causal_tcn --config configs/models/p3_causal_tcn.yaml --train-dataset
+      balanced_pilot_v1-development-648 --train-dataset targeted_development_v1-development-1212
+      --train-dataset development_supplement_v1-development-504 --selection-dataset
+      balanced_validation_v1-validation-324 --ablation single_timestamp --seed 20260904
+      --output-root /home/eao/failure-prediction/models/ablations/single_timestamp
+      --run-name p3_causal_tcn__abl-single_timestamp__seed20260904
+    - /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+      --model-dir /home/eao/failure-prediction/models/ablations/single_timestamp/p3_causal_tcn__abl-single_timestamp__seed20260904
+      --dataset balanced_validation_v1-validation-324 --output /home/eao/failure-prediction/reports/predictions/ablations/single_timestamp.raw.csv
+    model_dir: /home/eao/failure-prediction/models/ablations/single_timestamp/p3_causal_tcn__abl-single_timestamp__seed20260904
+    raw_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/single_timestamp.raw.csv
+    calibration_mode: refit
+    calibrated_prediction_table: /home/eao/failure-prediction/reports/predictions/ablations/single_timestamp.calibrated.csv
+    calibrated_prediction_table_sha256: a4d743ed0fe661d17552fab93ae48670c8c3a94c7518fa8b1bf67c27318849f0
+    calibrator:
+      method: platt_scaling
+      sha256: 09fb4db1f82ed7a32cbb047b6eeacdd9961d2a9e56e61c19f0411a2371e27ce6
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 2-of-3
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 3
+      event_recall: 0.04838709677419355
+      false_alerts_per_clean_mission: 0.08333333333333333
+      false_alerts_per_non_event_mission: 0.0916030534351145
+      lead_time:
+        event_count: 62
+        detected_event_count: 3
+        undetected_event_count: 59
+        median_seconds_detected: 3.8149999999999977
+        q1_seconds_detected: 3.521500000000003
+        q3_seconds_detected: 4.078000000000003
+        min_seconds_detected: 3.2280000000000086
+        max_seconds_detected: 4.341000000000008
+        fraction_of_all_events_warned_at_least:
+          1s: 0.04838709677419355
+          2s: 0.04838709677419355
+          3s: 0.04838709677419355
+          5s: 0.0
+          10s: 0.0
+      discrimination:
+        auprc: 0.13345410818047365
+        auroc: 0.8339401673553043
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.03106474137390146
+        ece: 0.007959202775076958
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 140
+          alerts_per_mission: 0.43209876543209874
+          repeated_alerts_per_mission: 0.1728395061728395
+          time_under_alert_seconds_per_mission: 2.8564814814814814
+          fraction_of_decisions_under_alert: 0.04092778490248972
+        clean:
+          mission_count: 72
+          total_alerts: 6
+          alerts_per_mission: 0.08333333333333333
+          repeated_alerts_per_mission: 0.0
+          time_under_alert_seconds_per_mission: 0.16666666666666666
+          fraction_of_decisions_under_alert: 0.0029607698001480384
+        faulted:
+          mission_count: 252
+          total_alerts: 134
+          alerts_per_mission: 0.5317460317460317
+          repeated_alerts_per_mission: 0.2222222222222222
+          time_under_alert_seconds_per_mission: 3.625
+          fraction_of_decisions_under_alert: 0.04921875
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: -0.2903225806451613
+      confidence: 0.95
+      confidence_interval:
+      - -0.5
+      - -0.07120535714285836
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.04838709677419355
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324
+  no_calibration:
+    spec:
+      kind: policy
+      effect: raw sigmoid output is used as risk_score (scripts/apply_calibration.py
+        skipped)
+      question: Does calibration change the warning-cost tradeoff?
+      retrain: false
+    retrained: false
+    commands: []
+    calibration_mode: none
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 2-of-3
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 43
+      event_recall: 0.6935483870967742
+      false_alerts_per_clean_mission: 0.4861111111111111
+      false_alerts_per_non_event_mission: 0.7061068702290076
+      lead_time:
+        event_count: 62
+        detected_event_count: 43
+        undetected_event_count: 19
+        median_seconds_detected: 6.942000000000007
+        q1_seconds_detected: 5.406499999999994
+        q3_seconds_detected: 7.893499999999996
+        min_seconds_detected: 1.0660000000000025
+        max_seconds_detected: 9.921000000000006
+        fraction_of_all_events_warned_at_least:
+          1s: 0.6935483870967742
+          2s: 0.6612903225806451
+          3s: 0.6451612903225806
+          5s: 0.5161290322580645
+          10s: 0.0
+      discrimination:
+        auprc: 0.20405706169570328
+        auroc: 0.8633356879939895
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.04821537898299292
+        ece: 0.0447612892628453
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 436
+          alerts_per_mission: 1.345679012345679
+          repeated_alerts_per_mission: 0.6574074074074074
+          time_under_alert_seconds_per_mission: 7.427469135802469
+          fraction_of_decisions_under_alert: 0.1064210852164684
+        clean:
+          mission_count: 72
+          total_alerts: 45
+          alerts_per_mission: 0.625
+          repeated_alerts_per_mission: 0.09722222222222222
+          time_under_alert_seconds_per_mission: 2.298611111111111
+          fraction_of_decisions_under_alert: 0.040833950160375034
+        faulted:
+          mission_count: 252
+          total_alerts: 391
+          alerts_per_mission: 1.5515873015873016
+          repeated_alerts_per_mission: 0.8174603174603174
+          time_under_alert_seconds_per_mission: 8.892857142857142
+          fraction_of_decisions_under_alert: 0.12074353448275862
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: 0.3548387096774194
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.5
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.6935483870967742
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324
+  no_persistence:
+    spec:
+      kind: policy
+      persistence:
+        required_above_threshold: 1
+        decisions_considered: 1
+      cooldown_kept: true
+      question: How much alert stability comes from the decision rule rather than
+        the model?
+      retrain: false
+    retrained: false
+    commands: []
+    calibration_mode: frozen
+    result:
+      policy:
+        threshold: 0.23509196030026114
+        persistence: 1-of-1
+        cooldown_seconds: 10.0
+      episode_count: 324
+      event_count: 62
+      detected_event_count: 23
+      event_recall: 0.3709677419354839
+      false_alerts_per_clean_mission: 0.125
+      false_alerts_per_non_event_mission: 0.22137404580152673
+      lead_time:
+        event_count: 62
+        detected_event_count: 23
+        undetected_event_count: 39
+        median_seconds_detected: 6.314999999999998
+        q1_seconds_detected: 5.075499999999991
+        q3_seconds_detected: 7.012499999999996
+        min_seconds_detected: 3.370999999999995
+        max_seconds_detected: 8.861999999999995
+        fraction_of_all_events_warned_at_least:
+          1s: 0.3709677419354839
+          2s: 0.3709677419354839
+          3s: 0.3709677419354839
+          5s: 0.27419354838709675
+          10s: 0.0
+      discrimination:
+        auprc: 0.20405706169570328
+        auroc: 0.8633356879939895
+        eligible_positive_count: 1098
+        eligible_negative_count: 31229
+        unit: eligible_decision_window
+        role: supporting_metric_only
+      calibration:
+        brier_score: 0.029579626239055325
+        ece: 0.005357780368302284
+      alert_burden:
+        all:
+          mission_count: 324
+          total_alerts: 197
+          alerts_per_mission: 0.6080246913580247
+          repeated_alerts_per_mission: 0.18518518518518517
+          time_under_alert_seconds_per_mission: 2.4228395061728394
+          fraction_of_decisions_under_alert: 0.034714544730907
+        clean:
+          mission_count: 72
+          total_alerts: 14
+          alerts_per_mission: 0.19444444444444445
+          repeated_alerts_per_mission: 0.0
+          time_under_alert_seconds_per_mission: 0.3263888888888889
+          fraction_of_decisions_under_alert: 0.005798174191956575
+        faulted:
+          mission_count: 252
+          total_alerts: 183
+          alerts_per_mission: 0.7261904761904762
+          repeated_alerts_per_mission: 0.23809523809523808
+          time_under_alert_seconds_per_mission: 3.0218253968253967
+          fraction_of_decisions_under_alert: 0.04102909482758621
+    delta_vs_primary:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: a_detected_minus_b_detected
+      episode_count: 62
+      map_count: 3
+      point_estimate: 0.03225806451612903
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.06896551724137931
+      bootstrap_replicates: 2000
+      seed: 20260904
+      event_recall_a: 0.3709677419354839
+      event_recall_b: 0.3387096774193548
+      event_episode_count: 62
+      total_episode_count: 324

@@ -1,0 +1,94 @@
+schema_version: 1
+campaign_id: recovery_pilot_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 882
+  observed: 882
+  usable: 855
+  infrastructure_invalid_attempts: 27
+  infrastructure_replacements: 0
+  terminal_events: 232
+  non_events: 623
+event_prevalence: 0.27134502923976606
+duration_seconds:
+  total: 115592.591
+  median: 134.328
+by_terminal_state:
+  false_arrival: 84
+  planner_failure: 41
+  success: 623
+  timeout: 107
+by_attempt_terminal_state:
+  false_arrival: 84
+  invalid: 27
+  planner_failure: 41
+  success: 623
+  timeout: 107
+by_fault_family:
+  camera_occlusion: 126
+  dynamic_blockage: 111
+  lidar_dropout: 123
+  localisation_perturbation: 123
+  planner_oscillation: 123
+  semantic_corruption: 124
+  wheel_slip: 125
+by_map:
+  val_00: 289
+  val_01: 279
+  val_02: 287
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors:
+  - 'val_01-val_01_r0-blockage-r0-R0: expected one declared replacement, found 0'
+  - 'val_01-val_01_r1-blockage-r0-RP_replan_clear_costmaps: expected one declared
+    replacement, found 0'
+  - 'val_01-val_01_r2-blockage-r0-R0: expected one declared replacement, found 0'
+  - 'val_01-val_01_r2-blockage-r0-RP_controlled_stop: expected one declared replacement,
+    found 0'
+  - 'val_01-val_01_r2-blockage-r0-RP_backup: expected one declared replacement, found
+    0'
+  - 'val_01-val_01_r1-blockage-r0-RP_wait: expected one declared replacement, found
+    0'
+  - 'val_01-val_01_r2-blockage-r0-RP_relocalise: expected one declared replacement,
+    found 0'
+  - 'val_01-val_01_r2-blockage-r0-RP_replan_clear_costmaps: expected one declared
+    replacement, found 0'
+  - 'val_01-val_01_r4-blockage-r0-R0: expected one declared replacement, found 0'
+  - 'val_01-val_01_r4-blockage-r0-RP_controlled_stop: expected one declared replacement,
+    found 0'
+  - 'val_01-val_01_r4-blockage-r0-RP_relocalise: expected one declared replacement,
+    found 0'
+  - 'val_01-val_01_r5-blockage-r0-RP_controlled_stop: expected one declared replacement,
+    found 0'
+  - 'val_01-val_01_r5-blockage-r0-RP_replan_clear_costmaps: expected one declared
+    replacement, found 0'
+  - 'val_02-val_02_r1-blockage-r0-RP_relocalise: expected one declared replacement,
+    found 0'
+  - 'val_02-val_02_r5-blockage-r0-RP_spin_active_rescan: expected one declared replacement,
+    found 0'
+  - 'val_00-val_00_r4-lidar-r0-RP_wait: expected one declared replacement, found 0'
+  - 'val_01-val_01_r1-lidar-r0-RP_spin_active_rescan: expected one declared replacement,
+    found 0'
+  - 'val_02-val_02_r0-lidar-r0-RP_controlled_stop: expected one declared replacement,
+    found 0'
+  - 'val_00-val_00_r0-localisation-r0-RP_replan_clear_costmaps: expected one declared
+    replacement, found 0'
+  - 'val_02-val_02_r3-localisation-r0-RP_relocalise: expected one declared replacement,
+    found 0'
+  - 'val_02-val_02_r4-localisation-r0-RP_backup: expected one declared replacement,
+    found 0'
+  - 'val_00-val_00_r2-oscillation-r0-RP_backup: expected one declared replacement,
+    found 0'
+  - 'val_01-val_01_r1-oscillation-r0-RP_spin_active_rescan: expected one declared
+    replacement, found 0'
+  - 'val_02-val_02_r1-oscillation-r0-RP_backup: expected one declared replacement,
+    found 0'
+  - 'val_02-val_02_r4-wheel-r0-RP_relocalise: expected one declared replacement, found
+    0'
+  - 'val_00-val_00_r0-semantic-r0-R0: expected one declared replacement, found 0'
+  - 'val_00-val_00_r2-semantic-r0-RP_replan_clear_costmaps: expected one declared
+    replacement, found 0'

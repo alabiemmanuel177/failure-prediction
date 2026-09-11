@@ -1,0 +1,70 @@
+schema_version: 1
+protocol_version: '1.8'
+amendment_id: PA-2026-09-10-01
+status: approved
+proposed_utc: '2026-09-10T15:30:00Z'
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: '2026-09-10T16:36:44Z'
+scope: re_execution_of_the_paired_recovery_campaign_after_an_execution_defect
+rationale: 'paired_recovery_v1 (1,512 protected held-out episodes, R0/R2/R3) was executed
+  with the recovery manager in recommendation-only mode because its manifest omitted
+  execution_policy.recovery_live_execution: true. The R2 and R3 arms decided actions
+  on 217-226 warnings each but executed none (every summary records recovery_live_execution_requested
+  false; executed_count 0), so no recovery treatment was delivered and the H6 comparison
+  is void (R0 versus R0 with a monitor). The defect is in execution tooling, not in
+  the design, the frozen predictor, the frozen selector or the seeds.'
+decisions:
+  paired_recovery_v2:
+    design: identical to paired_recovery_v1 (same maps, routes, conditions, replicates,
+      seeds, policies R0/R2/R3, pairing); execution_policy.recovery_live_execution
+      true; same frozen predictor, calibrator, threshold, guard evidence and R3 selector
+    expected_episode_count: 1512
+    execution: phased per PA-2026-09-04-02 (S0 six-wide, then S3 alone), exact-once,
+      stop-on-first-invalid, same replacement policies
+    analysis: H6 is evaluated on paired_recovery_v2 only, by the preregistered scripts/analyze_paired_recovery.py,
+      unchanged
+  paired_recovery_v1:
+    status: retained and disclosed; not used for H6
+    r0_arm: reported as a baseline replication (R0 v1 versus R0 v2, same seeds) in
+      the exploratory section
+    r2_r3_arms: reported as monitor-only shadow runs (warning counts, decided-but-unexecuted
+      actions), flagged exploratory
+  multiplicity: no additional confirmatory claim; the single preregistered H6 test
+    is performed once, on v2
+  tooling: the paired manifest validator now refuses a manifest without recovery_live_execution
+    true; the builder sets it
+  concurrency:
+    admitted_workers: 6
+    ros_domains:
+    - 60
+    - 61
+    - 62
+    - 63
+    - 64
+    - 65
+    phased_execution:
+      s0: 6
+      s3: 1
+    system_concurrency:
+      s3: 1
+    admission_condition: reports/integrity/concurrency_phased_admission_v2.yaml passed
+      true
+    execution_rule: 'as PA-2026-09-04-02: phase A (--systems s0, six workers) to exhaustion,
+      then phase B (--systems s3, one worker) alone; replacements sequential alone
+      after both phases'
+    campaigns_admitted_if_check_passes:
+    - paired_recovery_v2
+    no_further_topology_will_be_tried: true
+disclosure: This amendment is written after the v1 outcomes were computed and displayed
+  in aggregate during diagnosis (completion and terminal-state counts per arm). Because
+  the v1 treatment arms delivered no treatment, those aggregates carry no information
+  about the effect of recovery and cannot bias the v2 analysis; they are nevertheless
+  disclosed here.
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  held_out_predictor_results_invalidated: false
+  paired_recovery_v1_h6_result_invalidated: true
+  protected_test_access_authorized: true
+  applies_after_model_freeze: true
+protected_outcomes_consulted: true

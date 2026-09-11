@@ -31,4 +31,5 @@ decisions:
 overall_decision: approved
 requires_protocol_version_change: false
 requires_existing_development_data_invalidation: false
-supervisor_signoff_status: pending
+supervisor_signoff_status: optional_prepublication_quality_check
+admission_authority: configs/protocol_amendment_1.1.yaml

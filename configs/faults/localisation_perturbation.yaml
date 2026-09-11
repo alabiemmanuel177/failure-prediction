@@ -1,8 +1,8 @@
 family: localisation_perturbation
-status: candidate
+status: frozen
+integrity_evidence: reports/integrity/fault_integrity_gate_v1.yaml
 mechanism: one bounded AMCL reset offset after eligibility and onset
 severities:
   low: {translation_m: 0.15, yaw_rad: 0.10}
   medium: {translation_m: 0.50, yaw_rad: 0.35}
   high: {translation_m: 1.00, yaw_rad: 0.70}
-

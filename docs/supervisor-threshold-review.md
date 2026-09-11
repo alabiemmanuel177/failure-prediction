@@ -1,15 +1,15 @@
 # Supervisor review: terminal-event thresholds
 
-Protocol version: 1.0  
-Prepared: 28 August 2026  
-Decision status: pending
+Protocol version: 1.1  
+Prepared: 31 August 2026
+Decision status: optional external review
 
 ## Purpose
 
-Seven numerical values remain deliberately outside `configs/failure_events.yaml`.
-Approving them freezes what counts as localisation loss, immobilisation, and unsafe
-perception before the first Research 2 dataset is extracted. Values must not be revised
-after inspecting protected-map outcomes.
+The numerical values are recorded in `configs/failure_events.yaml` with prospective
+researcher approval. Under PA-2026-09-03-01, that approval admits model development;
+supervisor review is an optional pre-publication quality check. Values must not be
+revised after inspecting protected-map outcomes.
 
 The machine-readable proposals are in
 `configs/event_threshold_proposals.yaml`. Approval should record the reviewer, date,
@@ -58,10 +58,12 @@ braking or timestamp-latency margin.
 
 ## Approval form
 
-Copy `configs/event_threshold_review.template.yaml` to a dated review file. Complete all
-reviewer and decision fields without changing the proposal file. A revision is valid
-only before dataset extraction and must state whether already-created development data
-must be invalidated.
+For an optional external review, copy `configs/event_threshold_review.template.yaml` to
+`configs/event_threshold_review.supervisor.yaml`. Complete all reviewer and decision
+fields without changing the proposal or researcher-review files. The optional-review
+validator requires `reviewer_role: Supervisor`, `overall_decision: approved`, three
+`accept` decisions, and `protected_outcomes_consulted: false`. A revision must state
+whether the retained development audit data must be invalidated.
 
 ## Acceptance checks after approval
 
@@ -69,5 +71,9 @@ must be invalidated.
 2. Add exact boundary fixtures for just-below, equal, just-above, and interrupted persistence.
 3. Run `python3 scripts/check_readiness.py --stage draft`.
 4. Record the approval and configuration hash in the append-only research log.
-5. Do not mark fault configurations frozen until their live integrity traces pass.
+5. Run `python3 scripts/check_readiness.py --stage training`; the primary annotation
+   review is checked by the same command.
 
+Fault configurations already passed their separate 21/21 live treatment-integrity gate;
+that engineering result complements, but does not substitute for, the recorded human
+methodological approval.

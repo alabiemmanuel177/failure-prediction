@@ -11,6 +11,7 @@ import rclpy
 from diagnostic_msgs.msg import DiagnosticArray
 from geometry_msgs.msg import Twist
 from nav2_msgs.msg import BehaviorTreeLog
+from nav_msgs.msg import Path as NavPath
 from rclpy.node import Node
 
 from .events import EVENT_TOPIC, event_message
@@ -27,6 +28,29 @@ def box_sdf(name: str, width: float, depth: float) -> str:
       </visual></link></model></sdf>"""
 
 
+def point_along_path(points: list[tuple[float, float]], fraction: float) -> tuple[float, float, float]:
+    """Interpolate a pose at a frozen fraction of polyline arc length."""
+    if len(points) < 2:
+        raise ValueError("route-relative placement needs at least two path points")
+    if not 0.0 < fraction < 1.0:
+        raise ValueError("route_fraction must lie strictly between zero and one")
+    lengths = [math.dist(left, right) for left, right in zip(points, points[1:])]
+    total = sum(lengths)
+    if total <= 0.0:
+        raise ValueError("route-relative placement path has zero length")
+    target = fraction * total
+    traversed = 0.0
+    for left, right, length in zip(points, points[1:], lengths):
+        if traversed + length >= target:
+            ratio = (target - traversed) / length
+            x = left[0] + ratio * (right[0] - left[0])
+            y = left[1] + ratio * (right[1] - left[1])
+            return x, y, math.atan2(right[1] - left[1], right[0] - left[0])
+        traversed += length
+    left, right = points[-2], points[-1]
+    return right[0], right[1], math.atan2(right[1] - left[1], right[0] - left[0])
+
+
 class EnvironmentFault(Node):
     def __init__(self) -> None:
         super().__init__("research2_environment_fault")
@@ -41,6 +65,8 @@ class EnvironmentFault(Node):
             "injection_x": 0.0,
             "injection_y": 0.0,
             "injection_yaw": 0.0,
+            "placement_mode": "explicit",
+            "route_fraction": 0.55,
             "clean_prefix_seconds": 10.0,
             "planned_onset_seconds": 15.0,
             "maximum_duration_seconds": 20.0,
@@ -67,23 +93,41 @@ class EnvironmentFault(Node):
         )
         self.last_command_speed = 0.0
         self.entities: list[str] = []
+        self.latest_plan: list[tuple[float, float]] = []
+        self.resolved_pose: tuple[float, float, float] | None = None
         self.removed = False
         self.event_pub = self.create_publisher(DiagnosticArray, EVENT_TOPIC, EVENT_QOS)
         self.create_subscription(Twist, "/cmd_vel", self.on_command, 10)
         self.create_subscription(BehaviorTreeLog, "/behavior_tree_log", self.on_bt, 10)
+        self.create_subscription(NavPath, "/plan", self.on_plan, 10)
         self.create_timer(0.1, self.tick)
 
     def publish_event(self, event_type: str, *, eligible: bool = True, reason: str = "") -> None:
+        parameters = dict(self.params)
+        if str(self.values["placement_mode"]) == "path_fraction" and self.resolved_pose:
+            parameters["placement"] = {
+                "mode": "path_fraction",
+                "route_fraction": float(self.values["route_fraction"]),
+                "x": self.resolved_pose[0],
+                "y": self.resolved_pose[1],
+                "yaw": self.resolved_pose[2],
+            }
         self.event_pub.publish(event_message(
             stamp=self.get_clock().now().to_msg(), event_type=event_type,
             run_id=str(self.values["run_id"]), family=self.family,
             severity=str(self.values["severity"]), seed=int(self.values["seed"]),
-            eligible=eligible, reason=reason, parameters=self.params,
+            eligible=eligible, reason=reason, parameters=parameters,
             source_commit=str(self.values["source_commit"]),
         ))
 
     def on_command(self, message: Twist) -> None:
         self.last_command_speed = abs(float(message.linear.x)) + abs(float(message.angular.z))
+
+    def on_plan(self, message: NavPath) -> None:
+        self.latest_plan = [
+            (float(pose.pose.position.x), float(pose.pose.position.y))
+            for pose in message.poses
+        ]
 
     def on_bt(self, message: BehaviorTreeLog) -> None:
         # BehaviorTreeLog carries a wall timestamp on the pinned Jazzy stack; use the
@@ -105,9 +149,15 @@ class EnvironmentFault(Node):
         return True
 
     def activate(self) -> bool:
-        x = float(self.values["injection_x"])
-        y = float(self.values["injection_y"])
-        yaw = float(self.values["injection_yaw"])
+        if str(self.values["placement_mode"]) == "path_fraction":
+            x, y, yaw = point_along_path(
+                self.latest_plan, float(self.values["route_fraction"])
+            )
+        else:
+            x = float(self.values["injection_x"])
+            y = float(self.values["injection_y"])
+            yaw = float(self.values["injection_yaw"])
+        self.resolved_pose = (x, y, yaw)
         token = f"{int(self.values['seed']):08d}"
         if self.family == "dynamic_blockage":
             name = f"r2_blockage_{token}"
@@ -146,7 +196,13 @@ class EnvironmentFault(Node):
         now = self.get_clock().now().nanoseconds * 1e-9
         state = self.schedule.update(
             now,
-            eligible=self.last_command_speed >= float(self.values["minimum_command_speed_mps"]),
+            eligible=(
+                self.last_command_speed >= float(self.values["minimum_command_speed_mps"])
+                and (
+                    str(self.values["placement_mode"]) != "path_fraction"
+                    or len(self.latest_plan) >= 2
+                )
+            ),
         )
         if state == "activated":
             if self.activate():

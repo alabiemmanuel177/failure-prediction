@@ -1,8 +1,8 @@
 family: lidar_dropout
-status: candidate
+status: frozen
+integrity_evidence: reports/integrity/fault_integrity_gate_v1.yaml
 mechanism: deterministic contiguous invalid-return sector
 severities:
   low: {invalid_fraction: 0.10}
   medium: {invalid_fraction: 0.35}
   high: {invalid_fraction: 0.70}
-

@@ -1,0 +1,49 @@
+schema_version: 1
+campaign_id: development_supplement_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: true
+counts:
+  expected: 504
+  observed: 504
+  usable: 504
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 89
+  non_events: 415
+event_prevalence: 0.1765873015873016
+duration_seconds:
+  total: 31804.745
+  median: 52.414500000000004
+by_terminal_state:
+  false_arrival: 41
+  planner_failure: 41
+  success: 415
+  timeout: 7
+by_attempt_terminal_state:
+  false_arrival: 41
+  invalid: 0
+  planner_failure: 41
+  success: 415
+  timeout: 7
+by_fault_family:
+  camera_occlusion: 60
+  dynamic_blockage: 48
+  lidar_dropout: 60
+  localisation_perturbation: 60
+  none: 120
+  planner_oscillation: 48
+  semantic_corruption: 48
+  wheel_slip: 60
+by_map:
+  dev_00: 84
+  dev_01: 84
+  dev_02: 84
+  dev_03: 84
+  dev_04: 84
+  dev_05: 84
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

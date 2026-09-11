@@ -1,0 +1,154 @@
+schema_version: 1
+campaign_id: recovery_pilot_v1
+campaign_kind: recovery_pilot
+status: preregistered_post_freeze_validation_maps_only
+purpose: 'validation-map recovery pilot: observed cost of every guard-eligible forced
+  action at the frozen predictor''s first alarm, to fit the R3 selector (PA-2026-09-03-04)'
+analysis_plan: RESEARCH PROTOCOL - AUTONOMOUS ROBOT RELIABILITY.md
+allowed_splits:
+- validation
+protected_test_used: false
+parallel_execution_admitted_by: PA-2026-09-04-02
+selector_training:
+  fit_split: validation
+  fit_split_admitted_by: PA-2026-09-03-04
+  cost_table_builder: scripts/build_recovery_cost_table.py
+  trainer: scripts/train_recovery_selector.py --fit-split validation --amendment-id
+    PA-2026-09-03-04
+  rule: actions_rejected_by_guard_are_never_training_targets
+freeze_gate:
+  model_freeze: configs/model_freeze.yaml
+  model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  frozen_at_manifest_build: true
+  note: the pilot executes only after the freeze; the manifest may be preregistered
+    before it
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  require_extraction_readiness_gate: true
+  require_model_freeze: true
+  require_recovery_live_evidence: configs/recovery_live_evidence.yaml
+  recovery_live_execution: true
+  stop_on_first_invalid: true
+  concurrency: 6
+  ros_domains:
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  maximum_episodes_per_invocation: 42
+  minimum_free_space_gib_before_episode: 100
+  wave_design: every_policy_of_one_pairing_cell_runs_consecutively
+  threshold_adaptation: forbidden_frozen_validation_threshold_only
+  alarm_trigger: first_alarm_of_the_frozen_predictor_under_the_frozen_alarm_policy
+episode_defaults:
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+infrastructure_replacements: []
+design:
+  seed_base: 40000000
+  seed_layout: wide_v1
+  map_routes:
+    val_00:
+    - val_00_r0
+    - val_00_r1
+    - val_00_r2
+    - val_00_r3
+    - val_00_r4
+    - val_00_r5
+    val_01:
+    - val_01_r0
+    - val_01_r1
+    - val_01_r2
+    - val_01_r3
+    - val_01_r4
+    - val_01_r5
+    val_02:
+    - val_02_r0
+    - val_02_r1
+    - val_02_r2
+    - val_02_r3
+    - val_02_r4
+    - val_02_r5
+  conditions:
+  - id: camera
+    family: camera_occlusion
+    severity: medium
+    system: s3
+    replicates:
+    - 0
+  - id: lidar
+    family: lidar_dropout
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+  - id: wheel
+    family: wheel_slip
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+  - id: localisation
+    family: localisation_perturbation
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+  - id: blockage
+    family: dynamic_blockage
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+  - id: oscillation
+    family: planner_oscillation
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+  - id: semantic
+    family: semantic_corruption
+    severity: medium
+    system: s3
+    replicates:
+    - 0
+  environment_placement:
+    placement_mode: path_fraction
+    route_fraction: 0.55
+recovery_policies:
+- R0
+- RP_controlled_stop
+- RP_relocalise
+- RP_replan_clear_costmaps
+- RP_backup
+- RP_spin_active_rescan
+- RP_wait
+pairing:
+  fields:
+  - map
+  - route
+  - seed
+  - family
+  - severity
+  policies_share_seed: true
+  episode_key_layout: <map>-<route>-<condition>-r0-<policy>
+  launch_argument: recovery_policy
+  cli_argument: --recovery-policy
+  reference_policy: R0
+expected_base_episode_count: 126
+expected_episode_count: 882
+admission:
+  protected_outcomes_consulted: false
+  runs_only_after:
+  - configs/model_freeze.yaml frozen
+  - configs/alarm_policy.yaml threshold set by scripts/freeze_model.py
+  - configs/recovery_live_evidence.yaml frozen against configs/recovery_guards.yaml
+  - reports/integrity/concurrency_shift_check_v1.yaml passed (six workers)
+  outcome_table: scripts/build_recovery_outcome_table.py
+  cost_table: scripts/build_recovery_cost_table.py

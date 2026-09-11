@@ -1,8 +1,8 @@
 family: camera_occlusion
-status: candidate
+status: frozen
+integrity_evidence: reports/integrity/fault_integrity_gate_v1.yaml
 mechanism: deterministic right-edge RGB mask with optional seeded frame dropout
 severities:
   low: {mask_fraction: 0.20, dropout_probability: 0.00}
   medium: {mask_fraction: 0.50, dropout_probability: 0.05}
   high: {mask_fraction: 0.80, dropout_probability: 0.20}
-

@@ -3,6 +3,7 @@ protocol_version: "1.0"
 storage_id: mcap
 clock: simulation_time
 recording_policy: continuous_confirmatory
+active_pilot_profile: compact_v2_after_attempt_97_semantic_image_storage_audit
 recorder_loss_monitoring: independent_topic_health_reconciled_with_mcap_metadata
 rosbag2_jazzy_cli_lost_message_statistics_available: false
 record_services: false
@@ -75,3 +76,56 @@ storage_options:
   compression_level: Fast
   no_message_index: false
   no_summary: false
+
+profiles:
+  full_v1:
+    purpose: integrity_and_initial_storage_pilot
+    retains_full_images: true
+  compact_v1:
+    purpose: balanced_pilot_after_storage_audit
+    retains_full_images: false
+    omitted_high_bandwidth_topics:
+      - /research2/raw/camera/image
+      - /camera/image
+      - /camera/depth_image
+      - /camera/segmentation
+      - /imu
+      - /particle_cloud
+    preserved_evidence:
+      - causal_scalar_feature_topics
+      - raw_and_deployed_scan_and_odometry
+      - ground_truth_pose_and_collision
+      - research_events_and_diagnostics
+      - plans_costmaps_tf_and_commands
+      - semantic_class_confidence_uncertainty_latency_and_risk_grids
+      - live_ground_truth_perception_metrics_in_label_only_summary
+    deployable_feature_contract_changed: false
+  compact_v2:
+    purpose: balanced_pilot_after_semantic_image_storage_audit
+    retains_full_images: false
+    omitted_high_bandwidth_topics:
+      - /research2/raw/camera/image
+      - /camera/image
+      - /camera/depth_image
+      - /camera/segmentation
+      - /semantic/classes
+      - /semantic/confidence
+      - /semantic/uncertainty
+      - /semantic/inference_latency_ms
+      - /imu
+      - /particle_cloud
+    scalar_replacement_topic: /research2/features/perception
+    scalar_replacement_fields:
+      - confidence_mean
+      - uncertainty_mean
+      - inference_latency_ms
+      - temporal_disagreement
+    preserved_evidence:
+      - causal_scalar_feature_topics
+      - raw_and_deployed_scan_and_odometry
+      - ground_truth_pose_and_collision
+      - research_events_and_diagnostics
+      - plans_costmaps_tf_and_commands
+      - semantic_risk_grids
+      - live_ground_truth_perception_metrics_in_label_only_summary
+    deployable_feature_contract_changed: false

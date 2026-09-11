@@ -1,0 +1,32 @@
+schema_version: 1
+status: passed
+observed_utc: '2026-09-02T12:47:39Z'
+protected_test_used: false
+training_performed: false
+source:
+  run_id: fa1f82d2-b1a7-4ad7-86a7-d3f5f5772977
+  split: validation
+  terminal_event: null
+sequence_contract:
+  history_seconds: 5.0
+  stride_seconds: 0.5
+  time_steps: 10
+  primary_value_features: 28
+  feature_channels_per_value: 3
+  total_feature_columns: 84
+result:
+  eligible_sequences: 111
+  positive_sequences: 0
+  negative_sequences: 111
+  tensor_shape: [111, 10, 84]
+  all_tensor_values_finite: true
+checks:
+  every_sequence_has_complete_history: true
+  every_sample_time_not_after_decision_time: true
+  every_raw_source_timestamp_not_after_sample_time: true
+  ineligible_label_rows_excluded: true
+  future_sample_mutation_invariance_test: passed
+  immutable_atomic_npz_publication_test: passed
+interpretation: A real retained non-event episode produces complete fixed-rate causal
+  histories suitable for later temporal-model input. This is an extraction smoke,
+  not model fitting and not validation-data admission for selection.

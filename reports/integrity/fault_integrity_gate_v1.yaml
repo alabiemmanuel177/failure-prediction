@@ -1,0 +1,41 @@
+schema_version: 1
+status: passed
+decision: seven deterministic fault manifests admitted for development and validation dataset generation
+protected_test_used: false
+matrix_size: 21
+passed_cells: 21
+failed_cells: 0
+selection_rule: use v3 evidence unless the required raw treatment-audit stream was absent; use the predeclared verification supplement for those cells
+evidence:
+  camera_occlusion:
+    low: {run_id: 097aa26f-e58d-4e83-967e-93e31bade745, report: live_integrity_v3}
+    medium: {run_id: 1b9bac59-84b0-403e-aa0d-aaa52d8cbba1, report: live_integrity_v3}
+    high: {run_id: 05ed9e9d-a50c-4d2d-890a-7c231e67e65c, report: live_integrity_v3}
+  lidar_dropout:
+    low: {run_id: ab2f96ce-4486-4a9b-84a7-3bac35285543, report: live_integrity_v3}
+    medium: {run_id: 81d9b0fd-23f8-402e-847e-4c99ab6ff099, report: live_integrity_v3}
+    high: {run_id: 45d7bca0-006f-45ab-9a45-2277a44540b7, report: live_integrity_v3}
+  wheel_slip:
+    low: {run_id: 8d722d33-c440-466d-9968-517118a74f9d, report: live_integrity_v3}
+    medium: {run_id: f62c7142-0ec6-4078-adf3-de58f942658c, report: live_integrity_v3}
+    high: {run_id: cffdc51f-3cbd-4ff5-a86a-100bc5959ee3, report: live_integrity_v3}
+  localisation_perturbation:
+    low: {run_id: ee84cb73-545a-4d5f-a04b-743ca394f349, report: treatment_verification_v1}
+    medium: {run_id: 25c9147b-430c-486b-b371-08f1ddb04f03, report: treatment_verification_v1}
+    high: {run_id: 8b05d6b7-1a31-45b1-8f86-23aa60d9dcdb, report: treatment_verification_localisation_high_v3}
+  dynamic_blockage:
+    low: {run_id: af068cd4-784e-43e7-a0b4-c7e37335e914, report: live_integrity_v3}
+    medium: {run_id: e3d7de09-b6f8-43bc-8931-8019fe4823e5, report: live_integrity_v3}
+    high: {run_id: e34c3417-a4eb-409b-8bd5-39e3103ea679, report: live_integrity_v3}
+  planner_oscillation:
+    low: {run_id: bd56dede-8a88-4c6d-93a6-e3fb9bdf5aae, report: live_integrity_v3}
+    medium: {run_id: 611ce5e7-2984-4c99-b503-428a6c9d807d, report: live_integrity_v3}
+    high: {run_id: 64b94f6a-399a-487d-b3a5-19467a4e7b41, report: live_integrity_v3}
+  semantic_corruption:
+    low: {run_id: 0a389928-0a8c-4ef6-b62a-41707dd89d6a, report: treatment_verification_semantic_low_medium_v1}
+    medium: {run_id: cc02bcdd-1268-46ff-8422-64fc586a3464, report: treatment_verification_semantic_low_medium_v1}
+    high: {run_id: f3ce03cb-da73-4d66-8d36-76f3967e999d, report: treatment_verification_semantic_high_v1}
+exclusions:
+  manifest: data/manifests/treatment_verification_v1_infrastructure_invalid.yaml
+  rule: retained attempts with no delivered treatment cannot support a matrix cell
+human_label_gate: still_pending_and_not_satisfied_by_this_engineering_audit

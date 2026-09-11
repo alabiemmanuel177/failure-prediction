@@ -1,0 +1,43 @@
+schema_version: 1
+campaign_id: concurrency_shift_check_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: true
+counts:
+  expected: 36
+  observed: 36
+  usable: 36
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 9
+  non_events: 27
+event_prevalence: 0.25
+duration_seconds:
+  total: 2449.925
+  median: 57.489999999999995
+by_terminal_state:
+  false_arrival: 2
+  planner_failure: 6
+  success: 27
+  timeout: 1
+by_attempt_terminal_state:
+  false_arrival: 2
+  invalid: 0
+  planner_failure: 6
+  success: 27
+  timeout: 1
+by_fault_family:
+  none: 24
+  planner_oscillation: 12
+by_map:
+  dev_00: 6
+  dev_01: 6
+  dev_02: 6
+  dev_03: 6
+  dev_04: 6
+  dev_05: 6
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

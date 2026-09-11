@@ -1,0 +1,8 @@
+{
+  "events": 646,
+  "inventory": "/home/eao/failure-prediction/data/manifests/research1_development_v1.episodes.jsonl",
+  "not_yet_adapted": 0,
+  "protected_test_used": false,
+  "rows": 647,
+  "sha256": "648d6be1358b7fb2a758bf257c991ddfc08150968ff2d1a21995a219f6f5500e"
+}

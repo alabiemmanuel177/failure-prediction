@@ -1,0 +1,39 @@
+schema_version: 1
+protocol_version: "1.3"
+amendment_id: PA-2026-09-03-03
+status: approved
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: "2026-09-03"
+protected_outcomes_consulted: false
+scope: fitting_pool_composition
+rationale: >-
+  Protocol 1.0 counted admissible Research 1 development bags toward the 3,000-episode
+  fitting target. The causal adapter audit admitted 647 of 825 bags, but 646 of them
+  end in a terminal failure because Research 1 retained failure bags and discarded most
+  successes, so the source is outcome-selected rather than a natural sample. A
+  validation-only rehearsal on Research 2 episodes showed that adding this source
+  reduced the primary predictor's event recall at the frozen alarm budget from 0.290 to
+  0.161 and its median useful lead from 5.4 s to 3.5 s (single seed). The protocol's
+  compute-control rule requires the final count to be revised transparently rather than
+  filled with data that harms the primary endpoint, and it requires Research 1 failures
+  to be reported separately and never silently merged.
+decisions:
+  research1_development_bags_in_fitting_pool: false
+  research1_role: separately_reported_natural_failure_and_domain_shift_audit_set
+  research1_dataset_id: research1_development_v1-development-647
+  frozen_fitting_pool:
+    - balanced_pilot_v1-development-648
+    - targeted_development_v1-development-1212
+    - development_supplement_v1-development-504
+  fitting_pool_episodes: 2364
+  protocol_target_before_amendment: 3000
+  supplement_unchanged: true
+  selection_dataset: balanced_validation_v1-validation-324
+evidence:
+  adapter_audit: reports/integrity/research1_causal_adapter_audit_v1.yaml
+  pass_comparison: reports/model_selection/pass_comparison_preliminary_v1_vs_preliminary_v2_with_research1.yaml
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  protected_test_access_authorized: false
+  applies_before_model_freeze: true

@@ -1,0 +1,23 @@
+schema_version: 1
+status: retained_excluded_replacement_preregistered
+campaign_id: balanced_validation_v1
+attempt_number: 258
+episode_key: val_02-val_02_r1-clean_s0-r4
+run_id: f3d12519-e0a7-4467-bdd8-06b79b6916b0
+observed_utc: '2026-09-02T11:06:20Z'
+classification: infrastructure_invalid_before_episode_materialization
+reason: ros_middleware_initialization_failure
+evidence:
+  episode_returncode: 1
+  artifact_validation_returncode: null
+  bag_mcap_count: 0
+  summary_written: false
+  log_directory_retained: data/raw/logs/f3d12519-e0a7-4467-bdd8-06b79b6916b0
+  error: CycloneDDS failed to enumerate UDP interfaces and rclpy could not create a ROS domain node.
+scientific_interpretation: No navigation episode, treatment, outcome, or deployable telemetry was generated.
+replacement:
+  campaign_id: balanced_validation_startup_replacements_v1
+  episode_key: val_02-val_02_r1-clean_s0-r4-infra-replacement-001
+  same_design_cell_and_seed: true
+admission_effect: Original contributes zero scientific episodes; replacement may contribute exactly once only after artifact validation.
+protected_test_used: false

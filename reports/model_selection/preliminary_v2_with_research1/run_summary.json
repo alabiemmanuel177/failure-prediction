@@ -1,0 +1,29 @@
+{
+  "comparison": "reports/model_selection/preliminary_v2_with_research1/validation_comparison.yaml",
+  "finished_utc": "2026-09-03T11:05:15.799908+00:00",
+  "frozen": false,
+  "models": [
+    "p2_reconstruction_ae",
+    "p3_causal_tcn",
+    "p4_gru",
+    "p5_compact_transformer",
+    "p6_oracle"
+  ],
+  "protected_test_used": false,
+  "seed": 20260903,
+  "selection_dataset": "balanced_validation_v1-validation-324",
+  "started_utc": "2026-09-03T10:46:58.768073+00:00",
+  "tables": {
+    "p1_threshold_rules": "reports/predictions/preliminary_v2_with_research1/p1_threshold_rules.validation.csv",
+    "p2_reconstruction_ae": "reports/predictions/preliminary_v2_with_research1/p2_reconstruction_ae.validation.calibrated.csv",
+    "p3_causal_tcn": "reports/predictions/preliminary_v2_with_research1/p3_causal_tcn.validation.calibrated.csv",
+    "p4_gru": "reports/predictions/preliminary_v2_with_research1/p4_gru.validation.calibrated.csv",
+    "p5_compact_transformer": "reports/predictions/preliminary_v2_with_research1/p5_compact_transformer.validation.calibrated.csv",
+    "p6_oracle": "reports/predictions/preliminary_v2_with_research1/p6_oracle.validation.raw.csv"
+  },
+  "tag": "preliminary_v2_with_research1",
+  "train_datasets": [
+    "balanced_pilot_v1-development-648",
+    "research1_development_v1-development-647"
+  ]
+}

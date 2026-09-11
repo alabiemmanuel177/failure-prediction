@@ -1,0 +1,50 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: recovery_pilot_artifact_loss_replacements_v1
+parent_campaign_id: recovery_pilot_v1
+campaign_kind: replacement
+status: preregistered_post_goal_artifact_validation_replacement
+allowed_splits:
+- validation
+protected_test_used: false
+parallel_execution_admitted_by: PA-2026-09-04-02
+replacement_policy:
+  original_invalid_kind: post_goal_artifact_validation_failure
+  original_attempt_and_complete_bag_are_retained: true
+  original_scientific_admission: excluded_because_a_required_topic_was_not_recorded
+  replacement_uses_same_map_route_system_condition_seed_and_recovery_policy: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+  execution: sequential_alone_after_all_phases_no_other_simulator_running
+episodes:
+- episode_key: val_00-val_00_r4-camera-r0-RP_backup-infra-replacement-001
+  replaces_episode_key: val_00-val_00_r4-camera-r0-RP_backup
+  replaces_run_id: d91508ea-bbcc-4cef-834e-053be3dd1b31
+  map: val_00
+  route: val_00_r4
+  system: s3
+  family: camera_occlusion
+  severity: medium
+  seed: 40400000
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  recovery_policy_id: RP_backup
+  pair_key: val_00-val_00_r4-camera-r0
+  recovery_live_execution: true
+infrastructure_replacements:
+- original_episode_key: val_00-val_00_r4-camera-r0-RP_backup
+  original_run_id: d91508ea-bbcc-4cef-834e-053be3dd1b31
+  original_attempt_number: 663
+  invalid_reason: required_topic_not_recorded
+  invalid_detail: 'required topic has no recorded messages: /research2/features/perception
+    (episode ran to success; artifact validation failed)'
+  original_bag_mcap_count: 1
+  replacement_campaign_id: recovery_pilot_artifact_loss_replacements_v1
+  replacement_episode_key: val_00-val_00_r4-camera-r0-RP_backup-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1

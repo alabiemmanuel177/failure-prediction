@@ -1,27 +1,29 @@
 schema_version: 1
-protocol_version: "1.0"
-status: requires_development_and_validation_tuning
+protocol_version: '1.0'
+status: frozen_after_validation_tuning
 selection_split: validation
 forbidden_selection_split: held_out_map_test
 rules:
   covariance_high:
     feature: pose_covariance_trace
     direction: above
-    threshold: null
+    threshold: 2.0861894376575947
   progress_low_while_commanded:
     feature: progress_slope
     direction: below
-    threshold: null
+    threshold: -0.021213
     gate_feature: command_linear
     gate_direction: above
     gate_threshold: 0.05
   scan_dropout_high:
     feature: valid_return_fraction
     direction: below
-    threshold: null
+    threshold: 0.2999999523162842
   oscillation_high:
     feature: command_sign_changes
     direction: above
-    threshold: null
+    threshold: 10.0
 freeze_rule: all_thresholds_and_alarm_policy_timestamped_before_any_held_out_prediction
-
+tuning_record: reports/model_selection/final_v1/p1_threshold_rules.yaml
+tuning_record_sha256: 45ee8b35772e0e69c2853c846165bcc6fdf856f7cb7d976b044a0b601fb72271
+frozen_utc: '2026-09-04T17:22:05.424851+00:00'

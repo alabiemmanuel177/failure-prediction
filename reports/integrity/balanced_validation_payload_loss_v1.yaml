@@ -1,0 +1,29 @@
+schema_version: 1
+status: retained_excluded_replacement_preregistered
+campaign_id: balanced_validation_v1
+attempt_number: 257
+episode_key: val_01-val_01_r0-clean_s0-r4
+run_id: 28de195f-7fbc-43f4-8677-e8d2d5923940
+ledger_finished_utc: '2026-09-02T03:51:32Z'
+classification: post_validation_artifact_payload_loss
+reason: summary_and_bag_payload_loss_after_validation
+correlation_evidence:
+  attempt_started_utc: '2026-09-02T03:50:49Z'
+  recorder_started_utc: '2026-09-02T03:51:03Z'
+  recorder_stopped_utc: '2026-09-02T03:51:26Z'
+  summary_mtime_utc: '2026-09-02T03:51:29Z'
+  ledger_artifact_validation_returncode_at_collection: 0
+retained_artifact_state:
+  summary_bytes: 0
+  mcap_file_count: 1
+  mcap_bytes: 0
+  bag_metadata_bytes: 0
+  topic_health_sidecar_present: true
+  recorder_log_present: true
+scientific_interpretation: The episode cannot be independently replayed or inventoried and is excluded despite its historical passing ledger row.
+replacement:
+  campaign_id: balanced_validation_artifact_loss_replacements_v1
+  episode_key: val_01-val_01_r0-clean_s0-r4-infra-replacement-001
+  same_design_cell_and_seed: true
+admission_effect: Original contributes zero scientific episodes; replacement may contribute exactly once only after artifact validation.
+protected_test_used: false

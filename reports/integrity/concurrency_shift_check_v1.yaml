@@ -1,0 +1,5790 @@
+schema_version: 1
+check_campaign_id: concurrency_shift_check_v1
+check_dataset_id: concurrency_shift_check_v1-development-36
+reference_dataset_id: balanced_pilot_v1-development-648
+comparison: condition_matched
+decision_scope: eligible_decisions_only
+counts:
+  check_episodes: 36
+  reference_episodes: 648
+  check_by_condition:
+    clean_s0: 12
+    clean_s3: 12
+    oscillation: 12
+  reference_by_condition:
+    clean_s0: 72
+    clean_s3: 72
+    oscillation: 72
+  deployable_columns: 84
+pass_rule:
+  maximum_absolute_smd: 0.5
+  smd_unit: decision
+  feature_scope: all_deployable_columns
+  message_rate_report_only: true
+  false_alert_budget_per_clean_mission: 0.1
+  false_alerts_evaluated: true
+feature_shift:
+  clean_s0:
+    reference_episodes: 72
+    check_episodes: 12
+    eligible_decisions:
+      reference: 6820
+      check: 1329
+    maximum_absolute_smd: 0.2745795747827497
+    features_beyond_maximum: []
+    features:
+      command_linear:
+        smd: -0.20155191646760054
+        reference:
+          n: 6820
+          mean: 0.09165962918236627
+          sd: 0.06569241840077825
+        check:
+          n: 1329
+          mean: 0.07828586163000192
+          sd: 0.0696519364506494
+        episode_level_smd: -0.1547421340798871
+        highlighted: false
+        exceeds_maximum: false
+      command_linear__age_seconds:
+        smd: 0.018117353799218378
+        reference:
+          n: 6820
+          mean: 0.031477565982401
+          sd: 0.04350420174395804
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.00999999999999801
+            q50: 0.02400000000000091
+            q75: 0.04699999999998283
+            q95: 0.06400000000000006
+        check:
+          n: 1329
+          mean: 0.03229721595184036
+          sd: 0.053275423817234144
+          quantiles:
+            q05: 0.0019999999999988916
+            q25: 0.012000000000000455
+            q50: 0.02400000000000091
+            q75: 0.03899999999999437
+            q95: 0.06299999999999528
+        quantile_shift:
+          q05: 3.552713678800501e-15
+          q25: 0.0020000000000024443
+          q50: 0.0
+          q75: -0.00799999999998846
+          q95: -0.0010000000000047748
+        episode_level_smd: -0.002661669074256498
+        highlighted: true
+        exceeds_maximum: false
+      command_linear__missing:
+        smd: 0.05703610097963325
+        reference:
+          n: 6820
+          mean: 0.0064516129032258064
+          sd: 0.0800682809430651
+        check:
+          n: 1329
+          mean: 0.011286681715575621
+          sd: 0.10567731834765862
+        episode_level_smd: 0.2518212835845607
+        highlighted: false
+        exceeds_maximum: false
+      command_angular:
+        smd: -0.011104680625494603
+        reference:
+          n: 6820
+          mean: 0.002340132511665377
+          sd: 0.10033519169998123
+        check:
+          n: 1329
+          mean: 0.0012065639155680822
+          sd: 0.11060797780072373
+        episode_level_smd: -0.06756364310501028
+        highlighted: false
+        exceeds_maximum: false
+      command_angular__age_seconds:
+        smd: 0.018117353799218378
+        reference:
+          n: 6820
+          mean: 0.031477565982401
+          sd: 0.04350420174395804
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.00999999999999801
+            q50: 0.02400000000000091
+            q75: 0.04699999999998283
+            q95: 0.06400000000000006
+        check:
+          n: 1329
+          mean: 0.03229721595184036
+          sd: 0.053275423817234144
+          quantiles:
+            q05: 0.0019999999999988916
+            q25: 0.012000000000000455
+            q50: 0.02400000000000091
+            q75: 0.03899999999999437
+            q95: 0.06299999999999528
+        quantile_shift:
+          q05: 3.552713678800501e-15
+          q25: 0.0020000000000024443
+          q50: 0.0
+          q75: -0.00799999999998846
+          q95: -0.0010000000000047748
+        episode_level_smd: -0.002661669074256498
+        highlighted: true
+        exceeds_maximum: false
+      command_angular__missing:
+        smd: 0.05703610097963325
+        reference:
+          n: 6820
+          mean: 0.0064516129032258064
+          sd: 0.0800682809430651
+        check:
+          n: 1329
+          mean: 0.011286681715575621
+          sd: 0.10567731834765862
+        episode_level_smd: 0.2518212835845607
+        highlighted: false
+        exceeds_maximum: false
+      measured_linear:
+        smd: -0.1993103105097858
+        reference:
+          n: 6820
+          mean: 0.09171748631315275
+          sd: 0.06584350219623898
+        check:
+          n: 1329
+          mean: 0.0784737040315449
+          sd: 0.06946948571598391
+        episode_level_smd: -0.15608228350574094
+        highlighted: false
+        exceeds_maximum: false
+      measured_linear__age_seconds:
+        smd: -0.005811429739706903
+        reference:
+          n: 6820
+          mean: 0.017069208211139913
+          sd: 0.009944805396841071
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.007999999999999119
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.03200000000000003
+        check:
+          n: 1329
+          mean: 0.017011286681712333
+          sd: 0.010079160726400607
+          quantiles:
+            q05: 0.0010000000000026433
+            q25: 0.007999999999999119
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.032000000000006426
+        quantile_shift:
+          q05: -0.0009999999999926955
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 6.3976601794024646e-15
+        episode_level_smd: 0.028932467188419936
+        highlighted: true
+        exceeds_maximum: false
+      measured_linear__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      measured_angular:
+        smd: -0.00807504023056434
+        reference:
+          n: 6820
+          mean: 0.002192598000568799
+          sd: 0.0992724330381131
+        check:
+          n: 1329
+          mean: 0.0013753274785059967
+          sd: 0.11062279229707492
+        episode_level_smd: -0.06180473679498852
+        highlighted: false
+        exceeds_maximum: false
+      measured_angular__age_seconds:
+        smd: -0.005811429739706903
+        reference:
+          n: 6820
+          mean: 0.017069208211139913
+          sd: 0.009944805396841071
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.007999999999999119
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.03200000000000003
+        check:
+          n: 1329
+          mean: 0.017011286681712333
+          sd: 0.010079160726400607
+          quantiles:
+            q05: 0.0010000000000026433
+            q25: 0.007999999999999119
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.032000000000006426
+        quantile_shift:
+          q05: -0.0009999999999926955
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 6.3976601794024646e-15
+        episode_level_smd: 0.028932467188419936
+        highlighted: true
+        exceeds_maximum: false
+      measured_angular__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      pose_covariance_trace:
+        smd: -0.19640381039986884
+        reference:
+          n: 6820
+          mean: 0.15335130835843253
+          sd: 0.10801460309701022
+        check:
+          n: 1329
+          mean: 0.13192582172691916
+          sd: 0.11444679344481347
+        episode_level_smd: -0.3417423471842605
+        highlighted: false
+        exceeds_maximum: false
+      pose_covariance_trace__age_seconds:
+        smd: 0.14535118020861174
+        reference:
+          n: 6820
+          mean: 1.1589620234604074
+          sd: 0.654152980718377
+          quantiles:
+            q05: 0.134999999999998
+            q25: 0.5829999999999966
+            q50: 1.1749999999999972
+            q75: 1.8602499999999988
+            q95: 2.0
+        check:
+          n: 1329
+          mean: 1.2544838224228718
+          sd: 0.6725048449584647
+          quantiles:
+            q05: 0.16239999999999669
+            q25: 0.6679999999999922
+            q50: 1.3009999999999877
+            q75: 2.0
+            q95: 2.0
+        quantile_shift:
+          q05: 0.027399999999998675
+          q25: 0.08499999999999552
+          q50: 0.12599999999999056
+          q75: 0.13975000000000115
+          q95: 0.0
+        episode_level_smd: 0.30662146629463866
+        highlighted: true
+        exceeds_maximum: false
+      pose_covariance_trace__missing:
+        smd: 0.22214281517591686
+        reference:
+          n: 6820
+          mean: 0.21656891495601174
+          sd: 0.41193652607161174
+        check:
+          n: 1329
+          mean: 0.31000752445447705
+          sd: 0.4626704341820768
+        episode_level_smd: 0.3793676612370919
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_fraction:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_fraction__age_seconds:
+        smd: -0.043448420852961106
+        reference:
+          n: 6820
+          mean: 0.05561290322580258
+          sd: 0.02915279786208451
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.029999999999986926
+            q50: 0.06099999999999284
+            q75: 0.07899999999999352
+            q95: 0.09499999999999176
+        check:
+          n: 1329
+          mean: 0.05433483822422552
+          sd: 0.030730145870196436
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.018999999999991246
+            q50: 0.06699999999999662
+            q75: 0.0759999999999934
+            q95: 0.09599999999999653
+        quantile_shift:
+          q05: -0.001999999999995339
+          q25: -0.01099999999999568
+          q50: 0.00600000000000378
+          q75: -0.0030000000000001137
+          q95: 0.0010000000000047748
+        episode_level_smd: 0.06316390698350277
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_fraction__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_front_range:
+        smd: -0.05843408864595185
+        reference:
+          n: 6820
+          mean: 2.1325951641430954
+          sd: 1.1010890670244369
+        check:
+          n: 1329
+          mean: 2.068643926363228
+          sd: 1.059493359825473
+        episode_level_smd: -0.09684216719839887
+        highlighted: false
+        exceeds_maximum: false
+      minimum_front_range__age_seconds:
+        smd: -0.043448420852961106
+        reference:
+          n: 6820
+          mean: 0.05561290322580258
+          sd: 0.02915279786208451
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.029999999999986926
+            q50: 0.06099999999999284
+            q75: 0.07899999999999352
+            q95: 0.09499999999999176
+        check:
+          n: 1329
+          mean: 0.05433483822422552
+          sd: 0.030730145870196436
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.018999999999991246
+            q50: 0.06699999999999662
+            q75: 0.0759999999999934
+            q95: 0.09599999999999653
+        quantile_shift:
+          q05: -0.001999999999995339
+          q25: -0.01099999999999568
+          q50: 0.00600000000000378
+          q75: -0.0030000000000001137
+          q95: 0.0010000000000047748
+        episode_level_smd: 0.06316390698350277
+        highlighted: true
+        exceeds_maximum: false
+      minimum_front_range__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_left_range:
+        smd: 0.099975858079553
+        reference:
+          n: 6820
+          mean: 0.9558115445754745
+          sd: 0.4221755514646726
+        check:
+          n: 1329
+          mean: 0.9994434841016435
+          sd: 0.5032767512306932
+        episode_level_smd: 0.07280463053732025
+        highlighted: false
+        exceeds_maximum: false
+      minimum_left_range__age_seconds:
+        smd: -0.043448420852961106
+        reference:
+          n: 6820
+          mean: 0.05561290322580258
+          sd: 0.02915279786208451
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.029999999999986926
+            q50: 0.06099999999999284
+            q75: 0.07899999999999352
+            q95: 0.09499999999999176
+        check:
+          n: 1329
+          mean: 0.05433483822422552
+          sd: 0.030730145870196436
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.018999999999991246
+            q50: 0.06699999999999662
+            q75: 0.0759999999999934
+            q95: 0.09599999999999653
+        quantile_shift:
+          q05: -0.001999999999995339
+          q25: -0.01099999999999568
+          q50: 0.00600000000000378
+          q75: -0.0030000000000001137
+          q95: 0.0010000000000047748
+        episode_level_smd: 0.06316390698350277
+        highlighted: true
+        exceeds_maximum: false
+      minimum_left_range__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_right_range:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_right_range__age_seconds:
+        smd: -0.043448420852961106
+        reference:
+          n: 6820
+          mean: 0.05561290322580258
+          sd: 0.02915279786208451
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.029999999999986926
+            q50: 0.06099999999999284
+            q75: 0.07899999999999352
+            q95: 0.09499999999999176
+        check:
+          n: 1329
+          mean: 0.05433483822422552
+          sd: 0.030730145870196436
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.018999999999991246
+            q50: 0.06699999999999662
+            q75: 0.0759999999999934
+            q95: 0.09599999999999653
+        quantile_shift:
+          q05: -0.001999999999995339
+          q25: -0.01099999999999568
+          q50: 0.00600000000000378
+          q75: -0.0030000000000001137
+          q95: 0.0010000000000047748
+        episode_level_smd: 0.06316390698350277
+        highlighted: true
+        exceeds_maximum: false
+      minimum_right_range__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      global_path_length:
+        smd: 0.1165194839674995
+        reference:
+          n: 6820
+          mean: 3.027144216389609
+          sd: 1.8071617644384033
+        check:
+          n: 1329
+          mean: 3.2391852210938725
+          sd: 1.8833007592587458
+        episode_level_smd: 0.05206699773370976
+        highlighted: false
+        exceeds_maximum: false
+      global_path_length__age_seconds:
+        smd: -0.05623816904162006
+        reference:
+          n: 6820
+          mean: 0.533176979472137
+          sd: 0.33277697036975545
+          quantiles:
+            q05: 0.061949999999984275
+            q25: 0.26799999999999713
+            q50: 0.5219999999999914
+            q75: 0.7879999999999967
+            q95: 0.9879999999999924
+        check:
+          n: 1329
+          mean: 0.5143438675695982
+          sd: 0.34548484772769444
+          quantiles:
+            q05: 0.05199999999999534
+            q25: 0.2220000000000013
+            q50: 0.5030000000000001
+            q75: 0.730000000000004
+            q95: 0.9679999999999935
+        quantile_shift:
+          q05: -0.009949999999988933
+          q25: -0.04599999999999582
+          q50: -0.018999999999991246
+          q75: -0.057999999999992724
+          q95: -0.019999999999998908
+        episode_level_smd: -0.9192972409838824
+        highlighted: true
+        exceeds_maximum: false
+      global_path_length__missing:
+        smd: 0.045166866135090675
+        reference:
+          n: 6820
+          mean: 0.00909090909090909
+          sd: 0.0949188364678197
+        check:
+          n: 1329
+          mean: 0.013544018058690745
+          sd: 0.1156314762919053
+        episode_level_smd: 0.2080357703875441
+        highlighted: false
+        exceeds_maximum: false
+      global_path_curvature:
+        smd: 0.04196594386181135
+        reference:
+          n: 6820
+          mean: 3.488215162075082
+          sd: 4.0667792828266665
+        check:
+          n: 1329
+          mean: 3.6593343987877054
+          sd: 4.132557803651073
+        episode_level_smd: -0.07425764706628825
+        highlighted: false
+        exceeds_maximum: false
+      global_path_curvature__age_seconds:
+        smd: -0.05623816904162006
+        reference:
+          n: 6820
+          mean: 0.533176979472137
+          sd: 0.33277697036975545
+          quantiles:
+            q05: 0.061949999999984275
+            q25: 0.26799999999999713
+            q50: 0.5219999999999914
+            q75: 0.7879999999999967
+            q95: 0.9879999999999924
+        check:
+          n: 1329
+          mean: 0.5143438675695982
+          sd: 0.34548484772769444
+          quantiles:
+            q05: 0.05199999999999534
+            q25: 0.2220000000000013
+            q50: 0.5030000000000001
+            q75: 0.730000000000004
+            q95: 0.9679999999999935
+        quantile_shift:
+          q05: -0.009949999999988933
+          q25: -0.04599999999999582
+          q50: -0.018999999999991246
+          q75: -0.057999999999992724
+          q95: -0.019999999999998908
+        episode_level_smd: -0.9192972409838824
+        highlighted: true
+        exceeds_maximum: false
+      global_path_curvature__missing:
+        smd: 0.045166866135090675
+        reference:
+          n: 6820
+          mean: 0.00909090909090909
+          sd: 0.0949188364678197
+        check:
+          n: 1329
+          mean: 0.013544018058690745
+          sd: 0.1156314762919053
+        episode_level_smd: 0.2080357703875441
+        highlighted: false
+        exceeds_maximum: false
+      local_path_length:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_length__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      local_path_length__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_curvature:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_curvature__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      local_path_curvature__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      confidence_mean:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      confidence_mean__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      confidence_mean__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      uncertainty_mean:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      uncertainty_mean__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      uncertainty_mean__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      inference_latency_ms:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      inference_latency_ms__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      inference_latency_ms__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      tracking_error:
+        smd: 0.06849833581011854
+        reference:
+          n: 6820
+          mean: 0.0021777569602465722
+          sd: 0.005513785477527731
+        check:
+          n: 1329
+          mean: 0.0025655038071967697
+          sd: 0.006361727124331495
+        episode_level_smd: 0.04354240078551145
+        highlighted: false
+        exceeds_maximum: false
+      tracking_error__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      tracking_error__missing:
+        smd: 0.05703610097963325
+        reference:
+          n: 6820
+          mean: 0.0064516129032258064
+          sd: 0.0800682809430651
+        check:
+          n: 1329
+          mean: 0.011286681715575621
+          sd: 0.10567731834765862
+        episode_level_smd: 0.2518212835845607
+        highlighted: false
+        exceeds_maximum: false
+      stopped_while_commanded:
+        smd: 0.03867440011347142
+        reference:
+          n: 6820
+          mean: 0.0001466275659824047
+          sd: 0.01210898699241207
+        check:
+          n: 1329
+          mean: 0.0007524454477050414
+          sd: 0.027430739102420144
+        episode_level_smd: 0.4812273696980949
+        highlighted: false
+        exceeds_maximum: false
+      stopped_while_commanded__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      stopped_while_commanded__missing:
+        smd: 0.05703610097963325
+        reference:
+          n: 6820
+          mean: 0.0064516129032258064
+          sd: 0.0800682809430651
+        check:
+          n: 1329
+          mean: 0.011286681715575621
+          sd: 0.10567731834765862
+        episode_level_smd: 0.2518212835845607
+        highlighted: false
+        exceeds_maximum: false
+      jerk:
+        smd: -0.003856776032865616
+        reference:
+          n: 6820
+          mean: -0.0006424309823427252
+          sd: 0.011624280588404685
+        check:
+          n: 1329
+          mean: -0.0006872220421862174
+          sd: 0.011558611109288101
+        episode_level_smd: 0.09143237834698359
+        highlighted: false
+        exceeds_maximum: false
+      jerk__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      jerk__missing:
+        smd: -0.021502508212526975
+        reference:
+          n: 6820
+          mean: 0.021114369501466276
+          sd: 0.14377615910177147
+        check:
+          n: 1329
+          mean: 0.01805869074492099
+          sd: 0.13321384040592102
+        episode_level_smd: 0.07272128435566459
+        highlighted: false
+        exceeds_maximum: false
+      goal_distance:
+        smd: -0.10619267760142898
+        reference:
+          n: 6820
+          mean: 1.9284267580126149
+          sd: 1.5858252575137508
+        check:
+          n: 1329
+          mean: 1.7582250144709966
+          sd: 1.6870611630477605
+        episode_level_smd: -0.24450965423786625
+        highlighted: false
+        exceeds_maximum: false
+      goal_distance__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      goal_distance__missing:
+        smd: 0.22214281517591686
+        reference:
+          n: 6820
+          mean: 0.21656891495601174
+          sd: 0.41193652607161174
+        check:
+          n: 1329
+          mean: 0.31000752445447705
+          sd: 0.4626704341820768
+        episode_level_smd: 0.3793676612370919
+        highlighted: false
+        exceeds_maximum: false
+      remaining_distance_slope:
+        smd: 0.1899902128100271
+        reference:
+          n: 6820
+          mean: -0.07530573702115412
+          sd: 0.06296946846278013
+        check:
+          n: 1329
+          mean: -0.06335215164515853
+          sd: 0.06264595800257075
+        episode_level_smd: 0.18766958075179188
+        highlighted: false
+        exceeds_maximum: false
+      remaining_distance_slope__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      remaining_distance_slope__missing:
+        smd: 0.2745795747827497
+        reference:
+          n: 6820
+          mean: 0.09868035190615836
+          sd: 0.29825422611340946
+        check:
+          n: 1329
+          mean: 0.18510158013544017
+          sd: 0.3885261493644555
+        episode_level_smd: 0.5520944190144914
+        highlighted: false
+        exceeds_maximum: false
+      progress_slope:
+        smd: -0.1899902128100271
+        reference:
+          n: 6820
+          mean: 0.07530573702115412
+          sd: 0.06296946846278013
+        check:
+          n: 1329
+          mean: 0.06335215164515853
+          sd: 0.06264595800257075
+        episode_level_smd: -0.18766958075179188
+        highlighted: false
+        exceeds_maximum: false
+      progress_slope__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      progress_slope__missing:
+        smd: 0.2745795747827497
+        reference:
+          n: 6820
+          mean: 0.09868035190615836
+          sd: 0.29825422611340946
+        check:
+          n: 1329
+          mean: 0.18510158013544017
+          sd: 0.3885261493644555
+        episode_level_smd: 0.5520944190144914
+        highlighted: false
+        exceeds_maximum: false
+      command_sign_changes:
+        smd: -0.02724254312631539
+        reference:
+          n: 6820
+          mean: 0.08269794721407625
+          sd: 0.2754453147030905
+        check:
+          n: 1329
+          mean: 0.07524454477050414
+          sd: 0.2638848232505615
+        episode_level_smd: 0.028623291934974364
+        highlighted: false
+        exceeds_maximum: false
+      command_sign_changes__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      command_sign_changes__missing:
+        smd: 0.23339074959663283
+        reference:
+          n: 6820
+          mean: 0.17829912023460412
+          sd: 0.38279241019083676
+        check:
+          n: 1329
+          mean: 0.27012791572610984
+          sd: 0.4441928498322698
+        episode_level_smd: 0.263832595826476
+        highlighted: false
+        exceeds_maximum: false
+      pose_jump:
+        smd: -0.06726591273001459
+        reference:
+          n: 6820
+          mean: 0.04496993841936671
+          sd: 0.09630917431613938
+        check:
+          n: 1329
+          mean: 0.038557356276666226
+          sd: 0.09014659430585033
+        episode_level_smd: -0.17745296891199708
+        highlighted: false
+        exceeds_maximum: false
+      pose_jump__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      pose_jump__missing:
+        smd: 0.21521324944312076
+        reference:
+          n: 6820
+          mean: 0.22712609970674486
+          sd: 0.41900546212670703
+        check:
+          n: 1329
+          mean: 0.3190368698269376
+          sd: 0.466278821255738
+        episode_level_smd: 0.406710364948657
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_trend:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_trend__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_trend__missing:
+        smd: -0.015124940302591561
+        reference:
+          n: 6820
+          mean: 0.010557184750733138
+          sd: 0.10221185086641058
+        check:
+          n: 1329
+          mean: 0.009029345372460496
+          sd: 0.09462850579016968
+        episode_level_smd: 0.07272128435566459
+        highlighted: false
+        exceeds_maximum: false
+      near_obstacle_trend:
+        smd: 0.005857754742994832
+        reference:
+          n: 6820
+          mean: 0.004016268524680363
+          sd: 0.26042333122538935
+        check:
+          n: 1329
+          mean: 0.005538478029772632
+          sd: 0.25696210872122666
+        episode_level_smd: 0.0679429174214432
+        highlighted: false
+        exceeds_maximum: false
+      near_obstacle_trend__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      near_obstacle_trend__missing:
+        smd: -0.015124940302591561
+        reference:
+          n: 6820
+          mean: 0.010557184750733138
+          sd: 0.10221185086641058
+        check:
+          n: 1329
+          mean: 0.009029345372460496
+          sd: 0.09462850579016968
+        episode_level_smd: 0.07272128435566459
+        highlighted: false
+        exceeds_maximum: false
+      left_right_imbalance:
+        smd: 0.099975858079553
+        reference:
+          n: 6820
+          mean: 0.9558115445754745
+          sd: 0.4221755514646726
+        check:
+          n: 1329
+          mean: 0.9994434841016435
+          sd: 0.5032767512306932
+        episode_level_smd: 0.07280463053732025
+        highlighted: false
+        exceeds_maximum: false
+      left_right_imbalance__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      left_right_imbalance__missing:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      replan_rate:
+        smd: 0.04454266685263174
+        reference:
+          n: 6820
+          mean: 0.9746850998463902
+          sd: 0.17997869959770357
+        check:
+          n: 1329
+          mean: 0.9827194333966343
+          sd: 0.18238954953618824
+        episode_level_smd: -0.18538275028846182
+        highlighted: false
+        exceeds_maximum: false
+      replan_rate__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6820
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1329
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      replan_rate__missing:
+        smd: -0.015124940302591561
+        reference:
+          n: 6820
+          mean: 0.010557184750733138
+          sd: 0.10221185086641058
+        check:
+          n: 1329
+          mean: 0.009029345372460496
+          sd: 0.09462850579016968
+        episode_level_smd: 0.07272128435566459
+        highlighted: false
+        exceeds_maximum: false
+  clean_s3:
+    reference_episodes: 72
+    check_episodes: 12
+    eligible_decisions:
+      reference: 6570
+      check: 1114
+    maximum_absolute_smd: 3.088336579389241
+    features_beyond_maximum:
+    - inference_latency_ms
+    features:
+      command_linear:
+        smd: 0.002333972387180872
+        reference:
+          n: 6570
+          mean: 0.09335296223973295
+          sd: 0.0628359817554264
+        check:
+          n: 1114
+          mean: 0.09349948061303483
+          sd: 0.06242355389095045
+        episode_level_smd: -0.014200557122726264
+        highlighted: false
+        exceeds_maximum: false
+      command_linear__age_seconds:
+        smd: -0.0938661075103567
+        reference:
+          n: 6570
+          mean: 0.031499695585992804
+          sd: 0.04376079211326235
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.012999999999991019
+            q50: 0.02499999999999858
+            q75: 0.04200000000000159
+            q95: 0.06499999999999773
+        check:
+          n: 1114
+          mean: 0.027646319569116735
+          sd: 0.018144737291673662
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.012999999999992795
+            q50: 0.02499999999999858
+            q75: 0.04099999999999682
+            q95: 0.06199999999999761
+        quantile_shift:
+          q05: 0.0
+          q25: 1.7763568394002505e-15
+          q50: 0.0
+          q75: -0.0010000000000047748
+          q95: -0.0030000000000001137
+        episode_level_smd: -0.3679126716127635
+        highlighted: true
+        exceeds_maximum: false
+      command_linear__missing:
+        smd: -0.08673393275859147
+        reference:
+          n: 6570
+          mean: 0.006392694063926941
+          sd: 0.07970441936510786
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: -0.3207322900153484
+        highlighted: false
+        exceeds_maximum: false
+      command_angular:
+        smd: -0.01571737823503668
+        reference:
+          n: 6570
+          mean: 0.0025594360477679207
+          sd: 0.10104779636658179
+        check:
+          n: 1114
+          mean: 0.0009628613433339578
+          sd: 0.10466745545526729
+        episode_level_smd: -0.25416773196631887
+        highlighted: false
+        exceeds_maximum: false
+      command_angular__age_seconds:
+        smd: -0.0938661075103567
+        reference:
+          n: 6570
+          mean: 0.031499695585992804
+          sd: 0.04376079211326235
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.012999999999991019
+            q50: 0.02499999999999858
+            q75: 0.04200000000000159
+            q95: 0.06499999999999773
+        check:
+          n: 1114
+          mean: 0.027646319569116735
+          sd: 0.018144737291673662
+          quantiles:
+            q05: 0.0030000000000001137
+            q25: 0.012999999999992795
+            q50: 0.02499999999999858
+            q75: 0.04099999999999682
+            q95: 0.06199999999999761
+        quantile_shift:
+          q05: 0.0
+          q25: 1.7763568394002505e-15
+          q50: 0.0
+          q75: -0.0010000000000047748
+          q95: -0.0030000000000001137
+        episode_level_smd: -0.3679126716127635
+        highlighted: true
+        exceeds_maximum: false
+      command_angular__missing:
+        smd: -0.08673393275859147
+        reference:
+          n: 6570
+          mean: 0.006392694063926941
+          sd: 0.07970441936510786
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: -0.3207322900153484
+        highlighted: false
+        exceeds_maximum: false
+      measured_linear:
+        smd: -0.0013687022727245043
+        reference:
+          n: 6570
+          mean: 0.09354729309330627
+          sd: 0.06292091399760763
+        check:
+          n: 1114
+          mean: 0.09346129688514959
+          sd: 0.06229399437141008
+        episode_level_smd: -0.02426935876056249
+        highlighted: false
+        exceeds_maximum: false
+      measured_linear__age_seconds:
+        smd: 0.012299147650853066
+        reference:
+          n: 6570
+          mean: 0.01716879756468379
+          sd: 0.009887968916273738
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.008999999999993236
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.03299999999998704
+        check:
+          n: 1114
+          mean: 0.017290843806100582
+          sd: 0.010128277274305235
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.008249999999998536
+            q50: 0.01699999999999946
+            q75: 0.02599999999999625
+            q95: 0.032999999999994145
+        quantile_shift:
+          q05: 0.0
+          q25: -0.0007499999999946994
+          q50: 3.552713678800501e-15
+          q75: 0.0
+          q95: 7.105427357601002e-15
+        episode_level_smd: 0.17389194598639812
+        highlighted: true
+        exceeds_maximum: false
+      measured_linear__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      measured_angular:
+        smd: -0.011882041391164052
+        reference:
+          n: 6570
+          mean: 0.002695826786123323
+          sd: 0.10132951889290089
+        check:
+          n: 1114
+          mean: 0.001483586813388761
+          sd: 0.10602276426919642
+        episode_level_smd: -0.20612021270086936
+        highlighted: false
+        exceeds_maximum: false
+      measured_angular__age_seconds:
+        smd: 0.012299147650853066
+        reference:
+          n: 6570
+          mean: 0.01716879756468379
+          sd: 0.009887968916273738
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.008999999999993236
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.03299999999998704
+        check:
+          n: 1114
+          mean: 0.017290843806100582
+          sd: 0.010128277274305235
+          quantiles:
+            q05: 0.001999999999995339
+            q25: 0.008249999999998536
+            q50: 0.01699999999999946
+            q75: 0.02599999999999625
+            q95: 0.032999999999994145
+        quantile_shift:
+          q05: 0.0
+          q25: -0.0007499999999946994
+          q50: 3.552713678800501e-15
+          q75: 0.0
+          q95: 7.105427357601002e-15
+        episode_level_smd: 0.17389194598639812
+        highlighted: true
+        exceeds_maximum: false
+      measured_angular__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      pose_covariance_trace:
+        smd: 0.006609287564872431
+        reference:
+          n: 6570
+          mean: 0.1549870042078632
+          sd: 0.10464079732295603
+        check:
+          n: 1114
+          mean: 0.15567655329126695
+          sd: 0.10247870128483387
+        episode_level_smd: -0.009419238544411585
+        highlighted: false
+        exceeds_maximum: false
+      pose_covariance_trace__age_seconds:
+        smd: 0.05207129312076422
+        reference:
+          n: 6570
+          mean: 1.1246147640791442
+          sd: 0.6544673053661698
+          quantiles:
+            q05: 0.10744999999999512
+            q25: 0.5602499999999999
+            q50: 1.1189999999999962
+            q75: 1.7659999999999965
+            q95: 2.0
+        check:
+          n: 1114
+          mean: 1.1586579892280047
+          sd: 0.6497160224880677
+          quantiles:
+            q05: 0.12089999999999289
+            q25: 0.590999999999994
+            q50: 1.1709999999999994
+            q75: 1.8407499999999928
+            q95: 2.0
+        quantile_shift:
+          q05: 0.01344999999999777
+          q25: 0.03074999999999406
+          q50: 0.052000000000003155
+          q75: 0.07474999999999632
+          q95: 0.0
+        episode_level_smd: 0.1584270649561128
+        highlighted: true
+        exceeds_maximum: false
+      pose_covariance_trace__missing:
+        smd: 0.01752708906951727
+        reference:
+          n: 6570
+          mean: 0.20121765601217656
+          sd: 0.4009408668885552
+        check:
+          n: 1114
+          mean: 0.20825852782764812
+          sd: 0.4062450735552956
+        episode_level_smd: 0.03596845397242548
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_fraction:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1114
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_fraction__age_seconds:
+        smd: 0.32514245278550286
+        reference:
+          n: 6570
+          mean: 0.042038660578382236
+          sd: 0.028322744080946625
+          quantiles:
+            q05: 0.008000000000002672
+            q25: 0.01999999999999602
+            q50: 0.02599999999999625
+            q75: 0.07199999999999562
+            q95: 0.08799999999999386
+        check:
+          n: 1114
+          mean: 0.051229802513461556
+          sd: 0.027943036179704603
+          quantiles:
+            q05: 0.004649999999996274
+            q25: 0.03299999999998704
+            q50: 0.05100000000000193
+            q75: 0.07399999999999807
+            q95: 0.09599999999999778
+        quantile_shift:
+          q05: -0.0033500000000063973
+          q25: 0.012999999999991019
+          q50: 0.025000000000005684
+          q75: 0.0020000000000024443
+          q95: 0.00800000000000392
+        episode_level_smd: 0.16985696257057029
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_fraction__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_front_range:
+        smd: -0.00869937641900482
+        reference:
+          n: 6570
+          mean: 2.107985838367696
+          sd: 1.100457783169707
+        check:
+          n: 1114
+          mean: 2.09846272184455
+          sd: 1.0600059628041836
+        episode_level_smd: -0.06857091585475232
+        highlighted: false
+        exceeds_maximum: false
+      minimum_front_range__age_seconds:
+        smd: 0.32514245278550286
+        reference:
+          n: 6570
+          mean: 0.042038660578382236
+          sd: 0.028322744080946625
+          quantiles:
+            q05: 0.008000000000002672
+            q25: 0.01999999999999602
+            q50: 0.02599999999999625
+            q75: 0.07199999999999562
+            q95: 0.08799999999999386
+        check:
+          n: 1114
+          mean: 0.051229802513461556
+          sd: 0.027943036179704603
+          quantiles:
+            q05: 0.004649999999996274
+            q25: 0.03299999999998704
+            q50: 0.05100000000000193
+            q75: 0.07399999999999807
+            q95: 0.09599999999999778
+        quantile_shift:
+          q05: -0.0033500000000063973
+          q25: 0.012999999999991019
+          q50: 0.025000000000005684
+          q75: 0.0020000000000024443
+          q95: 0.00800000000000392
+        episode_level_smd: 0.16985696257057029
+        highlighted: true
+        exceeds_maximum: false
+      minimum_front_range__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_left_range:
+        smd: -0.025593142163076954
+        reference:
+          n: 6570
+          mean: 0.9676141851614236
+          sd: 0.44492803230221545
+        check:
+          n: 1114
+          mean: 0.9563859379323637
+          sd: 0.40012977389307136
+        episode_level_smd: -0.05134683122998781
+        highlighted: false
+        exceeds_maximum: false
+      minimum_left_range__age_seconds:
+        smd: 0.32514245278550286
+        reference:
+          n: 6570
+          mean: 0.042038660578382236
+          sd: 0.028322744080946625
+          quantiles:
+            q05: 0.008000000000002672
+            q25: 0.01999999999999602
+            q50: 0.02599999999999625
+            q75: 0.07199999999999562
+            q95: 0.08799999999999386
+        check:
+          n: 1114
+          mean: 0.051229802513461556
+          sd: 0.027943036179704603
+          quantiles:
+            q05: 0.004649999999996274
+            q25: 0.03299999999998704
+            q50: 0.05100000000000193
+            q75: 0.07399999999999807
+            q95: 0.09599999999999778
+        quantile_shift:
+          q05: -0.0033500000000063973
+          q25: 0.012999999999991019
+          q50: 0.025000000000005684
+          q75: 0.0020000000000024443
+          q95: 0.00800000000000392
+        episode_level_smd: 0.16985696257057029
+        highlighted: true
+        exceeds_maximum: false
+      minimum_left_range__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_right_range:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_right_range__age_seconds:
+        smd: 0.32514245278550286
+        reference:
+          n: 6570
+          mean: 0.042038660578382236
+          sd: 0.028322744080946625
+          quantiles:
+            q05: 0.008000000000002672
+            q25: 0.01999999999999602
+            q50: 0.02599999999999625
+            q75: 0.07199999999999562
+            q95: 0.08799999999999386
+        check:
+          n: 1114
+          mean: 0.051229802513461556
+          sd: 0.027943036179704603
+          quantiles:
+            q05: 0.004649999999996274
+            q25: 0.03299999999998704
+            q50: 0.05100000000000193
+            q75: 0.07399999999999807
+            q95: 0.09599999999999778
+        quantile_shift:
+          q05: -0.0033500000000063973
+          q25: 0.012999999999991019
+          q50: 0.025000000000005684
+          q75: 0.0020000000000024443
+          q95: 0.00800000000000392
+        episode_level_smd: 0.16985696257057029
+        highlighted: true
+        exceeds_maximum: false
+      minimum_right_range__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      global_path_length:
+        smd: -0.3719730484179268
+        reference:
+          n: 6570
+          mean: 3.0993114981775842
+          sd: 1.8786874291091227
+        check:
+          n: 1114
+          mean: 2.407349848451163
+          sd: 1.7474493133453606
+        episode_level_smd: -0.2490473165258129
+        highlighted: false
+        exceeds_maximum: false
+      global_path_length__age_seconds:
+        smd: -0.05917568020659347
+        reference:
+          n: 6570
+          mean: 0.5334245053272411
+          sd: 0.33404561558554113
+          quantiles:
+            q05: 0.057999999999992724
+            q25: 0.26799999999999446
+            q50: 0.5219999999999985
+            q75: 0.7879999999999967
+            q95: 0.9879999999999995
+        check:
+          n: 1114
+          mean: 0.5138833034111275
+          sd: 0.3066966812572304
+          quantiles:
+            q05: 0.04899999999999238
+            q25: 0.2709999999999866
+            q50: 0.49099999999999966
+            q75: 0.7549999999999981
+            q95: 0.9623499999999932
+        quantile_shift:
+          q05: -0.009000000000000341
+          q25: 0.00299999999999212
+          q50: -0.030999999999998806
+          q75: -0.032999999999998586
+          q95: -0.02565000000000639
+        episode_level_smd: -0.44070679661704176
+        highlighted: true
+        exceeds_maximum: false
+      global_path_length__missing:
+        smd: -0.057305172116469266
+        reference:
+          n: 6570
+          mean: 0.008675799086757991
+          sd: 0.09274609887787306
+        check:
+          n: 1114
+          mean: 0.003590664272890485
+          sd: 0.05984133966191172
+        episode_level_smd: -0.17713434023753924
+        highlighted: false
+        exceeds_maximum: false
+      global_path_curvature:
+        smd: -0.05368318644031219
+        reference:
+          n: 6570
+          mean: 3.417507017813135
+          sd: 4.220834960314984
+        check:
+          n: 1114
+          mean: 3.19660543133701
+          sd: 3.423636546604907
+        episode_level_smd: -0.21570933168720968
+        highlighted: false
+        exceeds_maximum: false
+      global_path_curvature__age_seconds:
+        smd: -0.05917568020659347
+        reference:
+          n: 6570
+          mean: 0.5334245053272411
+          sd: 0.33404561558554113
+          quantiles:
+            q05: 0.057999999999992724
+            q25: 0.26799999999999446
+            q50: 0.5219999999999985
+            q75: 0.7879999999999967
+            q95: 0.9879999999999995
+        check:
+          n: 1114
+          mean: 0.5138833034111275
+          sd: 0.3066966812572304
+          quantiles:
+            q05: 0.04899999999999238
+            q25: 0.2709999999999866
+            q50: 0.49099999999999966
+            q75: 0.7549999999999981
+            q95: 0.9623499999999932
+        quantile_shift:
+          q05: -0.009000000000000341
+          q25: 0.00299999999999212
+          q50: -0.030999999999998806
+          q75: -0.032999999999998586
+          q95: -0.02565000000000639
+        episode_level_smd: -0.44070679661704176
+        highlighted: true
+        exceeds_maximum: false
+      global_path_curvature__missing:
+        smd: -0.057305172116469266
+        reference:
+          n: 6570
+          mean: 0.008675799086757991
+          sd: 0.09274609887787306
+        check:
+          n: 1114
+          mean: 0.003590664272890485
+          sd: 0.05984133966191172
+        episode_level_smd: -0.17713434023753924
+        highlighted: false
+        exceeds_maximum: false
+      local_path_length:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_length__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1114
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      local_path_length__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_curvature:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_curvature__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1114
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      local_path_curvature__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      confidence_mean:
+        smd: -0.08061883043512579
+        reference:
+          n: 6570
+          mean: 0.851326219447721
+          sd: 0.04576721865307549
+        check:
+          n: 1114
+          mean: 0.8476658080215439
+          sd: 0.04319756364398628
+        episode_level_smd: 0.06284306321076191
+        highlighted: false
+        exceeds_maximum: false
+      confidence_mean__age_seconds:
+        smd: 0.20697237157433923
+        reference:
+          n: 6570
+          mean: 0.045835464231350424
+          sd: 0.03375812602531074
+          quantiles:
+            q05: 0.003999999999997783
+            q25: 0.01099999999999568
+            q50: 0.047999999999998266
+            q75: 0.07399999999999807
+            q95: 0.09499999999999886
+        check:
+          n: 1114
+          mean: 0.05265888689407204
+          sd: 0.027850073144279692
+          quantiles:
+            q05: 0.009649999999998831
+            q25: 0.031999999999996476
+            q50: 0.050999999999991275
+            q75: 0.07474999999999099
+            q95: 0.09799999999999898
+        quantile_shift:
+          q05: 0.005650000000001048
+          q25: 0.021000000000000796
+          q50: 0.0029999999999930083
+          q75: 0.000749999999992923
+          q95: 0.0030000000000001137
+        episode_level_smd: 0.6152789781461513
+        highlighted: true
+        exceeds_maximum: false
+      confidence_mean__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      uncertainty_mean:
+        smd: -0.2855071090338763
+        reference:
+          n: 6570
+          mean: 0.0028487690623073478
+          sd: 0.0025732686541129956
+        check:
+          n: 1114
+          mean: 0.002148706126986535
+          sd: 0.001554181849242263
+        episode_level_smd: -0.1478414293677543
+        highlighted: false
+        exceeds_maximum: false
+      uncertainty_mean__age_seconds:
+        smd: 0.20712538383345389
+        reference:
+          n: 6570
+          mean: 0.04583074581430323
+          sd: 0.033756328182955785
+          quantiles:
+            q05: 0.003999999999997783
+            q25: 0.01099999999999568
+            q50: 0.047999999999998266
+            q75: 0.07399999999999807
+            q95: 0.09499999999999886
+        check:
+          n: 1114
+          mean: 0.05265888689407204
+          sd: 0.027850073144279692
+          quantiles:
+            q05: 0.009649999999998831
+            q25: 0.031999999999996476
+            q50: 0.050999999999991275
+            q75: 0.07474999999999099
+            q95: 0.09799999999999898
+        quantile_shift:
+          q05: 0.005650000000001048
+          q25: 0.021000000000000796
+          q50: 0.0029999999999930083
+          q75: 0.000749999999992923
+          q95: 0.0030000000000001137
+        episode_level_smd: 0.615635758593115
+        highlighted: true
+        exceeds_maximum: false
+      uncertainty_mean__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      inference_latency_ms:
+        smd: 3.088336579389241
+        reference:
+          n: 6570
+          mean: 9.5458397867921
+          sd: 0.4417096358162546
+          quantiles:
+            q05: 8.9021941205
+            q25: 9.23721552
+            q50: 9.498138430000001
+            q75: 9.806169275
+            q95: 10.346345784999999
+        check:
+          n: 1114
+          mean: 16.786782652109515
+          sd: 6.065513599049927
+          quantiles:
+            q05: 11.05639805
+            q25: 12.66429425
+            q50: 14.6589308
+            q75: 19.039321450000003
+            q95: 29.67830917
+        quantile_shift:
+          q05: 2.1542039294999995
+          q25: 3.42707873
+          q50: 5.160792369999999
+          q75: 9.233152175000003
+          q95: 19.331963385
+        episode_level_smd: 11.717998690394511
+        highlighted: true
+        exceeds_maximum: true
+      inference_latency_ms__age_seconds:
+        smd: 0.20738542258606918
+        reference:
+          n: 6570
+          mean: 0.04582222222221798
+          sd: 0.03375605887791146
+          quantiles:
+            q05: 0.003999999999997783
+            q25: 0.01099999999999568
+            q50: 0.047999999999998266
+            q75: 0.07399999999999807
+            q95: 0.09499999999999886
+        check:
+          n: 1114
+          mean: 0.05265888689407204
+          sd: 0.027850073144279692
+          quantiles:
+            q05: 0.009649999999998831
+            q25: 0.031999999999996476
+            q50: 0.050999999999991275
+            q75: 0.07474999999999099
+            q95: 0.09799999999999898
+        quantile_shift:
+          q05: 0.005650000000001048
+          q25: 0.021000000000000796
+          q50: 0.0029999999999930083
+          q75: 0.000749999999992923
+          q95: 0.0030000000000001137
+        episode_level_smd: 0.6162572653221742
+        highlighted: true
+        exceeds_maximum: false
+      inference_latency_ms__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      tracking_error:
+        smd: -0.029106288929291863
+        reference:
+          n: 6570
+          mean: 0.0019734372385088145
+          sd: 0.005041993505450042
+        check:
+          n: 1114
+          mean: 0.0018293792359935464
+          sd: 0.004362886094887272
+        episode_level_smd: -0.1810738051248293
+        highlighted: false
+        exceeds_maximum: false
+      tracking_error__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      tracking_error__missing:
+        smd: -0.08673393275859147
+        reference:
+          n: 6570
+          mean: 0.006392694063926941
+          sd: 0.07970441936510786
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: -0.3207322900153484
+        highlighted: false
+        exceeds_maximum: false
+      stopped_while_commanded:
+        smd: 0.046212554236449654
+        reference:
+          n: 6570
+          mean: 0.00015220700152207003
+          sd: 0.01233722016996009
+        check:
+          n: 1114
+          mean: 0.0008976660682226212
+          sd: 0.029961075885598983
+        episode_level_smd: 0.5720905950678
+        highlighted: false
+        exceeds_maximum: false
+      stopped_while_commanded__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      stopped_while_commanded__missing:
+        smd: -0.08673393275859147
+        reference:
+          n: 6570
+          mean: 0.006392694063926941
+          sd: 0.07970441936510786
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: -0.3207322900153484
+        highlighted: false
+        exceeds_maximum: false
+      jerk:
+        smd: -0.00850215509585881
+        reference:
+          n: 6570
+          mean: -0.0005949109234017995
+          sd: 0.010393950278113774
+        check:
+          n: 1114
+          mean: -0.0006808256158835968
+          sd: 0.00819505039000868
+        episode_level_smd: -0.04985792908511461
+        highlighted: false
+        exceeds_maximum: false
+      jerk__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      jerk__missing:
+        smd: -0.014918396539755886
+        reference:
+          n: 6570
+          mean: 0.021917808219178082
+          sd: 0.14642636826699043
+        check:
+          n: 1114
+          mean: 0.019748653500897665
+          sd: 0.13919783546128559
+        episode_level_smd: -0.39680129452369184
+        highlighted: false
+        exceeds_maximum: false
+      goal_distance:
+        smd: -0.12838595489736188
+        reference:
+          n: 6570
+          mean: 1.9931250805712166
+          sd: 1.6095569571012218
+        check:
+          n: 1114
+          mean: 1.7877756861584353
+          sd: 1.538584783289052
+        episode_level_smd: -0.08655229349448729
+        highlighted: false
+        exceeds_maximum: false
+      goal_distance__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      goal_distance__missing:
+        smd: 0.01752708906951727
+        reference:
+          n: 6570
+          mean: 0.20121765601217656
+          sd: 0.4009408668885552
+        check:
+          n: 1114
+          mean: 0.20825852782764812
+          sd: 0.4062450735552956
+        episode_level_smd: 0.03596845397242548
+        highlighted: false
+        exceeds_maximum: false
+      remaining_distance_slope:
+        smd: -0.005483939072364994
+        reference:
+          n: 6570
+          mean: -0.07650585885203036
+          sd: 0.06208871503285278
+        check:
+          n: 1114
+          mean: -0.07684419685511347
+          sd: 0.059326418506125606
+        episode_level_smd: 0.02560209405185482
+        highlighted: false
+        exceeds_maximum: false
+      remaining_distance_slope__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      remaining_distance_slope__missing:
+        smd: 0.04795385073840195
+        reference:
+          n: 6570
+          mean: 0.09193302891933029
+          sd: 0.2889533794453343
+        check:
+          n: 1114
+          mean: 0.1059245960502693
+          sd: 0.30787930340990044
+        episode_level_smd: 0.09963080535047789
+        highlighted: false
+        exceeds_maximum: false
+      progress_slope:
+        smd: 0.005483939072364994
+        reference:
+          n: 6570
+          mean: 0.07650585885203036
+          sd: 0.06208871503285278
+        check:
+          n: 1114
+          mean: 0.07684419685511347
+          sd: 0.059326418506125606
+        episode_level_smd: -0.02560209405185482
+        highlighted: false
+        exceeds_maximum: false
+      progress_slope__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      progress_slope__missing:
+        smd: 0.04795385073840195
+        reference:
+          n: 6570
+          mean: 0.09193302891933029
+          sd: 0.2889533794453343
+        check:
+          n: 1114
+          mean: 0.1059245960502693
+          sd: 0.30787930340990044
+        episode_level_smd: 0.09963080535047789
+        highlighted: false
+        exceeds_maximum: false
+      command_sign_changes:
+        smd: 0.04216306561396233
+        reference:
+          n: 6570
+          mean: 0.09269406392694064
+          sd: 0.2900253045554164
+        check:
+          n: 1114
+          mean: 0.10502692998204669
+          sd: 0.30672581736288146
+        episode_level_smd: 0.23537895266228465
+        highlighted: false
+        exceeds_maximum: false
+      command_sign_changes__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      command_sign_changes__missing:
+        smd: 0.1078577372339597
+        reference:
+          n: 6570
+          mean: 0.15844748858447488
+          sd: 0.36518787028510913
+        check:
+          n: 1114
+          mean: 0.19838420107719928
+          sd: 0.3989621436417801
+        episode_level_smd: 0.053662434276044044
+        highlighted: false
+        exceeds_maximum: false
+      pose_jump:
+        smd: -0.00020389632537239
+        reference:
+          n: 6570
+          mean: 0.04571935548899167
+          sd: 0.09701928294841412
+        check:
+          n: 1114
+          mean: 0.045699558210673306
+          sd: 0.09753949727484251
+        episode_level_smd: -0.06315123188607855
+        highlighted: false
+        exceeds_maximum: false
+      pose_jump__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      pose_jump__missing:
+        smd: 0.01454515524668135
+        reference:
+          n: 6570
+          mean: 0.2121765601217656
+          sd: 0.4088803173266375
+        check:
+          n: 1114
+          mean: 0.21813285457809695
+          sd: 0.4131635846160217
+        episode_level_smd: -0.0012734641257905173
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_trend:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_trend__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_trend__missing:
+        smd: -0.01049107313455022
+        reference:
+          n: 6570
+          mean: 0.010958904109589041
+          sd: 0.10411751304986341
+        check:
+          n: 1114
+          mean: 0.009874326750448833
+          sd: 0.09892223526841024
+        episode_level_smd: -0.39680129452369184
+        highlighted: false
+        exceeds_maximum: false
+      near_obstacle_trend:
+        smd: 0.009777348628448024
+        reference:
+          n: 6570
+          mean: -0.005747123513848736
+          sd: 0.22883447501112
+        check:
+          n: 1114
+          mean: -0.003516458427190694
+          sd: 0.22404100028247176
+        episode_level_smd: 0.12400197835601214
+        highlighted: false
+        exceeds_maximum: false
+      near_obstacle_trend__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      near_obstacle_trend__missing:
+        smd: -0.01049107313455022
+        reference:
+          n: 6570
+          mean: 0.010958904109589041
+          sd: 0.10411751304986341
+        check:
+          n: 1114
+          mean: 0.009874326750448833
+          sd: 0.09892223526841024
+        episode_level_smd: -0.39680129452369184
+        highlighted: false
+        exceeds_maximum: false
+      left_right_imbalance:
+        smd: -0.025593142163076954
+        reference:
+          n: 6570
+          mean: 0.9676141851614236
+          sd: 0.44492803230221545
+        check:
+          n: 1114
+          mean: 0.9563859379323637
+          sd: 0.40012977389307136
+        episode_level_smd: -0.05134683122998781
+        highlighted: false
+        exceeds_maximum: false
+      left_right_imbalance__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      left_right_imbalance__missing:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      replan_rate:
+        smd: 0.24210391568502113
+        reference:
+          n: 6570
+          mean: 0.9737818607909933
+          sd: 0.18475900004586288
+        check:
+          n: 1114
+          mean: 1.0187348607905162
+          sd: 0.19100168412438925
+        episode_level_smd: 1.179673878470099
+        highlighted: false
+        exceeds_maximum: false
+      replan_rate__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6570
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1114
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      replan_rate__missing:
+        smd: -0.01049107313455022
+        reference:
+          n: 6570
+          mean: 0.010958904109589041
+          sd: 0.10411751304986341
+        check:
+          n: 1114
+          mean: 0.009874326750448833
+          sd: 0.09892223526841024
+        episode_level_smd: -0.39680129452369184
+        highlighted: false
+        exceeds_maximum: false
+  oscillation:
+    reference_episodes: 72
+    check_episodes: 12
+    eligible_decisions:
+      reference: 6948
+      check: 1224
+    maximum_absolute_smd: 0.2573874270092363
+    features_beyond_maximum: []
+    features:
+      command_linear:
+        smd: 0.022382563315803003
+        reference:
+          n: 6948
+          mean: 0.038767280165339854
+          sd: 0.06813301693197002
+        check:
+          n: 1224
+          mean: 0.04029129583610555
+          sd: 0.06784122001395647
+        episode_level_smd: 0.1729076087418545
+        highlighted: false
+        exceeds_maximum: false
+      command_linear__age_seconds:
+        smd: -0.08776957227516113
+        reference:
+          n: 6948
+          mean: 0.0581940126655103
+          sd: 0.11330980883538425
+          quantiles:
+            q05: 0.003999999999990678
+            q25: 0.018999999999991246
+            q50: 0.030000000000001137
+            q75: 0.04399999999998272
+            q95: 0.5
+        check:
+          n: 1224
+          mean: 0.048477124183001034
+          sd: 0.09458905117069057
+          quantiles:
+            q05: 0.0029999999999930083
+            q25: 0.01300000000000523
+            q50: 0.027000000000001023
+            q75: 0.047999999999994714
+            q95: 0.07000000000000028
+        quantile_shift:
+          q05: -0.0009999999999976694
+          q25: -0.0059999999999860165
+          q50: -0.0030000000000001137
+          q75: 0.004000000000011994
+          q95: -0.4299999999999997
+        episode_level_smd: -0.4210911558188374
+        highlighted: true
+        exceeds_maximum: false
+      command_linear__missing:
+        smd: -0.08705095846900081
+        reference:
+          n: 6948
+          mean: 0.05829015544041451
+          sd: 0.23430816208331642
+        check:
+          n: 1224
+          mean: 0.03839869281045752
+          sd: 0.19223533682539548
+        episode_level_smd: -0.4168716544001633
+        highlighted: false
+        exceeds_maximum: false
+      command_angular:
+        smd: 0.016718054613122816
+        reference:
+          n: 6948
+          mean: 0.008657146133536827
+          sd: 0.15637457343007663
+        check:
+          n: 1224
+          mean: 0.011297056368492991
+          sd: 0.16634869901608862
+        episode_level_smd: 0.05233759074741188
+        highlighted: false
+        exceeds_maximum: false
+      command_angular__age_seconds:
+        smd: -0.08776957227516113
+        reference:
+          n: 6948
+          mean: 0.0581940126655103
+          sd: 0.11330980883538425
+          quantiles:
+            q05: 0.003999999999990678
+            q25: 0.018999999999991246
+            q50: 0.030000000000001137
+            q75: 0.04399999999998272
+            q95: 0.5
+        check:
+          n: 1224
+          mean: 0.048477124183001034
+          sd: 0.09458905117069057
+          quantiles:
+            q05: 0.0029999999999930083
+            q25: 0.01300000000000523
+            q50: 0.027000000000001023
+            q75: 0.047999999999994714
+            q95: 0.07000000000000028
+        quantile_shift:
+          q05: -0.0009999999999976694
+          q25: -0.0059999999999860165
+          q50: -0.0030000000000001137
+          q75: 0.004000000000011994
+          q95: -0.4299999999999997
+        episode_level_smd: -0.4210911558188374
+        highlighted: true
+        exceeds_maximum: false
+      command_angular__missing:
+        smd: -0.08705095846900081
+        reference:
+          n: 6948
+          mean: 0.05829015544041451
+          sd: 0.23430816208331642
+        check:
+          n: 1224
+          mean: 0.03839869281045752
+          sd: 0.19223533682539548
+        episode_level_smd: -0.4168716544001633
+        highlighted: false
+        exceeds_maximum: false
+      measured_linear:
+        smd: 0.019977909953173757
+        reference:
+          n: 6948
+          mean: 0.03884155885337522
+          sd: 0.0682148860624889
+        check:
+          n: 1224
+          mean: 0.040203481218056475
+          sd: 0.0679239501357943
+        episode_level_smd: 0.14895064856118542
+        highlighted: false
+        exceeds_maximum: false
+      measured_linear__age_seconds:
+        smd: 0.011466386502579973
+        reference:
+          n: 6948
+          mean: 0.017235031663783075
+          sd: 0.010123870727101438
+          quantiles:
+            q05: 0.0010000000000047748
+            q25: 0.00899999999998613
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.03299999999998704
+        check:
+          n: 1224
+          mean: 0.017351307189536418
+          sd: 0.010234812169149461
+          quantiles:
+            q05: 0.0010000000000047748
+            q25: 0.00899999999998613
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.032999999999994145
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 7.105427357601002e-15
+        episode_level_smd: 0.29401719930790804
+        highlighted: true
+        exceeds_maximum: false
+      measured_linear__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      measured_angular:
+        smd: 0.021159106213544398
+        reference:
+          n: 6948
+          mean: 0.00731998560782893
+          sd: 0.15060196445539634
+        check:
+          n: 1224
+          mean: 0.010545675331346857
+          sd: 0.162544498267751
+        episode_level_smd: 0.08197944328522612
+        highlighted: false
+        exceeds_maximum: false
+      measured_angular__age_seconds:
+        smd: 0.011466386502579973
+        reference:
+          n: 6948
+          mean: 0.017235031663783075
+          sd: 0.010123870727101438
+          quantiles:
+            q05: 0.0010000000000047748
+            q25: 0.00899999999998613
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.03299999999998704
+        check:
+          n: 1224
+          mean: 0.017351307189536418
+          sd: 0.010234812169149461
+          quantiles:
+            q05: 0.0010000000000047748
+            q25: 0.00899999999998613
+            q50: 0.016999999999995907
+            q75: 0.02599999999999625
+            q95: 0.032999999999994145
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 7.105427357601002e-15
+        episode_level_smd: 0.29401719930790804
+        highlighted: true
+        exceeds_maximum: false
+      measured_angular__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      pose_covariance_trace:
+        smd: 0.039081960261182054
+        reference:
+          n: 6948
+          mean: 0.088371384381699
+          sd: 0.10420765509690089
+        check:
+          n: 1224
+          mean: 0.0925088808483182
+          sd: 0.114839595341342
+        episode_level_smd: 0.15957617250220787
+        highlighted: false
+        exceeds_maximum: false
+      pose_covariance_trace__age_seconds:
+        smd: 0.01667408460897137
+        reference:
+          n: 6948
+          mean: 1.3971966033390875
+          sd: 0.6802943843087264
+          quantiles:
+            q05: 0.15134999999999296
+            q25: 0.8089999999999797
+            q50: 1.6809999999999974
+            q75: 2.0
+            q95: 2.0
+        check:
+          n: 1224
+          mean: 1.4085433006535923
+          sd: 0.6816598769334953
+          quantiles:
+            q05: 0.15845000000000128
+            q25: 0.8050000000000033
+            q50: 1.7780000000000022
+            q75: 2.0
+            q95: 2.0
+        quantile_shift:
+          q05: 0.007100000000008322
+          q25: -0.003999999999976467
+          q50: 0.09700000000000486
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: -0.19162128712560905
+        highlighted: true
+        exceeds_maximum: false
+      pose_covariance_trace__missing:
+        smd: 0.02310559480137384
+        reference:
+          n: 6948
+          mean: 0.4435808865860679
+          sd: 0.4968424420259619
+        check:
+          n: 1224
+          mean: 0.4550653594771242
+          sd: 0.49818033130070777
+        episode_level_smd: -0.15251119730809737
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_fraction:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_fraction__age_seconds:
+        smd: 0.050616436888723894
+        reference:
+          n: 6948
+          mean: 0.06214090385721985
+          sd: 0.03062225227051281
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.04199999999998738
+            q50: 0.0689999999999884
+            q75: 0.08899999999999864
+            q95: 0.09600000000000364
+        check:
+          n: 1224
+          mean: 0.06369035947711847
+          sd: 0.03055174887221812
+          quantiles:
+            q05: 0.0019999999999974704
+            q25: 0.04599999999999227
+            q50: 0.07499999999998863
+            q75: 0.08425000000000082
+            q95: 0.0998499999999825
+        quantile_shift:
+          q05: -0.002999999999997982
+          q25: 0.0040000000000048885
+          q50: 0.006000000000000227
+          q75: -0.0047499999999978115
+          q95: 0.0038499999999788564
+        episode_level_smd: -0.3234495681800273
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_fraction__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_front_range:
+        smd: 0.11381883263737912
+        reference:
+          n: 6948
+          mean: 1.3039163666496898
+          sd: 0.888500279811301
+        check:
+          n: 1224
+          mean: 1.405817926003068
+          sd: 0.9329597673449158
+        episode_level_smd: 0.23215809674284893
+        highlighted: false
+        exceeds_maximum: false
+      minimum_front_range__age_seconds:
+        smd: 0.050616436888723894
+        reference:
+          n: 6948
+          mean: 0.06214090385721985
+          sd: 0.03062225227051281
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.04199999999998738
+            q50: 0.0689999999999884
+            q75: 0.08899999999999864
+            q95: 0.09600000000000364
+        check:
+          n: 1224
+          mean: 0.06369035947711847
+          sd: 0.03055174887221812
+          quantiles:
+            q05: 0.0019999999999974704
+            q25: 0.04599999999999227
+            q50: 0.07499999999998863
+            q75: 0.08425000000000082
+            q95: 0.0998499999999825
+        quantile_shift:
+          q05: -0.002999999999997982
+          q25: 0.0040000000000048885
+          q50: 0.006000000000000227
+          q75: -0.0047499999999978115
+          q95: 0.0038499999999788564
+        episode_level_smd: -0.3234495681800273
+        highlighted: true
+        exceeds_maximum: false
+      minimum_front_range__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_left_range:
+        smd: -0.0938660127729828
+        reference:
+          n: 6948
+          mean: 0.7555883848416648
+          sd: 0.35537331406235784
+        check:
+          n: 1224
+          mean: 0.7230847076652875
+          sd: 0.28923249893969516
+        episode_level_smd: -0.2985217218148503
+        highlighted: false
+        exceeds_maximum: false
+      minimum_left_range__age_seconds:
+        smd: 0.050616436888723894
+        reference:
+          n: 6948
+          mean: 0.06214090385721985
+          sd: 0.03062225227051281
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.04199999999998738
+            q50: 0.0689999999999884
+            q75: 0.08899999999999864
+            q95: 0.09600000000000364
+        check:
+          n: 1224
+          mean: 0.06369035947711847
+          sd: 0.03055174887221812
+          quantiles:
+            q05: 0.0019999999999974704
+            q25: 0.04599999999999227
+            q50: 0.07499999999998863
+            q75: 0.08425000000000082
+            q95: 0.0998499999999825
+        quantile_shift:
+          q05: -0.002999999999997982
+          q25: 0.0040000000000048885
+          q50: 0.006000000000000227
+          q75: -0.0047499999999978115
+          q95: 0.0038499999999788564
+        episode_level_smd: -0.3234495681800273
+        highlighted: true
+        exceeds_maximum: false
+      minimum_left_range__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_right_range:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      minimum_right_range__age_seconds:
+        smd: 0.050616436888723894
+        reference:
+          n: 6948
+          mean: 0.06214090385721985
+          sd: 0.03062225227051281
+          quantiles:
+            q05: 0.0049999999999954525
+            q25: 0.04199999999998738
+            q50: 0.0689999999999884
+            q75: 0.08899999999999864
+            q95: 0.09600000000000364
+        check:
+          n: 1224
+          mean: 0.06369035947711847
+          sd: 0.03055174887221812
+          quantiles:
+            q05: 0.0019999999999974704
+            q25: 0.04599999999999227
+            q50: 0.07499999999998863
+            q75: 0.08425000000000082
+            q95: 0.0998499999999825
+        quantile_shift:
+          q05: -0.002999999999997982
+          q25: 0.0040000000000048885
+          q50: 0.006000000000000227
+          q75: -0.0047499999999978115
+          q95: 0.0038499999999788564
+        episode_level_smd: -0.3234495681800273
+        highlighted: true
+        exceeds_maximum: false
+      minimum_right_range__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      global_path_length:
+        smd: 0.09356436633293574
+        reference:
+          n: 6948
+          mean: 2.2239342622211042
+          sd: 1.8470878511115258
+        check:
+          n: 1224
+          mean: 2.39496425892301
+          sd: 1.7151196227792536
+        episode_level_smd: 0.3581097023151371
+        highlighted: false
+        exceeds_maximum: false
+      global_path_length__age_seconds:
+        smd: -0.04968694761156336
+        reference:
+          n: 6948
+          mean: 0.6863701784686193
+          sd: 0.5602390483200522
+          quantiles:
+            q05: 0.054000000000002046
+            q25: 0.27299999999999613
+            q50: 0.5769999999999982
+            q75: 0.8759999999999923
+            q95: 2.0
+        check:
+          n: 1224
+          mean: 0.6588415032679685
+          sd: 0.5174374854120988
+          quantiles:
+            q05: 0.05329999999999765
+            q25: 0.2877499999999973
+            q50: 0.5594999999999928
+            q75: 0.8582499999999964
+            q95: 2.0
+        quantile_shift:
+          q05: -0.0007000000000043985
+          q25: 0.014750000000001151
+          q50: -0.0175000000000054
+          q75: -0.017749999999995936
+          q95: 0.0
+        episode_level_smd: -0.2888380016484035
+        highlighted: true
+        exceeds_maximum: false
+      global_path_length__missing:
+        smd: -0.08439159010381403
+        reference:
+          n: 6948
+          mean: 0.11197466896948763
+          sd: 0.31535798078467264
+        check:
+          n: 1224
+          mean: 0.0857843137254902
+          sd: 0.28015975914643887
+        episode_level_smd: -0.3187650388775928
+        highlighted: false
+        exceeds_maximum: false
+      global_path_curvature:
+        smd: 0.046870377921306355
+        reference:
+          n: 6948
+          mean: 3.3997132579955194
+          sd: 4.6468166576896435
+        check:
+          n: 1224
+          mean: 3.6136343488861247
+          sd: 4.062414629303266
+        episode_level_smd: 0.18700975891731106
+        highlighted: false
+        exceeds_maximum: false
+      global_path_curvature__age_seconds:
+        smd: -0.04968694761156336
+        reference:
+          n: 6948
+          mean: 0.6863701784686193
+          sd: 0.5602390483200522
+          quantiles:
+            q05: 0.054000000000002046
+            q25: 0.27299999999999613
+            q50: 0.5769999999999982
+            q75: 0.8759999999999923
+            q95: 2.0
+        check:
+          n: 1224
+          mean: 0.6588415032679685
+          sd: 0.5174374854120988
+          quantiles:
+            q05: 0.05329999999999765
+            q25: 0.2877499999999973
+            q50: 0.5594999999999928
+            q75: 0.8582499999999964
+            q95: 2.0
+        quantile_shift:
+          q05: -0.0007000000000043985
+          q25: 0.014750000000001151
+          q50: -0.0175000000000054
+          q75: -0.017749999999995936
+          q95: 0.0
+        episode_level_smd: -0.2888380016484035
+        highlighted: true
+        exceeds_maximum: false
+      global_path_curvature__missing:
+        smd: -0.08439159010381403
+        reference:
+          n: 6948
+          mean: 0.11197466896948763
+          sd: 0.31535798078467264
+        check:
+          n: 1224
+          mean: 0.0857843137254902
+          sd: 0.28015975914643887
+        episode_level_smd: -0.3187650388775928
+        highlighted: false
+        exceeds_maximum: false
+      local_path_length:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_length__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      local_path_length__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_curvature:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      local_path_curvature__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      local_path_curvature__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      confidence_mean:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      confidence_mean__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      confidence_mean__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      uncertainty_mean:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      uncertainty_mean__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      uncertainty_mean__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      inference_latency_ms:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      inference_latency_ms__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+          quantiles:
+            q05: 1.0
+            q25: 1.0
+            q50: 1.0
+            q75: 1.0
+            q95: 1.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      inference_latency_ms__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 1.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 1.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      tracking_error:
+        smd: 0.004792305803022472
+        reference:
+          n: 6948
+          mean: 0.0023090880290931163
+          sd: 0.007833988508167716
+        check:
+          n: 1224
+          mean: 0.0023464178210806756
+          sd: 0.007531989602573258
+        episode_level_smd: 0.7488042243425496
+        highlighted: false
+        exceeds_maximum: false
+      tracking_error__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      tracking_error__missing:
+        smd: -0.08705095846900081
+        reference:
+          n: 6948
+          mean: 0.05829015544041451
+          sd: 0.23430816208331642
+        check:
+          n: 1224
+          mean: 0.03839869281045752
+          sd: 0.19223533682539548
+        episode_level_smd: -0.4168716544001633
+        highlighted: false
+        exceeds_maximum: false
+      stopped_while_commanded:
+        smd: -0.026025930335360808
+        reference:
+          n: 6948
+          mean: 0.0005757052389176742
+          sd: 0.023988677031968844
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: -0.2587278301217703
+        highlighted: false
+        exceeds_maximum: false
+      stopped_while_commanded__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      stopped_while_commanded__missing:
+        smd: -0.08705095846900081
+        reference:
+          n: 6948
+          mean: 0.05829015544041451
+          sd: 0.23430816208331642
+        check:
+          n: 1224
+          mean: 0.03839869281045752
+          sd: 0.19223533682539548
+        episode_level_smd: -0.4168716544001633
+        highlighted: false
+        exceeds_maximum: false
+      jerk:
+        smd: -0.004808413214998011
+        reference:
+          n: 6948
+          mean: 0.00026016358552408326
+          sd: 0.012463004952776623
+        check:
+          n: 1224
+          mean: 0.00020059892446371816
+          sd: 0.011950198335467203
+        episode_level_smd: -0.286654544935192
+        highlighted: false
+        exceeds_maximum: false
+      jerk__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      jerk__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      goal_distance:
+        smd: -0.008855029339032568
+        reference:
+          n: 6948
+          mean: 1.1245139349952415
+          sd: 1.3757974111608273
+        check:
+          n: 1224
+          mean: 1.1123527797698005
+          sd: 1.3594411205018366
+        episode_level_smd: 0.06770076465605436
+        highlighted: false
+        exceeds_maximum: false
+      goal_distance__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      goal_distance__missing:
+        smd: 0.02310559480137384
+        reference:
+          n: 6948
+          mean: 0.4435808865860679
+          sd: 0.4968424420259619
+        check:
+          n: 1224
+          mean: 0.4550653594771242
+          sd: 0.49818033130070777
+        episode_level_smd: -0.15251119730809737
+        highlighted: false
+        exceeds_maximum: false
+      remaining_distance_slope:
+        smd: -0.022921582850938465
+        reference:
+          n: 6948
+          mean: -0.02707414669920376
+          sd: 0.05228822049035028
+        check:
+          n: 1224
+          mean: -0.028279475471260845
+          sd: 0.05423924202652182
+        episode_level_smd: -0.15427947938389242
+        highlighted: false
+        exceeds_maximum: false
+      remaining_distance_slope__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      remaining_distance_slope__missing:
+        smd: 0.07480563716565759
+        reference:
+          n: 6948
+          mean: 0.23834196891191708
+          sd: 0.42609999554272054
+        check:
+          n: 1224
+          mean: 0.2704248366013072
+          sd: 0.44436085006845827
+        episode_level_smd: 0.11504537111614263
+        highlighted: false
+        exceeds_maximum: false
+      progress_slope:
+        smd: 0.022921582850938465
+        reference:
+          n: 6948
+          mean: 0.02707414669920376
+          sd: 0.05228822049035028
+        check:
+          n: 1224
+          mean: 0.028279475471260845
+          sd: 0.05423924202652182
+        episode_level_smd: 0.15427947938389242
+        highlighted: false
+        exceeds_maximum: false
+      progress_slope__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      progress_slope__missing:
+        smd: 0.07480563716565759
+        reference:
+          n: 6948
+          mean: 0.23834196891191708
+          sd: 0.42609999554272054
+        check:
+          n: 1224
+          mean: 0.2704248366013072
+          sd: 0.44436085006845827
+        episode_level_smd: 0.11504537111614263
+        highlighted: false
+        exceeds_maximum: false
+      command_sign_changes:
+        smd: 0.2573874270092363
+        reference:
+          n: 6948
+          mean: 0.11859527921704087
+          sd: 0.39797195138999
+        check:
+          n: 1224
+          mean: 0.23937908496732027
+          sd: 0.7559315340301053
+        episode_level_smd: 0.44686133145972884
+        highlighted: false
+        exceeds_maximum: false
+      command_sign_changes__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      command_sign_changes__missing:
+        smd: 0.028342879010686006
+        reference:
+          n: 6948
+          mean: 0.28698906160046056
+          sd: 0.4523889869078989
+        check:
+          n: 1224
+          mean: 0.29983660130718953
+          sd: 0.45837350411263417
+        episode_level_smd: -0.2176752130419787
+        highlighted: false
+        exceeds_maximum: false
+      pose_jump:
+        smd: 0.0035484562051456545
+        reference:
+          n: 6948
+          mean: 0.02441223671635755
+          sd: 0.06997365989746554
+        check:
+          n: 1224
+          mean: 0.024660879683063717
+          sd: 0.07061967874594301
+        episode_level_smd: 0.14751337862248043
+        highlighted: false
+        exceeds_maximum: false
+      pose_jump__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      pose_jump__missing:
+        smd: 0.02310559480137384
+        reference:
+          n: 6948
+          mean: 0.4435808865860679
+          sd: 0.4968424420259619
+        check:
+          n: 1224
+          mean: 0.4550653594771242
+          sd: 0.49818033130070777
+        episode_level_smd: -0.15251119730809737
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_trend:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      valid_return_trend__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      valid_return_trend__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      near_obstacle_trend:
+        smd: -0.006593244381216053
+        reference:
+          n: 6948
+          mean: -0.0009107648345495773
+          sd: 0.15085045402688044
+        check:
+          n: 1224
+          mean: -0.0018990530079250247
+          sd: 0.14434128330409673
+        episode_level_smd: -0.18630478424272554
+        highlighted: false
+        exceeds_maximum: false
+      near_obstacle_trend__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      near_obstacle_trend__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      left_right_imbalance:
+        smd: -0.0938660127729828
+        reference:
+          n: 6948
+          mean: 0.7555883848416648
+          sd: 0.35537331406235784
+        check:
+          n: 1224
+          mean: 0.7230847076652875
+          sd: 0.28923249893969516
+        episode_level_smd: -0.2985217218148503
+        highlighted: false
+        exceeds_maximum: false
+      left_right_imbalance__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      left_right_imbalance__missing:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+        episode_level_smd: 0.0
+        highlighted: false
+        exceeds_maximum: false
+      replan_rate:
+        smd: 0.12976672620253696
+        reference:
+          n: 6948
+          mean: 0.8566765815902257
+          sd: 0.2903470136194398
+        check:
+          n: 1224
+          mean: 0.8939497095134349
+          sd: 0.26885235229856425
+        episode_level_smd: 0.3168555968726589
+        highlighted: false
+        exceeds_maximum: false
+      replan_rate__age_seconds:
+        smd: 0.0
+        reference:
+          n: 6948
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 1224
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        episode_level_smd: 0.0
+        highlighted: true
+        exceeds_maximum: false
+      replan_rate__missing:
+        smd: -0.11562240333838737
+        reference:
+          n: 6948
+          mean: 0.07642487046632124
+          sd: 0.2656958223482227
+        check:
+          n: 1224
+          mean: 0.04656862745098039
+          sd: 0.21079918062109887
+        episode_level_smd: -0.3614169155169307
+        highlighted: false
+        exceeds_maximum: false
+message_rate_shift:
+  clean_s0:
+    sources_beyond_maximum:
+    - /cmd_vel
+    - /scan
+    - /plan
+    rates_hz:
+      /cmd_vel:
+        smd: 2.312116900142936
+        reference:
+          n: 72
+          mean: 19.92345891728159
+          sd: 0.2031816460202962
+          quantiles:
+            q05: 19.27900886049866
+            q25: 19.959583333333335
+            q50: 19.979690721649483
+            q75: 19.999999999999996
+            q95: 20.0
+        check:
+          n: 12
+          mean: 20.50534559059143
+          sd: 0.45352694796998766
+          quantiles:
+            q05: 19.660869565217393
+            q25: 20.5765931372549
+            q50: 20.62000962000962
+            q75: 20.727511623205984
+            q95: 20.847210713941614
+        quantile_shift:
+          q05: 0.3818607047187328
+          q25: 0.6170098039215652
+          q50: 0.6403188983601353
+          q75: 0.727511623205988
+          q95: 0.8472107139416138
+        exceeds_maximum: true
+      /odom:
+        smd: 0.001160958182897431
+        reference:
+          n: 72
+          mean: 29.14119853736666
+          sd: 0.6108577848750238
+          quantiles:
+            q05: 27.773040293040292
+            q25: 29.4
+            q50: 29.409616019364066
+            q75: 29.416666666666668
+            q95: 29.428571428571423
+        check:
+          n: 12
+          mean: 29.141912154661913
+          sd: 0.6387977270962824
+          quantiles:
+            q05: 27.774920634920637
+            q25: 29.402415341667677
+            q50: 29.410349706893065
+            q75: 29.41585497835498
+            q95: 29.43541540327471
+        quantile_shift:
+          q05: 0.0018803418803443606
+          q25: 0.002415341667678206
+          q50: 0.0007336875289993827
+          q75: -0.000811688311689096
+          q95: 0.006843974703286904
+        exceeds_maximum: false
+      /scan:
+        smd: 0.962341678332822
+        reference:
+          n: 72
+          mean: 10.0
+          sd: 7.302837905891817e-16
+          quantiles:
+            q05: 9.999999999999998
+            q25: 10.0
+            q50: 10.0
+            q75: 10.0
+            q95: 10.0
+        check:
+          n: 12
+          mean: 10.005844155844157
+          sd: 0.016580708227017803
+          quantiles:
+            q05: 10.0
+            q25: 10.0
+            q50: 10.0
+            q75: 10.0
+            q95: 10.032857142857143
+        quantile_shift:
+          q05: 1.7763568394002505e-15
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.03285714285714292
+        exceeds_maximum: true
+      /amcl_pose:
+        smd: -0.2617829503553363
+        reference:
+          n: 72
+          mean: 0.47264927735673723
+          sd: 0.06901803062710596
+          quantiles:
+            q05: 0.35659806295399515
+            q25: 0.4304187192118227
+            q50: 0.4724075197089145
+            q75: 0.5130882762461709
+            q95: 0.5833333333333333
+        check:
+          n: 12
+          mean: 0.45350846468070594
+          sd: 0.09542892344389312
+          quantiles:
+            q05: 0.3044182621502209
+            q25: 0.38583082528116586
+            q50: 0.4673202614379085
+            q75: 0.508388922579341
+            q95: 0.5767857142857142
+        quantile_shift:
+          q05: -0.05217980080377427
+          q25: -0.04458789393065682
+          q50: -0.005087258271005979
+          q75: -0.004699353666829942
+          q95: -0.006547619047619024
+        exceeds_maximum: false
+      /plan:
+        smd: 1.1591308610768565
+        reference:
+          n: 72
+          mean: 0.9845430270355884
+          sd: 0.024693048595800574
+          quantiles:
+            q05: 0.9214363835216915
+            q25: 0.9790558510638298
+            q50: 0.9862781954887219
+            q75: 0.9999999999999999
+            q95: 1.0285714285714285
+        check:
+          n: 12
+          mean: 1.014759432245117
+          sd: 0.03361681136482429
+          quantiles:
+            q05: 0.958382461311717
+            q25: 1.0123175793278885
+            q50: 1.0238226131574124
+            q75: 1.032455135547919
+            q95: 1.0401785714285714
+        quantile_shift:
+          q05: 0.036946077790025456
+          q25: 0.03326172826405871
+          q50: 0.037544417668690544
+          q75: 0.03245513554791912
+          q95: 0.011607142857142927
+        exceeds_maximum: true
+      /local_plan:
+        smd: 0.0
+        reference:
+          n: 72
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 12
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        exceeds_maximum: false
+      /research2/features/perception:
+        smd: 0.0
+        reference:
+          n: 72
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 12
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        exceeds_maximum: false
+  clean_s3:
+    sources_beyond_maximum:
+    - /cmd_vel
+    - /scan
+    - /plan
+    rates_hz:
+      /cmd_vel:
+        smd: 3.4848371375941416
+        reference:
+          n: 72
+          mean: 19.916752093771716
+          sd: 0.20858090226197912
+          quantiles:
+            q05: 19.216229574794617
+            q25: 19.960784313725487
+            q50: 19.97726979207026
+            q75: 19.98611111111111
+            q95: 20.0
+        check:
+          n: 12
+          mean: 21.18555233262023
+          sd: 0.8410610538810005
+          quantiles:
+            q05: 20.097345132743364
+            q25: 20.60838351088467
+            q50: 21.20627417275462
+            q75: 21.632715399199498
+            q95: 22.32282192064643
+        quantile_shift:
+          q05: 0.8811155579487462
+          q25: 0.6475991971591846
+          q50: 1.2290043806843585
+          q75: 1.6466042880883869
+          q95: 2.3228219206464296
+        exceeds_maximum: true
+      /odom:
+        smd: -0.0060639014566162405
+        reference:
+          n: 72
+          mean: 29.14149764911953
+          sd: 0.6141801227133736
+          quantiles:
+            q05: 27.77142857142857
+            q25: 29.400000000000006
+            q50: 29.411764705882348
+            q75: 29.419885496183205
+            q95: 29.428571428571427
+        check:
+          n: 12
+          mean: 29.137753114692458
+          sd: 0.6386026536248283
+          quantiles:
+            q05: 27.770745891276867
+            q25: 29.403585190149105
+            q50: 29.408831908831907
+            q75: 29.41176470588235
+            q95: 29.423304070231445
+        quantile_shift:
+          q05: -0.0006826801517014758
+          q25: 0.0035851901490993043
+          q50: -0.0029327970504411383
+          q75: -0.008120790300853997
+          q95: -0.005267358339981598
+        exceeds_maximum: false
+      /scan:
+        smd: 0.7881701093115183
+        reference:
+          n: 72
+          mean: 10.0
+          sd: 9.66074648200273e-16
+          quantiles:
+            q05: 9.999999999999998
+            q25: 10.0
+            q50: 10.0
+            q75: 10.0
+            q95: 10.000000000000002
+        check:
+          n: 12
+          mean: 10.00177304964539
+          sd: 0.006142024140315033
+          quantiles:
+            q05: 10.0
+            q25: 10.0
+            q50: 10.0
+            q75: 10.0
+            q95: 10.009574468085107
+        quantile_shift:
+          q05: 1.7763568394002505e-15
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.009574468085105536
+        exceeds_maximum: true
+      /amcl_pose:
+        smd: 0.0624571129115595
+        reference:
+          n: 72
+          mean: 0.4767415799240838
+          sd: 0.061279802739197656
+          quantiles:
+            q05: 0.3716883116883117
+            q25: 0.4363636363636364
+            q50: 0.47322451317296677
+            q75: 0.5155341183146546
+            q95: 0.5714285714285714
+        check:
+          n: 12
+          mean: 0.4807240014918643
+          sd: 0.07790647052543845
+          quantiles:
+            q05: 0.3484927544451692
+            q25: 0.46609541454377024
+            q50: 0.4922056035390773
+            q75: 0.515032679738562
+            q95: 0.5714285714285714
+        quantile_shift:
+          q05: -0.023195557243142484
+          q25: 0.02973177818013384
+          q50: 0.01898109036611051
+          q75: -0.0005014385760925277
+          q95: 0.0
+        exceeds_maximum: false
+      /plan:
+        smd: 2.4432881858071256
+        reference:
+          n: 72
+          mean: 0.9809779277507451
+          sd: 0.023444151862696022
+          quantiles:
+            q05: 0.9183066361556064
+            q25: 0.9776942355889724
+            q50: 0.9814751286449399
+            q75: 0.9897427887118608
+            q95: 1.0128571428571431
+        check:
+          n: 12
+          mean: 1.0449071235032295
+          sd: 0.03944520986912961
+          quantiles:
+            q05: 1.0003484077764615
+            q25: 1.0188958264870194
+            q50: 1.040489698417438
+            q75: 1.0645390070921985
+            q95: 1.1024045261669024
+        quantile_shift:
+          q05: 0.08204177162085513
+          q25: 0.04120159089804698
+          q50: 0.05901456977249819
+          q75: 0.07479621838033768
+          q95: 0.08954738330975931
+        exceeds_maximum: true
+      /local_plan:
+        smd: 0.0
+        reference:
+          n: 72
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 12
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        exceeds_maximum: false
+      /research2/features/perception:
+        smd: 0.43010889830620197
+        reference:
+          n: 72
+          mean: 8.60814518348246
+          sd: 3.481393865488695
+          quantiles:
+            q05: 0.0
+            q25: 9.98004647403516
+            q50: 10.0
+            q75: 10.0
+            q95: 10.003719008264463
+        check:
+          n: 12
+          mean: 10.001474926253687
+          sd: 0.005109294417607398
+          quantiles:
+            q05: 10.0
+            q25: 10.0
+            q50: 10.0
+            q75: 10.0
+            q95: 10.007964601769913
+        quantile_shift:
+          q05: 10.0
+          q25: 0.01995352596484068
+          q50: 0.0
+          q75: 0.0
+          q95: 0.004245593505450174
+        exceeds_maximum: false
+  oscillation:
+    sources_beyond_maximum:
+    - /scan
+    rates_hz:
+      /cmd_vel:
+        smd: 0.438811323541071
+        reference:
+          n: 72
+          mean: 17.960372376686994
+          sd: 2.156232853156704
+          quantiles:
+            q05: 14.07547169811321
+            q25: 16.250597228858098
+            q50: 19.10306406685237
+            q75: 20.040834845735027
+            q95: 20.070175763182235
+        check:
+          n: 12
+          mean: 18.908756569166567
+          sd: 2.193411214537569
+          quantiles:
+            q05: 14.843333333333334
+            q25: 18.518345743249306
+            q50: 19.69468673218673
+            q75: 20.267913669064747
+            q95: 20.942924714229406
+        quantile_shift:
+          q05: 0.7678616352201235
+          q25: 2.267748514391208
+          q50: 0.5916226653343628
+          q75: 0.22707882332971963
+          q95: 0.8727489510471713
+        exceeds_maximum: false
+      /odom:
+        smd: -0.002169217893708601
+        reference:
+          n: 72
+          mean: 29.139164118458623
+          sd: 0.613146334960023
+          quantiles:
+            q05: 27.77715877437326
+            q25: 29.397878915578033
+            q50: 29.40709353421218
+            q75: 29.41732283464567
+            q95: 29.428118572292803
+        check:
+          n: 12
+          mean: 29.137827418351392
+          sd: 0.6356505647577302
+          quantiles:
+            q05: 27.777284663865547
+            q25: 29.400539291217257
+            q50: 29.4092613233357
+            q75: 29.414563608194182
+            q95: 29.4218
+        quantile_shift:
+          q05: 0.0001258894922884224
+          q25: 0.002660375639223389
+          q50: 0.00216778912351856
+          q75: -0.0027592264514879616
+          q95: -0.006318572292801861
+        exceeds_maximum: false
+      /scan:
+        smd: -0.7881701093112392
+        reference:
+          n: 72
+          mean: 10.0
+          sd: 6.666548424767896e-16
+          quantiles:
+            q05: 9.999999999999998
+            q25: 10.0
+            q50: 10.0
+            q75: 10.0
+            q95: 10.0
+        check:
+          n: 12
+          mean: 9.996969696969698
+          sd: 0.0104972776216298
+          quantiles:
+            q05: 9.983636363636363
+            q25: 10.0
+            q50: 10.0
+            q75: 10.0
+            q95: 10.0
+        quantile_shift:
+          q05: -0.016363636363635692
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        exceeds_maximum: true
+      /amcl_pose:
+        smd: -0.1969033949381725
+        reference:
+          n: 72
+          mean: 0.4784368118097745
+          sd: 0.11482252676957742
+          quantiles:
+            q05: 0.28864182115070597
+            q25: 0.3966064586754242
+            q50: 0.4875727490585416
+            q75: 0.5751786269027648
+            q95: 0.6245253777605579
+        check:
+          n: 12
+          mean: 0.4553519841825026
+          sd: 0.13177680941071152
+          quantiles:
+            q05: 0.27090336134453785
+            q25: 0.3746944396625925
+            q50: 0.4536197608724215
+            q75: 0.5201481481481481
+            q95: 0.6508834827144686
+        quantile_shift:
+          q05: -0.017738459806168116
+          q25: -0.021912019012831685
+          q50: -0.03395298818612008
+          q75: -0.05503047875461664
+          q95: 0.026358104953910666
+        exceeds_maximum: false
+      /plan:
+        smd: 0.24761435563275
+        reference:
+          n: 72
+          mean: 0.7553447581864263
+          sd: 0.23566271570690625
+          quantiles:
+            q05: 0.33962264150943394
+            q25: 0.5738916256157636
+            q50: 0.9024029071815067
+            q75: 0.9756215817850356
+            q95: 0.9927007299270073
+        check:
+          n: 12
+          mean: 0.8144950123632926
+          sd: 0.25868905785834806
+          quantiles:
+            q05: 0.36734006734006736
+            q25: 0.7359345260753711
+            q50: 0.9309746625923097
+            q75: 1.0006043165467626
+            q95: 1.0360859282617265
+        quantile_shift:
+          q05: 0.027717425830633413
+          q25: 0.16204290045960756
+          q50: 0.028571755410802924
+          q75: 0.024982734761727077
+          q95: 0.04338519833471921
+        exceeds_maximum: false
+      /local_plan:
+        smd: 0.0
+        reference:
+          n: 72
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 12
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        exceeds_maximum: false
+      /research2/features/perception:
+        smd: 0.0
+        reference:
+          n: 72
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        check:
+          n: 12
+          mean: 0.0
+          sd: 0.0
+          quantiles:
+            q05: 0.0
+            q25: 0.0
+            q50: 0.0
+            q75: 0.0
+            q95: 0.0
+        quantile_shift:
+          q05: 0.0
+          q25: 0.0
+          q50: 0.0
+          q75: 0.0
+          q95: 0.0
+        exceeds_maximum: false
+false_alerts:
+  threshold: 0.2225612468715263
+  threshold_record: /home/eao/failure-prediction/reports/thresholds/preliminary_v1/p3_causal_tcn.yaml
+  threshold_record_sha256: 8440ba4031882920b9dca1087c8389d0c82c6b72d95ec8f5719a6662f5f23cca
+  model_id:
+  - p3_causal_tcn
+  persistence:
+    required_above: 2
+    decisions_considered: 3
+  cooldown_seconds: 10.0
+  budget_per_clean_mission: 0.1
+  check:
+    clean_missions: 24
+    false_alerts: 17
+    false_alerts_per_clean_mission: 0.7083333333333334
+    missions_without_predictions: []
+    per_mission:
+      025ada4b-2010-4cf4-8b7f-26c7381dbd85: 0
+      078834a4-10ec-4c15-b192-ad420ed7163f: 0
+      080dab31-d046-4ead-a47a-e84e4ab41305: 0
+      144e9e2a-56b5-4bf5-aeb5-2bc15140efbc: 3
+      1da82990-2e9d-452d-ad10-94e4c331deca: 3
+      1e5dcfe7-b7da-460d-9dfc-06064258d1c1: 0
+      1fdab539-cc8c-4241-b198-7f2007849daf: 3
+      36f57a83-6a19-4782-bdc6-40addfdfc787: 0
+      3a344a02-c17a-4529-b014-17d6333a4a5c: 0
+      43930876-5b3a-4f47-85c8-b68b436a9b3d: 0
+      4509e53a-8732-418d-ab98-b1140501ba1d: 1
+      5ec995aa-fc0e-4040-93aa-4bd20b737817: 2
+      619e21d1-15b3-4d61-9ccb-8b3d60495254: 0
+      65649dc8-5215-4631-9d5b-c3e255a42558: 0
+      72fdc944-8958-45c4-9a43-e4966cce90cc: 1
+      7dbc893f-99fe-4042-adbe-fcc14e87ed39: 0
+      9d04f380-3fb1-42fc-a626-502f0019b46b: 0
+      9da64936-befc-4519-93f4-d2acfc8e424a: 1
+      a154c01d-d6c6-4d58-ba64-c775c524ef47: 0
+      b6404062-863a-48ca-9132-4b08ac65f778: 0
+      cbbd2589-8c8a-4e67-b0d2-646fb328d0f1: 0
+      cf76f815-bc2f-4d4b-85fd-4d74c9482180: 1
+      d2f22526-4b74-4256-9226-4ee86e33b065: 2
+      f94de377-7c09-4dce-a162-cda681c9488b: 0
+  sequential_reference:
+    clean_missions: 144
+    false_alerts: 26
+    false_alerts_per_clean_mission: 0.18055555555555555
+    missions_without_predictions: []
+    per_mission:
+      002e46af-5e2b-4700-8b29-99d56be21d67: 2
+      01595026-ce95-488b-99a4-21a6b1329671: 0
+      02dd3fe1-5c71-4423-932e-72b72f26f39b: 0
+      03cc1aba-c1ff-423a-bf94-095192ac357c: 0
+      05cb9b73-63f7-4604-b16f-656852a7201a: 0
+      0666abcb-f4e9-4f48-85b4-929966c90ca4: 0
+      068bc139-7a87-48f0-b07b-028372d74304: 0
+      06f01c2d-2afb-4587-973a-6cdfdfd4efbb: 0
+      090f861e-8389-4bfb-9a67-51540d182d09: 0
+      09579001-ddaa-4e88-bdb7-521671cf9dd8: 0
+      0e6150fb-20d2-4ff9-8e2a-e6307138fa6c: 0
+      0e913d17-5079-482e-9029-b260865decc0: 0
+      0eda8972-69f7-4327-902d-58445385ce84: 0
+      13985575-634b-4453-9f03-7388c836e72a: 0
+      145445c6-7f6e-40a2-8b9f-71396e059e81: 0
+      16cb2b39-3314-446a-9b69-81c21720cacc: 0
+      1723b9e6-8f68-4c2a-b4dc-64a00f9c555b: 0
+      1c606e9b-934e-4cca-9f59-00539b9f21ab: 1
+      1eae5aff-7817-4fe1-b53f-9dc1570a4e92: 0
+      21b5fb9d-4c93-4164-a78c-6fa961c57079: 0
+      25217889-f226-4987-9ec5-e0c56b2d7fc0: 0
+      25ef0c01-f8a7-4012-ac5f-6c767ebe7d57: 0
+      27a83372-ebb5-4e34-a1f5-6da5e27cd4c4: 0
+      28109a19-170e-4631-af91-5894301efee2: 1
+      295ff8db-db0d-4034-89fc-785890e187ae: 0
+      2cc55dac-dc05-41cc-bc39-b1405ede1f23: 0
+      2d70fae0-329c-4705-80f7-36fa4d267d24: 0
+      2e6d8751-093e-4364-8f1f-2281839159c5: 1
+      3217fc98-9252-4fdb-9772-bd2f05bde766: 0
+      32a8a92c-5d71-49d1-bdfd-6f369a9431cc: 0
+      3435f0c7-2260-4d13-9617-ca833fd1a767: 0
+      3b2a5e71-94f1-4d18-87bc-29797a27be7c: 0
+      3cdab5dd-9fa9-4aab-965d-05695c9f5a9b: 0
+      40674374-4229-42f2-b158-1b33e19c993e: 0
+      43728c2b-ea68-4950-ad2b-cf998b6bbe8a: 0
+      4539710a-4a29-4f6e-bd51-7c32918f6460: 0
+      48bacce5-c81c-4215-a9d5-37cb87012968: 0
+      4ca3b391-88ca-4762-a51c-0955fbd11ac1: 1
+      51b5736a-ea60-47a3-80ad-d89da18871ff: 2
+      56260303-2992-41fc-b2ac-8b209c845646: 0
+      581a1493-09cf-4162-ab75-98bbc467fb14: 0
+      5abcbd30-1382-4996-8244-de9d37c6f9a6: 0
+      5bd3e6e1-aebc-42c5-974e-79473f44f9dc: 0
+      5bfdf935-ffc4-42ad-93cf-f4e58c1e5e0e: 1
+      5ce09bd1-ab14-4a5c-9592-a62cb7707842: 0
+      617b5c53-8164-47bd-bb93-ca48155042b5: 0
+      61923f3a-a2b0-4c46-babc-a39b8e0a4fdc: 0
+      623e7736-fb9b-47ed-9e45-0f60969b578e: 0
+      644ff35e-bde9-464d-a608-1ae841c15b74: 0
+      65818201-1dc4-4a27-9098-2f0b10318d4c: 0
+      66891d8e-0e8f-45a9-bce9-9a90927c6c6e: 1
+      6841cd23-3ffa-4307-a8eb-30d9677e469f: 0
+      6a1e83ab-d878-4062-b3d2-f32b3cbd8f2f: 0
+      6b35030c-93c8-41f3-b8ae-9abdf1259235: 0
+      6fddc8ee-3c38-44fa-a6cf-53d21f9d209d: 0
+      738a3c1f-e6ed-463b-95dd-a7e65c85aed0: 1
+      741577dc-094e-421c-9a88-cfc9d64a3582: 0
+      7491d65f-6b49-4061-86af-105c88b63fbd: 1
+      752673b3-0dcc-4561-8fd8-1f64a31712fd: 0
+      75293371-5840-45fe-90b4-dcee96c43cd3: 0
+      770bbed0-816c-4d8b-a0f8-a9472cc1a743: 0
+      7a56da8d-d958-4cea-8b2f-3550d79d8360: 0
+      7aa3a3d7-42c6-47a4-841a-22198c5b9e63: 0
+      7b0f773f-cc95-48a3-ac43-ce4c200f7a01: 0
+      7b242ea9-1b42-4e10-a84d-469166e251b8: 0
+      7bf14e58-e57f-44a4-83a5-5223b526ece5: 0
+      7ce8d27a-9091-4958-b3a9-4c623257265c: 0
+      7dfbd489-6cf5-48a7-a6b8-ac075a7d574a: 1
+      84928ba0-5fa6-4094-ab30-2f6748efb94a: 0
+      871d46b0-7ad5-4a9b-870f-0c2920affdd9: 0
+      8882e13b-b5c0-45ed-b6e5-e49a8e9f5bfa: 0
+      88e715a3-aa95-4624-8bc0-35c3a46a282a: 0
+      8a232e3d-f557-495b-892c-8b903d7ec916: 0
+      8a555f5b-6246-409c-9ab2-eecf22923bac: 1
+      8aea75f7-e4c2-4340-a0ac-98a1f3d50940: 2
+      8c8a1fca-15ad-4621-a099-47daeff77d27: 0
+      8f8a933d-4de2-4d3d-b932-9b504700530d: 0
+      904f731b-f8b3-48d9-87c7-2c0a24dbf71e: 0
+      926b5db8-0895-47c0-889e-be6f69dfa25c: 0
+      928c099a-7bdd-4c1a-a1a2-b806bfada3e5: 0
+      93fa5c3e-bd90-4062-9d71-26065e48864f: 0
+      98c05ced-3e69-44cd-ad36-539d1bbaa4fd: 0
+      9a1c05ac-ba35-4331-a086-8b7b0ff1af9a: 1
+      9bc2b682-6253-42f0-bee7-651c61070865: 0
+      9bde3fe7-e183-437a-b5b4-00095bb05bb2: 1
+      9bf252b5-16bf-4103-a705-e09dfa722b1e: 0
+      9c3fafa9-cb73-4afd-a8a8-c19ccecc3dd1: 0
+      9ea8d700-9d9e-4d50-8ac3-7e0cd8916665: 0
+      9efeb3c8-7c57-40b3-8e2e-055f34eacb68: 0
+      a0a5ed7b-5225-4cb9-a657-b9fbbd60904c: 0
+      a4192997-0c22-48cf-ac2b-146a80127354: 0
+      a4942e19-70fb-4a3d-93bd-ec8e67e098d5: 1
+      a833ecec-fe96-473a-a55e-467b8ccec8dc: 0
+      a871fbcf-6ed3-4e25-bca2-b7e7cd4351a9: 1
+      a8965855-981c-4b66-acd5-02ef155e15cf: 0
+      ac679610-1be6-4b5c-ab97-ff1dbdd8a05d: 2
+      adc54e89-b2ca-44be-9d40-739b3b309b0f: 0
+      ae08e7d3-09ba-4ffc-8424-b1cf72c7eab8: 0
+      b062de2d-af18-4258-b0f0-f0e52d11114f: 0
+      b0b67974-2c32-45f2-86b0-93f9fa25d19c: 0
+      b7819fac-c6f5-40bb-bae9-6a021ad79bd1: 0
+      b79d082b-8f15-4d88-914e-1b07cbbf5f88: 1
+      b99db8b4-88eb-4393-85ac-da45e7b92f1f: 0
+      baf6cd14-a9ac-45f7-a9c5-fe9806df4285: 0
+      c0452a4c-03df-4810-a8c7-00f218eccc85: 0
+      c19f8f9e-9510-4df1-bcca-27b6b245d570: 0
+      c325b89a-bd20-406e-8f5f-56b00791aa10: 0
+      c3e000ee-4300-4886-a009-4ac215206f8c: 0
+      c43ea6fc-3229-47ff-84c6-f4a8af4d35b7: 0
+      c45b73d2-3cc4-404c-8dca-965d122e2686: 0
+      c8f38b79-fc73-45de-a742-a70a4b24cad8: 0
+      ca619799-2da8-4b78-8494-c8613e8e3a30: 1
+      cc8bbeaf-286d-44ac-8883-00a6971c865f: 0
+      cda0d341-9fa8-49d5-a236-1247cc4dce77: 0
+      cdc69a83-0fdd-4e37-baec-55e8655a5d7a: 0
+      ce935926-31d3-4f0d-8ca0-a35be9a24af3: 0
+      d04c8150-6dfa-42ba-977b-8b79a98db368: 0
+      d0d86643-824b-42b0-917d-1bf90f20673f: 0
+      d2cda27b-f048-4d31-b501-c3a9a14f2be8: 0
+      d4009b03-f487-477c-a938-dda9202e5a46: 0
+      d4bc2ea8-759f-459a-903d-b60ff1cd4520: 0
+      d54c9d26-e83e-4530-8287-ddb8098257d6: 0
+      d5b2dccb-6a70-4068-9658-671251923f48: 0
+      d7d59257-9b76-4a97-9227-3757fa355773: 0
+      dae7a169-4836-4483-b1cf-023b9f6ea71c: 0
+      e3b6a856-ebbf-4291-8354-8f606e271a9b: 0
+      e54994d2-e558-4b11-9331-771b3424ecda: 0
+      e5a5ebce-472d-4a9c-9bd4-81645e87c396: 0
+      e65f04c6-1157-4482-b1ed-0b2b0f59ac7d: 0
+      e75f8753-1651-43fb-b30f-3b109755b106: 1
+      e9a0fa52-f8eb-44d5-b513-8bf46de4580e: 1
+      e9c29421-6f6d-449f-8873-be308e1c3058: 0
+      ec5f5833-8842-4c15-8830-ff5d5c07512a: 0
+      ecc4897d-7fee-47b1-9fcf-1f44a25555f2: 0
+      ed1b9edf-f1e8-4a90-840a-2e1a5bf0c738: 0
+      ed61c079-d31c-41c8-9b14-4a0adac5e389: 0
+      ef268945-300e-4be6-a98f-7d0291312f27: 0
+      f37aff59-58ab-445c-a705-a47b6e696b63: 0
+      f49f47f4-2558-4712-ad88-2cc60da3a6ca: 0
+      f7136466-6442-4d03-87ac-b6ef3381df84: 0
+      f7773e64-7c66-405f-a724-14ad478cb5fd: 0
+      fd5bcf56-1f9e-4777-b7c8-7181dd6e8290: 0
+      fd7a7b7c-e248-4afd-ba55-15ac68592636: 0
+      fecdfe9e-8cef-4011-886e-e35dbcc86875: 0
+  difference_per_clean_mission: 0.5277777777777778
+  within_budget: false
+findings:
+- 'clean_s3: deployable features shifted beyond 0.5 SMD: inference_latency_ms'
+- clean-mission false alerts per mission under parallel execution 0.7083 exceed the
+  0.1 budget
+passed: false
+protected_test_used: false
+training_performed: false
+interpretation: Engineering check of whether six concurrent simulators move the deployable
+  health channels or the frozen policy's clean-mission false-alert burden relative
+  to sequential collection. It admits nothing to the fitting pool by itself.
+inputs:
+  policy: configs/concurrency_shift_policy.yaml
+  policy_sha256: b94c8236f247690a5f2be9c7991e232af56af7cdef75f37673b2b0344e25fdd1
+  feature_schema_sha256: 5dd95b520fe1d0d5562a5b98d91da8b5ed4d180ebff3b0e230caa63f2dd261d4
+  check_extraction_manifest_sha256: 112634f6a3d10aa5c998f7a52ade87a4fe083d48580301ac5ec7219e77dbb49c
+  reference_extraction_manifest_sha256: 006d38bd90c5ab8ef4f0b12f7e60bf77444e9ee0facfdec72d50bf1852ebf732
+  predictions: reports/predictions/concurrency_shift_check_v1/p3_proxy.check.calibrated.csv
+  predictions_sha256: e28111f983b92fb8057d9926b379f1506ade708a19629193a2f1dd8ad2cd4792
+  reference_predictions: reports/predictions/concurrency_shift_check_v1/p3_proxy.reference.calibrated.csv
+  reference_predictions_sha256: fb78a962088364d6a0d1cd03b8db586093517adf9a21ee8503ea7c9c24fe55b4
+  alarm_policy_sha256: 8ac8e25f6e00a2aef01f4f06d7adf704b051ce55a73fe4645be93dad06bd7457

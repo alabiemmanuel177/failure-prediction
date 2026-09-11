@@ -1,0 +1,47 @@
+schema_version: 1
+protocol_version: "1.0"
+status: passed
+protected_test_used: false
+campaign_id: compact_profile_v2_smoke_v1
+episode_key: clean-s3-001
+run_id: 88b1ccb1-f018-43fe-ae73-32658b77e52f
+map_id: dev_00
+route_id: dev_00_r0
+system_id: S3
+recording_profile: compact_v2
+terminal_state: success
+artifact_validation_passed: true
+bag:
+  messages: 11540
+  duration_seconds: 20.964
+  total_mib: 1.155
+perception_summary:
+  topic: /research2/features/perception
+  messages: 210
+  exported_scalar_rows: 630
+  primary_fields:
+    confidence_mean: 210
+    uncertainty_mean: 210
+    inference_latency_ms: 210
+  non_finite_primary_values: 0
+  canonical_extraction_source: /research2/features/perception
+offline_pipeline:
+  automatic_annotation_generated: true
+  causal_label_decisions: 26
+  causal_feature_rows: 26
+  feature_columns: 57
+  primary_perception_missing_counts:
+    confidence_mean: 0
+    uncertainty_mean: 0
+    inference_latency_ms: 0
+  leakage_policy_passed: true
+profile_comparison:
+  compact_v1_smoke_mib: 27.5
+  compact_v2_smoke_mib: 1.155
+  size_reduction_fraction: 0.958
+  deployable_feature_contract_changed: false
+interpretation:
+  - Full semantic image messages are reduced online and omitted from compact_v2 bags.
+  - Existing full_v1 and compact_v1 bags remain immutable and use the legacy image adapter.
+  - Only confidence_mean, uncertainty_mean and inference_latency_ms are primary cross-profile perception features.
+  - Extra scalar diagnostics are excluded from the primary matrix until uniform legacy reconstruction is demonstrated.

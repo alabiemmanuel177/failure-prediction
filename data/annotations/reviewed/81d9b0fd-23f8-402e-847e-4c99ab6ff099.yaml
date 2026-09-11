@@ -1,0 +1,31 @@
+schema_version: 1
+taxonomy_version: 1.0.0
+protocol_version: '1.0'
+run_id: 81d9b0fd-23f8-402e-847e-4c99ab6ff099
+annotator: automatic_event_extractor
+annotation_timestamp_utc: '2026-08-30T23:03:52Z'
+episode:
+  start_time: 11.133
+  end_time: 28.95
+  termination_reason: success
+injections:
+- family: lidar_dropout
+  severity: medium
+  planned_onset: 16.133
+  actual_onset: 16.2
+  duration_seconds: null
+  eligible: true
+events: []
+episode_exclusion:
+  excluded: false
+  reason: null
+  notes: null
+review:
+  second_reviewer: null
+  adjudication_status: pending
+  disagreements: []
+  first_reviewer: Emmanuel Alabi Olasubomi
+  first_reviewed_utc: '2026-08-31T22:11:37.860665Z'
+  first_review_notes: 'Human reviewer agrees with the frozen causal fields after inspecting
+    the episode timeline and operational evidence. AI was used only to cross-check
+    the review. Supporting comparison: reports/manual-audit/provisional-ai-comparison-2026-08-31.md.'

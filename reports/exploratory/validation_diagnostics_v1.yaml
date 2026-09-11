@@ -1,0 +1,2486 @@
+schema_version: 1
+kind: validation_only_diagnostics
+exploratory: true
+protected_test_used: false
+generated_utc: '2026-09-06T22:58:26.992904+00:00'
+frozen_threshold: 0.23509196030026114
+model_freeze_sha256: null
+d1_precursors:
+  summary:
+    camera_occlusion:
+      events: 6
+      event_classes:
+        false_arrival: 6
+      median_seconds_injection_end_to_window_start: 25.54
+      fraction_window_overlaps_injection: 0.0
+      median_eligible_positive_decisions: 18.0
+      median_window_max_risk: 0.271
+      median_baseline_max_risk: 0.007
+      fraction_window_max_above_frozen_threshold: 1.0
+      fraction_detected_by_frozen_policy: 1.0
+    dynamic_blockage:
+      events: 10
+      event_classes:
+        false_arrival: 10
+      median_seconds_injection_end_to_window_start: 105.25
+      fraction_window_overlaps_injection: 0.0
+      median_eligible_positive_decisions: 18.0
+      median_window_max_risk: 0.194
+      median_baseline_max_risk: 0.034
+      fraction_window_max_above_frozen_threshold: 0.3
+      fraction_detected_by_frozen_policy: 0.3
+    lidar_dropout:
+      events: 6
+      event_classes:
+        false_arrival: 6
+      median_seconds_injection_end_to_window_start: 43.05
+      fraction_window_overlaps_injection: 0.0
+      median_eligible_positive_decisions: 18.0
+      median_window_max_risk: 0.099
+      median_baseline_max_risk: 0.032
+      fraction_window_max_above_frozen_threshold: 0.0
+      fraction_detected_by_frozen_policy: 0.0
+    localisation_perturbation:
+      events: 8
+      event_classes:
+        false_arrival: 4
+        localisation_loss: 3
+        navigation_abort: 1
+      median_seconds_injection_end_to_window_start: 51.76
+      fraction_window_overlaps_injection: 0.375
+      median_eligible_positive_decisions: 18.0
+      median_window_max_risk: 0.061
+      median_baseline_max_risk: 0.035
+      fraction_window_max_above_frozen_threshold: 0.0
+      fraction_detected_by_frozen_policy: 0.0
+    none:
+      events: 11
+      event_classes:
+        false_arrival: 11
+      median_seconds_injection_end_to_window_start: null
+      fraction_window_overlaps_injection: null
+      median_eligible_positive_decisions: 18
+      median_window_max_risk: 0.224
+      median_baseline_max_risk: null
+      fraction_window_max_above_frozen_threshold: 0.455
+      fraction_detected_by_frozen_policy: 0.364
+    planner_oscillation:
+      events: 11
+      event_classes:
+        false_arrival: 5
+        navigation_abort: 6
+      median_seconds_injection_end_to_window_start: 60.7
+      fraction_window_overlaps_injection: 0.0
+      median_eligible_positive_decisions: 18
+      median_window_max_risk: 0.237
+      median_baseline_max_risk: 0.035
+      fraction_window_max_above_frozen_threshold: 0.545
+      fraction_detected_by_frozen_policy: 0.455
+    semantic_corruption:
+      events: 5
+      event_classes:
+        false_arrival: 4
+        navigation_abort: 1
+      median_seconds_injection_end_to_window_start: 30.81
+      fraction_window_overlaps_injection: 0.0
+      median_eligible_positive_decisions: 18
+      median_window_max_risk: 0.272
+      median_baseline_max_risk: 0.011
+      fraction_window_max_above_frozen_threshold: 0.6
+      fraction_detected_by_frozen_policy: 0.6
+    wheel_slip:
+      events: 5
+      event_classes:
+        false_arrival: 5
+      median_seconds_injection_end_to_window_start: 23.9
+      fraction_window_overlaps_injection: 0.0
+      median_eligible_positive_decisions: 18
+      median_window_max_risk: 0.088
+      median_baseline_max_risk: 0.029
+      fraction_window_max_above_frozen_threshold: 0.0
+      fraction_detected_by_frozen_policy: 0.0
+  episodes:
+    camera_occlusion:
+    - run_id: 045cea68-adf5-4ac4-8588-6f98c767e4a1
+      event_class: false_arrival
+      event_time: 80.954
+      onset: 25.2
+      injection_end: 45.3
+      seconds_from_injection_end_to_window_start: 25.65
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.290080473092327
+      baseline_max_risk: 0.013020146560477935
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 6bc7d412-ee66-4e2b-b23a-a2074a8a7424
+      event_class: false_arrival
+      event_time: 77.941
+      onset: 25.2
+      injection_end: 45.3
+      seconds_from_injection_end_to_window_start: 22.64
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2710659551902296
+      baseline_max_risk: 0.00672404317253719
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: c13d0a10-79e4-4ea9-b507-e6308fd842f9
+      event_class: false_arrival
+      event_time: 158.712
+      onset: 25.6
+      injection_end: 45.7
+      seconds_from_injection_end_to_window_start: 103.01
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2456516497504571
+      baseline_max_risk: 0.007127287202206358
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: e5cb1991-ddf1-4541-b43d-dc876690dc41
+      event_class: false_arrival
+      event_time: 81.056
+      onset: 25.3
+      injection_end: 45.4
+      seconds_from_injection_end_to_window_start: 25.66
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.30753096821518844
+      baseline_max_risk: 0.010613821155252922
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: e8129f9c-fc03-40b1-a446-dc68c5146351
+      event_class: false_arrival
+      event_time: 80.634
+      onset: 25.1
+      injection_end: 45.2
+      seconds_from_injection_end_to_window_start: 25.43
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2703909773193463
+      baseline_max_risk: 0.006176801208037866
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: fef6883c-31ea-4a76-9b27-75522940f469
+      event_class: false_arrival
+      event_time: 79.288
+      onset: 25.1
+      injection_end: 45.2
+      seconds_from_injection_end_to_window_start: 24.09
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.26675512064390516
+      baseline_max_risk: 0.006277551953699953
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    none:
+    - run_id: 108be5d1-8af4-4822-a9cf-8b8b1713a38f
+      event_class: false_arrival
+      event_time: 124.425
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.22436113690238946
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 2f01a10d-2cd1-4def-aecf-8a7be5c2dfa3
+      event_class: false_arrival
+      event_time: 78.122
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2408563203350359
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: true
+      policy_detected: false
+    - run_id: 3064943b-4c93-452b-8770-cbaf4d3ad511
+      event_class: false_arrival
+      event_time: 87.244
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.264461837921714
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 38dc948c-ed3d-4d6a-a333-62f28b1601eb
+      event_class: false_arrival
+      event_time: 75.698
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.24410912437510907
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 8a84ee6d-d940-423a-94ab-394a94dd8bfa
+      event_class: false_arrival
+      event_time: 84.169
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.0915601958404741
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: b2c43037-4295-400a-82f3-d3176ea17de2
+      event_class: false_arrival
+      event_time: 132.307
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.10739504951903528
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: b6a44238-7801-4693-8073-5052a809281c
+      event_class: false_arrival
+      event_time: 77.932
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.10645537518528615
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: cb4ff856-d487-48a3-895e-2514e7e56f85
+      event_class: false_arrival
+      event_time: 77.028
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2459765661173682
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: db6fadc3-6f9e-4d20-898f-760e368ac1c3
+      event_class: false_arrival
+      event_time: 73.215
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.12124655320410731
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: e2c5bf4a-889e-4341-b74e-6e17f37f8fc1
+      event_class: false_arrival
+      event_time: 73.642
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.1332420038729301
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: effb6fac-8e9d-4e59-a31b-ea2bf55f79d3
+      event_class: false_arrival
+      event_time: 81.182
+      onset: null
+      injection_end: null
+      seconds_from_injection_end_to_window_start: null
+      window_overlap_with_injection_s: null
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2661434660330535
+      baseline_max_risk: null
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    lidar_dropout:
+    - run_id: 126a79fa-9ef1-4607-ba61-755617bde3a9
+      event_class: false_arrival
+      event_time: 74.688
+      onset: 21.2
+      injection_end: 41.3
+      seconds_from_injection_end_to_window_start: 23.39
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.09424899525193545
+      baseline_max_risk: 0.04376756463432174
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 203fb539-74dc-4ac9-abc7-88373c434228
+      event_class: false_arrival
+      event_time: 118.508
+      onset: 21.2
+      injection_end: 41.3
+      seconds_from_injection_end_to_window_start: 67.21
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.10196426005776299
+      baseline_max_risk: 0.027609641727345147
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 8200ab05-2c7f-453f-a686-4560c393c481
+      event_class: false_arrival
+      event_time: 106.777
+      onset: 20.7
+      injection_end: 40.8
+      seconds_from_injection_end_to_window_start: 55.98
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.13347056174298502
+      baseline_max_risk: 0.02747625325451116
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 84ca3de3-0b21-4dc8-bd42-ec6dc0515329
+      event_class: false_arrival
+      event_time: 70.217
+      onset: 21.2
+      injection_end: 41.3
+      seconds_from_injection_end_to_window_start: 18.92
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.09650395572588016
+      baseline_max_risk: 0.028715220585096898
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: a4491a91-64dd-487f-9ed4-361d30b9eac9
+      event_class: false_arrival
+      event_time: 81.324
+      onset: 21.1
+      injection_end: 41.2
+      seconds_from_injection_end_to_window_start: 30.12
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.10653505287960581
+      baseline_max_risk: 0.04118499274834225
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: e6a625c5-e6b3-4680-b800-ef53757473ed
+      event_class: false_arrival
+      event_time: 130.861
+      onset: 21.5
+      injection_end: 41.6
+      seconds_from_injection_end_to_window_start: 79.26
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.05386136918048159
+      baseline_max_risk: 0.034951310477223226
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    wheel_slip:
+    - run_id: 1424b58a-6685-43f4-85c6-09c27e67c48c
+      event_class: false_arrival
+      event_time: 71.236
+      onset: 20.672
+      injection_end: 40.698
+      seconds_from_injection_end_to_window_start: 20.54
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.08229694057520276
+      baseline_max_risk: 0.027789549218433303
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 9065dc50-bbde-4e40-852e-a8d96e5fe442
+      event_class: false_arrival
+      event_time: 75.078
+      onset: 21.148
+      injection_end: 41.174
+      seconds_from_injection_end_to_window_start: 23.9
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.08753467081333849
+      baseline_max_risk: 0.046129293760144775
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 9ecc2208-bdf5-4a22-8660-64bd72b9ad00
+      event_class: false_arrival
+      event_time: 75.219
+      onset: 20.672
+      injection_end: 40.698
+      seconds_from_injection_end_to_window_start: 24.52
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.08740481573976637
+      baseline_max_risk: 0.03745995738374966
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: e5613663-9649-4011-a354-32b0a8d04cff
+      event_class: false_arrival
+      event_time: 74.456
+      onset: 21.114
+      injection_end: 41.14
+      seconds_from_injection_end_to_window_start: 23.32
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.10168212061781617
+      baseline_max_risk: 0.028931642607114668
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: e7b80f66-8e33-4238-aecc-e673d542896b
+      event_class: false_arrival
+      event_time: 139.526
+      onset: 21.114
+      injection_end: 41.14
+      seconds_from_injection_end_to_window_start: 88.39
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.18943461501044492
+      baseline_max_risk: 0.02883832481816464
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    planner_oscillation:
+    - run_id: 150def03-a76b-4ed6-a853-f5e3bcb01c53
+      event_class: navigation_abort
+      event_time: 77.873
+      onset: 21.1
+      injection_end: 41.2
+      seconds_from_injection_end_to_window_start: 26.67
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.6679848262617591
+      baseline_max_risk: 0.035685531185711876
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 322a6383-fab8-4ce5-a309-39232f831451
+      event_class: navigation_abort
+      event_time: 112.297
+      onset: 21.5
+      injection_end: 41.6
+      seconds_from_injection_end_to_window_start: 60.7
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.4470104851584073
+      baseline_max_risk: 0.02566715932794867
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 3a9bc17b-876b-4d05-866d-30d68ca59373
+      event_class: navigation_abort
+      event_time: 99.478
+      onset: 20.7
+      injection_end: 40.715
+      seconds_from_injection_end_to_window_start: 48.76
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.40137404136254135
+      baseline_max_risk: 0.0411949050154093
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 41f260a6-8762-4977-a629-8ed86ec0cc34
+      event_class: navigation_abort
+      event_time: 78.537
+      onset: 20.7
+      injection_end: 40.8
+      seconds_from_injection_end_to_window_start: 27.74
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.6565009964936109
+      baseline_max_risk: 0.03489806548657984
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 4d71a81c-a51c-4391-b9b5-d0aa7cdbc5b2
+      event_class: false_arrival
+      event_time: 119.545
+      onset: 20.7
+      injection_end: 40.8
+      seconds_from_injection_end_to_window_start: 68.75
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2319228979675019
+      baseline_max_risk: 0.03571122408142331
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 531fe3ab-c29d-4bbc-8b99-495fc7429d60
+      event_class: navigation_abort
+      event_time: 23.252
+      onset: 21.1
+      injection_end: 21.1
+      seconds_from_injection_end_to_window_start: -7.85
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 9
+      eligible_positive_in_window: 9
+      window_max_risk: 0.03246355139646873
+      baseline_max_risk: 0.03246355139646873
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 53ed33b9-f734-4f2e-8e66-f384fbae1bd2
+      event_class: false_arrival
+      event_time: 124.649
+      onset: 20.8
+      injection_end: 40.8
+      seconds_from_injection_end_to_window_start: 73.85
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.18963662807967507
+      baseline_max_risk: 0.030634548391967165
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: a97f7dd3-edff-48fc-9a4c-8aa46d038dc0
+      event_class: navigation_abort
+      event_time: 103.967
+      onset: 21.1
+      injection_end: 41.2
+      seconds_from_injection_end_to_window_start: 52.77
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.46542747996543266
+      baseline_max_risk: 0.0317011347975867
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: bb27f913-5ae7-4a79-8424-9d5acb9d38b2
+      event_class: false_arrival
+      event_time: 114.736
+      onset: 21.1
+      injection_end: 41.2
+      seconds_from_injection_end_to_window_start: 63.54
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.19636601420220365
+      baseline_max_risk: 0.033309047443714684
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: bb32f862-1a0a-4a48-b1f7-1c77fa784935
+      event_class: false_arrival
+      event_time: 176.9
+      onset: 20.7
+      injection_end: 40.8
+      seconds_from_injection_end_to_window_start: 126.1
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.23711905613732429
+      baseline_max_risk: 0.035895335197607695
+      single_decision_exceeds_threshold: true
+      policy_detected: false
+    - run_id: fc763dc3-4adb-4c7b-b13a-61a9eba1b8a7
+      event_class: false_arrival
+      event_time: 115.63
+      onset: 20.7
+      injection_end: 40.8
+      seconds_from_injection_end_to_window_start: 64.83
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.16670607553977432
+      baseline_max_risk: 0.0364968471155276
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    localisation_perturbation:
+    - run_id: 159947a2-670d-49b3-af96-9ba84d83385e
+      event_class: false_arrival
+      event_time: 118.6
+      onset: 22.5
+      injection_end: 54.1
+      seconds_from_injection_end_to_window_start: 54.5
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.08065529774453721
+      baseline_max_risk: 0.030492749217416935
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 213a0484-1d7f-45c0-9a78-c9ebbd8161d1
+      event_class: false_arrival
+      event_time: 144.634
+      onset: 23.0
+      injection_end: 54.7
+      seconds_from_injection_end_to_window_start: 79.93
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.15929395790019513
+      baseline_max_risk: 0.03426660677604919
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 39e91ac0-caf5-4d2a-a43a-c635598a9caa
+      event_class: navigation_abort
+      event_time: 166.657
+      onset: 22.6
+      injection_end: 53.0
+      seconds_from_injection_end_to_window_start: 103.66
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.013971233857093396
+      baseline_max_risk: 0.012250099271607912
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 5bd17a89-9669-4c26-b75a-fbfb83f69112
+      event_class: false_arrival
+      event_time: 109.023
+      onset: 22.6
+      injection_end: 50.0
+      seconds_from_injection_end_to_window_start: 49.02
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.07547865641466357
+      baseline_max_risk: 0.04443977016585049
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 5bd6c393-2670-4fea-b0a0-c34383c1fdb7
+      event_class: localisation_loss
+      event_time: 52.0
+      onset: 22.2
+      injection_end: 46.9
+      seconds_from_injection_end_to_window_start: -4.9
+      window_overlap_with_injection_s: 4.9
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.002401943435462762
+      baseline_max_risk: 0.03244641032324799
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 69a999a5-5692-4c92-9caa-abe5b8bdc697
+      event_class: localisation_loss
+      event_time: 23.4
+      onset: 21.1
+      injection_end: 42.0
+      seconds_from_injection_end_to_window_start: -28.6
+      window_overlap_with_injection_s: 1.3
+      decisions_in_window: 9
+      eligible_positive_in_window: 9
+      window_max_risk: 0.04645363205889222
+      baseline_max_risk: 0.04645363205889222
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 95ee89e3-adc3-4d81-8364-b05ffdbb65d0
+      event_class: false_arrival
+      event_time: 116.966
+      onset: 22.7
+      injection_end: 44.1
+      seconds_from_injection_end_to_window_start: 62.87
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.11710377920822407
+      baseline_max_risk: 0.039747259323794595
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: c6d51e37-a932-4e4a-b9e2-2aa8c7a60083
+      event_class: localisation_loss
+      event_time: 30.9
+      onset: 28.8
+      injection_end: 49.3
+      seconds_from_injection_end_to_window_start: -28.4
+      window_overlap_with_injection_s: 1.1
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.029894871614145675
+      baseline_max_risk: 0.035012001111226335
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    dynamic_blockage:
+    - run_id: 1acf28f1-9291-4b8e-b220-55e368f53e79
+      event_class: false_arrival
+      event_time: 155.418
+      onset: 21.6
+      injection_end: 31.7
+      seconds_from_injection_end_to_window_start: 113.72
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.30973189378257343
+      baseline_max_risk: 0.023682221833449812
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 1faba283-d007-46d5-9f08-925d3ed06275
+      event_class: false_arrival
+      event_time: 128.677
+      onset: 21.2
+      injection_end: 31.3
+      seconds_from_injection_end_to_window_start: 87.38
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.3468435586846521
+      baseline_max_risk: 0.07960431829670553
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: 22ff247b-873b-4a38-8c00-99ae6ee24b2f
+      event_class: false_arrival
+      event_time: 112.352
+      onset: 21.1
+      injection_end: 31.2
+      seconds_from_injection_end_to_window_start: 71.15
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.1942261854458535
+      baseline_max_risk: 0.030312532905751276
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 4c2655a9-4ba7-4197-9f03-d20e900701ff
+      event_class: false_arrival
+      event_time: 140.298
+      onset: 21.1
+      injection_end: 31.2
+      seconds_from_injection_end_to_window_start: 99.1
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.1789224312515973
+      baseline_max_risk: 0.07423224545190904
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 561b9e66-0c6b-4db1-9fab-5f7043fcf398
+      event_class: false_arrival
+      event_time: 164.043
+      onset: 21.2
+      injection_end: 31.3
+      seconds_from_injection_end_to_window_start: 122.74
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.21540171388893845
+      baseline_max_risk: 0.025445378009829305
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 67e445e0-4ba7-40da-946a-541dd35e3fd9
+      event_class: false_arrival
+      event_time: 98.741
+      onset: 20.7
+      injection_end: 30.8
+      seconds_from_injection_end_to_window_start: 57.94
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.18573556145128473
+      baseline_max_risk: 0.026477794637516244
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 8773b6a1-c88b-4092-82e6-29df54b26c69
+      event_class: false_arrival
+      event_time: 73.2
+      onset: 20.7
+      injection_end: 30.8
+      seconds_from_injection_end_to_window_start: 32.4
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.11318962624940183
+      baseline_max_risk: 0.05108892330068573
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: af1b84ca-4e0b-4923-b4f3-12dd69596d82
+      event_class: false_arrival
+      event_time: 153.105
+      onset: 21.6
+      injection_end: 31.7
+      seconds_from_injection_end_to_window_start: 111.4
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.18087915313631242
+      baseline_max_risk: 0.15934381809890438
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: e5012067-a734-404f-ab77-fa24c04ec466
+      event_class: false_arrival
+      event_time: 157.297
+      onset: 21.1
+      injection_end: 31.2
+      seconds_from_injection_end_to_window_start: 116.1
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.3552018876807438
+      baseline_max_risk: 0.030945566983465563
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: fd94e534-2273-4133-ad58-c61c206077ae
+      event_class: false_arrival
+      event_time: 155.052
+      onset: 20.7
+      injection_end: 30.8
+      seconds_from_injection_end_to_window_start: 114.25
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.19322495183075566
+      baseline_max_risk: 0.03707859212388274
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    semantic_corruption:
+    - run_id: 22ca288b-734c-4f70-a4ae-7a84f7e49d65
+      event_class: false_arrival
+      event_time: 85.608
+      onset: 24.7
+      injection_end: 44.8
+      seconds_from_injection_end_to_window_start: 30.81
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2174462533917258
+      baseline_max_risk: 0.005317997091143396
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 8656b5f0-c3ca-46dc-ab43-25b0d3fa9586
+      event_class: navigation_abort
+      event_time: 171.364
+      onset: 24.8
+      injection_end: 44.9
+      seconds_from_injection_end_to_window_start: 116.46
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.02364627695154882
+      baseline_max_risk: 0.0107246849301846
+      single_decision_exceeds_threshold: false
+      policy_detected: false
+    - run_id: 976c63d9-4712-4bf0-a757-b983904054d8
+      event_class: false_arrival
+      event_time: 81.6
+      onset: 25.1
+      injection_end: 45.2
+      seconds_from_injection_end_to_window_start: 26.4
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2720284882760619
+      baseline_max_risk: 0.0067128979376728575
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: b1bfda9e-ad7f-4a7c-9b57-b3558cfe4c2a
+      event_class: false_arrival
+      event_time: 81.192
+      onset: 25.3
+      injection_end: 45.4
+      seconds_from_injection_end_to_window_start: 25.79
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.29380739526778127
+      baseline_max_risk: 0.012947232683361062
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+    - run_id: f81815b3-1e30-42c6-8d35-a309bdf55365
+      event_class: false_arrival
+      event_time: 123.556
+      onset: 25.3
+      injection_end: 45.4
+      seconds_from_injection_end_to_window_start: 68.16
+      window_overlap_with_injection_s: 0.0
+      decisions_in_window: 18
+      eligible_positive_in_window: 18
+      window_max_risk: 0.2750440718057225
+      baseline_max_risk: 0.011228785873259473
+      single_decision_exceeds_threshold: true
+      policy_detected: true
+d2_threshold_stability:
+  replicates: 200
+  resampling: routes within each map, then episodes within route, with replacement
+    (maps fixed)
+  candidate_grid: 201
+  frozen_threshold: 0.23509196030026114
+  threshold_quantiles:
+    p05: 0.1278
+    p25: 0.1654
+    p50: 0.251
+    p75: 0.2848
+    p95: 0.3141
+  fraction_replicates_selecting_never_alarm: 0.02
+  resampled_threshold_applied_to_full_validation:
+    fa_per_clean_quantiles:
+      p05: 0.0
+      p50: 0.0833
+      p95: 0.2639
+    fraction_exceeding_budget: 0.36
+    recall_quantiles:
+      p05: 0.1129
+      p50: 0.2581
+      p95: 0.5968
+  frozen_threshold_on_resamples:
+    fa_per_clean_quantiles:
+      p05: 0.0
+      p50: 0.0946
+      p95: 0.2239
+    fraction_exceeding_budget: 0.46
+  replicate_rows:
+  - seed: 1
+    threshold: 0.2580570203479241
+    in_sample_recall: 0.1981981981981982
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.140625
+    frozen_threshold_recall_on_sample: 0.36936936936936937
+  - seed: 2
+    threshold: 0.23875541449045173
+    in_sample_recall: 0.42028985507246375
+    recall_on_full_validation: 0.3064516129032258
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.0945945945945946
+    frozen_threshold_recall_on_sample: 0.43478260869565216
+  - seed: 3
+    threshold: 0.1633779661204467
+    in_sample_recall: 0.48484848484848486
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.22727272727272727
+  - seed: 4
+    threshold: 0.2608820952812519
+    in_sample_recall: 0.18518518518518517
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.17567567567567569
+    frozen_threshold_recall_on_sample: 0.3148148148148148
+  - seed: 5
+    threshold: 0.28158918783917986
+    in_sample_recall: 0.19090909090909092
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.22058823529411764
+    frozen_threshold_recall_on_sample: 0.33636363636363636
+  - seed: 6
+    threshold: 0.28374256925919145
+    in_sample_recall: 0.25862068965517243
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.1780821917808219
+    frozen_threshold_recall_on_sample: 0.3275862068965517
+  - seed: 7
+    threshold: 0.127695609231123
+    in_sample_recall: 0.5254237288135594
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.288135593220339
+  - seed: 8
+    threshold: 0.2887007273766638
+    in_sample_recall: 0.5625
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.0967741935483871
+    frozen_threshold_recall_on_sample: 0.5625
+  - seed: 9
+    threshold: 0.2628928903850257
+    in_sample_recall: 0.1485148514851485
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.17721518987341772
+    frozen_threshold_recall_on_sample: 0.297029702970297
+  - seed: 10
+    threshold: 0.31382854304027297
+    in_sample_recall: 0.2222222222222222
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.15584415584415584
+    frozen_threshold_recall_on_sample: 0.2222222222222222
+  - seed: 11
+    threshold: 0.25902036755843094
+    in_sample_recall: 0.27692307692307694
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.14814814814814814
+    frozen_threshold_recall_on_sample: 0.4
+  - seed: 12
+    threshold: 0.2122962118362475
+    in_sample_recall: 0.4461538461538462
+    recall_on_full_validation: 0.41935483870967744
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.034482758620689655
+    frozen_threshold_recall_on_sample: 0.3384615384615385
+  - seed: 13
+    threshold: 0.24997355519111697
+    in_sample_recall: 0.208955223880597
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.10666666666666667
+    frozen_threshold_recall_on_sample: 0.26865671641791045
+  - seed: 14
+    threshold: 0.15790283265390556
+    in_sample_recall: 0.45535714285714285
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.25892857142857145
+  - seed: 15
+    threshold: 0.30581302508323527
+    in_sample_recall: 0.6153846153846154
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.12307692307692308
+    frozen_threshold_recall_on_sample: 0.6153846153846154
+  - seed: 16
+    threshold: 0.2764211614001482
+    in_sample_recall: 0.1346153846153846
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.041666666666666664
+    frozen_threshold_fa_per_clean_on_sample: 0.2112676056338028
+    frozen_threshold_recall_on_sample: 0.2692307692307692
+  - seed: 17
+    threshold: 0.163231933784504
+    in_sample_recall: 0.5942028985507246
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.057971014492753624
+    frozen_threshold_recall_on_sample: 0.36231884057971014
+  - seed: 18
+    threshold: 0.1551366892473838
+    in_sample_recall: 0.5384615384615384
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.38461538461538464
+  - seed: 19
+    threshold: 0.1577931633992692
+    in_sample_recall: 0.7692307692307693
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.6538461538461539
+  - seed: 20
+    threshold: 0.20837484750060764
+    in_sample_recall: 0.38016528925619836
+    recall_on_full_validation: 0.41935483870967744
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.08108108108108109
+    frozen_threshold_recall_on_sample: 0.2975206611570248
+  - seed: 21
+    threshold: 0.16365661757332786
+    in_sample_recall: 0.6347826086956522
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.391304347826087
+  - seed: 22
+    threshold: 0.2945497235243616
+    in_sample_recall: 0.13114754098360656
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.23809523809523808
+    frozen_threshold_recall_on_sample: 0.22950819672131148
+  - seed: 23
+    threshold: 0.15991274829869345
+    in_sample_recall: 0.5507246376811594
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3333333333333333
+  - seed: 24
+    threshold: 0.15223152870708592
+    in_sample_recall: 0.589041095890411
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3972602739726027
+  - seed: 25
+    threshold: 0.21233469251484163
+    in_sample_recall: 0.4444444444444444
+    recall_on_full_validation: 0.41935483870967744
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.060240963855421686
+    frozen_threshold_recall_on_sample: 0.3333333333333333
+  - seed: 26
+    threshold: 0.2630602566317597
+    in_sample_recall: 0.16037735849056603
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.1891891891891892
+    frozen_threshold_recall_on_sample: 0.2830188679245283
+  - seed: 27
+    threshold: 0.2939405594607068
+    in_sample_recall: 0.6363636363636364
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.13580246913580246
+    frozen_threshold_recall_on_sample: 0.6363636363636364
+  - seed: 28
+    threshold: 0.16598820719049626
+    in_sample_recall: 0.38461538461538464
+    recall_on_full_validation: 0.5161290322580645
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.07692307692307693
+  - seed: 29
+    threshold: 0.23595719107091526
+    in_sample_recall: 0.34782608695652173
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.09523809523809523
+    frozen_threshold_recall_on_sample: 0.3565217391304348
+  - seed: 30
+    threshold: 0.2893899680658686
+    in_sample_recall: 0.35294117647058826
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.07142857142857142
+    frozen_threshold_recall_on_sample: 0.35294117647058826
+  - seed: 31
+    threshold: 0.25902036755843094
+    in_sample_recall: 0.07692307692307693
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.15625
+    frozen_threshold_recall_on_sample: 0.28846153846153844
+  - seed: 32
+    threshold: 0.1586152276844183
+    in_sample_recall: 0.423728813559322
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.15254237288135594
+  - seed: 33
+    threshold: 0.13088435253365577
+    in_sample_recall: 0.6311475409836066
+    recall_on_full_validation: 0.5806451612903226
+    fa_per_clean_on_full_validation: 0.25
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3524590163934426
+  - seed: 34
+    threshold: 0.249746699447866
+    in_sample_recall: 0.37168141592920356
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.10606060606060606
+    frozen_threshold_recall_on_sample: 0.4424778761061947
+  - seed: 35
+    threshold: 0.1274141158982499
+    in_sample_recall: 0.5915492957746479
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.38028169014084506
+  - seed: 36
+    threshold: 0.23556521354162646
+    in_sample_recall: 0.32407407407407407
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.0963855421686747
+    frozen_threshold_recall_on_sample: 0.35185185185185186
+  - seed: 37
+    threshold: 0.15701467898401072
+    in_sample_recall: 0.4406779661016949
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.2288135593220339
+  - seed: 38
+    threshold: 0.1864746557735816
+    in_sample_recall: 0.4789915966386555
+    recall_on_full_validation: 0.46774193548387094
+    fa_per_clean_on_full_validation: 0.1388888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.05405405405405406
+    frozen_threshold_recall_on_sample: 0.37815126050420167
+  - seed: 39
+    threshold: 0.2843314557374544
+    in_sample_recall: 0.12962962962962962
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.2638888888888889
+    frozen_threshold_recall_on_sample: 0.3888888888888889
+  - seed: 40
+    threshold: 0.12882982348275743
+    in_sample_recall: 0.5555555555555556
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3968253968253968
+  - seed: 41
+    threshold: 0.16729188698273473
+    in_sample_recall: 0.3333333333333333
+    recall_on_full_validation: 0.5161290322580645
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.06666666666666667
+  - seed: 42
+    threshold: 0.3173688086774367
+    in_sample_recall: 0.4166666666666667
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.109375
+    frozen_threshold_recall_on_sample: 0.4166666666666667
+  - seed: 43
+    threshold: 0.25775483387250875
+    in_sample_recall: 0.22857142857142856
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.13432835820895522
+    frozen_threshold_recall_on_sample: 0.3047619047619048
+  - seed: 44
+    threshold: 0.18817914858787668
+    in_sample_recall: 0.5084745762711864
+    recall_on_full_validation: 0.46774193548387094
+    fa_per_clean_on_full_validation: 0.1388888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0967741935483871
+    frozen_threshold_recall_on_sample: 0.3644067796610169
+  - seed: 45
+    threshold: 0.31203910570417015
+    in_sample_recall: 0.1111111111111111
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.10465116279069768
+    frozen_threshold_recall_on_sample: 0.1111111111111111
+  - seed: 46
+    threshold: 0.26449593470809707
+    in_sample_recall: 0.20833333333333334
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.14285714285714285
+    frozen_threshold_recall_on_sample: 0.3055555555555556
+  - seed: 47
+    threshold: 1.0
+    in_sample_recall: 0.0
+    recall_on_full_validation: 0.0
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.21428571428571427
+    frozen_threshold_recall_on_sample: 0.0
+  - seed: 48
+    threshold: 0.2595862645844723
+    in_sample_recall: 0.203125
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.15384615384615385
+    frozen_threshold_recall_on_sample: 0.296875
+  - seed: 49
+    threshold: 0.27870077088515466
+    in_sample_recall: 0.038461538461538464
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.19117647058823528
+    frozen_threshold_recall_on_sample: 0.17307692307692307
+  - seed: 50
+    threshold: 0.2509512983168224
+    in_sample_recall: 0.24742268041237114
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.12
+    frozen_threshold_recall_on_sample: 0.30927835051546393
+  - seed: 51
+    threshold: 0.2584981238874786
+    in_sample_recall: 0.18518518518518517
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.11538461538461539
+    frozen_threshold_recall_on_sample: 0.2962962962962963
+  - seed: 52
+    threshold: 0.23478586176759217
+    in_sample_recall: 0.42857142857142855
+    recall_on_full_validation: 0.3387096774193548
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.06666666666666667
+    frozen_threshold_recall_on_sample: 0.42857142857142855
+  - seed: 53
+    threshold: 0.3150736725869973
+    in_sample_recall: 0.6666666666666666
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.13157894736842105
+    frozen_threshold_recall_on_sample: 0.6666666666666666
+  - seed: 54
+    threshold: 0.2110881590027175
+    in_sample_recall: 0.35714285714285715
+    recall_on_full_validation: 0.41935483870967744
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.07352941176470588
+    frozen_threshold_recall_on_sample: 0.2767857142857143
+  - seed: 55
+    threshold: 0.25256865022099195
+    in_sample_recall: 0.2376237623762376
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.10666666666666667
+    frozen_threshold_recall_on_sample: 0.36633663366336633
+  - seed: 56
+    threshold: 0.15107605618864353
+    in_sample_recall: 0.6716417910447762
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.19444444444444445
+    frozen_threshold_fa_per_clean_on_sample: 0.04054054054054054
+    frozen_threshold_recall_on_sample: 0.4925373134328358
+  - seed: 57
+    threshold: 0.19899553867897488
+    in_sample_recall: 0.40298507462686567
+    recall_on_full_validation: 0.43548387096774194
+    fa_per_clean_on_full_validation: 0.1388888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.29850746268656714
+  - seed: 58
+    threshold: 0.16771622299723007
+    in_sample_recall: 0.625
+    recall_on_full_validation: 0.5161290322580645
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.4375
+  - seed: 59
+    threshold: 0.3141203537210062
+    in_sample_recall: 0.5714285714285714
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.125
+    frozen_threshold_recall_on_sample: 0.5714285714285714
+  - seed: 60
+    threshold: 0.25579765029368295
+    in_sample_recall: 0.3333333333333333
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.15492957746478872
+    frozen_threshold_recall_on_sample: 0.40350877192982454
+  - seed: 61
+    threshold: 0.15852547662154035
+    in_sample_recall: 0.5671641791044776
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3582089552238806
+  - seed: 62
+    threshold: 0.127771490821878
+    in_sample_recall: 0.6086956521739131
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3217391304347826
+  - seed: 63
+    threshold: 1.0
+    in_sample_recall: 0.0
+    recall_on_full_validation: 0.0
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.1044776119402985
+    frozen_threshold_recall_on_sample: 0.0
+  - seed: 64
+    threshold: 0.12030601337972945
+    in_sample_recall: 0.6515151515151515
+    recall_on_full_validation: 0.6290322580645161
+    fa_per_clean_on_full_validation: 0.3194444444444444
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.30303030303030304
+  - seed: 65
+    threshold: 0.2622372513592449
+    in_sample_recall: 0.14814814814814814
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.13333333333333333
+    frozen_threshold_recall_on_sample: 0.3148148148148148
+  - seed: 66
+    threshold: 0.3066194762252865
+    in_sample_recall: 0.3333333333333333
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.08
+    frozen_threshold_recall_on_sample: 0.3333333333333333
+  - seed: 67
+    threshold: 0.23936566732959869
+    in_sample_recall: 0.19642857142857142
+    recall_on_full_validation: 0.3064516129032258
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.0963855421686747
+    frozen_threshold_recall_on_sample: 0.22321428571428573
+  - seed: 68
+    threshold: 0.2848499088085051
+    in_sample_recall: 0.208955223880597
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.013888888888888888
+    frozen_threshold_fa_per_clean_on_sample: 0.1917808219178082
+    frozen_threshold_recall_on_sample: 0.4626865671641791
+  - seed: 69
+    threshold: 0.23936566732959869
+    in_sample_recall: 0.4153846153846154
+    recall_on_full_validation: 0.3064516129032258
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.07142857142857142
+    frozen_threshold_recall_on_sample: 0.4153846153846154
+  - seed: 70
+    threshold: 0.25508802105598355
+    in_sample_recall: 0.28440366972477066
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.125
+    frozen_threshold_recall_on_sample: 0.42201834862385323
+  - seed: 71
+    threshold: 0.26343231825792507
+    in_sample_recall: 0.11818181818181818
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.11688311688311688
+    frozen_threshold_recall_on_sample: 0.2545454545454545
+  - seed: 72
+    threshold: 0.2937232011602655
+    in_sample_recall: 0.5333333333333333
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.23636363636363636
+    frozen_threshold_recall_on_sample: 0.5333333333333333
+  - seed: 73
+    threshold: 0.16365661757332786
+    in_sample_recall: 0.6428571428571429
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.05555555555555555
+    frozen_threshold_recall_on_sample: 0.42857142857142855
+  - seed: 74
+    threshold: 0.25281218857048426
+    in_sample_recall: 0.19117647058823528
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.10666666666666667
+    frozen_threshold_recall_on_sample: 0.29411764705882354
+  - seed: 75
+    threshold: 0.25508802105598355
+    in_sample_recall: 0.1111111111111111
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.11842105263157894
+    frozen_threshold_recall_on_sample: 0.24074074074074073
+  - seed: 76
+    threshold: 0.31018685256190925
+    in_sample_recall: 0.5555555555555556
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.22666666666666666
+    frozen_threshold_recall_on_sample: 0.5555555555555556
+  - seed: 77
+    threshold: 0.31205461593270506
+    in_sample_recall: 0.09836065573770492
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.23684210526315788
+    frozen_threshold_recall_on_sample: 0.26229508196721313
+  - seed: 78
+    threshold: 0.30208888842735643
+    in_sample_recall: 0.2857142857142857
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.07317073170731707
+    frozen_threshold_recall_on_sample: 0.2857142857142857
+  - seed: 79
+    threshold: 0.15846755712602437
+    in_sample_recall: 0.5517241379310345
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.25862068965517243
+  - seed: 80
+    threshold: 0.2945497235243616
+    in_sample_recall: 0.5333333333333333
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.12162162162162163
+    frozen_threshold_recall_on_sample: 0.5333333333333333
+  - seed: 81
+    threshold: 0.3150736725869973
+    in_sample_recall: 0.3157894736842105
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.1111111111111111
+    frozen_threshold_recall_on_sample: 0.3157894736842105
+  - seed: 82
+    threshold: 0.164031455846973
+    in_sample_recall: 0.4
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.2
+  - seed: 83
+    threshold: 0.28892051069600216
+    in_sample_recall: 0.3125
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.2028985507246377
+    frozen_threshold_recall_on_sample: 0.3125
+  - seed: 84
+    threshold: 0.28892051069600216
+    in_sample_recall: 0.5
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.14285714285714285
+    frozen_threshold_recall_on_sample: 0.5
+  - seed: 85
+    threshold: 0.26129701493366536
+    in_sample_recall: 0.2698412698412698
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.1375
+    frozen_threshold_recall_on_sample: 0.42857142857142855
+  - seed: 86
+    threshold: 0.26325891691930964
+    in_sample_recall: 0.2807017543859649
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.13157894736842105
+    frozen_threshold_recall_on_sample: 0.40350877192982454
+  - seed: 87
+    threshold: 0.15859053496335007
+    in_sample_recall: 0.5964912280701754
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3684210526315789
+  - seed: 88
+    threshold: 0.30977367881171963
+    in_sample_recall: 0.14285714285714285
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.05084745762711865
+    frozen_threshold_recall_on_sample: 0.14285714285714285
+  - seed: 89
+    threshold: 0.3066194762252865
+    in_sample_recall: 0.11538461538461539
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.22105263157894736
+    frozen_threshold_recall_on_sample: 0.23076923076923078
+  - seed: 90
+    threshold: 0.260569260663781
+    in_sample_recall: 0.1509433962264151
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.15492957746478872
+    frozen_threshold_recall_on_sample: 0.24528301886792453
+  - seed: 91
+    threshold: 0.2378320240962187
+    in_sample_recall: 0.3793103448275862
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.08695652173913043
+    frozen_threshold_recall_on_sample: 0.39655172413793105
+  - seed: 92
+    threshold: 0.16836093469245952
+    in_sample_recall: 0.7
+    recall_on_full_validation: 0.5161290322580645
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.25
+  - seed: 93
+    threshold: 0.2383781120623037
+    in_sample_recall: 0.297029702970297
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.08695652173913043
+    frozen_threshold_recall_on_sample: 0.31683168316831684
+  - seed: 94
+    threshold: 0.15810367017710686
+    in_sample_recall: 0.65
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.43333333333333335
+  - seed: 95
+    threshold: 0.2940441741460301
+    in_sample_recall: 0.5
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.08571428571428572
+    frozen_threshold_recall_on_sample: 0.5
+  - seed: 96
+    threshold: 0.2349343434532236
+    in_sample_recall: 0.3442622950819672
+    recall_on_full_validation: 0.3387096774193548
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.07792207792207792
+    frozen_threshold_recall_on_sample: 0.3442622950819672
+  - seed: 97
+    threshold: 0.16461624837861483
+    in_sample_recall: 0.4918032786885246
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3114754098360656
+  - seed: 98
+    threshold: 0.29072057699191034
+    in_sample_recall: 0.25
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.125
+    frozen_threshold_recall_on_sample: 0.25
+  - seed: 99
+    threshold: 0.2816428114072103
+    in_sample_recall: 0.12
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.17647058823529413
+    frozen_threshold_recall_on_sample: 0.22
+  - seed: 100
+    threshold: 0.17995678466286646
+    in_sample_recall: 0.5263157894736842
+    recall_on_full_validation: 0.45161290322580644
+    fa_per_clean_on_full_validation: 0.1527777777777778
+    frozen_threshold_fa_per_clean_on_sample: 0.05555555555555555
+    frozen_threshold_recall_on_sample: 0.3333333333333333
+  - seed: 101
+    threshold: 0.304848951369269
+    in_sample_recall: 0.4166666666666667
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.11764705882352941
+    frozen_threshold_recall_on_sample: 0.4166666666666667
+  - seed: 102
+    threshold: 0.2848499088085051
+    in_sample_recall: 0.171875
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.013888888888888888
+    frozen_threshold_fa_per_clean_on_sample: 0.203125
+    frozen_threshold_recall_on_sample: 0.34375
+  - seed: 103
+    threshold: 0.16465243804386104
+    in_sample_recall: 0.6388888888888888
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3472222222222222
+  - seed: 104
+    threshold: 0.14648770346655496
+    in_sample_recall: 0.5454545454545454
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.19444444444444445
+    frozen_threshold_fa_per_clean_on_sample: 0.04225352112676056
+    frozen_threshold_recall_on_sample: 0.5
+  - seed: 105
+    threshold: 0.1586152276844183
+    in_sample_recall: 0.5
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.29411764705882354
+  - seed: 106
+    threshold: 0.28150181557104154
+    in_sample_recall: 0.3194444444444444
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.12162162162162163
+    frozen_threshold_recall_on_sample: 0.5
+  - seed: 107
+    threshold: 0.19290026575141803
+    in_sample_recall: 0.40384615384615385
+    recall_on_full_validation: 0.43548387096774194
+    fa_per_clean_on_full_validation: 0.1388888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.044444444444444446
+    frozen_threshold_recall_on_sample: 0.28846153846153844
+  - seed: 108
+    threshold: 0.12731654451502913
+    in_sample_recall: 0.6481481481481481
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2777777777777778
+    frozen_threshold_fa_per_clean_on_sample: 0.06060606060606061
+    frozen_threshold_recall_on_sample: 0.3333333333333333
+  - seed: 109
+    threshold: 0.25579765029368295
+    in_sample_recall: 0.2542372881355932
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.1111111111111111
+    frozen_threshold_recall_on_sample: 0.3559322033898305
+  - seed: 110
+    threshold: 0.2973136687026529
+    in_sample_recall: 0.4444444444444444
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.2647058823529412
+    frozen_threshold_recall_on_sample: 0.4444444444444444
+  - seed: 111
+    threshold: 0.2614314993433575
+    in_sample_recall: 0.3333333333333333
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.13559322033898305
+    frozen_threshold_recall_on_sample: 0.49122807017543857
+  - seed: 112
+    threshold: 0.3206120555053668
+    in_sample_recall: 0.625
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.11764705882352941
+    frozen_threshold_recall_on_sample: 0.625
+  - seed: 113
+    threshold: 0.2562604929652394
+    in_sample_recall: 0.3230769230769231
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.10714285714285714
+    frozen_threshold_recall_on_sample: 0.4461538461538462
+  - seed: 114
+    threshold: 0.16540210767022967
+    in_sample_recall: 0.5522388059701493
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.2835820895522388
+  - seed: 115
+    threshold: 0.28892051069600216
+    in_sample_recall: 0.4
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.18840579710144928
+    frozen_threshold_recall_on_sample: 0.4
+  - seed: 116
+    threshold: 0.2782189899742483
+    in_sample_recall: 0.1553398058252427
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.2647058823529412
+    frozen_threshold_recall_on_sample: 0.30097087378640774
+  - seed: 117
+    threshold: 1.0
+    in_sample_recall: 0.0
+    recall_on_full_validation: 0.0
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.12
+    frozen_threshold_recall_on_sample: 0.0
+  - seed: 118
+    threshold: 0.2105645433220249
+    in_sample_recall: 0.4722222222222222
+    recall_on_full_validation: 0.41935483870967744
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.08108108108108109
+    frozen_threshold_recall_on_sample: 0.3611111111111111
+  - seed: 119
+    threshold: 0.3108616334575073
+    in_sample_recall: 0.7272727272727273
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.13793103448275862
+    frozen_threshold_recall_on_sample: 0.7272727272727273
+  - seed: 120
+    threshold: 0.29625470640199936
+    in_sample_recall: 0.2
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.17333333333333334
+    frozen_threshold_recall_on_sample: 0.2
+  - seed: 121
+    threshold: 0.16334193039372027
+    in_sample_recall: 0.5625
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.046153846153846156
+    frozen_threshold_recall_on_sample: 0.328125
+  - seed: 122
+    threshold: 0.2584981238874786
+    in_sample_recall: 0.2222222222222222
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.14084507042253522
+    frozen_threshold_recall_on_sample: 0.3076923076923077
+  - seed: 123
+    threshold: 0.2767259613446333
+    in_sample_recall: 0.07272727272727272
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.041666666666666664
+    frozen_threshold_fa_per_clean_on_sample: 0.21212121212121213
+    frozen_threshold_recall_on_sample: 0.3090909090909091
+  - seed: 124
+    threshold: 0.14378065737468673
+    in_sample_recall: 0.7142857142857143
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.19444444444444445
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.5238095238095238
+  - seed: 125
+    threshold: 0.26214689536251473
+    in_sample_recall: 0.20952380952380953
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.1891891891891892
+    frozen_threshold_recall_on_sample: 0.3523809523809524
+  - seed: 126
+    threshold: 0.23534814499164655
+    in_sample_recall: 0.39344262295081966
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.07692307692307693
+    frozen_threshold_recall_on_sample: 0.39344262295081966
+  - seed: 127
+    threshold: 0.29607444394602217
+    in_sample_recall: 0.36363636363636365
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.07894736842105263
+    frozen_threshold_recall_on_sample: 0.36363636363636365
+  - seed: 128
+    threshold: 0.2937232011602655
+    in_sample_recall: 0.36363636363636365
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.06557377049180328
+    frozen_threshold_recall_on_sample: 0.36363636363636365
+  - seed: 129
+    threshold: 0.23854634579347084
+    in_sample_recall: 0.3582089552238806
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.09090909090909091
+    frozen_threshold_recall_on_sample: 0.373134328358209
+  - seed: 130
+    threshold: 0.12928384192894707
+    in_sample_recall: 0.6039603960396039
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3465346534653465
+  - seed: 131
+    threshold: 0.1548921560020707
+    in_sample_recall: 0.5555555555555556
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.4444444444444444
+  - seed: 132
+    threshold: 0.12363672343608886
+    in_sample_recall: 0.7017543859649122
+    recall_on_full_validation: 0.6129032258064516
+    fa_per_clean_on_full_validation: 0.2916666666666667
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3684210526315789
+  - seed: 133
+    threshold: 0.2368716340822075
+    in_sample_recall: 0.3018867924528302
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.08641975308641975
+    frozen_threshold_recall_on_sample: 0.3018867924528302
+  - seed: 134
+    threshold: 0.1635587359602916
+    in_sample_recall: 0.5384615384615384
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.23076923076923078
+  - seed: 135
+    threshold: 0.2738127206394001
+    in_sample_recall: 0.24615384615384617
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.041666666666666664
+    frozen_threshold_fa_per_clean_on_sample: 0.18840579710144928
+    frozen_threshold_recall_on_sample: 0.38461538461538464
+  - seed: 136
+    threshold: 0.23848552805874149
+    in_sample_recall: 0.45588235294117646
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.09210526315789473
+    frozen_threshold_recall_on_sample: 0.47058823529411764
+  - seed: 137
+    threshold: 0.18671499444129608
+    in_sample_recall: 0.5660377358490566
+    recall_on_full_validation: 0.46774193548387094
+    fa_per_clean_on_full_validation: 0.1388888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.08108108108108109
+    frozen_threshold_recall_on_sample: 0.32075471698113206
+  - seed: 138
+    threshold: 0.2562604929652394
+    in_sample_recall: 0.20967741935483872
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.11827956989247312
+    frozen_threshold_recall_on_sample: 0.24193548387096775
+  - seed: 139
+    threshold: 0.25414036655571537
+    in_sample_recall: 0.28125
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.06944444444444445
+    frozen_threshold_fa_per_clean_on_sample: 0.13043478260869565
+    frozen_threshold_recall_on_sample: 0.390625
+  - seed: 140
+    threshold: 0.2917335774701188
+    in_sample_recall: 0.2777777777777778
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.11940298507462686
+    frozen_threshold_recall_on_sample: 0.2777777777777778
+  - seed: 141
+    threshold: 0.2786053001310454
+    in_sample_recall: 0.26865671641791045
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.18571428571428572
+    frozen_threshold_recall_on_sample: 0.3880597014925373
+  - seed: 142
+    threshold: 0.212041885578576
+    in_sample_recall: 0.46875
+    recall_on_full_validation: 0.41935483870967744
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.06349206349206349
+    frozen_threshold_recall_on_sample: 0.390625
+  - seed: 143
+    threshold: 0.2529977885259387
+    in_sample_recall: 0.2698412698412698
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.06944444444444445
+    frozen_threshold_fa_per_clean_on_sample: 0.15789473684210525
+    frozen_threshold_recall_on_sample: 0.31746031746031744
+  - seed: 144
+    threshold: 0.24130154060018308
+    in_sample_recall: 0.23214285714285715
+    recall_on_full_validation: 0.3064516129032258
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.08045977011494253
+    frozen_threshold_recall_on_sample: 0.25
+  - seed: 145
+    threshold: 0.3217939281845392
+    in_sample_recall: 0.6190476190476191
+    recall_on_full_validation: 0.11290322580645161
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.12903225806451613
+    frozen_threshold_recall_on_sample: 0.6190476190476191
+  - seed: 146
+    threshold: 0.25524067355233127
+    in_sample_recall: 0.265625
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.11666666666666667
+    frozen_threshold_recall_on_sample: 0.328125
+  - seed: 147
+    threshold: 0.2871149685999686
+    in_sample_recall: 0.16393442622950818
+    recall_on_full_validation: 0.16129032258064516
+    fa_per_clean_on_full_validation: 0.013888888888888888
+    frozen_threshold_fa_per_clean_on_sample: 0.2602739726027397
+    frozen_threshold_recall_on_sample: 0.32786885245901637
+  - seed: 148
+    threshold: 0.2937232011602655
+    in_sample_recall: 0.08333333333333333
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.09836065573770492
+    frozen_threshold_recall_on_sample: 0.08333333333333333
+  - seed: 149
+    threshold: 0.16539372069295546
+    in_sample_recall: 0.38181818181818183
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.03278688524590164
+    frozen_threshold_recall_on_sample: 0.16363636363636364
+  - seed: 150
+    threshold: 0.23644825142689907
+    in_sample_recall: 0.3194444444444444
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.08974358974358974
+    frozen_threshold_recall_on_sample: 0.3194444444444444
+  - seed: 151
+    threshold: 0.3067794708857629
+    in_sample_recall: 0.5454545454545454
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.07692307692307693
+    frozen_threshold_recall_on_sample: 0.5454545454545454
+  - seed: 152
+    threshold: 0.24792907594342797
+    in_sample_recall: 0.2698412698412698
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.1111111111111111
+    frozen_threshold_recall_on_sample: 0.36507936507936506
+  - seed: 153
+    threshold: 0.21300945106661556
+    in_sample_recall: 0.35344827586206895
+    recall_on_full_validation: 0.4032258064516129
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.06578947368421052
+    frozen_threshold_recall_on_sample: 0.29310344827586204
+  - seed: 154
+    threshold: 0.2381380266525219
+    in_sample_recall: 0.27419354838709675
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.08
+    frozen_threshold_recall_on_sample: 0.2903225806451613
+  - seed: 155
+    threshold: 0.131411390215813
+    in_sample_recall: 0.6486486486486487
+    recall_on_full_validation: 0.5806451612903226
+    fa_per_clean_on_full_validation: 0.2361111111111111
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.43243243243243246
+  - seed: 156
+    threshold: 0.12732696566904256
+    in_sample_recall: 0.6132075471698113
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3018867924528302
+  - seed: 157
+    threshold: 0.2415510536712794
+    in_sample_recall: 0.2631578947368421
+    recall_on_full_validation: 0.3064516129032258
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.08860759493670886
+    frozen_threshold_recall_on_sample: 0.3157894736842105
+  - seed: 158
+    threshold: 0.12777400841103825
+    in_sample_recall: 0.6486486486486487
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3918918918918919
+  - seed: 159
+    threshold: 0.2086504500570098
+    in_sample_recall: 0.38596491228070173
+    recall_on_full_validation: 0.41935483870967744
+    fa_per_clean_on_full_validation: 0.125
+    frozen_threshold_fa_per_clean_on_sample: 0.06756756756756757
+    frozen_threshold_recall_on_sample: 0.3157894736842105
+  - seed: 160
+    threshold: 0.16406572732485172
+    in_sample_recall: 0.580952380952381
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.34285714285714286
+  - seed: 161
+    threshold: 0.30367019805124873
+    in_sample_recall: 0.5625
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.10294117647058823
+    frozen_threshold_recall_on_sample: 0.5625
+  - seed: 162
+    threshold: 0.28495038550880725
+    in_sample_recall: 0.2413793103448276
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.013888888888888888
+    frozen_threshold_fa_per_clean_on_sample: 0.203125
+    frozen_threshold_recall_on_sample: 0.4827586206896552
+  - seed: 163
+    threshold: 0.24997355519111697
+    in_sample_recall: 0.24561403508771928
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.11940298507462686
+    frozen_threshold_recall_on_sample: 0.3157894736842105
+  - seed: 164
+    threshold: 0.1679994406076203
+    in_sample_recall: 0.3333333333333333
+    recall_on_full_validation: 0.5161290322580645
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.06944444444444445
+    frozen_threshold_recall_on_sample: 0.0
+  - seed: 165
+    threshold: 0.12731654451502913
+    in_sample_recall: 0.6475409836065574
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2777777777777778
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3114754098360656
+  - seed: 166
+    threshold: 0.28511984336298757
+    in_sample_recall: 0.13559322033898305
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.013888888888888888
+    frozen_threshold_fa_per_clean_on_sample: 0.16666666666666666
+    frozen_threshold_recall_on_sample: 0.3220338983050847
+  - seed: 167
+    threshold: 1.0
+    in_sample_recall: 0.0
+    recall_on_full_validation: 0.0
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.1527777777777778
+    frozen_threshold_recall_on_sample: 0.0
+  - seed: 168
+    threshold: 0.25250917775621995
+    in_sample_recall: 0.3050847457627119
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.11267605633802817
+    frozen_threshold_recall_on_sample: 0.3728813559322034
+  - seed: 169
+    threshold: 0.1652485854486109
+    in_sample_recall: 0.8095238095238095
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.5238095238095238
+  - seed: 170
+    threshold: 0.3066194762252865
+    in_sample_recall: 0.5185185185185185
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.09090909090909091
+    frozen_threshold_recall_on_sample: 0.5185185185185185
+  - seed: 171
+    threshold: 0.23510829875080047
+    in_sample_recall: 0.36231884057971014
+    recall_on_full_validation: 0.3387096774193548
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.07936507936507936
+    frozen_threshold_recall_on_sample: 0.36231884057971014
+  - seed: 172
+    threshold: 0.2859880968735567
+    in_sample_recall: 0.09259259259259259
+    recall_on_full_validation: 0.16129032258064516
+    fa_per_clean_on_full_validation: 0.013888888888888888
+    frozen_threshold_fa_per_clean_on_sample: 0.18840579710144928
+    frozen_threshold_recall_on_sample: 0.3333333333333333
+  - seed: 173
+    threshold: 0.16465243804386104
+    in_sample_recall: 0.5333333333333333
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0375
+    frozen_threshold_recall_on_sample: 0.36666666666666664
+  - seed: 174
+    threshold: 0.27649628613265254
+    in_sample_recall: 0.30303030303030304
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.041666666666666664
+    frozen_threshold_fa_per_clean_on_sample: 0.2676056338028169
+    frozen_threshold_recall_on_sample: 0.42424242424242425
+  - seed: 175
+    threshold: 0.16276525235911016
+    in_sample_recall: 0.46774193548387094
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.20967741935483872
+  - seed: 176
+    threshold: 0.24130154060018308
+    in_sample_recall: 0.35384615384615387
+    recall_on_full_validation: 0.3064516129032258
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.09090909090909091
+    frozen_threshold_recall_on_sample: 0.4307692307692308
+  - seed: 177
+    threshold: 0.2891273197796889
+    in_sample_recall: 0.2
+    recall_on_full_validation: 0.14516129032258066
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.07692307692307693
+    frozen_threshold_recall_on_sample: 0.2
+  - seed: 178
+    threshold: 0.24713890299477392
+    in_sample_recall: 0.3389830508474576
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.0875
+    frozen_threshold_recall_on_sample: 0.3728813559322034
+  - seed: 179
+    threshold: 0.2573011974501182
+    in_sample_recall: 0.234375
+    recall_on_full_validation: 0.22580645161290322
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.13333333333333333
+    frozen_threshold_recall_on_sample: 0.3125
+  - seed: 180
+    threshold: 0.16277497523890783
+    in_sample_recall: 0.5833333333333334
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3888888888888889
+  - seed: 181
+    threshold: 0.23853563861523602
+    in_sample_recall: 0.3564356435643564
+    recall_on_full_validation: 0.3225806451612903
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.09333333333333334
+    frozen_threshold_recall_on_sample: 0.36633663366336633
+  - seed: 182
+    threshold: 0.23502244128658945
+    in_sample_recall: 0.3888888888888889
+    recall_on_full_validation: 0.3387096774193548
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.07352941176470588
+    frozen_threshold_recall_on_sample: 0.3888888888888889
+  - seed: 183
+    threshold: 0.12732696566904256
+    in_sample_recall: 0.6216216216216216
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2638888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.34234234234234234
+  - seed: 184
+    threshold: 0.16506399822716278
+    in_sample_recall: 0.5714285714285714
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.14285714285714285
+  - seed: 185
+    threshold: 0.2751095581743564
+    in_sample_recall: 0.34782608695652173
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.041666666666666664
+    frozen_threshold_fa_per_clean_on_sample: 0.14285714285714285
+    frozen_threshold_recall_on_sample: 0.4782608695652174
+  - seed: 186
+    threshold: 0.18943461501044492
+    in_sample_recall: 0.49038461538461536
+    recall_on_full_validation: 0.45161290322580644
+    fa_per_clean_on_full_validation: 0.1388888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.27884615384615385
+  - seed: 187
+    threshold: 0.18692193203024537
+    in_sample_recall: 0.42105263157894735
+    recall_on_full_validation: 0.46774193548387094
+    fa_per_clean_on_full_validation: 0.1388888888888889
+    frozen_threshold_fa_per_clean_on_sample: 0.06060606060606061
+    frozen_threshold_recall_on_sample: 0.2807017543859649
+  - seed: 188
+    threshold: 0.16059731944437547
+    in_sample_recall: 0.5748031496062992
+    recall_on_full_validation: 0.5483870967741935
+    fa_per_clean_on_full_validation: 0.18055555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.3464566929133858
+  - seed: 189
+    threshold: 0.256718686367806
+    in_sample_recall: 0.3793103448275862
+    recall_on_full_validation: 0.24193548387096775
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.16883116883116883
+    frozen_threshold_recall_on_sample: 0.46551724137931033
+  - seed: 190
+    threshold: 0.12731654451502913
+    in_sample_recall: 0.6567164179104478
+    recall_on_full_validation: 0.5967741935483871
+    fa_per_clean_on_full_validation: 0.2777777777777778
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.373134328358209
+  - seed: 191
+    threshold: 0.23961084386581458
+    in_sample_recall: 0.36363636363636365
+    recall_on_full_validation: 0.3064516129032258
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.043478260869565216
+    frozen_threshold_recall_on_sample: 0.3787878787878788
+  - seed: 192
+    threshold: 0.28574218234022036
+    in_sample_recall: 0.06666666666666667
+    recall_on_full_validation: 0.16129032258064516
+    fa_per_clean_on_full_validation: 0.013888888888888888
+    frozen_threshold_fa_per_clean_on_sample: 0.19117647058823528
+    frozen_threshold_recall_on_sample: 0.3142857142857143
+  - seed: 193
+    threshold: 0.25537926230352187
+    in_sample_recall: 0.43283582089552236
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.16417910447761194
+    frozen_threshold_recall_on_sample: 0.4925373134328358
+  - seed: 194
+    threshold: 0.23526250594321124
+    in_sample_recall: 0.3076923076923077
+    recall_on_full_validation: 0.3387096774193548
+    fa_per_clean_on_full_validation: 0.09722222222222222
+    frozen_threshold_fa_per_clean_on_sample: 0.0975609756097561
+    frozen_threshold_recall_on_sample: 0.3076923076923077
+  - seed: 195
+    threshold: 0.3060946703027906
+    in_sample_recall: 0.23076923076923078
+    recall_on_full_validation: 0.12903225806451613
+    fa_per_clean_on_full_validation: 0.0
+    frozen_threshold_fa_per_clean_on_sample: 0.12162162162162163
+    frozen_threshold_recall_on_sample: 0.23076923076923078
+  - seed: 196
+    threshold: 0.2565286718989684
+    in_sample_recall: 0.27941176470588236
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.05555555555555555
+    frozen_threshold_fa_per_clean_on_sample: 0.1267605633802817
+    frozen_threshold_recall_on_sample: 0.3382352941176471
+  - seed: 197
+    threshold: 0.16470729125243222
+    in_sample_recall: 0.6231884057971014
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.391304347826087
+  - seed: 198
+    threshold: 0.2786538171454477
+    in_sample_recall: 0.1262135922330097
+    recall_on_full_validation: 0.1774193548387097
+    fa_per_clean_on_full_validation: 0.027777777777777776
+    frozen_threshold_fa_per_clean_on_sample: 0.22388059701492538
+    frozen_threshold_recall_on_sample: 0.34951456310679613
+  - seed: 199
+    threshold: 0.16480784615943603
+    in_sample_recall: 0.4
+    recall_on_full_validation: 0.532258064516129
+    fa_per_clean_on_full_validation: 0.16666666666666666
+    frozen_threshold_fa_per_clean_on_sample: 0.0
+    frozen_threshold_recall_on_sample: 0.1
+  - seed: 200
+    threshold: 0.2520418390240463
+    in_sample_recall: 0.14285714285714285
+    recall_on_full_validation: 0.25806451612903225
+    fa_per_clean_on_full_validation: 0.08333333333333333
+    frozen_threshold_fa_per_clean_on_sample: 0.11538461538461539
+    frozen_threshold_recall_on_sample: 0.25
+d3_selection_optimism:
+  design: 'for each validation map: Platt calibrator, budgeted threshold and seed
+    chosen on the other two maps (seed rule: recall at budget), evaluated on the map
+    left out'
+  seeds:
+    final_v1: 20260903
+    final_v1_seed20260904: 20260904
+    final_v1_seed20260905: 20260905
+  folds:
+    val_00:
+      selected_tag: final_v1_seed20260904
+      seeds:
+        final_v1:
+          seed: 20260903
+          threshold: 0.10357326067298729
+          selection_maps:
+            event_recall: 0.4166666666666667
+            false_alerts_per_clean_mission: 0.0
+          held_out_map:
+            event_recall: 0.0
+            false_alerts_per_clean_mission: 0.041666666666666664
+            event_count: 50
+            detected: 0
+            clean_missions: 24
+        final_v1_seed20260904:
+          seed: 20260904
+          threshold: 0.1140374845048197
+          selection_maps: &id001
+            event_recall: 0.5
+            false_alerts_per_clean_mission: 0.0
+          held_out_map: &id002
+            event_recall: 0.06
+            false_alerts_per_clean_mission: 0.0
+            event_count: 50
+            detected: 3
+            clean_missions: 24
+        final_v1_seed20260905:
+          seed: 20260905
+          threshold: 0.10849623942256048
+          selection_maps:
+            event_recall: 0.4166666666666667
+            false_alerts_per_clean_mission: 0.0625
+          held_out_map:
+            event_recall: 0.04
+            false_alerts_per_clean_mission: 0.0
+            event_count: 50
+            detected: 2
+            clean_missions: 24
+      selected_on_selection_maps: *id001
+      selected_on_held_out_map: *id002
+    val_01:
+      selected_tag: final_v1_seed20260904
+      seeds:
+        final_v1:
+          seed: 20260903
+          threshold: 0.328978981189791
+          selection_maps:
+            event_recall: 0.1896551724137931
+            false_alerts_per_clean_mission: 0.041666666666666664
+          held_out_map:
+            event_recall: 0.0
+            false_alerts_per_clean_mission: 0.20833333333333334
+            event_count: 4
+            detected: 0
+            clean_missions: 24
+        final_v1_seed20260904:
+          seed: 20260904
+          threshold: 0.26778859290085777
+          selection_maps: &id003
+            event_recall: 0.5344827586206896
+            false_alerts_per_clean_mission: 0.08333333333333333
+          held_out_map: &id004
+            event_recall: 0.75
+            false_alerts_per_clean_mission: 0.375
+            event_count: 4
+            detected: 3
+            clean_missions: 24
+        final_v1_seed20260905:
+          seed: 20260905
+          threshold: 0.49112410810936896
+          selection_maps:
+            event_recall: 0.15517241379310345
+            false_alerts_per_clean_mission: 0.041666666666666664
+          held_out_map:
+            event_recall: 0.25
+            false_alerts_per_clean_mission: 0.125
+            event_count: 4
+            detected: 1
+            clean_missions: 24
+      selected_on_selection_maps: *id003
+      selected_on_held_out_map: *id004
+    val_02:
+      selected_tag: final_v1_seed20260904
+      seeds:
+        final_v1:
+          seed: 20260903
+          threshold: 0.2629043166138717
+          selection_maps:
+            event_recall: 0.12962962962962962
+            false_alerts_per_clean_mission: 0.08333333333333333
+          held_out_map:
+            event_recall: 0.375
+            false_alerts_per_clean_mission: 0.041666666666666664
+            event_count: 8
+            detected: 3
+            clean_missions: 24
+        final_v1_seed20260904:
+          seed: 20260904
+          threshold: 0.26350432433456705
+          selection_maps: &id005
+            event_recall: 0.2037037037037037
+            false_alerts_per_clean_mission: 0.08333333333333333
+          held_out_map: &id006
+            event_recall: 0.625
+            false_alerts_per_clean_mission: 0.0
+            event_count: 8
+            detected: 5
+            clean_missions: 24
+        final_v1_seed20260905:
+          seed: 20260905
+          threshold: 0.33885812054091596
+          selection_maps:
+            event_recall: 0.14814814814814814
+            false_alerts_per_clean_mission: 0.08333333333333333
+          held_out_map:
+            event_recall: 0.5
+            false_alerts_per_clean_mission: 0.20833333333333334
+            event_count: 8
+            detected: 4
+            clean_missions: 24
+      selected_on_selection_maps: *id005
+      selected_on_held_out_map: *id006
+  mean_recall_on_selection_maps: 0.413
+  mean_recall_on_left_out_map: 0.478
+  mean_fa_per_clean_on_left_out_map: 0.125
+  selection_optimism_recall: -0.066
+  in_sample_frozen_reference:
+    event_recall: 0.3387
+    false_alerts_per_clean_mission: 0.0972
+    note: primary seed on all three validation maps

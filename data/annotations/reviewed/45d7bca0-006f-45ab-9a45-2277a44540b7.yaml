@@ -1,0 +1,34 @@
+schema_version: 1
+taxonomy_version: 1.0.0
+protocol_version: '1.0'
+run_id: 45d7bca0-006f-45ab-9a45-2277a44540b7
+annotator: automatic_event_extractor
+annotation_timestamp_utc: '2026-08-30T23:04:29Z'
+episode:
+  start_time: 10.653
+  end_time: 28.569
+  termination_reason: success
+injections:
+- family: lidar_dropout
+  severity: high
+  planned_onset: 15.653
+  actual_onset: 15.702
+  duration_seconds: null
+  eligible: true
+events: []
+episode_exclusion:
+  excluded: false
+  reason: null
+  notes: null
+review:
+  second_reviewer: Enoch Soyinka
+  adjudication_status: agreed
+  disagreements: []
+  first_reviewer: Emmanuel Alabi Olasubomi
+  first_reviewed_utc: '2026-08-31T22:11:37.846935Z'
+  first_review_notes: 'Human reviewer agrees with the frozen causal fields after inspecting
+    the episode timeline and operational evidence. AI was used only to cross-check
+    the review. Supporting comparison: reports/manual-audit/provisional-ai-comparison-2026-08-31.md.'
+  second_reviewed_utc: '2026-09-04T01:46:45.046592Z'
+  second_review_notes: LiDAR returns drop at 15.7s like the label says. Speed doesn't
+    stop and there is no terminal event

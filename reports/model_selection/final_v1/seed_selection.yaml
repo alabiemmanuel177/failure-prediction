@@ -1,0 +1,125 @@
+schema_version: 1
+generated_utc: '2026-09-04T17:14:48.978856+00:00'
+selection_split: validation
+protected_test_used: false
+frozen: false
+passes:
+  final_v1:
+    seed: 20260903
+    report: reports/model_selection/final_v1/validation_comparison.yaml
+    sha256: 12288771791b25d1cb49287c8c39f1120941afa11f4e2de3345d38839d844435
+  final_v1_seed20260904:
+    seed: 20260904
+    report: reports/model_selection/final_v1_seed20260904/validation_comparison.yaml
+    sha256: efaec2282d821063bc6c6319ac4f4f1855c5f9fdeefac7134abf6980ccd1fff7
+  final_v1_seed20260905:
+    seed: 20260905
+    report: reports/model_selection/final_v1_seed20260905/validation_comparison.yaml
+    sha256: d3da466e5e7a461a734a28bbaadae965f6838c99775b7b88c8e242b1e7717811
+selection:
+  p3_causal_tcn:
+    selected_tag: final_v1
+    selected_seed: 20260903
+    selection_metric: validation_auprc
+    candidates:
+    - tag: final_v1
+      seed: 20260903
+      validation_auprc: 0.20779232326021493
+      validation_auroc: 0.8735446030297023
+      event_recall_at_budget: 0.1774193548387097
+      false_alerts_per_clean_mission: 0.09722222222222222
+      median_lead_seconds: 5.823999999999998
+      brier: 0.02942437790779176
+      ece: 0.013048303768671696
+      threshold: 0.21281503853831035
+    - tag: final_v1_seed20260904
+      seed: 20260904
+      validation_auprc: 0.20405706169570328
+      validation_auroc: 0.8633356879939895
+      event_recall_at_budget: 0.3387096774193548
+      false_alerts_per_clean_mission: 0.09722222222222222
+      median_lead_seconds: 5.700999999999993
+      brier: 0.029579626239055325
+      ece: 0.005357780368302284
+      threshold: 0.23509196030026114
+    - tag: final_v1_seed20260905
+      seed: 20260905
+      validation_auprc: 0.18404584531982457
+      validation_auroc: 0.8399330470294617
+      event_recall_at_budget: 0.16129032258064516
+      false_alerts_per_clean_mission: 0.06944444444444445
+      median_lead_seconds: 5.328000000000003
+      brier: 0.030169759125419176
+      ece: 0.008495011716395861
+      threshold: 0.3093922360727744
+  p4_gru:
+    selected_tag: final_v1_seed20260905
+    selected_seed: 20260905
+    selection_metric: validation_auprc
+    candidates:
+    - tag: final_v1
+      seed: 20260903
+      validation_auprc: 0.2111504537967928
+      validation_auroc: 0.8434217302223815
+      event_recall_at_budget: 0.3064516129032258
+      false_alerts_per_clean_mission: 0.09722222222222222
+      median_lead_seconds: 3.323999999999998
+      brier: 0.028528399559311707
+      ece: 3.499604856909192e-18
+      threshold: 0.28205128205128205
+    - tag: final_v1_seed20260904
+      seed: 20260904
+      validation_auprc: 0.21998126350180555
+      validation_auroc: 0.8476843396868342
+      event_recall_at_budget: 0.1774193548387097
+      false_alerts_per_clean_mission: 0.09722222222222222
+      median_lead_seconds: 3.2920000000000016
+      brier: 0.02960997956897887
+      ece: 0.005345987659548517
+      threshold: 0.4498442280936414
+    - tag: final_v1_seed20260905
+      seed: 20260905
+      validation_auprc: 0.22994142828947495
+      validation_auroc: 0.8927141479875934
+      event_recall_at_budget: 0.3064516129032258
+      false_alerts_per_clean_mission: 0.06944444444444445
+      median_lead_seconds: 4.563000000000002
+      brier: 0.02878611054942449
+      ece: 0.009725091513764633
+      threshold: 0.3776690112395885
+  p5_compact_transformer:
+    selected_tag: final_v1_seed20260904
+    selected_seed: 20260904
+    selection_metric: validation_auprc
+    candidates:
+    - tag: final_v1
+      seed: 20260903
+      validation_auprc: 0.23116127240788492
+      validation_auroc: 0.8549384968119341
+      event_recall_at_budget: 0.2903225806451613
+      false_alerts_per_clean_mission: 0.09722222222222222
+      median_lead_seconds: 5.646000000000001
+      brier: 0.029581848908329055
+      ece: 0.005495687304964923
+      threshold: 0.3214212377823412
+    - tag: final_v1_seed20260904
+      seed: 20260904
+      validation_auprc: 0.23873896981803444
+      validation_auroc: 0.8786431549396458
+      event_recall_at_budget: 0.5
+      false_alerts_per_clean_mission: 0.09722222222222222
+      median_lead_seconds: 6.292000000000002
+      brier: 0.029476917685526707
+      ece: 0.006280798624828381
+      threshold: 0.2714590056362919
+    - tag: final_v1_seed20260905
+      seed: 20260905
+      validation_auprc: 0.23853027796317292
+      validation_auroc: 0.8653176829182581
+      event_recall_at_budget: 0.2903225806451613
+      false_alerts_per_clean_mission: 0.06944444444444445
+      median_lead_seconds: 5.332000000000001
+      brier: 0.028433772724945804
+      ece: 1.595900522026487e-18
+      threshold: 0.41379310344827586
+note: Seed selection by the preregistered validation AUPRC rule; every seed is reported.

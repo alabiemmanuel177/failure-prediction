@@ -1,0 +1,11 @@
+model_id: p1_threshold_rules
+threshold: 0.5
+selection_split: validation
+protected_test_used: false
+selection: fixed decision threshold on the binary rule score; rules tuned by tune_threshold_rules.py
+  under the frozen clean-mission budget
+excluded_family: lidar_dropout
+rules: /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/rules_p1.yaml
+rules_sha256: 13023b3125fb57cff08aa4a93dc18698c3dfe8e838768b0c69be01f77715560b
+tuning_record: /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/tuning_p1.yaml
+tuning_record_sha256: bf35a74d4e64fad73d97464fde282ecd4bdc7aa1aaedb968498247d712d5216b

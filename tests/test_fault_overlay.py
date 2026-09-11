@@ -13,6 +13,7 @@ from failure_experiment.transforms import (
     semantic_risk_corruption,
 )
 from failure_experiment.events import EVENT_TOPIC
+from failure_experiment.environment_fault import point_along_path
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -82,6 +83,14 @@ def test_biased_progress_is_incremental_not_absolute_scaling():
     assert biased_progress((10.0, 5.0), (12.0, 7.0), (20.0, 30.0), 0.5) == (21.0, 31.0)
     with pytest.raises(ValueError):
         biased_progress((0, 0), (1, 1), (0, 0), 1.1)
+
+
+def test_route_relative_fault_placement_uses_polyline_arc_length():
+    x, y, yaw = point_along_path([(0.0, 0.0), (2.0, 0.0), (2.0, 2.0)], 0.75)
+    assert (x, y) == pytest.approx((2.0, 1.0))
+    assert yaw == pytest.approx(np.pi / 2)
+    with pytest.raises(ValueError):
+        point_along_path([(0.0, 0.0)], 0.5)
 
 
 def test_research1_lock_forbids_protected_test_split():

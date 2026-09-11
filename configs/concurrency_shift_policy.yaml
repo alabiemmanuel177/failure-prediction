@@ -1,0 +1,47 @@
+schema_version: 1
+protocol_version: "1.0"
+purpose: >-
+  Pre-declared pass rule for the sequential-versus-six-worker health-feature shift
+  check. Concurrent simulators change compute load and timing, which are candidate
+  health signals (inference latency, message ages, message rates). Parallel collection
+  may only feed the fitting pool if the deployable feature distributions and the frozen
+  alarm policy's clean-mission false-alert burden are demonstrably unchanged.
+check_campaign_id: concurrency_shift_check_v1
+reference_dataset_id: balanced_pilot_v1-development-648
+comparison: condition_matched
+# Only decisions the labelling contract marks eligible (eligible_positive or
+# eligible_negative) enter the feature comparison; excluded decisions are ignored.
+decision_scope: eligible_decisions_only
+standardised_mean_difference:
+  # |mean_check - mean_reference| / pooled_sd over eligible decisions, per condition.
+  maximum_absolute: 0.5
+  unit: decision
+  # every deployable column: 28 primary values x {value, age_seconds, missing}
+  feature_scope: all_deployable_columns
+  highlighted_channels:
+    - inference_latency_ms
+    - valid_return_fraction
+    - "*__age_seconds"
+message_rate_proxies:
+  # per-episode receive rate (Hz) of one representative scalar per source topic,
+  # measured over the label grid span; the episode is the unit
+  sources:
+    /cmd_vel: command_linear
+    /odom: odom_x
+    /scan: valid_return_fraction
+    /amcl_pose: amcl_x
+    /plan: global_path_length
+    /local_plan: local_path_length
+    /research2/features/perception: inference_latency_ms
+  maximum_absolute_smd: 0.5
+  # message rates are diagnostics, not deployable features; report-only by default
+  report_only: true
+false_alerts:
+  # clean-mission false alerts per mission under the frozen policy on the parallel
+  # check episodes; evaluated whenever a frozen prediction table is supplied
+  budget_per_clean_mission: 0.10
+  required_when_predictions_supplied: true
+  alarm_policy: configs/alarm_policy.yaml
+quantiles: [0.05, 0.25, 0.5, 0.75, 0.95]
+minimum_episodes_per_condition: 12
+protected_test_used: false

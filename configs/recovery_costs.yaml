@@ -1,6 +1,6 @@
 schema_version: 1
 protocol_version: "1.0"
-status: relative_order_frozen_numeric_weights_pending_validation
+status: numeric_weights_proposed_pending_validation_replay
 dominance_order:
   - collision
   - mission_abort
@@ -9,4 +9,15 @@ dominance_order:
   - path_overhead
   - unnecessary_intervention
 selector_training_rule: actions_rejected_by_guard_are_never_training_targets
-
+numeric_weights:
+  # Proposed frozen-before-test cost of one observed recovery outcome. Maximum
+  # contributions preserve the dominance order above (100 > 40 > 20 > 15 > 10 > 5).
+  # Validation replay may revise these values only before the model/analysis freeze.
+  collision: 100.0
+  mission_abort: 40.0
+  failed_recovery: 20.0
+  excessive_delay_per_second: 0.5
+  excessive_delay_cap: 15.0
+  path_overhead_per_metre: 1.0
+  path_overhead_cap: 10.0
+  unnecessary_intervention: 5.0

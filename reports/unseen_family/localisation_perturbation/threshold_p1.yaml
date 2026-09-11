@@ -1,0 +1,11 @@
+model_id: p1_threshold_rules
+threshold: 0.5
+selection_split: validation
+protected_test_used: false
+selection: fixed decision threshold on the binary rule score; rules tuned by tune_threshold_rules.py
+  under the frozen clean-mission budget
+excluded_family: localisation_perturbation
+rules: /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/rules_p1.yaml
+rules_sha256: 6cf7f2c579bda3f7fead161db579473c667dca727098d4860de52fa9d21abf3f
+tuning_record: /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/tuning_p1.yaml
+tuning_record_sha256: 6b601b7f832c68031de301d4e4533da60c48a8fbf2cffe33f769ba80155963ab

@@ -1,0 +1,133 @@
+schema_version: 1
+campaign_id: balanced_validation_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 324
+  observed: 234
+  usable: 234
+  infrastructure_invalid_attempts: 1
+  infrastructure_replacements: 1
+  terminal_events: 50
+  non_events: 184
+event_prevalence: 0.21367521367521367
+duration_seconds:
+  total: 17370.697
+  median: 71.3735
+by_terminal_state:
+  false_arrival: 44
+  planner_failure: 6
+  success: 184
+by_attempt_terminal_state:
+  false_arrival: 44
+  planner_failure: 6
+  success: 184
+by_fault_family:
+  camera_occlusion: 26
+  dynamic_blockage: 26
+  lidar_dropout: 26
+  localisation_perturbation: 26
+  none: 52
+  planner_oscillation: 26
+  semantic_corruption: 26
+  wheel_slip: 26
+by_map:
+  val_00: 81
+  val_01: 81
+  val_02: 72
+integrity:
+  missing_episode_keys:
+  - val_00-val_00_r0-blockage-r5
+  - val_00-val_00_r0-camera-r5
+  - val_00-val_00_r0-clean_s0-r5
+  - val_00-val_00_r0-clean_s3-r5
+  - val_00-val_00_r0-lidar-r5
+  - val_00-val_00_r0-localisation-r5
+  - val_00-val_00_r0-oscillation-r5
+  - val_00-val_00_r0-semantic-r5
+  - val_00-val_00_r0-wheel-r5
+  - val_00-val_00_r1-blockage-r4
+  - val_00-val_00_r1-blockage-r5
+  - val_00-val_00_r1-camera-r4
+  - val_00-val_00_r1-camera-r5
+  - val_00-val_00_r1-clean_s0-r4
+  - val_00-val_00_r1-clean_s0-r5
+  - val_00-val_00_r1-clean_s3-r4
+  - val_00-val_00_r1-clean_s3-r5
+  - val_00-val_00_r1-lidar-r4
+  - val_00-val_00_r1-lidar-r5
+  - val_00-val_00_r1-localisation-r4
+  - val_00-val_00_r1-localisation-r5
+  - val_00-val_00_r1-oscillation-r4
+  - val_00-val_00_r1-oscillation-r5
+  - val_00-val_00_r1-semantic-r4
+  - val_00-val_00_r1-semantic-r5
+  - val_00-val_00_r1-wheel-r4
+  - val_00-val_00_r1-wheel-r5
+  - val_01-val_01_r0-blockage-r4
+  - val_01-val_01_r0-blockage-r5
+  - val_01-val_01_r0-camera-r4
+  - val_01-val_01_r0-camera-r5
+  - val_01-val_01_r0-clean_s0-r4
+  - val_01-val_01_r0-clean_s0-r5
+  - val_01-val_01_r0-clean_s3-r4
+  - val_01-val_01_r0-clean_s3-r5
+  - val_01-val_01_r0-lidar-r4
+  - val_01-val_01_r0-lidar-r5
+  - val_01-val_01_r0-localisation-r4
+  - val_01-val_01_r0-localisation-r5
+  - val_01-val_01_r0-oscillation-r4
+  - val_01-val_01_r0-oscillation-r5
+  - val_01-val_01_r0-semantic-r4
+  - val_01-val_01_r0-semantic-r5
+  - val_01-val_01_r0-wheel-r4
+  - val_01-val_01_r0-wheel-r5
+  - val_01-val_01_r1-blockage-r5
+  - val_01-val_01_r1-camera-r5
+  - val_01-val_01_r1-clean_s0-r5
+  - val_01-val_01_r1-clean_s3-r5
+  - val_01-val_01_r1-lidar-r5
+  - val_01-val_01_r1-localisation-r5
+  - val_01-val_01_r1-oscillation-r5
+  - val_01-val_01_r1-semantic-r5
+  - val_01-val_01_r1-wheel-r5
+  - val_02-val_02_r0-blockage-r4
+  - val_02-val_02_r0-blockage-r5
+  - val_02-val_02_r0-camera-r4
+  - val_02-val_02_r0-camera-r5
+  - val_02-val_02_r0-clean_s0-r4
+  - val_02-val_02_r0-clean_s0-r5
+  - val_02-val_02_r0-clean_s3-r4
+  - val_02-val_02_r0-clean_s3-r5
+  - val_02-val_02_r0-lidar-r4
+  - val_02-val_02_r0-lidar-r5
+  - val_02-val_02_r0-localisation-r4
+  - val_02-val_02_r0-localisation-r5
+  - val_02-val_02_r0-oscillation-r4
+  - val_02-val_02_r0-oscillation-r5
+  - val_02-val_02_r0-semantic-r4
+  - val_02-val_02_r0-semantic-r5
+  - val_02-val_02_r0-wheel-r4
+  - val_02-val_02_r0-wheel-r5
+  - val_02-val_02_r1-blockage-r4
+  - val_02-val_02_r1-blockage-r5
+  - val_02-val_02_r1-camera-r4
+  - val_02-val_02_r1-camera-r5
+  - val_02-val_02_r1-clean_s0-r4
+  - val_02-val_02_r1-clean_s0-r5
+  - val_02-val_02_r1-clean_s3-r4
+  - val_02-val_02_r1-clean_s3-r5
+  - val_02-val_02_r1-lidar-r4
+  - val_02-val_02_r1-lidar-r5
+  - val_02-val_02_r1-localisation-r4
+  - val_02-val_02_r1-localisation-r5
+  - val_02-val_02_r1-oscillation-r4
+  - val_02-val_02_r1-oscillation-r5
+  - val_02-val_02_r1-semantic-r4
+  - val_02-val_02_r1-semantic-r5
+  - val_02-val_02_r1-wheel-r4
+  - val_02-val_02_r1-wheel-r5
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

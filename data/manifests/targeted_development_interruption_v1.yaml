@@ -1,0 +1,35 @@
+schema_version: 1
+protocol_version: "1.0"
+campaign_id: targeted_development_interruption_v1
+parent_campaign_id: targeted_development_v1
+status: declared_infrastructure_loss_no_new_episodes
+allowed_splits: [development]
+protected_test_used: false
+purpose: >-
+  Declare the one attempt killed when every workstation user process was terminated at
+  about 2026-09-03T14:14Z (host reboot followed at 17:24Z). The attempt started before
+  goal dispatch, wrote no ledger row, summary or event sidecar, and left a zero-length
+  MCAP. Because the exact-once ledger had no row for its design key, the sequential
+  runner re-attempted the same key after the resume; that later attempt is the
+  scientific episode. This manifest schedules nothing and only makes the retained
+  zero-length artifact auditable.
+replacement_policy:
+  original_invalid_kind: pre_goal_process_termination
+  original_attempt_and_zero_length_artifacts_are_retained: true
+  original_scientific_admission: excluded_no_ledger_row_no_summary_zero_length_bag
+  replacement_is_the_exact_once_reattempt_of_the_same_design_key_in_the_parent_campaign: true
+  maximum_replacements_for_this_design_cell: 1
+infrastructure_replacements:
+  - original_episode_key: dev_03-dev_03_r0-semantic-r25
+    original_run_id: b3d1a568-cce2-4f7d-b2d9-f41b30ca8e74
+    original_started_local: "2026-09-03 15:14:08 +0100"
+    invalid_reason: pre_goal_process_termination
+    original_bag_mcap_count: 1
+    original_bag_mcap_bytes: 0
+    original_summary_present: false
+    original_ledger_row_present: false
+    replacement_campaign_id: targeted_development_v1
+    replacement_episode_key: dev_03-dev_03_r0-semantic-r25
+    replacement_started_utc: "2026-09-03T17:42:51Z"
+    retain_original_attempt: true
+    scientific_episode_count_contribution: 0

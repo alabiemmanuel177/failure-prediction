@@ -1,6 +1,6 @@
 # Literature review: early failure prediction and recovery for mobile robot navigation
 
-Status: structured scoping review, updated 28 August 2026  
+Status: protocol-complete structured scoping review, frozen 1 September 2026
 Protocol: 1.0
 
 ## Review question
@@ -16,10 +16,11 @@ This first pass uses four connected bodies of work:
 3. early-event evaluation and probability calibration;
 4. robot recovery and ROS 2/Nav2 execution interfaces.
 
-Sources were prioritized when they were primary papers, official project pages, or official ROS/Nav2 documentation. The initial search used combinations of *robot navigation*, *failure prediction*, *proactive anomaly detection*, *introspection*, *multi-sensor fusion*, *early event prediction*, *lead time*, and *recovery*. This is a scoping review, not yet a systematic review: citation chaining, database-specific queries, duplicate removal, and formal quality scoring remain to be completed.
+Sources were prioritized when they were primary papers, official project pages, or official ROS/Nav2 documentation. Searches used combinations of *robot navigation*, *failure prediction*, *proactive anomaly detection*, *introspection*, *multi-sensor fusion*, *early event prediction*, *lead time*, and *recovery*. Backward and targeted forward chaining from PAAD and introspective-perception work were completed for Protocol 1.0. This is intentionally a structured scoping review, not a systematic review or meta-analysis; heterogeneous tasks and outcome definitions do not support a pooled effect estimate.
 
 The auditable search record is in [search-log.md](search-log.md), and the extracted
-study-level comparison is in [evidence-matrix.md](evidence-matrix.md).
+study-level comparison is in [evidence-matrix.md](evidence-matrix.md). Checked working
+BibTeX for the manuscript's core sources is in [references.bib](references.bib).
 
 ## Synthesis
 
@@ -67,6 +68,29 @@ Guo et al. show that modern neural networks can be miscalibrated and that post-h
 Learning a failure detector does not establish that it improves autonomy. Recovery research ranges from predefined guarded behaviors to learned corrective maneuvers. For this study, Nav2's Behavior Server and behavior trees provide a deliberately constrained action set—stop, wait, backup, spin/rescan, clear costmaps, and replan—while the guard layer retains authority.
 
 The cleanest causal systems test is paired simulation: identical map, route, seed, and fault under default Nav2 recovery versus predictor-triggered recovery. A fixed conservative recovery isolates warning value; a rule-matched selector then separates diagnosis from learned action selection.
+
+### 7. Recent work narrows, but does not erase, the proposed gap
+
+A 2025–2026 primary-source refresh found two especially relevant navigation systems.
+DR. Nav integrates RGB-LiDAR dead-end likelihood and recovery-point estimates into a
+semantic cost map, while Xue et al. couple predicted obstacle motion to barrier-based
+safe control. Both strengthen the case that prospective signals should alter navigation
+before termination. They target particular geometric/environmental hazards, however,
+rather than forecasting first terminal events across sensor, localisation, planning and
+motion failure families from past-only system telemetry.
+
+Nakamura et al.'s system-level regret formulation is adjacent evidence that errors should
+be weighted by downstream robot consequence, and a 2026 uncertainty-aware place-
+recognition study reinforces calibrated multimodal uncertainty under condition shifts.
+These additions sharpen the novelty boundary: the contribution is not merely connecting
+a predictor to recovery, but doing so under episode-protected causal labels, a fixed
+alarm budget, unseen failure families and independent safety guards.
+
+Schreiber et al.'s 2023 ROAR follow-on is particularly relevant to the planned camera-
+occlusion analysis. It carries temporal state forward and explicitly models sensor
+occlusion to reduce false positives during brief occlusions. This makes a single-
+timestamp ablation and alert-burden reporting essential: a model must not equate an
+injected sensor fault with an impending mission failure when the robot can continue.
 
 ## Provisional research gap
 
@@ -119,10 +143,16 @@ That conjunction is the proposed contribution. The claim must be weakened if the
 13. Nav2. *Behavior Server*. https://docs.nav2.org/configuration/packages/configuring-behavior-server.html
 14. Nav2. *Detailed Behavior Tree Walkthrough*. https://docs.nav2.org/behavior_trees/overview/detailed_behavior_tree_walkthrough
 15. Nav2. *Simple Commander API*. https://docs.nav2.org/commander_api/index.html
+16. Rajagopal, V. et al. 2025. *DR. Nav: Semantic-Geometric Representations for Proactive Dead-End Recovery and Navigation*. https://arxiv.org/abs/2511.12778
+17. Xue, Y., Zhang, Z., Åkesson, K., & Figueroa, N. 2026. *Proactive Local-Minima-Free Robot Navigation: Blending Motion Prediction with Safe Control*. https://arxiv.org/abs/2601.10233
+18. Nakamura, K., Tian, T., & Bajcsy, A. 2025. *Not All Errors Are Made Equal: A Regret Metric for Detecting System-level Trajectory Prediction Failures*. https://proceedings.mlr.press/v270/nakamura25a.html
+19. *Sequential Probabilistic Descriptor via Uncertainty-Aware Multi-Modal Fusion for Safety-Critical Place Recognition*. 2026. IEEE Robotics and Automation Letters. https://doi.org/10.1109/LRA.2026.3669806
+20. Schreiber, A., Ji, T., McPherson, D. L., & Driggs-Campbell, K. 2023. *An Attentional Recurrent Neural Network for Occlusion-Aware Proactive Anomaly Detection in Field Robot Navigation*. https://arxiv.org/abs/2309.16826
 
-## Next review actions
+## Review closure for Protocol 1.0
 
-- Perform backward and forward citation chaining from PAAD and the 2023 introspective-perception paper.
-- Record search strings, databases, dates, inclusion decisions, and duplicates in a review log.
-- Extract dataset size, split unit, prediction horizon, failure definition, false-alarm metric, lead time, calibration, generalisation test, and recovery test into a structured evidence table.
-- Confirm publication metadata and archive BibTeX in `literature/references.bib` before manuscript use.
+The source search, targeted citation chaining, design-variable extraction, applicability
+appraisal and core BibTeX set are complete for pre-model work. The review must be
+refreshed immediately before submission, and any paper that directly matches the full
+protected-map/unseen-family/paired-recovery design must be incorporated. See
+`study-appraisal.md` for the structured quality and applicability assessment.

@@ -1,0 +1,35 @@
+schema_version: 1
+status: passed
+observed_utc: '2026-09-02T12:49:31Z'
+protected_test_used: false
+training_performed: false
+source:
+  run_id: 47cc659b-2820-4d25-8290-13e1d3ea2b40
+  episode_key: localisation_perturbation-medium-201
+  split: development
+  primary_event_class: false_arrival
+  primary_event_time: 30.657
+counts:
+  scalar_observations: 4195
+  label_decisions: 30
+  eligible_positive: 18
+  eligible_negative: 0
+  excluded_near_event_or_injection: 10
+  excluded_too_late: 2
+sequence_tensor:
+  shape: [18, 10, 84]
+  history_seconds: 5.0
+  stride_seconds: 0.5
+warning_interval:
+  first_positive_decision_time: 21.04
+  last_positive_decision_time: 29.54
+  first_positive_lead_seconds: 9.617
+  last_positive_lead_seconds: 1.117
+checks:
+  all_emitted_sequences_positive: true
+  no_too_late_window_emitted: true
+  first_lead_within_ten_second_horizon: true
+  last_lead_exceeds_one_second_guard: true
+interpretation: The temporal assembler preserves the frozen causal warning interval
+  for a real terminal-failure episode. The result checks label and sequence plumbing;
+  it is not a claim of predictability or model performance.

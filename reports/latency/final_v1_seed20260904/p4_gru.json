@@ -1,0 +1,45 @@
+{
+  "alarm_policy": {
+    "count": 480,
+    "max_ms": 0.01026,
+    "mean_ms": 0.0057149625,
+    "median_ms": 0.00565,
+    "p95_ms": 0.00612145
+  },
+  "batch_size": 1,
+  "checkpoint_sha256": "5ca0ab0468b7acc5900f972a2d85e5118ef533905e8a2d942d9b0ad3997fb6e9",
+  "cpu": "x86_64",
+  "created_utc": "2026-09-04T16:12:01.539381+00:00",
+  "device": "cpu",
+  "end_to_end": {
+    "count": 480,
+    "max_ms": 0.28275,
+    "mean_ms": 0.25566239583333333,
+    "median_ms": 0.2548285,
+    "p95_ms": 0.260031
+  },
+  "feature_preparation": {
+    "count": 480,
+    "max_ms": 0.137585,
+    "mean_ms": 0.13245485416666666,
+    "median_ms": 0.132135,
+    "p95_ms": 0.134897
+  },
+  "model_dir": "/home/eao/failure-prediction/models/final_v1_seed20260904/p4_gru__seed20260904",
+  "model_forward": {
+    "count": 480,
+    "max_ms": 0.143545,
+    "mean_ms": 0.11749257916666668,
+    "median_ms": 0.116929,
+    "p95_ms": 0.120972
+  },
+  "model_id": "p4_gru",
+  "parameter_count": 82305,
+  "protected_test_used": false,
+  "schema_version": 1,
+  "threads": 1,
+  "timed_decisions": 480,
+  "torch_version": "2.13.0+rocm7.2",
+  "warmup_decisions": 20,
+  "windows_source": "dataset:balanced_validation_v1-validation-324"
+}

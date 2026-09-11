@@ -1,0 +1,899 @@
+schema_version: 1
+kind: unseen_family_folds
+complete: true
+research_evidence: true
+engineering_fixture: false
+protected_test_used: true
+generated_utc: '2026-09-06T11:16:16Z'
+analysis_unit: episode
+families:
+- camera_occlusion
+- lidar_dropout
+- wheel_slip
+- localisation_perturbation
+- dynamic_blockage
+- planner_oscillation
+- semantic_corruption
+families_evaluated:
+- camera_occlusion
+- lidar_dropout
+- wheel_slip
+- localisation_perturbation
+- dynamic_blockage
+- planner_oscillation
+- semantic_corruption
+inputs_sha256:
+  /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3_alarmed.csv: 80c13570ddf4e686e023d3557bd5f7050e6c27465efa8d627fb6a037b0d9dfe3
+  /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p1_alarmed.csv: f57610f5ef077d9e6a6e87f3f43c58035c5d65d38953134cdb161ece7f5d4a53
+  /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/threshold_p3.yaml: 8d1931273b193eb83c990ca8f92938a908d077de90c28a931f5828a86f143e98
+  /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/threshold_p1.yaml: 36fa3cf9b427d8e8f96a678bfe7084c3facb40ef4df41ad7ed2d8dc71da68c33
+  /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3_alarmed.csv: 573d73ebc12b7853aeb803e0ccc710435f410f08fe4125a190b985d53722fd8a
+  /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p1_alarmed.csv: a9e5dbf5c88a718e240ebdd820b9d1151fd98d7ceceef8b36548aa74896b7b79
+  /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/threshold_p3.yaml: cd89d22c003863bf1f1800aec174a17674de14674464d90da2ee8e9eadff2961
+  /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/threshold_p1.yaml: 179e6954bc1649e2b5c411f3a86b622daed77a7467fd8272a2b745fa160a29e2
+  /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3_alarmed.csv: a6af91f88105fe0a63e84b3098686a3dbb5d55d14e356c912331a2f0487b3abe
+  /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p1_alarmed.csv: ea1e57aa0065245b537c4901d857ca8e61af185010a587c8b33c982ed5e79dae
+  /home/eao/failure-prediction/reports/unseen_family/wheel_slip/threshold_p3.yaml: 36b483e7a19f859a8751f214b1cf23bdcabcbbe4c5563a5be2090de049b0dccf
+  /home/eao/failure-prediction/reports/unseen_family/wheel_slip/threshold_p1.yaml: 847d8df1852f0b4cd4ff51d4cc76c5818013f118144160f328315c32be24bc96
+  /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3_alarmed.csv: df3edc23bbac0124125eaecea91292aad671a9844f3323cbc4a153f14c1b63b8
+  /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p1_alarmed.csv: 072dd3a601301df53f011c7730f978fd3f6a47b30381025748ab50da501554b1
+  /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/threshold_p3.yaml: 24b4ad442532316e75fdb30d827b1e03f081ac4985ff29114b4bd32e8df3c6e8
+  /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/threshold_p1.yaml: 17d945e11d9b77eef6529ef986c2bf2ef6e514bf5de9952a353b8650eeaa9145
+  /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3_alarmed.csv: 09c89008ebc7905cd63e1022f0457c21e9d680b503bbd054b8db26b065530e38
+  /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p1_alarmed.csv: 07aff7132d49078553adbbbcf7dc7e3d9140e5374bb619f545aff09e9d274b83
+  /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/threshold_p3.yaml: 4c791796f4f78e58bb60367a35cc0f7af8991f8ab299c69a12c08fe8bae42c7d
+  /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/threshold_p1.yaml: 127ef82952dd685fae70977ff668900c9ce2208e3f70d8f25f626f980c0d0e07
+  /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3_alarmed.csv: 7e53e0546f7a1f8a8c3dd462dac77f38d24dcad6e27194c2aeae83332ce95aae
+  /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p1_alarmed.csv: 369ab0681fd8b8528d2599ef7d9037c4447b1f2b3c0532b541c11bde58444c11
+  /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/threshold_p3.yaml: 9046dfb89fc9a2b8f7b4cf2fef8d7a6a9fdf7b4376262fc61bc9750fb0a0ea5d
+  /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/threshold_p1.yaml: 9cc0b30d89f37240520c0296ad9bae06140e0540a3babc8aaefc5199ef4b8100
+  /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3_alarmed.csv: a461fd2209500288dc8ed6668979eeafc32389dd8fdcf810178646b7de5027ba
+  /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p1_alarmed.csv: 47471bc6102a787da382813fc78bdcd516b6aada03cacbf3ebfde93df6bb534f
+  /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/threshold_p3.yaml: ff5e11e750de642810bb8a3ed43afd6f40a4d26db03a6ff8a7d809493585bc9e
+  /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/threshold_p1.yaml: 192b4590f090dee63c01fec56fea3238dae9ac341c2d30c9717a1422d2c98e70
+per_family:
+  camera_occlusion:
+    status: evaluated
+    family_episode_count: 126
+    family_event_count_full_denominator: 16
+    fold_threshold:
+      p3: 0.277520348892892
+      p1: 0.5
+    p3:
+      episode_count: 126
+      event_count: 16
+      detected_event_count: 5
+      undetected_event_count: 11
+      event_recall: 0.3125
+      non_event_mission_count: 110
+      false_alerts_per_non_event_mission: 0.20909090909090908
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 23
+      lead_time:
+        event_count_full_denominator: 16
+        detected_event_count: 5
+        undetected_event_count: 11
+        median_seconds_detected: 2.3670000000000044
+        quantiles_seconds_detected:
+          p10: 2.2813999999999965
+          p25: 2.3359999999999843
+          p50: 2.3670000000000044
+          p75: 3.407999999999987
+          p90: 4.736399999999995
+        minimum_seconds_detected: 2.2450000000000045
+        maximum_seconds_detected: 5.622
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.3125
+          1s: 0.3125
+          2s: 0.3125
+          3s: 0.125
+          5s: 0.0625
+          8s: 0.0
+          10s: 0.0
+    p1:
+      episode_count: 126
+      event_count: 16
+      detected_event_count: 1
+      undetected_event_count: 15
+      event_recall: 0.0625
+      non_event_mission_count: 110
+      false_alerts_per_non_event_mission: 0.23636363636363636
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 26
+      lead_time:
+        event_count_full_denominator: 16
+        detected_event_count: 1
+        undetected_event_count: 15
+        median_seconds_detected: 7.10499999999999
+        quantiles_seconds_detected:
+          p10: 7.10499999999999
+          p25: 7.10499999999999
+          p50: 7.10499999999999
+          p75: 7.10499999999999
+          p90: 7.10499999999999
+        minimum_seconds_detected: 7.10499999999999
+        maximum_seconds_detected: 7.10499999999999
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0625
+          1s: 0.0625
+          2s: 0.0625
+          3s: 0.0625
+          5s: 0.0625
+          8s: 0.0
+          10s: 0.0
+    false_alerts_per_clean_mission_at_fold_threshold:
+      p3: 0.25396825396825395
+      p1: 0.46825396825396826
+    timeout_events_excluded: 0
+    p3_minus_p1_recall:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 16
+      map_count: 2
+      route_count: 4
+      point_estimate: 0.25
+      confidence: 0.95
+      confidence_interval:
+      - -0.25
+      - 0.8333333333333334
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+    p3_exceeds_p1: true
+    interval_excludes_zero: false
+  lidar_dropout:
+    status: evaluated
+    family_episode_count: 126
+    family_event_count_full_denominator: 15
+    fold_threshold:
+      p3: 0.28322785602148254
+      p1: 0.5
+    p3:
+      episode_count: 126
+      event_count: 15
+      detected_event_count: 0
+      undetected_event_count: 15
+      event_recall: 0.0
+      non_event_mission_count: 111
+      false_alerts_per_non_event_mission: 0.25225225225225223
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 29
+      lead_time:
+        event_count_full_denominator: 15
+        detected_event_count: 0
+        undetected_event_count: 15
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    p1:
+      episode_count: 126
+      event_count: 15
+      detected_event_count: 0
+      undetected_event_count: 15
+      event_recall: 0.0
+      non_event_mission_count: 111
+      false_alerts_per_non_event_mission: 0.25225225225225223
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 28
+      lead_time:
+        event_count_full_denominator: 15
+        detected_event_count: 0
+        undetected_event_count: 15
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    false_alerts_per_clean_mission_at_fold_threshold:
+      p3: 0.1349206349206349
+      p1: 0.46825396825396826
+    timeout_events_excluded: 0
+    p3_minus_p1_recall:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 15
+      map_count: 2
+      route_count: 3
+      point_estimate: 0.0
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.0
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+    p3_exceeds_p1: false
+    interval_excludes_zero: false
+  wheel_slip:
+    status: evaluated
+    family_episode_count: 126
+    family_event_count_full_denominator: 20
+    fold_threshold:
+      p3: 0.29036476639289327
+      p1: 0.5
+    p3:
+      episode_count: 125
+      event_count: 20
+      detected_event_count: 2
+      undetected_event_count: 18
+      event_recall: 0.1
+      non_event_mission_count: 105
+      false_alerts_per_non_event_mission: 0.3142857142857143
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 37
+      lead_time:
+        event_count_full_denominator: 20
+        detected_event_count: 2
+        undetected_event_count: 18
+        median_seconds_detected: 2.2515
+        quantiles_seconds_detected:
+          p10: 1.2527000000000001
+          p25: 1.62725
+          p50: 2.2515
+          p75: 2.87575
+          p90: 3.2502999999999997
+        minimum_seconds_detected: 1.0030000000000001
+        maximum_seconds_detected: 3.5
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.1
+          1s: 0.1
+          2s: 0.05
+          3s: 0.05
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    p1:
+      episode_count: 125
+      event_count: 20
+      detected_event_count: 1
+      undetected_event_count: 19
+      event_recall: 0.05
+      non_event_mission_count: 105
+      false_alerts_per_non_event_mission: 0.24761904761904763
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 26
+      lead_time:
+        event_count_full_denominator: 20
+        detected_event_count: 1
+        undetected_event_count: 19
+        median_seconds_detected: 2.681999999999995
+        quantiles_seconds_detected:
+          p10: 2.681999999999995
+          p25: 2.681999999999995
+          p50: 2.681999999999995
+          p75: 2.681999999999995
+          p90: 2.681999999999995
+        minimum_seconds_detected: 2.681999999999995
+        maximum_seconds_detected: 2.681999999999995
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.05
+          1s: 0.05
+          2s: 0.05
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    false_alerts_per_clean_mission_at_fold_threshold:
+      p3: 0.23015873015873015
+      p1: 0.46825396825396826
+    timeout_events_excluded: 1
+    p3_minus_p1_recall:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 20
+      map_count: 3
+      route_count: 7
+      point_estimate: 0.05
+      confidence: 0.95
+      confidence_interval:
+      - -0.5
+      - 0.25925925925925924
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+    p3_exceeds_p1: true
+    interval_excludes_zero: false
+  localisation_perturbation:
+    status: evaluated
+    family_episode_count: 126
+    family_event_count_full_denominator: 23
+    fold_threshold:
+      p3: 0.2871287128712871
+      p1: 0.5
+    p3:
+      episode_count: 126
+      event_count: 23
+      detected_event_count: 8
+      undetected_event_count: 15
+      event_recall: 0.34782608695652173
+      non_event_mission_count: 103
+      false_alerts_per_non_event_mission: 0.44660194174757284
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 56
+      lead_time:
+        event_count_full_denominator: 23
+        detected_event_count: 8
+        undetected_event_count: 15
+        median_seconds_detected: 4.841000000000001
+        quantiles_seconds_detected:
+          p10: 3.1869
+          p25: 4.061250000000012
+          p50: 4.841000000000001
+          p75: 5.365250000000003
+          p90: 6.164900000000001
+        minimum_seconds_detected: 2.7409999999999997
+        maximum_seconds_detected: 6.167000000000002
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.34782608695652173
+          1s: 0.34782608695652173
+          2s: 0.34782608695652173
+          3s: 0.30434782608695654
+          5s: 0.13043478260869565
+          8s: 0.0
+          10s: 0.0
+    p1:
+      episode_count: 126
+      event_count: 23
+      detected_event_count: 0
+      undetected_event_count: 23
+      event_recall: 0.0
+      non_event_mission_count: 103
+      false_alerts_per_non_event_mission: 0.2524271844660194
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 26
+      lead_time:
+        event_count_full_denominator: 23
+        detected_event_count: 0
+        undetected_event_count: 23
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    false_alerts_per_clean_mission_at_fold_threshold:
+      p3: 0.36507936507936506
+      p1: 0.46825396825396826
+    timeout_events_excluded: 0
+    p3_minus_p1_recall:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 23
+      map_count: 3
+      route_count: 7
+      point_estimate: 0.34782608695652173
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.7333333333333333
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+    p3_exceeds_p1: true
+    interval_excludes_zero: false
+  dynamic_blockage:
+    status: evaluated
+    family_episode_count: 126
+    family_event_count_full_denominator: 31
+    fold_threshold:
+      p3: 0.31897659958712127
+      p1: 0.5
+    p3:
+      episode_count: 125
+      event_count: 31
+      detected_event_count: 4
+      undetected_event_count: 27
+      event_recall: 0.12903225806451613
+      non_event_mission_count: 94
+      false_alerts_per_non_event_mission: 0.3617021276595745
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 49
+      lead_time:
+        event_count_full_denominator: 31
+        detected_event_count: 4
+        undetected_event_count: 27
+        median_seconds_detected: 3.3174999999999955
+        quantiles_seconds_detected:
+          p10: 1.166999999999996
+          p25: 1.3379999999999939
+          p50: 3.3174999999999955
+          p75: 5.967750000000002
+          p90: 7.34610000000001
+        minimum_seconds_detected: 1.0529999999999973
+        maximum_seconds_detected: 8.265000000000015
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.12903225806451613
+          1s: 0.12903225806451613
+          2s: 0.06451612903225806
+          3s: 0.06451612903225806
+          5s: 0.06451612903225806
+          8s: 0.03225806451612903
+          10s: 0.0
+    p1:
+      episode_count: 125
+      event_count: 31
+      detected_event_count: 0
+      undetected_event_count: 31
+      event_recall: 0.0
+      non_event_mission_count: 94
+      false_alerts_per_non_event_mission: 0.0
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 0
+      lead_time:
+        event_count_full_denominator: 31
+        detected_event_count: 0
+        undetected_event_count: 31
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    false_alerts_per_clean_mission_at_fold_threshold:
+      p3: 0.5555555555555556
+      p1: 0.0
+    timeout_events_excluded: 1
+    p3_minus_p1_recall:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 31
+      map_count: 3
+      route_count: 13
+      point_estimate: 0.12903225806451613
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.4
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+    p3_exceeds_p1: true
+    interval_excludes_zero: false
+  planner_oscillation:
+    status: evaluated
+    family_episode_count: 126
+    family_event_count_full_denominator: 28
+    fold_threshold:
+      p3: 1.0
+      p1: 0.5
+    p3:
+      episode_count: 122
+      event_count: 28
+      detected_event_count: 0
+      undetected_event_count: 28
+      event_recall: 0.0
+      non_event_mission_count: 94
+      false_alerts_per_non_event_mission: 0.0
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 0
+      lead_time:
+        event_count_full_denominator: 28
+        detected_event_count: 0
+        undetected_event_count: 28
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    p1:
+      episode_count: 122
+      event_count: 28
+      detected_event_count: 0
+      undetected_event_count: 28
+      event_recall: 0.0
+      non_event_mission_count: 94
+      false_alerts_per_non_event_mission: 0.0
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 0
+      lead_time:
+        event_count_full_denominator: 28
+        detected_event_count: 0
+        undetected_event_count: 28
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    false_alerts_per_clean_mission_at_fold_threshold:
+      p3: 0.0
+      p1: 0.0
+    timeout_events_excluded: 4
+    p3_minus_p1_recall:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 28
+      map_count: 3
+      route_count: 6
+      point_estimate: 0.0
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.0
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+    p3_exceeds_p1: false
+    interval_excludes_zero: false
+  semantic_corruption:
+    status: evaluated
+    family_episode_count: 126
+    family_event_count_full_denominator: 8
+    fold_threshold:
+      p3: 0.28656459270382034
+      p1: 0.5
+    p3:
+      episode_count: 126
+      event_count: 8
+      detected_event_count: 0
+      undetected_event_count: 8
+      event_recall: 0.0
+      non_event_mission_count: 118
+      false_alerts_per_non_event_mission: 0.025423728813559324
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 3
+      lead_time:
+        event_count_full_denominator: 8
+        detected_event_count: 0
+        undetected_event_count: 8
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    p1:
+      episode_count: 126
+      event_count: 8
+      detected_event_count: 0
+      undetected_event_count: 8
+      event_recall: 0.0
+      non_event_mission_count: 118
+      false_alerts_per_non_event_mission: 0.23728813559322035
+      clean_mission_count: 0
+      false_alerts_per_clean_mission: null
+      false_alert_count_all_missions: 28
+      lead_time:
+        event_count_full_denominator: 8
+        detected_event_count: 0
+        undetected_event_count: 8
+        median_seconds_detected: null
+        quantiles_seconds_detected:
+          p10: null
+          p25: null
+          p50: null
+          p75: null
+          p90: null
+        minimum_seconds_detected: null
+        maximum_seconds_detected: null
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.0
+          1s: 0.0
+          2s: 0.0
+          3s: 0.0
+          5s: 0.0
+          8s: 0.0
+          10s: 0.0
+    false_alerts_per_clean_mission_at_fold_threshold:
+      p3: 0.14285714285714285
+      p1: 0.46825396825396826
+    timeout_events_excluded: 0
+    p3_minus_p1_recall:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 8
+      map_count: 2
+      route_count: 3
+      point_estimate: 0.0
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.0
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+    p3_exceeds_p1: false
+    interval_excludes_zero: false
+h5:
+  label: supporting
+  hypothesis: leave-one-family-out P3 recall exceeds the P1 baseline for at least
+    5 of 7 families at each fold's own budget threshold
+  families_where_p3_exceeds_p1:
+  - camera_occlusion
+  - wheel_slip
+  - localisation_perturbation
+  - dynamic_blockage
+  count: 4
+  minimum_required: 5
+  supported: false
+  pooled_claim: none; per-family estimates only
+  heterogeneity:
+    per_family_differences:
+      camera_occlusion: 0.25
+      lidar_dropout: 0.0
+      wheel_slip: 0.05
+      localisation_perturbation: 0.34782608695652173
+      dynamic_blockage: 0.12903225806451613
+      planner_oscillation: 0.0
+      semantic_corruption: 0.0
+    range:
+    - 0.0
+    - 0.34782608695652173
+fold_commands:
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+  --model-dir /home/eao/failure-prediction/models/unseen_family/camera_occlusion/p3_causal_tcn/p3_causal_tcn__excl-camera_occlusion__seed20260903
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3.csv
+  --allow-protected-after-freeze
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_threshold_rules.py
+  --rules /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/rules_p1.yaml
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p1.csv
+  --allow-protected-after-freeze
+- '[internal] keep fault_family in (camera_occlusion, none) rows: /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3_family.csv'
+- '[internal] keep fault_family in (camera_occlusion, none) rows: /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p1.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p1_family.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/apply_calibration.py
+  /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3_family.csv
+  /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/calibrator_p3.json
+  /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3_calibrated.csv
+  --allow-protected-after-freeze
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/threshold_p3.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3_calibrated.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p3_alarmed.csv'
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/threshold_p1.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p1_family.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/held_out_p1_alarmed.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+  --model-dir /home/eao/failure-prediction/models/unseen_family/lidar_dropout/p3_causal_tcn/p3_causal_tcn__excl-lidar_dropout__seed20260903
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3.csv
+  --allow-protected-after-freeze
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_threshold_rules.py
+  --rules /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/rules_p1.yaml
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p1.csv
+  --allow-protected-after-freeze
+- '[internal] keep fault_family in (lidar_dropout, none) rows: /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3_family.csv'
+- '[internal] keep fault_family in (lidar_dropout, none) rows: /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p1.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p1_family.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/apply_calibration.py
+  /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3_family.csv
+  /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/calibrator_p3.json
+  /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3_calibrated.csv
+  --allow-protected-after-freeze
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/threshold_p3.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3_calibrated.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p3_alarmed.csv'
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/threshold_p1.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p1_family.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/lidar_dropout/held_out_p1_alarmed.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+  --model-dir /home/eao/failure-prediction/models/unseen_family/wheel_slip/p3_causal_tcn/p3_causal_tcn__excl-wheel_slip__seed20260903
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3.csv
+  --allow-protected-after-freeze
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_threshold_rules.py
+  --rules /home/eao/failure-prediction/reports/unseen_family/wheel_slip/rules_p1.yaml
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p1.csv
+  --allow-protected-after-freeze
+- '[internal] keep fault_family in (wheel_slip, none) rows: /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3_family.csv'
+- '[internal] keep fault_family in (wheel_slip, none) rows: /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p1.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p1_family.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/apply_calibration.py
+  /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3_family.csv
+  /home/eao/failure-prediction/reports/unseen_family/wheel_slip/calibrator_p3.json
+  /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3_calibrated.csv
+  --allow-protected-after-freeze
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/wheel_slip/threshold_p3.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3_calibrated.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3_alarmed.csv'
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/wheel_slip/threshold_p1.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p1_family.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p1_alarmed.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+  --model-dir /home/eao/failure-prediction/models/unseen_family/localisation_perturbation/p3_causal_tcn/p3_causal_tcn__excl-localisation_perturbation__seed20260903
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3.csv
+  --allow-protected-after-freeze
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_threshold_rules.py
+  --rules /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/rules_p1.yaml
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p1.csv
+  --allow-protected-after-freeze
+- '[internal] keep fault_family in (localisation_perturbation, none) rows: /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3_family.csv'
+- '[internal] keep fault_family in (localisation_perturbation, none) rows: /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p1.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p1_family.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/apply_calibration.py
+  /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3_family.csv
+  /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/calibrator_p3.json
+  /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3_calibrated.csv
+  --allow-protected-after-freeze
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/threshold_p3.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3_calibrated.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p3_alarmed.csv'
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/threshold_p1.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p1_family.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/localisation_perturbation/held_out_p1_alarmed.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+  --model-dir /home/eao/failure-prediction/models/unseen_family/dynamic_blockage/p3_causal_tcn/p3_causal_tcn__excl-dynamic_blockage__seed20260903
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3.csv
+  --allow-protected-after-freeze
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_threshold_rules.py
+  --rules /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/rules_p1.yaml
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p1.csv
+  --allow-protected-after-freeze
+- '[internal] keep fault_family in (dynamic_blockage, none) rows: /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3_family.csv'
+- '[internal] keep fault_family in (dynamic_blockage, none) rows: /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p1.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p1_family.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/apply_calibration.py
+  /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3_family.csv
+  /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/calibrator_p3.json
+  /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3_calibrated.csv
+  --allow-protected-after-freeze
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/threshold_p3.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3_calibrated.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p3_alarmed.csv'
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/threshold_p1.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p1_family.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/held_out_p1_alarmed.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+  --model-dir /home/eao/failure-prediction/models/unseen_family/planner_oscillation/p3_causal_tcn/p3_causal_tcn__excl-planner_oscillation__seed20260903
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3.csv
+  --allow-protected-after-freeze
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_threshold_rules.py
+  --rules /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/rules_p1.yaml
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p1.csv
+  --allow-protected-after-freeze
+- '[internal] keep fault_family in (planner_oscillation, none) rows: /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3_family.csv'
+- '[internal] keep fault_family in (planner_oscillation, none) rows: /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p1.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p1_family.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/apply_calibration.py
+  /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3_family.csv
+  /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/calibrator_p3.json
+  /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3_calibrated.csv
+  --allow-protected-after-freeze
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/threshold_p3.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3_calibrated.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p3_alarmed.csv'
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/threshold_p1.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p1_family.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/planner_oscillation/held_out_p1_alarmed.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_decisions.py
+  --model-dir /home/eao/failure-prediction/models/unseen_family/semantic_corruption/p3_causal_tcn/p3_causal_tcn__excl-semantic_corruption__seed20260903
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3.csv
+  --allow-protected-after-freeze
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/predict_threshold_rules.py
+  --rules /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/rules_p1.yaml
+  --dataset held_out_map_v1-held_out_map_test-1008 --output /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p1.csv
+  --allow-protected-after-freeze
+- '[internal] keep fault_family in (semantic_corruption, none) rows: /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3_family.csv'
+- '[internal] keep fault_family in (semantic_corruption, none) rows: /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p1.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p1_family.csv'
+- /home/eao/failure-prediction/.venv/bin/python /home/eao/failure-prediction/scripts/apply_calibration.py
+  /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3_family.csv
+  /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/calibrator_p3.json
+  /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3_calibrated.csv
+  --allow-protected-after-freeze
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/threshold_p3.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3_calibrated.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p3_alarmed.csv'
+- '[internal] apply fold threshold from /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/threshold_p1.yaml
+  with frozen persistence/cooldown: /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p1_family.csv
+  -> /home/eao/failure-prediction/reports/unseen_family/semantic_corruption/held_out_p1_alarmed.csv'

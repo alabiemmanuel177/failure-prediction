@@ -1,0 +1,21 @@
+schema_version: 1
+campaign_id: treatment_verification_semantic_high_v1
+purpose: label-only causal schedule and fault-treatment integrity audit
+deployable_feature_use: forbidden
+episode_count: 1
+passed_count: 1
+failed_count: 0
+episodes:
+- episode_key: semantic_corruption-high-303
+  run_id: f3ce03cb-da73-4d66-8d36-76f3967e999d
+  family: semantic_corruption
+  severity: high
+  terminal_state: success
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact deterministic reconstruction from raw semantic grids
+    matched_post_onset_grids: 200
+    exact_output_matches: 200
+    passed: true
+  passed: true

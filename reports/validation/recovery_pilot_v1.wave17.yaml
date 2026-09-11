@@ -1,0 +1,91 @@
+schema_version: 1
+campaign_id: recovery_pilot_v1
+wave: 17
+recording_profiles:
+  compact_v2: 42
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 42
+  usable: 42
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 4
+  successes: 38
+  collisions: 0
+event_prevalence: 0.09523809523809523
+bag_gib: 0.4391992213204503
+duration_seconds:
+  total: 5541.436
+  median: 147.6375
+by_terminal_state:
+  false_arrival: 2
+  planner_failure: 1
+  success: 38
+  timeout: 1
+by_event_class:
+  false_arrival: 2
+  mission_timeout: 1
+  navigation_abort: 1
+perception_metric_summaries: 42
+episode_keys:
+- val_01-val_01_r0-camera-r0-R0
+- val_01-val_01_r0-camera-r0-RP_controlled_stop
+- val_01-val_01_r0-camera-r0-RP_relocalise
+- val_01-val_01_r0-camera-r0-RP_replan_clear_costmaps
+- val_01-val_01_r0-camera-r0-RP_backup
+- val_01-val_01_r0-camera-r0-RP_spin_active_rescan
+- val_01-val_01_r0-camera-r0-RP_wait
+- val_01-val_01_r1-camera-r0-R0
+- val_01-val_01_r1-camera-r0-RP_controlled_stop
+- val_01-val_01_r1-camera-r0-RP_relocalise
+- val_01-val_01_r1-camera-r0-RP_replan_clear_costmaps
+- val_01-val_01_r1-camera-r0-RP_backup
+- val_01-val_01_r1-camera-r0-RP_spin_active_rescan
+- val_01-val_01_r1-camera-r0-RP_wait
+- val_01-val_01_r2-camera-r0-R0
+- val_01-val_01_r2-camera-r0-RP_controlled_stop
+- val_01-val_01_r2-camera-r0-RP_relocalise
+- val_01-val_01_r2-camera-r0-RP_replan_clear_costmaps
+- val_01-val_01_r2-camera-r0-RP_backup
+- val_01-val_01_r2-camera-r0-RP_spin_active_rescan
+- val_01-val_01_r2-camera-r0-RP_wait
+- val_01-val_01_r3-camera-r0-R0
+- val_01-val_01_r3-camera-r0-RP_controlled_stop
+- val_01-val_01_r3-camera-r0-RP_relocalise
+- val_01-val_01_r3-camera-r0-RP_replan_clear_costmaps
+- val_01-val_01_r3-camera-r0-RP_backup
+- val_01-val_01_r3-camera-r0-RP_spin_active_rescan
+- val_01-val_01_r3-camera-r0-RP_wait
+- val_01-val_01_r4-camera-r0-R0
+- val_01-val_01_r4-camera-r0-RP_controlled_stop
+- val_01-val_01_r4-camera-r0-RP_relocalise
+- val_01-val_01_r4-camera-r0-RP_replan_clear_costmaps
+- val_01-val_01_r4-camera-r0-RP_backup
+- val_01-val_01_r4-camera-r0-RP_spin_active_rescan
+- val_01-val_01_r4-camera-r0-RP_wait
+- val_01-val_01_r5-camera-r0-R0
+- val_01-val_01_r5-camera-r0-RP_controlled_stop
+- val_01-val_01_r5-camera-r0-RP_relocalise
+- val_01-val_01_r5-camera-r0-RP_replan_clear_costmaps
+- val_01-val_01_r5-camera-r0-RP_backup
+- val_01-val_01_r5-camera-r0-RP_spin_active_rescan
+- val_01-val_01_r5-camera-r0-RP_wait
+training_admission: human_gate_passed_dataset_campaign_in_progress
+execution_provenance:
+  dispatcher:
+  - run_campaign_parallel_v1
+  dispatched_rows: 42
+  sequential_rows: 0
+  concurrency_workers:
+  - 1
+  system_concurrency: {}
+  worker_slots:
+  - 0
+  ros_domain_ids:
+  - 60
+  gz_partitions:
+  - research2_w0
+  episodes_by_system:
+    s3: 42

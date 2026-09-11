@@ -1,0 +1,20 @@
+schema_version: 1
+protocol_version: "1.1"
+selection_split: validation
+forbidden_selection_split: held_out_map_test
+fit_rows: eligible_validation_decisions_only
+# Calibrators map raw_score -> risk_score. `identity` (raw sigmoid output) is always a
+# candidate so that "no calibration" can win when no method satisfies the constraints.
+candidate_methods: [identity, temperature_scaling, platt_scaling, isotonic_regression]
+objective: minimum_validation_ece
+reliability_bins: 10
+constraints:
+  # Chosen method must not increase validation Brier score beyond raw + brier_tolerance.
+  brier_must_not_increase: true
+  brier_tolerance: 0.0
+  # Event recall at the frozen false-alert budget (2-of-3, 10 s cooldown, 0.10 per clean
+  # mission) must not fall by more than this absolute amount relative to raw scores (H3).
+  event_recall_at_budget_max_drop: 0.02
+tie_break_order: [lower_brier_score, higher_event_recall_at_budget, method_preference]
+method_preference: [identity, temperature_scaling, platt_scaling, isotonic_regression]
+protected_test_used: false

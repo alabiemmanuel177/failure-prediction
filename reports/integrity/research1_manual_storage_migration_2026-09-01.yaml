@@ -1,0 +1,36 @@
+schema_version: 1
+status: observed_post_migration_checks_passed
+operation_performed_by: Emmanuel Alabi Olasubomi
+operation_timing: before 2026-09-01T20:50:52Z
+verification_scope: post-operation structural audit; copy-time checksums were not observed
+before_observation:
+  nvme_free_gib_rounded: 107
+  ssd_free_gib_rounded: 172
+  research1_results_size_gib_rounded: 1016
+  research1_physical_top_level_bag_directories: 450
+  research1_top_level_bag_symlinks: 2004
+after_observation:
+  nvme_free_bytes: 259125538816
+  nvme_free_gib: 241.32946395874023
+  ssd_free_bytes: 39643578368
+  ssd_free_gib: 36.92095947265625
+  research1_results_size_gib_rounded: 881
+  research1_physical_top_level_bag_directories: 379
+  research1_top_level_bag_symlinks: 2075
+  research1_bag_symlinks_resolving: 2075
+  research1_broken_bag_symlinks: 0
+  symlink_target_groups:
+    existing_internal_research1_archive: 1183
+    mnt_ssd_research1_archive: 892
+inferred_change:
+  additional_directories_replaced_by_symlinks: 71
+  approximate_nvme_space_recovered_gib: 135
+verification:
+  research1_content_boundary: passed
+  research2_development_inventory_648: passed
+  research2_split_integrity: passed
+  research2_research_log_chain_before_this_record: passed
+  protected_outcomes_consulted: false
+caveat: The assistant did not observe the copy operation and therefore does not claim
+  source-to-destination checksum equivalence; it verified that every resulting Research
+  1 top-level bag symlink resolves and that dependent platform and dataset gates pass.

@@ -1,0 +1,45 @@
+{
+  "alarm_policy": {
+    "count": 480,
+    "max_ms": 0.011191,
+    "mean_ms": 0.006480658333333333,
+    "median_ms": 0.00642,
+    "p95_ms": 0.00692
+  },
+  "batch_size": 1,
+  "checkpoint_sha256": "f7d521f64ef9f606375f9b4575d7e6027dbfff70f2884d4c84554f09c8e5868b",
+  "cpu": "x86_64",
+  "created_utc": "2026-09-03T10:59:32.765709+00:00",
+  "device": "cpu",
+  "end_to_end": {
+    "count": 480,
+    "max_ms": 0.394302,
+    "mean_ms": 0.2851724125,
+    "median_ms": 0.283632,
+    "p95_ms": 0.29239955
+  },
+  "feature_preparation": {
+    "count": 480,
+    "max_ms": 0.159291,
+    "mean_ms": 0.1340107375,
+    "median_ms": 0.13339050000000002,
+    "p95_ms": 0.137923
+  },
+  "model_dir": "/home/eao/failure-prediction/models/preliminary_v2_with_research1/p5_compact_transformer__seed20260903",
+  "model_forward": {
+    "count": 480,
+    "max_ms": 0.224051,
+    "mean_ms": 0.14468101666666666,
+    "median_ms": 0.143526,
+    "p95_ms": 0.15010545
+  },
+  "model_id": "p5_compact_transformer",
+  "parameter_count": 73217,
+  "protected_test_used": false,
+  "schema_version": 1,
+  "threads": 1,
+  "timed_decisions": 480,
+  "torch_version": "2.13.0+rocm7.2",
+  "warmup_decisions": 20,
+  "windows_source": "dataset:balanced_validation_v1-validation-324"
+}

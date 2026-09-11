@@ -1,0 +1,843 @@
+schema_version: 1
+protocol_version: '1.0'
+generated_utc: '2026-09-03T11:05:15.740005+00:00'
+model_id: p3_causal_tcn
+scope: validation_only_policy_check
+confirmatory: false
+automatic_selection: false
+preregistered_setting_retained: true
+note: Persistence and cooldown are swept for transparency only. The preregistered
+  setting stays in configs/alarm_policy.yaml; any change requires a protocol amendment
+  and a research-log protocol_change record before the freeze.
+protected_test_used: false
+inputs:
+  prediction_table: /home/eao/failure-prediction/reports/predictions/preliminary_v2_with_research1/p3_causal_tcn.validation.calibrated.csv
+  prediction_table_sha256: b27796e05c6f2ff90d4a4b9941f731e7a5779eb025ab5492a794bdd9389a5afb
+  alarm_policy: /home/eao/failure-prediction/configs/alarm_policy.yaml
+  alarm_policy_sha256: 8ac8e25f6e00a2aef01f4f06d7adf704b051ce55a73fe4645be93dad06bd7457
+false_alert_budget_per_clean_mission: 0.1
+clean_mission_count: 72
+episode_count: 324
+preregistered_setting:
+  persistence: 2-of-3
+  cooldown_seconds: 10.0
+  result: &id001
+    persistence: 2-of-3
+    required_above_threshold: 2
+    decisions_considered: 3
+    cooldown_seconds: 10.0
+    preregistered: true
+    feasible: true
+    threshold: 0.21637426900584794
+    feasible_threshold_count: 12
+    event_recall: 0.16129032258064516
+    event_count: 62
+    detected_event_count: 10
+    false_alerts_per_clean_mission: 0.06944444444444445
+    false_alerts_per_non_event_mission: 0.09923664122137404
+    false_alerts_per_mission: 0.08333333333333333
+    lead_time:
+      event_count: 62
+      detected_event_count: 10
+      undetected_event_count: 52
+      median_seconds_detected: 3.5450000000000017
+      q1_seconds_detected: 2.8215000000000003
+      q3_seconds_detected: 4.900999999999996
+      min_seconds_detected: 1.3709999999999951
+      max_seconds_detected: 7.813999999999993
+      fraction_of_all_events_warned_at_least:
+        1s: 0.16129032258064516
+        2s: 0.14516129032258066
+        3s: 0.08064516129032258
+        5s: 0.04838709677419355
+        10s: 0.0
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 108
+        alerts_per_mission: 0.3333333333333333
+        repeated_alerts_per_mission: 0.07716049382716049
+        time_under_alert_seconds_per_mission: 1.6296296296296295
+        fraction_of_decisions_under_alert: 0.02334940078715783
+      clean:
+        mission_count: 72
+        total_alerts: 6
+        alerts_per_mission: 0.08333333333333333
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.2152777777777778
+        fraction_of_decisions_under_alert: 0.0038243276585245498
+      faulted:
+        mission_count: 252
+        total_alerts: 102
+        alerts_per_mission: 0.40476190476190477
+        repeated_alerts_per_mission: 0.0992063492063492
+        time_under_alert_seconds_per_mission: 2.0337301587301586
+        fraction_of_decisions_under_alert: 0.027613146551724137
+best_validation_recall_in_sweep: 0.16129032258064516
+sweep:
+- persistence: 1-of-1
+  required_above_threshold: 1
+  decisions_considered: 1
+  cooldown_seconds: 0.0
+  preregistered: false
+  feasible: true
+  threshold: 1.0
+  feasible_threshold_count: 11
+  event_recall: 0.03225806451612903
+  event_count: 62
+  detected_event_count: 2
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_non_event_mission: 0.0
+  false_alerts_per_mission: 0.0
+  lead_time:
+    event_count: 62
+    detected_event_count: 2
+    undetected_event_count: 60
+    median_seconds_detected: 9.828000000000003
+    q1_seconds_detected: 9.8215
+    q3_seconds_detected: 9.834500000000006
+    min_seconds_detected: 9.814999999999998
+    max_seconds_detected: 9.841000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.03225806451612903
+      2s: 0.03225806451612903
+      3s: 0.03225806451612903
+      5s: 0.03225806451612903
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 622
+      alerts_per_mission: 1.9197530864197532
+      repeated_alerts_per_mission: 1.7932098765432098
+      time_under_alert_seconds_per_mission: 0.9598765432098766
+      fraction_of_decisions_under_alert: 0.013753150842435767
+    clean:
+      mission_count: 72
+      total_alerts: 0
+      alerts_per_mission: 0.0
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.0
+      fraction_of_decisions_under_alert: 0.0
+    faulted:
+      mission_count: 252
+      total_alerts: 622
+      alerts_per_mission: 2.4682539682539684
+      repeated_alerts_per_mission: 2.3055555555555554
+      time_under_alert_seconds_per_mission: 1.2341269841269842
+      fraction_of_decisions_under_alert: 0.01675646551724138
+- persistence: 1-of-1
+  required_above_threshold: 1
+  decisions_considered: 1
+  cooldown_seconds: 5.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.16129032258064516
+  event_count: 62
+  detected_event_count: 10
+  false_alerts_per_clean_mission: 0.08333333333333333
+  false_alerts_per_non_event_mission: 0.14122137404580154
+  false_alerts_per_mission: 0.12037037037037036
+  lead_time:
+    event_count: 62
+    detected_event_count: 10
+    undetected_event_count: 52
+    median_seconds_detected: 5.393499999999996
+    q1_seconds_detected: 3.7034999999999982
+    q3_seconds_detected: 7.747249999999994
+    min_seconds_detected: 1.8709999999999951
+    max_seconds_detected: 8.341000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.16129032258064516
+      2s: 0.14516129032258066
+      3s: 0.14516129032258066
+      5s: 0.08064516129032258
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 176
+      alerts_per_mission: 0.5432098765432098
+      repeated_alerts_per_mission: 0.2716049382716049
+      time_under_alert_seconds_per_mission: 1.6820987654320987
+      fraction_of_decisions_under_alert: 0.02410118073674435
+    clean:
+      mission_count: 72
+      total_alerts: 7
+      alerts_per_mission: 0.09722222222222222
+      repeated_alerts_per_mission: 0.013888888888888888
+      time_under_alert_seconds_per_mission: 0.2222222222222222
+      fraction_of_decisions_under_alert: 0.003947693066864051
+    faulted:
+      mission_count: 252
+      total_alerts: 169
+      alerts_per_mission: 0.6706349206349206
+      repeated_alerts_per_mission: 0.34523809523809523
+      time_under_alert_seconds_per_mission: 2.0992063492063493
+      fraction_of_decisions_under_alert: 0.028502155172413793
+- persistence: 1-of-1
+  required_above_threshold: 1
+  decisions_considered: 1
+  cooldown_seconds: 10.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.16129032258064516
+  event_count: 62
+  detected_event_count: 10
+  false_alerts_per_clean_mission: 0.06944444444444445
+  false_alerts_per_non_event_mission: 0.13740458015267176
+  false_alerts_per_mission: 0.11728395061728394
+  lead_time:
+    event_count: 62
+    detected_event_count: 10
+    undetected_event_count: 52
+    median_seconds_detected: 4.045000000000002
+    q1_seconds_detected: 3.3215000000000003
+    q3_seconds_detected: 5.608749999999997
+    min_seconds_detected: 1.8709999999999951
+    max_seconds_detected: 8.313999999999993
+    fraction_of_all_events_warned_at_least:
+      1s: 0.16129032258064516
+      2s: 0.14516129032258066
+      3s: 0.14516129032258066
+      5s: 0.04838709677419355
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 122
+      alerts_per_mission: 0.3765432098765432
+      repeated_alerts_per_mission: 0.10493827160493827
+      time_under_alert_seconds_per_mission: 1.6820987654320987
+      fraction_of_decisions_under_alert: 0.02410118073674435
+    clean:
+      mission_count: 72
+      total_alerts: 6
+      alerts_per_mission: 0.08333333333333333
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.2222222222222222
+      fraction_of_decisions_under_alert: 0.003947693066864051
+    faulted:
+      mission_count: 252
+      total_alerts: 116
+      alerts_per_mission: 0.4603174603174603
+      repeated_alerts_per_mission: 0.1349206349206349
+      time_under_alert_seconds_per_mission: 2.0992063492063493
+      fraction_of_decisions_under_alert: 0.028502155172413793
+- persistence: 1-of-1
+  required_above_threshold: 1
+  decisions_considered: 1
+  cooldown_seconds: 20.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.12903225806451613
+  event_count: 62
+  detected_event_count: 8
+  false_alerts_per_clean_mission: 0.06944444444444445
+  false_alerts_per_non_event_mission: 0.11450381679389313
+  false_alerts_per_mission: 0.09876543209876543
+  lead_time:
+    event_count: 62
+    detected_event_count: 8
+    undetected_event_count: 54
+    median_seconds_detected: 4.845500000000001
+    q1_seconds_detected: 3.3262499999999946
+    q3_seconds_detected: 5.879749999999998
+    min_seconds_detected: 1.8709999999999951
+    max_seconds_detected: 8.313999999999993
+    fraction_of_all_events_warned_at_least:
+      1s: 0.12903225806451613
+      2s: 0.11290322580645161
+      3s: 0.11290322580645161
+      5s: 0.04838709677419355
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 98
+      alerts_per_mission: 0.30246913580246915
+      repeated_alerts_per_mission: 0.030864197530864196
+      time_under_alert_seconds_per_mission: 1.6820987654320987
+      fraction_of_decisions_under_alert: 0.02410118073674435
+    clean:
+      mission_count: 72
+      total_alerts: 6
+      alerts_per_mission: 0.08333333333333333
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.2222222222222222
+      fraction_of_decisions_under_alert: 0.003947693066864051
+    faulted:
+      mission_count: 252
+      total_alerts: 92
+      alerts_per_mission: 0.36507936507936506
+      repeated_alerts_per_mission: 0.03968253968253968
+      time_under_alert_seconds_per_mission: 2.0992063492063493
+      fraction_of_decisions_under_alert: 0.028502155172413793
+- persistence: 2-of-3
+  required_above_threshold: 2
+  decisions_considered: 3
+  cooldown_seconds: 0.0
+  preregistered: false
+  feasible: true
+  threshold: 1.0
+  feasible_threshold_count: 11
+  event_recall: 0.03225806451612903
+  event_count: 62
+  detected_event_count: 2
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_non_event_mission: 0.026717557251908396
+  false_alerts_per_mission: 0.021604938271604937
+  lead_time:
+    event_count: 62
+    detected_event_count: 2
+    undetected_event_count: 60
+    median_seconds_detected: 9.828000000000003
+    q1_seconds_detected: 9.8215
+    q3_seconds_detected: 9.834500000000006
+    min_seconds_detected: 9.814999999999998
+    max_seconds_detected: 9.841000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.03225806451612903
+      2s: 0.03225806451612903
+      3s: 0.03225806451612903
+      5s: 0.03225806451612903
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 611
+      alerts_per_mission: 1.8858024691358024
+      repeated_alerts_per_mission: 1.7685185185185186
+      time_under_alert_seconds_per_mission: 0.9429012345679012
+      fraction_of_decisions_under_alert: 0.01350992791756954
+    clean:
+      mission_count: 72
+      total_alerts: 0
+      alerts_per_mission: 0.0
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.0
+      fraction_of_decisions_under_alert: 0.0
+    faulted:
+      mission_count: 252
+      total_alerts: 611
+      alerts_per_mission: 2.4246031746031744
+      repeated_alerts_per_mission: 2.2738095238095237
+      time_under_alert_seconds_per_mission: 1.2123015873015872
+      fraction_of_decisions_under_alert: 0.016460129310344827
+- persistence: 2-of-3
+  required_above_threshold: 2
+  decisions_considered: 3
+  cooldown_seconds: 5.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.16129032258064516
+  event_count: 62
+  detected_event_count: 10
+  false_alerts_per_clean_mission: 0.06944444444444445
+  false_alerts_per_non_event_mission: 0.10305343511450382
+  false_alerts_per_mission: 0.08641975308641975
+  lead_time:
+    event_count: 62
+    detected_event_count: 10
+    undetected_event_count: 52
+    median_seconds_detected: 4.7549999999999955
+    q1_seconds_detected: 3.2034999999999982
+    q3_seconds_detected: 7.191499999999994
+    min_seconds_detected: 1.3709999999999951
+    max_seconds_detected: 7.841000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.16129032258064516
+      2s: 0.14516129032258066
+      3s: 0.11290322580645161
+      5s: 0.08064516129032258
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 161
+      alerts_per_mission: 0.49691358024691357
+      repeated_alerts_per_mission: 0.24074074074074073
+      time_under_alert_seconds_per_mission: 1.6296296296296295
+      fraction_of_decisions_under_alert: 0.02334940078715783
+    clean:
+      mission_count: 72
+      total_alerts: 6
+      alerts_per_mission: 0.08333333333333333
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.2152777777777778
+      fraction_of_decisions_under_alert: 0.0038243276585245498
+    faulted:
+      mission_count: 252
+      total_alerts: 155
+      alerts_per_mission: 0.6150793650793651
+      repeated_alerts_per_mission: 0.30952380952380953
+      time_under_alert_seconds_per_mission: 2.0337301587301586
+      fraction_of_decisions_under_alert: 0.027613146551724137
+- *id001
+- persistence: 2-of-3
+  required_above_threshold: 2
+  decisions_considered: 3
+  cooldown_seconds: 20.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.12903225806451613
+  event_count: 62
+  detected_event_count: 8
+  false_alerts_per_clean_mission: 0.06944444444444445
+  false_alerts_per_non_event_mission: 0.08396946564885496
+  false_alerts_per_mission: 0.07098765432098765
+  lead_time:
+    event_count: 62
+    detected_event_count: 8
+    undetected_event_count: 54
+    median_seconds_detected: 4.345500000000001
+    q1_seconds_detected: 2.8262499999999946
+    q3_seconds_detected: 5.116249999999997
+    min_seconds_detected: 1.3709999999999951
+    max_seconds_detected: 7.813999999999993
+    fraction_of_all_events_warned_at_least:
+      1s: 0.12903225806451613
+      2s: 0.11290322580645161
+      3s: 0.08064516129032258
+      5s: 0.04838709677419355
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 87
+      alerts_per_mission: 0.26851851851851855
+      repeated_alerts_per_mission: 0.012345679012345678
+      time_under_alert_seconds_per_mission: 1.6296296296296295
+      fraction_of_decisions_under_alert: 0.02334940078715783
+    clean:
+      mission_count: 72
+      total_alerts: 6
+      alerts_per_mission: 0.08333333333333333
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.2152777777777778
+      fraction_of_decisions_under_alert: 0.0038243276585245498
+    faulted:
+      mission_count: 252
+      total_alerts: 81
+      alerts_per_mission: 0.32142857142857145
+      repeated_alerts_per_mission: 0.015873015873015872
+      time_under_alert_seconds_per_mission: 2.0337301587301586
+      fraction_of_decisions_under_alert: 0.027613146551724137
+- persistence: 3-of-3
+  required_above_threshold: 3
+  decisions_considered: 3
+  cooldown_seconds: 0.0
+  preregistered: false
+  feasible: true
+  threshold: 1.0
+  feasible_threshold_count: 11
+  event_recall: 0.03225806451612903
+  event_count: 62
+  detected_event_count: 2
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_non_event_mission: 0.0
+  false_alerts_per_mission: 0.0
+  lead_time:
+    event_count: 62
+    detected_event_count: 2
+    undetected_event_count: 60
+    median_seconds_detected: 9.578000000000003
+    q1_seconds_detected: 9.4465
+    q3_seconds_detected: 9.709500000000006
+    min_seconds_detected: 9.314999999999998
+    max_seconds_detected: 9.841000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.03225806451612903
+      2s: 0.03225806451612903
+      3s: 0.03225806451612903
+      5s: 0.03225806451612903
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 537
+      alerts_per_mission: 1.6574074074074074
+      repeated_alerts_per_mission: 1.5401234567901234
+      time_under_alert_seconds_per_mission: 0.8287037037037037
+      fraction_of_decisions_under_alert: 0.011873700968469465
+    clean:
+      mission_count: 72
+      total_alerts: 0
+      alerts_per_mission: 0.0
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.0
+      fraction_of_decisions_under_alert: 0.0
+    faulted:
+      mission_count: 252
+      total_alerts: 537
+      alerts_per_mission: 2.130952380952381
+      repeated_alerts_per_mission: 1.9801587301587302
+      time_under_alert_seconds_per_mission: 1.0654761904761905
+      fraction_of_decisions_under_alert: 0.014466594827586207
+- persistence: 3-of-3
+  required_above_threshold: 3
+  decisions_considered: 3
+  cooldown_seconds: 5.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.12903225806451613
+  event_count: 62
+  detected_event_count: 8
+  false_alerts_per_clean_mission: 0.041666666666666664
+  false_alerts_per_non_event_mission: 0.061068702290076333
+  false_alerts_per_mission: 0.04938271604938271
+  lead_time:
+    event_count: 62
+    detected_event_count: 8
+    undetected_event_count: 54
+    median_seconds_detected: 4.4354999999999976
+    q1_seconds_detected: 3.9042499999999976
+    q3_seconds_detected: 7.314249999999994
+    min_seconds_detected: 2.218999999999994
+    max_seconds_detected: 7.341000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.12903225806451613
+      2s: 0.12903225806451613
+      3s: 0.11290322580645161
+      5s: 0.04838709677419355
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 132
+      alerts_per_mission: 0.4074074074074074
+      repeated_alerts_per_mission: 0.1728395061728395
+      time_under_alert_seconds_per_mission: 1.3271604938271604
+      fraction_of_decisions_under_alert: 0.019015610489541413
+    clean:
+      mission_count: 72
+      total_alerts: 4
+      alerts_per_mission: 0.05555555555555555
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.11805555555555555
+      fraction_of_decisions_under_alert: 0.0020972119417715274
+    faulted:
+      mission_count: 252
+      total_alerts: 128
+      alerts_per_mission: 0.5079365079365079
+      repeated_alerts_per_mission: 0.2222222222222222
+      time_under_alert_seconds_per_mission: 1.6726190476190477
+      fraction_of_decisions_under_alert: 0.02271012931034483
+- persistence: 3-of-3
+  required_above_threshold: 3
+  decisions_considered: 3
+  cooldown_seconds: 10.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.12903225806451613
+  event_count: 62
+  detected_event_count: 8
+  false_alerts_per_clean_mission: 0.041666666666666664
+  false_alerts_per_non_event_mission: 0.05343511450381679
+  false_alerts_per_mission: 0.043209876543209874
+  lead_time:
+    event_count: 62
+    detected_event_count: 8
+    undetected_event_count: 54
+    median_seconds_detected: 3.8455000000000013
+    q1_seconds_detected: 2.3345000000000056
+    q3_seconds_detected: 4.241249999999997
+    min_seconds_detected: 2.218999999999994
+    max_seconds_detected: 7.313999999999993
+    fraction_of_all_events_warned_at_least:
+      1s: 0.12903225806451613
+      2s: 0.12903225806451613
+      3s: 0.08064516129032258
+      5s: 0.016129032258064516
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 93
+      alerts_per_mission: 0.28703703703703703
+      repeated_alerts_per_mission: 0.05246913580246913
+      time_under_alert_seconds_per_mission: 1.3271604938271604
+      fraction_of_decisions_under_alert: 0.019015610489541413
+    clean:
+      mission_count: 72
+      total_alerts: 4
+      alerts_per_mission: 0.05555555555555555
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.11805555555555555
+      fraction_of_decisions_under_alert: 0.0020972119417715274
+    faulted:
+      mission_count: 252
+      total_alerts: 89
+      alerts_per_mission: 0.3531746031746032
+      repeated_alerts_per_mission: 0.06746031746031746
+      time_under_alert_seconds_per_mission: 1.6726190476190477
+      fraction_of_decisions_under_alert: 0.02271012931034483
+- persistence: 3-of-3
+  required_above_threshold: 3
+  decisions_considered: 3
+  cooldown_seconds: 20.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.0967741935483871
+  event_count: 62
+  detected_event_count: 6
+  false_alerts_per_clean_mission: 0.041666666666666664
+  false_alerts_per_non_event_mission: 0.05343511450381679
+  false_alerts_per_mission: 0.043209876543209874
+  lead_time:
+    event_count: 62
+    detected_event_count: 6
+    undetected_event_count: 56
+    median_seconds_detected: 4.0049999999999955
+    q1_seconds_detected: 3.786750000000005
+    q3_seconds_detected: 4.629749999999998
+    min_seconds_detected: 2.218999999999994
+    max_seconds_detected: 7.313999999999993
+    fraction_of_all_events_warned_at_least:
+      1s: 0.0967741935483871
+      2s: 0.0967741935483871
+      3s: 0.08064516129032258
+      5s: 0.016129032258064516
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 77
+      alerts_per_mission: 0.23765432098765432
+      repeated_alerts_per_mission: 0.0030864197530864196
+      time_under_alert_seconds_per_mission: 1.3271604938271604
+      fraction_of_decisions_under_alert: 0.019015610489541413
+    clean:
+      mission_count: 72
+      total_alerts: 4
+      alerts_per_mission: 0.05555555555555555
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.11805555555555555
+      fraction_of_decisions_under_alert: 0.0020972119417715274
+    faulted:
+      mission_count: 252
+      total_alerts: 73
+      alerts_per_mission: 0.2896825396825397
+      repeated_alerts_per_mission: 0.003968253968253968
+      time_under_alert_seconds_per_mission: 1.6726190476190477
+      fraction_of_decisions_under_alert: 0.02271012931034483
+- persistence: 2-of-4
+  required_above_threshold: 2
+  decisions_considered: 4
+  cooldown_seconds: 0.0
+  preregistered: false
+  feasible: true
+  threshold: 1.0
+  feasible_threshold_count: 11
+  event_recall: 0.03225806451612903
+  event_count: 62
+  detected_event_count: 2
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_non_event_mission: 0.05343511450381679
+  false_alerts_per_mission: 0.043209876543209874
+  lead_time:
+    event_count: 62
+    detected_event_count: 2
+    undetected_event_count: 60
+    median_seconds_detected: 9.828000000000003
+    q1_seconds_detected: 9.8215
+    q3_seconds_detected: 9.834500000000006
+    min_seconds_detected: 9.814999999999998
+    max_seconds_detected: 9.841000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.03225806451612903
+      2s: 0.03225806451612903
+      3s: 0.03225806451612903
+      5s: 0.03225806451612903
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 644
+      alerts_per_mission: 1.9876543209876543
+      repeated_alerts_per_mission: 1.8703703703703705
+      time_under_alert_seconds_per_mission: 0.9938271604938271
+      fraction_of_decisions_under_alert: 0.014239596692168222
+    clean:
+      mission_count: 72
+      total_alerts: 0
+      alerts_per_mission: 0.0
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.0
+      fraction_of_decisions_under_alert: 0.0
+    faulted:
+      mission_count: 252
+      total_alerts: 644
+      alerts_per_mission: 2.5555555555555554
+      repeated_alerts_per_mission: 2.4047619047619047
+      time_under_alert_seconds_per_mission: 1.2777777777777777
+      fraction_of_decisions_under_alert: 0.017349137931034483
+- persistence: 2-of-4
+  required_above_threshold: 2
+  decisions_considered: 4
+  cooldown_seconds: 5.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.16129032258064516
+  event_count: 62
+  detected_event_count: 10
+  false_alerts_per_clean_mission: 0.06944444444444445
+  false_alerts_per_non_event_mission: 0.11450381679389313
+  false_alerts_per_mission: 0.09567901234567901
+  lead_time:
+    event_count: 62
+    detected_event_count: 10
+    undetected_event_count: 52
+    median_seconds_detected: 4.7549999999999955
+    q1_seconds_detected: 3.2034999999999982
+    q3_seconds_detected: 7.191499999999994
+    min_seconds_detected: 1.3709999999999951
+    max_seconds_detected: 7.841000000000008
+    fraction_of_all_events_warned_at_least:
+      1s: 0.16129032258064516
+      2s: 0.14516129032258066
+      3s: 0.11290322580645161
+      5s: 0.08064516129032258
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 167
+      alerts_per_mission: 0.5154320987654321
+      repeated_alerts_per_mission: 0.25925925925925924
+      time_under_alert_seconds_per_mission: 1.75
+      fraction_of_decisions_under_alert: 0.02507407243620926
+    clean:
+      mission_count: 72
+      total_alerts: 6
+      alerts_per_mission: 0.08333333333333333
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.25
+      fraction_of_decisions_under_alert: 0.0044411547002220575
+    faulted:
+      mission_count: 252
+      total_alerts: 161
+      alerts_per_mission: 0.6388888888888888
+      repeated_alerts_per_mission: 0.3333333333333333
+      time_under_alert_seconds_per_mission: 2.1785714285714284
+      fraction_of_decisions_under_alert: 0.029579741379310343
+- persistence: 2-of-4
+  required_above_threshold: 2
+  decisions_considered: 4
+  cooldown_seconds: 10.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.16129032258064516
+  event_count: 62
+  detected_event_count: 10
+  false_alerts_per_clean_mission: 0.06944444444444445
+  false_alerts_per_non_event_mission: 0.11068702290076336
+  false_alerts_per_mission: 0.09259259259259259
+  lead_time:
+    event_count: 62
+    detected_event_count: 10
+    undetected_event_count: 52
+    median_seconds_detected: 3.5450000000000017
+    q1_seconds_detected: 2.8215000000000003
+    q3_seconds_detected: 4.900999999999996
+    min_seconds_detected: 1.3709999999999951
+    max_seconds_detected: 7.813999999999993
+    fraction_of_all_events_warned_at_least:
+      1s: 0.16129032258064516
+      2s: 0.14516129032258066
+      3s: 0.08064516129032258
+      5s: 0.04838709677419355
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 111
+      alerts_per_mission: 0.3425925925925926
+      repeated_alerts_per_mission: 0.08641975308641975
+      time_under_alert_seconds_per_mission: 1.75
+      fraction_of_decisions_under_alert: 0.02507407243620926
+    clean:
+      mission_count: 72
+      total_alerts: 6
+      alerts_per_mission: 0.08333333333333333
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.25
+      fraction_of_decisions_under_alert: 0.0044411547002220575
+    faulted:
+      mission_count: 252
+      total_alerts: 105
+      alerts_per_mission: 0.4166666666666667
+      repeated_alerts_per_mission: 0.1111111111111111
+      time_under_alert_seconds_per_mission: 2.1785714285714284
+      fraction_of_decisions_under_alert: 0.029579741379310343
+- persistence: 2-of-4
+  required_above_threshold: 2
+  decisions_considered: 4
+  cooldown_seconds: 20.0
+  preregistered: false
+  feasible: true
+  threshold: 0.21637426900584794
+  feasible_threshold_count: 12
+  event_recall: 0.12903225806451613
+  event_count: 62
+  detected_event_count: 8
+  false_alerts_per_clean_mission: 0.06944444444444445
+  false_alerts_per_non_event_mission: 0.09541984732824428
+  false_alerts_per_mission: 0.08024691358024691
+  lead_time:
+    event_count: 62
+    detected_event_count: 8
+    undetected_event_count: 54
+    median_seconds_detected: 4.345500000000001
+    q1_seconds_detected: 2.8262499999999946
+    q3_seconds_detected: 5.116249999999997
+    min_seconds_detected: 1.3709999999999951
+    max_seconds_detected: 7.813999999999993
+    fraction_of_all_events_warned_at_least:
+      1s: 0.12903225806451613
+      2s: 0.11290322580645161
+      3s: 0.08064516129032258
+      5s: 0.04838709677419355
+      10s: 0.0
+  alert_burden:
+    all:
+      mission_count: 324
+      total_alerts: 90
+      alerts_per_mission: 0.2777777777777778
+      repeated_alerts_per_mission: 0.021604938271604937
+      time_under_alert_seconds_per_mission: 1.75
+      fraction_of_decisions_under_alert: 0.02507407243620926
+    clean:
+      mission_count: 72
+      total_alerts: 6
+      alerts_per_mission: 0.08333333333333333
+      repeated_alerts_per_mission: 0.0
+      time_under_alert_seconds_per_mission: 0.25
+      fraction_of_decisions_under_alert: 0.0044411547002220575
+    faulted:
+      mission_count: 252
+      total_alerts: 84
+      alerts_per_mission: 0.3333333333333333
+      repeated_alerts_per_mission: 0.027777777777777776
+      time_under_alert_seconds_per_mission: 2.1785714285714284
+      fraction_of_decisions_under_alert: 0.029579741379310343

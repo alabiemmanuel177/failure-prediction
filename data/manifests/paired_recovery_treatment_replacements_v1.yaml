@@ -1,0 +1,49 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: paired_recovery_treatment_replacements_v1
+parent_campaign_id: paired_recovery_v1
+campaign_kind: held_out_confirmatory_replacement
+status: preregistered_treatment_delivery_replacement
+allowed_splits:
+- held_out_map_test
+protected_test_used: true
+parallel_execution_admitted_by: PA-2026-09-04-02
+replacement_policy:
+  original_invalid_kind: treatment_delivery_artifact_invalid
+  original_attempt_and_complete_bag_are_retained: true
+  original_scientific_admission: excluded_because_declared_treatment_was_not_delivered
+  replacement_uses_same_map_route_system_condition_seed_and_recovery_policy: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+  execution: sequential_alone_after_all_phases_no_other_simulator_running
+episodes:
+- episode_key: test_01-test_01_r0-localisation-r11-R2-infra-replacement-001
+  replaces_episode_key: test_01-test_01_r0-localisation-r11-R2
+  replaces_run_id: a946814c-4deb-41f4-8095-70f1f5701dfe
+  map: test_01
+  route: test_01_r0
+  system: s0
+  family: localisation_perturbation
+  severity: medium
+  seed: 31001103
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  recovery_policy_id: R2
+  pair_key: test_01-test_01_r0-localisation-r11
+infrastructure_replacements:
+- original_episode_key: test_01-test_01_r0-localisation-r11-R2
+  original_run_id: a946814c-4deb-41f4-8095-70f1f5701dfe
+  original_attempt_number: 507
+  invalid_reason: missing_injection_started_event
+  invalid_detail: faulted episode has no injection_started event; artifact validation
+    failed (outcome not consulted)
+  original_bag_mcap_count: 1
+  replacement_campaign_id: paired_recovery_treatment_replacements_v1
+  replacement_episode_key: test_01-test_01_r0-localisation-r11-R2-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1

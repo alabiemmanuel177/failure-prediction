@@ -1,0 +1,30 @@
+schema_version: 1
+observed_utc: '2026-09-04T23:50:52Z'
+campaign_id: targeted_development_v1
+state: complete
+runner_lock_held: false
+counts:
+  expected_design_keys: 1212
+  attempted_design_keys: 1212
+  successful_parent_artifacts: 1212
+  failed_parent_attempts: 0
+  valid_declared_replacements: 0
+  scientifically_resolved_design_keys: 1212
+  remaining_design_keys: 0
+  unresolved_invalid_attempts: 0
+integrity:
+  duplicate_parent_episode_keys: []
+  unexpected_parent_episode_keys: []
+resolved_replacement_keys: []
+unresolved_invalid_keys: []
+last_ledger_record:
+  artifact_validation_returncode: 0
+  campaign_id: targeted_development_v1
+  episode_key: dev_05-dev_05_r1-wheel-r21
+  episode_returncode: 0
+  finished_utc: '2026-09-03T23:37:53Z'
+  returncode: 0
+  started_utc: '2026-09-03T23:36:14Z'
+free_space_gib: 223.454
+protected_test_used: false
+monitor_policy: observe_only_no_restart_no_retry

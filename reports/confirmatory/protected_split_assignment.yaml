@@ -1,0 +1,103 @@
+schema_version: 1
+kind: protected_split_assignment
+status: assigned_after_model_freeze
+assigned_utc: '2026-09-04T17:23:40Z'
+assigned_by: Claude Fable 5.1 (AI assistant, directed by the researcher)
+protected_test_used: true
+protected_outcomes_consulted: false
+research1_root: /home/eao/risk-calibrated-nav
+model_freeze: /home/eao/failure-prediction/configs/model_freeze.yaml
+model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+alarm_policy_sha256: eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc
+split_manifest: /home/eao/failure-prediction/data/manifests/splits.template.yaml
+split_manifest_sha256_before: 28c047d4668606fba4e9d597959f4afb94f9fb0c341625e35adf36658ab9ef42
+split_manifest_sha256_after: 2b497d238f068b910cdd4e15cfa37f30c6f4f2b04b1d90a4c0867883dac7dcb1
+maps_required: 3
+routes_per_map: 6
+maps:
+- map_id: test_00
+  map_directory: /home/eao/risk-calibrated-nav/data/test/test_00
+  route_manifest: /home/eao/risk-calibrated-nav/configs/routes/test_00.yaml
+  route_manifest_frozen: true
+  map_hash_declared: 524821d38cf87440ac290723d9af80c5aeb545b2f16a379be65bd5ca6c4b66cc
+  episode_timeout_s: 240
+  routes:
+  - test_00_r0
+  - test_00_r1
+  - test_00_r2
+  - test_00_r3
+  - test_00_r4
+  - test_00_r5
+  routes_not_selected: []
+  replacement_routes_substituted: []
+  routes_without_s0_clean_verification: []
+  file_sha256:
+    map.yaml: 185257a7874f76593767d8a19d909a571050b0fc7e6d43783cc7877eb9f65ad3
+    map.pgm: e6a816b60a600aff2ff7174b4cf9da676d11f26cd59be9dd020c43e9600f60a5
+    routes.yaml: 1ca39e3e14b619e6683e8e01b0452e78f841359af9cb87622eeef5bc8e25803b
+- map_id: test_01
+  map_directory: /home/eao/risk-calibrated-nav/data/test/test_01
+  route_manifest: /home/eao/risk-calibrated-nav/configs/routes/test_01.yaml
+  route_manifest_frozen: true
+  map_hash_declared: a8da2d97061b1b129461fc79d25976aee36dde647b95a6af3bfc18f2d1a1f96f
+  episode_timeout_s: 240
+  routes:
+  - test_01_r0
+  - test_01_r1
+  - test_01_r2
+  - test_01_r3_repl1
+  - test_01_r4
+  - test_01_r5
+  routes_not_selected: []
+  replacement_routes_substituted: []
+  routes_without_s0_clean_verification: []
+  file_sha256:
+    map.yaml: 185257a7874f76593767d8a19d909a571050b0fc7e6d43783cc7877eb9f65ad3
+    map.pgm: c33e365de67f92110d69a1c81bd2c8d72f1ce7b48096507f719e498699f7eb59
+    routes.yaml: a5607ab6174bd4ed109019425384e5ce533bd5494880730b9b66dcef02a09b79
+- map_id: test_02
+  map_directory: /home/eao/risk-calibrated-nav/data/test/test_02
+  route_manifest: /home/eao/risk-calibrated-nav/configs/routes/test_02.yaml
+  route_manifest_frozen: true
+  map_hash_declared: d8d02b87dd1232b36d64319773db1ab18efa9d360f5ea5fa76ad74ff33c85add
+  episode_timeout_s: 240
+  routes:
+  - test_02_r0
+  - test_02_r1
+  - test_02_r2
+  - test_02_r3
+  - test_02_r4
+  - test_02_r5
+  routes_not_selected: []
+  replacement_routes_substituted: []
+  routes_without_s0_clean_verification: []
+  file_sha256:
+    map.yaml: 185257a7874f76593767d8a19d909a571050b0fc7e6d43783cc7877eb9f65ad3
+    map.pgm: 0006ea587f5fe76ab3d7826be6f73dea8ccf42b7b96de124f8e1aed2d85658dc
+    routes.yaml: b36c13b192a723fd01eea6edaabc17ea8e75db45f5e3b570101f003e63787860
+held_out_map_test:
+  maps:
+  - test_00
+  - test_01
+  - test_02
+  routes:
+  - test_00_r0
+  - test_00_r1
+  - test_00_r2
+  - test_00_r3
+  - test_00_r4
+  - test_00_r5
+  - test_01_r0
+  - test_01_r1
+  - test_01_r2
+  - test_01_r3_repl1
+  - test_01_r4
+  - test_01_r5
+  - test_02_r0
+  - test_02_r1
+  - test_02_r2
+  - test_02_r3
+  - test_02_r4
+  - test_02_r5
+route_selection_rule: first routes_per_map active routes in route-manifest order;
+  Protocol 1.1 replacement routes substitute their originals; no route is invented

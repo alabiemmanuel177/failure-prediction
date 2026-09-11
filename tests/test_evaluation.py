@@ -43,3 +43,23 @@ def test_event_metrics_credit_only_useful_warning_and_retain_undetected_denomina
     assert metrics["median_useful_lead_seconds_detected"] == 8.0
     assert metrics["false_alert_count"] == 2
     assert metrics["false_alerts_per_non_event_mission"] == 1.0
+
+
+def test_threshold_candidates_are_capped_for_dense_scores():
+    from src.evaluation import select_validation_threshold
+    episodes = {}
+    for episode in range(4):
+        rows = []
+        for index in range(600):
+            score = ((episode * 600 + index) % 997) / 997.0
+            rows.append({
+                "decision_time": 5.0 + 0.5 * index, "risk_score": score,
+                "eligibility": "eligible_negative", "primary_event_time": None,
+            })
+        episodes[f"clean-{episode}"] = rows
+    report = select_validation_threshold(
+        episodes, set(episodes), false_alert_budget=0.1, maximum_candidates=51,
+    )
+    assert report["distinct_validation_scores"] > 51
+    assert report["candidate_threshold_count"] <= 51
+    assert report["false_alerts_per_clean_mission"] <= 0.1

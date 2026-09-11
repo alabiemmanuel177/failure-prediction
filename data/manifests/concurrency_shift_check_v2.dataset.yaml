@@ -1,0 +1,67 @@
+schema_version: 1
+dataset_id: concurrency_shift_check_v2-development-36
+analysis_unit: episode
+status: collection_complete
+protected_test_used: false
+counts:
+  scientific_episodes: 36
+  terminal_events: 10
+  non_events: 26
+  infrastructure_replacements: 0
+event_prevalence: 0.2777777777777778
+duration_seconds:
+  total: 2055.309
+  minimum: 18.312
+  maximum: 180.716
+storage:
+  bag_bytes: 137422359
+  bag_gib: 0.12798454519361258
+distributions:
+  maps:
+    dev_00: 6
+    dev_01: 6
+    dev_02: 6
+    dev_03: 6
+    dev_04: 6
+    dev_05: 6
+  routes:
+    dev_00_r0: 3
+    dev_00_r1: 3
+    dev_01_r0: 3
+    dev_01_r1: 3
+    dev_02_r0: 3
+    dev_02_r1: 3
+    dev_03_r0: 3
+    dev_03_r1: 3
+    dev_04_r0: 3
+    dev_04_r1: 3
+    dev_05_r0: 3
+    dev_05_r1: 3
+  systems:
+    S0: 24
+    S3: 12
+  fault_families:
+    none: 24
+    planner_oscillation: 12
+  terminal_states:
+    false_arrival: 2
+    planner_failure: 7
+    success: 26
+    timeout: 1
+  event_classes:
+    false_arrival: 2
+    mission_timeout: 1
+    navigation_abort: 7
+  recording_profiles:
+    compact_v2: 36
+source_hashes:
+  campaign_manifest_sha256: 4b9bd2f4b7b2569d4283fc31d932d20bdd231fc59f4cfaee23d7644a6028d52e
+  pilot_report_sha256: b80e6b7439a3f76b0bef0f11b389c339d81a975576be59dd8712ba917188cb62
+episode_inventory:
+  path: data/manifests/concurrency_shift_check_v2.episodes.jsonl
+  sha256: 9840773e2bcddd3b1797b9a75572c529a8d5833d446374dd05c16ba0b2585680
+  rows: 36
+label_status:
+  episode_outcomes: recorded_and_artifact_validated
+  causal_window_labels: not_admitted_pending_supervisor_and_second_review
+training_admission: forbidden_until_training_readiness_gate_passes

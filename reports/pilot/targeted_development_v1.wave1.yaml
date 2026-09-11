@@ -1,0 +1,45 @@
+schema_version: 1
+campaign_id: targeted_development_v1
+wave: 1
+recording_profiles:
+  compact_v2: 12
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 12
+  usable: 12
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 4
+  successes: 8
+  collisions: 0
+event_prevalence: 0.3333333333333333
+bag_gib: 0.07369757257401943
+duration_seconds:
+  total: 1243.45
+  median: 104.5165
+by_terminal_state:
+  false_arrival: 2
+  planner_failure: 1
+  success: 8
+  timeout: 1
+by_event_class:
+  false_arrival: 2
+  mission_timeout: 1
+  navigation_abort: 1
+perception_metric_summaries: 0
+episode_keys:
+- dev_00-dev_00_r0-blockage-r10
+- dev_00-dev_00_r1-blockage-r10
+- dev_01-dev_01_r0-blockage-r10
+- dev_01-dev_01_r1-blockage-r10
+- dev_02-dev_02_r0-blockage-r10
+- dev_02-dev_02_r1-blockage-r10
+- dev_03-dev_03_r0-blockage-r10
+- dev_03-dev_03_r1-blockage-r10
+- dev_04-dev_04_r0-blockage-r10
+- dev_04-dev_04_r1-blockage-r10
+- dev_05-dev_05_r0-blockage-r10
+- dev_05-dev_05_r1-blockage-r10
+training_admission: blocked_pending_human_gate

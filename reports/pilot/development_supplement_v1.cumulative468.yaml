@@ -1,0 +1,85 @@
+schema_version: 1
+campaign_id: development_supplement_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 504
+  observed: 468
+  usable: 468
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 85
+  non_events: 383
+event_prevalence: 0.18162393162393162
+duration_seconds:
+  total: 29808.565
+  median: 52.928
+by_terminal_state:
+  false_arrival: 37
+  planner_failure: 41
+  success: 383
+  timeout: 7
+by_attempt_terminal_state:
+  false_arrival: 37
+  invalid: 0
+  planner_failure: 41
+  success: 383
+  timeout: 7
+by_fault_family:
+  camera_occlusion: 60
+  dynamic_blockage: 48
+  lidar_dropout: 60
+  localisation_perturbation: 60
+  none: 120
+  planner_oscillation: 48
+  semantic_corruption: 48
+  wheel_slip: 24
+by_map:
+  dev_00: 78
+  dev_01: 78
+  dev_02: 78
+  dev_03: 78
+  dev_04: 78
+  dev_05: 78
+integrity:
+  missing_episode_keys:
+  - dev_00-dev_00_r0-wheel-r42
+  - dev_00-dev_00_r0-wheel-r43
+  - dev_00-dev_00_r0-wheel-r44
+  - dev_00-dev_00_r1-wheel-r42
+  - dev_00-dev_00_r1-wheel-r43
+  - dev_00-dev_00_r1-wheel-r44
+  - dev_01-dev_01_r0-wheel-r42
+  - dev_01-dev_01_r0-wheel-r43
+  - dev_01-dev_01_r0-wheel-r44
+  - dev_01-dev_01_r1-wheel-r42
+  - dev_01-dev_01_r1-wheel-r43
+  - dev_01-dev_01_r1-wheel-r44
+  - dev_02-dev_02_r0-wheel-r42
+  - dev_02-dev_02_r0-wheel-r43
+  - dev_02-dev_02_r0-wheel-r44
+  - dev_02-dev_02_r1-wheel-r42
+  - dev_02-dev_02_r1-wheel-r43
+  - dev_02-dev_02_r1-wheel-r44
+  - dev_03-dev_03_r0-wheel-r42
+  - dev_03-dev_03_r0-wheel-r43
+  - dev_03-dev_03_r0-wheel-r44
+  - dev_03-dev_03_r1-wheel-r42
+  - dev_03-dev_03_r1-wheel-r43
+  - dev_03-dev_03_r1-wheel-r44
+  - dev_04-dev_04_r0-wheel-r42
+  - dev_04-dev_04_r0-wheel-r43
+  - dev_04-dev_04_r0-wheel-r44
+  - dev_04-dev_04_r1-wheel-r42
+  - dev_04-dev_04_r1-wheel-r43
+  - dev_04-dev_04_r1-wheel-r44
+  - dev_05-dev_05_r0-wheel-r42
+  - dev_05-dev_05_r0-wheel-r43
+  - dev_05-dev_05_r0-wheel-r44
+  - dev_05-dev_05_r1-wheel-r42
+  - dev_05-dev_05_r1-wheel-r43
+  - dev_05-dev_05_r1-wheel-r44
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

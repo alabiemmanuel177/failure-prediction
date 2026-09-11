@@ -1,0 +1,42 @@
+schema_version: 1
+protocol_version: "1.0"
+frozen: false
+protected_outcomes_consulted: false
+frozen_utc: TODO_AFTER_VALIDATION_SELECTION
+frozen_by: TODO_RESEARCHER
+
+dataset:
+  manifest: TODO_DATASET_MANIFEST
+  manifest_sha256: TODO_SHA256
+  split_manifest_sha256: TODO_SHA256
+  feature_schema_sha256: TODO_SHA256
+  leakage_denylist_sha256: TODO_SHA256
+
+predictor:
+  model_id: TODO_PRIMARY_MODEL_ID
+  checkpoint: TODO_CHECKPOINT_PATH
+  checkpoint_sha256: TODO_SHA256
+  normalization_bundle_sha256: TODO_SHA256
+  training_config_sha256: TODO_SHA256
+
+calibration:
+  calibration_id: TODO_CALIBRATION_ID
+  artifact: TODO_CALIBRATION_ARTIFACT
+  artifact_sha256: TODO_SHA256
+
+alarm_policy:
+  config: configs/alarm_policy.yaml
+  config_sha256: TODO_SHA256
+  validation_false_alarm_budget: 0.10
+
+analysis:
+  analysis_plan: RESEARCH PROTOCOL - AUTONOMOUS ROBOT RELIABILITY.md
+  analysis_plan_sha256: TODO_SHA256
+  evaluation_code_commit: TODO_GIT_COMMIT
+  immutable_validation_predictions_sha256: TODO_SHA256
+
+declaration:
+  model_selection_complete: false
+  calibration_selection_complete: false
+  threshold_selection_complete: false
+  protected_maps_or_outcomes_inspected: false

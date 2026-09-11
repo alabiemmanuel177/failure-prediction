@@ -1,0 +1,28 @@
+schema_version: 1
+campaign_id: held_out_map_v1
+analysis_unit: episode
+kind: protected_confirmatory_completion_record
+protected_test_used: true
+protected_outcomes_consulted: false
+outcome_fields_omitted_by_design: true
+complete_and_artifact_valid: true
+counts:
+  expected: 1008
+  observed: 1008
+  usable: 1008
+  infrastructure_invalid_attempts: 14
+  infrastructure_replacements: 14
+episodes_by_map:
+  test_00: 336
+  test_01: 336
+  test_02: 336
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []
+campaign_manifest_sha256: 9e975af9ec781c5b469e8934a6d6bae4e5b4bdfd349ffbdac5b84cdd85db645d
+replacement_manifests:
+- data/manifests/held_out_map_replacements_v1.yaml
+- data/manifests/held_out_map_treatment_replacements_v1.yaml
+generated_utc: '2026-09-05T22:37:56.397777+00:00'

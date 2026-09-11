@@ -1,8 +1,8 @@
 family: wheel_slip
-status: candidate
+status: frozen
+integrity_evidence: reports/integrity/fault_integrity_gate_v1.yaml
 mechanism: deterministic odometry progress attenuation relative to commanded motion
 severities:
   low: {odometry_progress_scale: 0.90, yaw_bias_rate_rad_s: 0.01}
   medium: {odometry_progress_scale: 0.70, yaw_bias_rate_rad_s: 0.04}
   high: {odometry_progress_scale: 0.40, yaw_bias_rate_rad_s: 0.10}
-

@@ -1,0 +1,93 @@
+schema_version: 1
+campaign_id: balanced_validation_v1
+status: preregistered_ready_for_staged_extraction
+purpose: independent validation episodes for later model selection, calibration, alarm-policy selection, and recovery-cost tuning
+allowed_splits: [validation]
+protected_test_used: false
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  require_extraction_readiness_gate: true
+  stop_on_first_invalid: true
+  concurrency: 1
+  maximum_episodes_per_invocation: 18
+  minimum_free_space_gib_before_episode: 100
+  wave_design: each_wave_contains_all_nine_conditions_twice_across_two_map_route_pairs
+
+episode_defaults:
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+
+infrastructure_replacements:
+  - original_episode_key: val_02-val_02_r0-localisation-r1
+    original_run_id: 3db38360-e80f-4d6c-9c5c-97dff95a362a
+    original_attempt_number: 84
+    invalid_reason: missing_injection_started_event
+    original_bag_mcap_count: 1
+    replacement_campaign_id: balanced_validation_replacements_v1
+    replacement_episode_key: val_02-val_02_r0-localisation-r1-infra-replacement-001
+    replacement_profile: compact_v2
+    retain_original_attempt: true
+    scientific_episode_count_contribution: 1
+  - original_episode_key: val_02-val_02_r1-clean_s0-r4
+    original_run_id: f3d12519-e0a7-4467-bdd8-06b79b6916b0
+    original_attempt_number: 258
+    invalid_reason: ros_middleware_initialization_failure
+    original_bag_mcap_count: 0
+    replacement_campaign_id: balanced_validation_startup_replacements_v1
+    replacement_episode_key: val_02-val_02_r1-clean_s0-r4-infra-replacement-001
+    replacement_profile: compact_v2
+    retain_original_attempt: true
+    scientific_episode_count_contribution: 1
+  - original_episode_key: val_01-val_01_r0-clean_s0-r4
+    original_run_id: 28de195f-7fbc-43f4-8677-e8d2d5923940
+    original_attempt_number: 257
+    invalid_reason: summary_and_bag_payload_loss_after_validation
+    original_bag_mcap_count: 1
+    replacement_campaign_id: balanced_validation_artifact_loss_replacements_v1
+    replacement_episode_key: val_01-val_01_r0-clean_s0-r4-infra-replacement-001
+    replacement_profile: compact_v2
+    retain_original_attempt: true
+    scientific_episode_count_contribution: 1
+  - original_episode_key: val_01-val_01_r1-oscillation-r5
+    original_run_id: 0f44f8bc-2e88-4d56-90fb-f8901866aee1
+    original_attempt_number: 284
+    invalid_reason: teardown_worker_isolation_failure_before_summary_publication
+    original_bag_mcap_count: 1
+    replacement_campaign_id: balanced_validation_teardown_replacements_v1
+    replacement_episode_key: val_01-val_01_r1-oscillation-r5-infra-replacement-001
+    replacement_profile: compact_v2
+    retain_original_attempt: true
+    scientific_episode_count_contribution: 1
+
+design:
+  seed_base: 900000
+  map_routes:
+    val_00: [val_00_r0, val_00_r1]
+    val_01: [val_01_r0, val_01_r1]
+    val_02: [val_02_r0, val_02_r1]
+  replicates: [0, 1, 2, 3, 4, 5]
+  conditions:
+    - {id: clean_s0, family: none, severity: none, system: s0}
+    - {id: clean_s3, family: none, severity: none, system: s3}
+    - {id: camera, family: camera_occlusion, severity: medium, system: s3}
+    - {id: lidar, family: lidar_dropout, severity: medium, system: s0}
+    - {id: wheel, family: wheel_slip, severity: medium, system: s0}
+    - {id: localisation, family: localisation_perturbation, severity: medium, system: s0}
+    - {id: blockage, family: dynamic_blockage, severity: medium, system: s0}
+    - {id: oscillation, family: planner_oscillation, severity: medium, system: s0}
+    - {id: semantic, family: semantic_corruption, severity: medium, system: s3}
+  environment_placement:
+    placement_mode: path_fraction
+    route_fraction: 0.55
+
+expected_episode_count: 324
+expected_per_condition: 36
+admission:
+  raw_collection_before_human_gate: permitted_under_approved_dependency_boundary
+  model_selection_or_calibration_use: only_after_training_readiness_gate_passes
+  protected_outcomes_consulted: false

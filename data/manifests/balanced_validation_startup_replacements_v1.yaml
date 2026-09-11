@@ -1,0 +1,30 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: balanced_validation_startup_replacements_v1
+parent_campaign_id: balanced_validation_v1
+status: preregistered_pre_goal_startup_replacement
+allowed_splits: [validation]
+protected_test_used: false
+replacement_policy:
+  original_invalid_kind: pre_goal_unmaterialized_attempt
+  original_attempt_and_logs_are_retained: true
+  original_scientific_admission: excluded_because_ros_middleware_failed_before_episode_materialization
+  replacement_uses_same_map_route_system_condition_and_seed: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+episodes:
+  - episode_key: val_02-val_02_r1-clean_s0-r4-infra-replacement-001
+    replaces_episode_key: val_02-val_02_r1-clean_s0-r4
+    replaces_run_id: f3d12519-e0a7-4467-bdd8-06b79b6916b0
+    map: val_02
+    route: val_02_r1
+    system: s0
+    family: none
+    severity: none
+    seed: 921400
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 8.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+    recording_profile: compact_v2

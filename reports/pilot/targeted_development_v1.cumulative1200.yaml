@@ -1,0 +1,59 @@
+schema_version: 1
+campaign_id: targeted_development_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 1212
+  observed: 1200
+  usable: 1200
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 135
+  non_events: 1065
+event_prevalence: 0.1125
+duration_seconds:
+  total: 70689.66
+  median: 52.156
+by_terminal_state:
+  false_arrival: 120
+  planner_failure: 14
+  success: 1065
+  timeout: 1
+by_attempt_terminal_state:
+  false_arrival: 120
+  invalid: 0
+  planner_failure: 14
+  success: 1065
+  timeout: 1
+by_fault_family:
+  camera_occlusion: 168
+  dynamic_blockage: 12
+  lidar_dropout: 240
+  localisation_perturbation: 360
+  semantic_corruption: 288
+  wheel_slip: 132
+by_map:
+  dev_00: 200
+  dev_01: 200
+  dev_02: 200
+  dev_03: 200
+  dev_04: 200
+  dev_05: 200
+integrity:
+  missing_episode_keys:
+  - dev_00-dev_00_r0-wheel-r21
+  - dev_00-dev_00_r1-wheel-r21
+  - dev_01-dev_01_r0-wheel-r21
+  - dev_01-dev_01_r1-wheel-r21
+  - dev_02-dev_02_r0-wheel-r21
+  - dev_02-dev_02_r1-wheel-r21
+  - dev_03-dev_03_r0-wheel-r21
+  - dev_03-dev_03_r1-wheel-r21
+  - dev_04-dev_04_r0-wheel-r21
+  - dev_04-dev_04_r1-wheel-r21
+  - dev_05-dev_05_r0-wheel-r21
+  - dev_05-dev_05_r1-wheel-r21
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

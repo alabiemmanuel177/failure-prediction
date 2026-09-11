@@ -1,0 +1,44 @@
+schema_version: 1
+status: primary_review_passed_under_protocol_1_1
+selection_manifest: data/manifests/live_integrity_v3.yaml
+selection_count: 20
+selection_timing: primary and reserve keys fixed before terminal outcomes were reviewed
+automatic_annotations: data/annotations/*.yaml
+reviewed_annotations: data/annotations/reviewed/<run_id>.yaml
+automatic_labels: data/audit/automatic_labels/<run_id>.csv
+causal_features: data/audit/causal_features/<run_id>.csv
+operational_event_evidence: reports/manual-audit/operational-events/<run_id>.yaml
+operational_event_integrity_report: reports/integrity/operational_event_audit_v1.yaml
+training_admission: permitted_after_primary_manual_audit_gate_passes
+episode_outcomes:
+  success: 18
+  false_arrival: 1
+  planner_failure: 1
+window_coverage:
+  total_decisions: 1578
+  eligible_negative: 1065
+  eligible_positive: 36
+  excluded_too_late: 4
+  excluded_near_event_or_injection: 473
+  excluded_post_event: 0
+fixture_coverage:
+  post_event: tests/test_labels.py
+  insufficient_history: tests/test_labels.py
+  causal_boundary_rules: tests/test_event_rule_boundaries.py
+gate_command: python3 scripts/check_manual_audit_gate.py
+current_gate_result: primary reviewer 20/20 complete with exact causal agreement;
+  independent second review 0/20 and no inter-rater agreement claimed
+automatic_temporal_event_check:
+  episodes_checked: 20
+  primary_candidate_agreement: 20
+  earlier_localisation_loss_candidates: 0
+  earlier_immobilisation_candidates: 0
+  admission_effect: none; researcher review supplies the human admission evidence
+required_human_actions:
+  - first reviewer inspection complete for 20/20 without model outputs
+  - reviewed copies retain automatic baselines unchanged
+optional_quality_actions:
+  - a distinct second reviewer may check causal fields and evidence before publication
+  - any later disagreements are adjudicated and recorded
+protocol_amendment: configs/protocol_amendment_1.1.yaml
+reporting_constraint: do not claim inter-rater reliability

@@ -1,0 +1,139 @@
+schema_version: 1
+model_id: p1_threshold_rules
+selection_split: validation
+protected_test_used: false
+tuned_utc: '2026-09-06T11:11:20.580661+00:00'
+objective: maximum_validation_event_recall_subject_to_false_alert_budget
+false_alert_budget_per_clean_mission: 0.1
+alarm_policy:
+  required_above: 2
+  decisions_considered: 3
+  cooldown_seconds: 10.0
+  score_threshold: 0.5
+candidate_source: development_feature_quantiles
+candidate_thresholds:
+  covariance_high:
+  - -0.9913419261574745
+  - 0.040336
+  - 0.047273
+  - 0.051166
+  - 0.05612
+  - 0.071383
+  - 0.084729
+  - 0.09661
+  - 0.107843
+  - 0.118894
+  - 0.129844
+  - 0.140413
+  - 0.15016
+  - 0.159129
+  - 0.167608
+  - 0.17616
+  - 0.184642
+  - 0.193116
+  - 0.202283
+  - 0.212458
+  - 0.223294
+  - 0.235589
+  - 0.249572
+  - 0.264111
+  - 0.278703
+  - 0.294439
+  - 0.312137
+  - 0.335013
+  - 0.401512
+  - 0.45367
+  - 0.496225
+  - 0.580835
+  - 2.0861894376575947
+  progress_low_while_commanded:
+  - -0.6585816442966461
+  - -0.087825
+  - -0.047401
+  - -0.024015
+  - -0.012938
+  - -0.000393
+  - 0.0
+  - 0.004014
+  - 0.010382
+  - 0.01714
+  - 0.024873
+  - 0.033218
+  - 0.040986
+  - 0.048817
+  - 0.057487
+  - 0.06737
+  - 0.077754
+  - 0.086756
+  - 0.094951
+  - 0.103059
+  - 0.111089
+  - 0.119257
+  - 0.12865
+  - 0.139208
+  - 0.14777
+  - 0.15589
+  - 0.164307
+  - 0.174507
+  - 0.179815
+  - 0.186044
+  - 0.204955
+  - 0.7656587362289429
+  scan_dropout_high:
+  - 0.2999999523162842
+  - 0.65
+  - 1.0
+  - 1.350000023841858
+  oscillation_high:
+  - -5.0
+  - 0.0
+  - 1.0
+  - 2.0
+  - 3.0
+  - 10.0
+selected_thresholds:
+  covariance_high: 2.0861894376575947
+  progress_low_while_commanded: -0.024015
+  scan_dropout_high: 0.2999999523162842
+  oscillation_high: 10.0
+validation_metrics:
+  event_recall: 0.017543859649122806
+  false_alerts_per_clean_mission: 0.027777777777777776
+  false_alerts_per_mission: 0.0763888888888889
+  median_useful_lead_seconds_detected: 8.228000000000009
+  detected_event_count: 1
+  event_count: 57
+development_metrics_informational:
+  event_recall: 0.02570694087403599
+  false_alerts_per_clean_mission: 0.021059349074664963
+  false_alerts_per_mission: 0.04703476482617587
+  median_useful_lead_seconds_detected: 4.878499999999997
+  detected_event_count: 10
+  event_count: 389
+search_trace:
+- sweep: 0
+  rule: progress_low_while_commanded
+  threshold: -0.024015
+  event_recall: 0.017543859649122806
+  false_alerts_per_clean_mission: 0.027777777777777776
+  false_alerts_per_mission: 0.0763888888888889
+  median_useful_lead_seconds_detected: 8.228000000000009
+  detected_event_count: 1
+  event_count: 57
+development_datasets:
+- balanced_pilot_v1-development-648
+- targeted_development_v1-development-1212
+- development_supplement_v1-development-504
+validation_dataset: balanced_validation_v1-validation-324
+excluded_family: semantic_corruption
+excluded_episode_counts:
+  development: 408
+  validation: 36
+development_episode_count: 1956
+validation_episode_count: 288
+validation_predictions: reports/unseen_family/semantic_corruption/validation_p1.csv
+validation_predictions_sha256: 9ae6d1fd52e3876f89d1e87192da7d791068c22b439ac6a5cfc01db0e2b3865e
+rules_output: reports/unseen_family/semantic_corruption/rules_p1.yaml
+note: 'leave-one-family-out fold: semantic_corruption episodes were removed from the
+  development quantile grid and the validation tuning set; thresholds are frozen before
+  any protected evaluation of that family.'

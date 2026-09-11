@@ -26,6 +26,7 @@ setup(
             "environment_fault = failure_experiment.environment_fault:main",
             "event_marker = failure_experiment.event_marker:main",
             "topic_health = failure_experiment.topic_health:main",
+            "semantic_summary = failure_experiment.semantic_summary:main",
         ]
     },
 )

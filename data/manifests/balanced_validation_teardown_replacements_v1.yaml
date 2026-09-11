@@ -1,0 +1,33 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: balanced_validation_teardown_replacements_v1
+parent_campaign_id: balanced_validation_v1
+status: preregistered_teardown_isolation_replacement
+allowed_splits: [validation]
+protected_test_used: false
+replacement_policy:
+  original_invalid_kind: teardown_before_summary_publication
+  original_attempt_bag_and_logs_are_retained: true
+  original_scientific_admission: excluded_because_required_summary_was_not_published
+  replacement_uses_same_map_route_system_condition_and_seed: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+  root_cause_control: per_episode_rcn_worker_id_is_mandatory
+episodes:
+  - episode_key: val_01-val_01_r1-oscillation-r5-infra-replacement-001
+    replaces_episode_key: val_01-val_01_r1-oscillation-r5
+    replaces_run_id: 0f44f8bc-2e88-4d56-90fb-f8901866aee1
+    map: val_01
+    route: val_01_r1
+    system: s0
+    family: planner_oscillation
+    severity: medium
+    seed: 911507
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 8.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+    recording_profile: compact_v2
+    placement_mode: path_fraction
+    route_fraction: 0.55

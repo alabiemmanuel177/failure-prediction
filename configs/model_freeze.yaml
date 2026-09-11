@@ -1,0 +1,49 @@
+schema_version: 1
+protocol_version: '1.0'
+frozen: true
+protected_outcomes_consulted: false
+frozen_utc: '2026-09-04T17:22:20.038206+00:00'
+frozen_by: Emmanuel Alabi Olasubomi
+dataset:
+  manifest:
+  - data/manifests/balanced_pilot_v1.dataset.yaml
+  - data/manifests/targeted_development_v1.dataset.yaml
+  - data/manifests/development_supplement_v1.dataset.yaml
+  manifest_sha256:
+  - 93c8c031f593718a4da35856b69e8368d08e87e877af42ac9274316cad4f244b
+  - 1151cf0d5739a35ad8839798b9ead99a670fada64a00eb644e1e77d9e47a3651
+  - 60e7411938e04c661e6dba1cf2bf830748c78b681ac00d58f351e8a042442c55
+  split_manifest_sha256: 28c047d4668606fba4e9d597959f4afb94f9fb0c341625e35adf36658ab9ef42
+  feature_schema_sha256: 5dd95b520fe1d0d5562a5b98d91da8b5ed4d180ebff3b0e230caa63f2dd261d4
+  leakage_denylist_sha256: a70d742ee566a082d20d5ba90d04e71a36aeb2b8181d03a82c16053de57e77b0
+predictor:
+  model_id: p3_causal_tcn
+  checkpoint: models/final_v1_seed20260904/p3_causal_tcn__seed20260904/checkpoint.pt
+  checkpoint_sha256: 171451f0fa21036a05a5b9eb2181568976e65131fa30f74ad3d0c88f6fea57a6
+  normalization_bundle_sha256: d716700cf40feb0527ece1e7b5f5edca21ac819a1de686d31bad249e58aaa084
+  training_config_sha256: e8de871172a425978419fe2b1a7f1447b896c5bedcfc6ff388a34167c395bebf
+calibration:
+  calibration_id: p3_causal_tcn:platt_scaling:6810746b3671
+  artifact: reports/calibration/final_v1_seed20260904/p3_causal_tcn.calibrator.json
+  artifact_sha256: 6810746b3671ce30ac75c904c762d323fad8818f97d1ea6ce0d17e8ebb90b1d8
+alarm_policy:
+  config: configs/alarm_policy.yaml
+  config_sha256: eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc
+  validation_false_alarm_budget: 0.1
+  threshold: 0.23509196030026114
+  threshold_record: reports/thresholds/final_v1_seed20260904/p3_causal_tcn.yaml
+  threshold_record_sha256: c04d082fa52df69e3ae72a90ea32bd3fb3f290e3895d2ecf3e673f1b6c9a2480
+analysis:
+  analysis_plan: RESEARCH PROTOCOL - AUTONOMOUS ROBOT RELIABILITY.md
+  analysis_plan_sha256: 34afe525003667f81cdffc4bc5d0392ce96ac48a26896404042f031a5389e38b
+  evaluation_code_commit: 1900fd17f3e46747ec2e23686c5061e827c9667c
+  evaluation_code_tree_dirty: true
+  immutable_validation_predictions: reports/predictions/final_v1_seed20260904/p3_causal_tcn.validation.calibrated.csv
+  immutable_validation_predictions_sha256: 4b807df50f862306a0b564c91859e3e3e1aeb251c186e42f9e326934c3ee32ef
+  calibration_report: reports/calibration/final_v1_seed20260904/p3_causal_tcn.yaml
+  calibration_report_sha256: 7b79440e5ca22a88b4a0b5b9cdfdbd21fa65dd2fa2ec4510f4fa9a4f8333d4cc
+declaration:
+  model_selection_complete: true
+  calibration_selection_complete: true
+  threshold_selection_complete: true
+  protected_maps_or_outcomes_inspected: false

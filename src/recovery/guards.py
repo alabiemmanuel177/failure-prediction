@@ -34,6 +34,7 @@ class RobotState:
     rotation_clearance_m: float | None
     immediate_collision_risk: bool
     obstruction_may_be_transient: bool
+    relocalisation_available: bool = False
     repeated_recovery_count: int = 0
 
 
@@ -51,8 +52,8 @@ def eligible_actions(state: RobotState, config: GuardConfig) -> dict[str, tuple[
     results = {
         "controlled_stop": (state.stop_allowed, "stop disallowed by frozen safety rule"),
         "relocalise": (
-            state.stopped and state.localisation_poor,
-            "requires stopped robot and poor localisation health",
+            state.stopped and state.localisation_poor and state.relocalisation_available,
+            "requires stopped robot, poor localisation health, and an available procedure",
         ),
         "replan_clear_costmaps": (
             not state.immediate_collision_risk and state.planning_stale_or_blocked,
@@ -75,4 +76,3 @@ def eligible_actions(state: RobotState, config: GuardConfig) -> dict[str, tuple[
         "request_assistance": (True, "always eligible"),
     }
     return results
-

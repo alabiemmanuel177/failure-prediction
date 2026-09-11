@@ -1,0 +1,44 @@
+schema_version: 1
+campaign_id: balanced_validation_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: true
+counts:
+  expected: 324
+  observed: 324
+  usable: 324
+  infrastructure_invalid_attempts: 4
+  infrastructure_replacements: 4
+  terminal_events: 60
+  non_events: 264
+event_prevalence: 0.18518518518518517
+duration_seconds:
+  total: 24403.332
+  median: 72.6825
+by_terminal_state:
+  false_arrival: 52
+  planner_failure: 8
+  success: 264
+by_attempt_terminal_state:
+  false_arrival: 52
+  invalid: 3
+  planner_failure: 8
+  success: 261
+by_fault_family:
+  camera_occlusion: 36
+  dynamic_blockage: 36
+  lidar_dropout: 36
+  localisation_perturbation: 36
+  none: 72
+  planner_oscillation: 36
+  semantic_corruption: 36
+  wheel_slip: 36
+by_map:
+  val_00: 108
+  val_01: 108
+  val_02: 108
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

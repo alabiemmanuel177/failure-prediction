@@ -1,0 +1,36 @@
+schema_version: 1
+passed: true
+scope: research2_preprotected_raw_artifact_file_metadata
+protected_outcomes_consulted: false
+counts:
+  summary_paths: 2816
+  mcap_paths: 2816
+  bag_metadata_paths: 2814
+  zero_length_paths: 4
+  zero_length_runs: 2
+  declared_payload_loss_runs: 2
+  unexpected_zero_length_runs: 0
+declared_payload_loss:
+  28de195f-7fbc-43f4-8677-e8d2d5923940:
+    manifest: data/manifests/balanced_validation_v1.yaml
+    episode_key: val_01-val_01_r0-clean_s0-r4
+    invalid_reason: summary_and_bag_payload_loss_after_validation
+    replacement_campaign_id: balanced_validation_artifact_loss_replacements_v1
+    replacement_episode_key: val_01-val_01_r0-clean_s0-r4-infra-replacement-001
+  b3d1a568-cce2-4f7d-b2d9-f41b30ca8e74:
+    manifest: data/manifests/targeted_development_interruption_v1.yaml
+    episode_key: dev_03-dev_03_r0-semantic-r25
+    invalid_reason: pre_goal_process_termination
+    replacement_campaign_id: targeted_development_v1
+    replacement_episode_key: dev_03-dev_03_r0-semantic-r25
+declared_evidence:
+  28de195f-7fbc-43f4-8677-e8d2d5923940:
+  - mcap
+  - metadata
+  - summary
+  b3d1a568-cce2-4f7d-b2d9-f41b30ca8e74:
+  - mcap
+  - no_metadata_file
+  - no_summary_file
+unexpected_zero_length_runs: []
+incomplete_declared_evidence: []

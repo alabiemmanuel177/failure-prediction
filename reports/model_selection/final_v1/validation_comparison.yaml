@@ -1,0 +1,1398 @@
+schema_version: 1
+protocol_version: '1.0'
+generated_utc: '2026-09-04T14:27:03.580466+00:00'
+scope: validation_only
+confirmatory: false
+note: Validation-only model selection. Thresholds are re-selected per model under
+  the preregistered budget; nothing here is a held-out-map or confirmatory result.
+protected_test_used: false
+alarm_policy: /home/eao/failure-prediction/configs/alarm_policy.yaml
+alarm_policy_sha256: 8ac8e25f6e00a2aef01f4f06d7adf704b051ce55a73fe4645be93dad06bd7457
+bootstrap:
+  hierarchy:
+  - map
+  - route
+  - episode
+  replicates: 1000
+  paired_replicates: 2000
+  seed: 20260903
+episode_overlap:
+  shared_episode_count: 324
+  identical_episode_sets: true
+models:
+  p1_threshold_rules:
+    threshold_selection:
+      selection_split: validation
+      threshold: 1.0
+      false_alert_budget_per_clean_mission: 0.1
+      persistence: 2-of-3
+      cooldown_seconds: 10.0
+      candidate_threshold_count: 2
+      feasible_threshold_count: 1
+    episode_count: 324
+    clean_mission_count: 72
+    event_count: 62
+    detected_event_count: 1
+    undetected_event_count: 61
+    event_recall: 0.016129032258064516
+    false_alert_count: 30
+    false_alerts_per_clean_mission: 0.06944444444444445
+    false_alerts_per_non_event_mission: 0.11450381679389313
+    false_alerts_per_mission: 0.09259259259259259
+    lead_time:
+      event_count: 62
+      detected_event_count: 1
+      undetected_event_count: 61
+      median_seconds_detected: 8.228000000000009
+      q1_seconds_detected: 8.228000000000009
+      q3_seconds_detected: 8.228000000000009
+      min_seconds_detected: 8.228000000000009
+      max_seconds_detected: 8.228000000000009
+      fraction_of_all_events_warned_at_least:
+        1s: 0.016129032258064516
+        2s: 0.016129032258064516
+        3s: 0.016129032258064516
+        5s: 0.016129032258064516
+        10s: 0.0
+    discrimination:
+      auprc: 0.03389264812663003
+      auroc: 0.4979059297611201
+      eligible_positive_count: 1098
+      eligible_negative_count: 31229
+      unit: eligible_decision_window
+      role: supporting_metric_only
+      auprc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.03389264812663003
+        confidence: 0.95
+        confidence_interval:
+        - 0.0026509083332473937
+        - 0.08962506889615221
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+      auroc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.4979059297611201
+        confidence: 0.95
+        confidence_interval:
+        - 0.48467752656038965
+        - 0.5028568689970385
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+    calibration:
+      brier_score: 0.04225569957001887
+      ece: 0.04225569957001887
+      eligible_decision_count: 32327
+      bin_count: 10
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 50
+        alerts_per_mission: 0.15432098765432098
+        repeated_alerts_per_mission: 0.015432098765432098
+        time_under_alert_seconds_per_mission: 0.5354938271604939
+        fraction_of_decisions_under_alert: 0.007672577720780082
+      clean:
+        mission_count: 72
+        total_alerts: 5
+        alerts_per_mission: 0.06944444444444445
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.13194444444444445
+        fraction_of_decisions_under_alert: 0.0023439427584505306
+      faulted:
+        mission_count: 252
+        total_alerts: 45
+        alerts_per_mission: 0.17857142857142858
+        repeated_alerts_per_mission: 0.01984126984126984
+        time_under_alert_seconds_per_mission: 0.6507936507936508
+        fraction_of_decisions_under_alert: 0.008836206896551724
+    by_family:
+      camera_occlusion:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      dynamic_blockage:
+        episode_count: 36
+        event_count: 10
+        detected_event_count: 1
+        event_recall: 0.1
+        false_alerts_per_mission: 0.08333333333333333
+        median_useful_lead_seconds_detected: 8.228000000000009
+      lidar_dropout:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.027777777777777776
+        median_useful_lead_seconds_detected: null
+      localisation_perturbation:
+        episode_count: 36
+        event_count: 8
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.06944444444444445
+        median_useful_lead_seconds_detected: null
+      planner_oscillation:
+        episode_count: 36
+        event_count: 11
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.5555555555555556
+        median_useful_lead_seconds_detected: null
+      semantic_corruption:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.027777777777777776
+        median_useful_lead_seconds_detected: null
+      wheel_slip:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+    by_map:
+      val_00:
+        episode_count: 108
+        event_count: 50
+        detected_event_count: 1
+        event_recall: 0.02
+        false_alerts_per_mission: 0.09259259259259259
+        median_useful_lead_seconds_detected: 8.228000000000009
+      val_01:
+        episode_count: 108
+        event_count: 4
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.12962962962962962
+        median_useful_lead_seconds_detected: null
+      val_02:
+        episode_count: 108
+        event_count: 8
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.05555555555555555
+        median_useful_lead_seconds_detected: null
+    by_severity:
+      medium:
+        episode_count: 252
+        event_count: 51
+        detected_event_count: 1
+        event_recall: 0.0196078431372549
+        false_alerts_per_mission: 0.0992063492063492
+        median_useful_lead_seconds_detected: 8.228000000000009
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.06944444444444445
+        median_useful_lead_seconds_detected: null
+    prediction_table: /home/eao/failure-prediction/reports/predictions/final_v1/p1_threshold_rules.validation.csv
+    prediction_table_sha256: 1219544ce1d00450853cf74bf8666aba2fa71cfb4bd29c946bb4f629d8f35297
+    calibrated_input: false
+    latency: null
+  p2_reconstruction_ae:
+    threshold_selection:
+      selection_split: validation
+      threshold: 1.0
+      false_alert_budget_per_clean_mission: 0.1
+      persistence: 2-of-3
+      cooldown_seconds: 10.0
+      candidate_threshold_count: 7
+      feasible_threshold_count: 1
+    episode_count: 324
+    clean_mission_count: 72
+    event_count: 62
+    detected_event_count: 0
+    undetected_event_count: 62
+    event_recall: 0.0
+    false_alert_count: 0
+    false_alerts_per_clean_mission: 0.0
+    false_alerts_per_non_event_mission: 0.0
+    false_alerts_per_mission: 0.0
+    lead_time:
+      event_count: 62
+      detected_event_count: 0
+      undetected_event_count: 62
+      median_seconds_detected: null
+      q1_seconds_detected: null
+      q3_seconds_detected: null
+      min_seconds_detected: null
+      max_seconds_detected: null
+      fraction_of_all_events_warned_at_least:
+        1s: 0.0
+        2s: 0.0
+        3s: 0.0
+        5s: 0.0
+        10s: 0.0
+    discrimination:
+      auprc: 0.03876222750266158
+      auroc: 0.5383748151982176
+      eligible_positive_count: 1098
+      eligible_negative_count: 31229
+      unit: eligible_decision_window
+      role: supporting_metric_only
+      auprc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.03876222750266158
+        confidence: 0.95
+        confidence_interval:
+        - 0.004297373850752684
+        - 0.13214906390757786
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+      auroc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.5383748151982176
+        confidence: 0.95
+        confidence_interval:
+        - 0.4751025231301209
+        - 0.8684410678309606
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+    calibration:
+      brier_score: 0.03271673338130416
+      ece: 1.457167719820518e-16
+      eligible_decision_count: 32327
+      bin_count: 10
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 0
+        alerts_per_mission: 0.0
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.0
+        fraction_of_decisions_under_alert: 0.0
+      clean:
+        mission_count: 72
+        total_alerts: 0
+        alerts_per_mission: 0.0
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.0
+        fraction_of_decisions_under_alert: 0.0
+      faulted:
+        mission_count: 252
+        total_alerts: 0
+        alerts_per_mission: 0.0
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.0
+        fraction_of_decisions_under_alert: 0.0
+    by_family:
+      camera_occlusion:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      dynamic_blockage:
+        episode_count: 36
+        event_count: 10
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      lidar_dropout:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      localisation_perturbation:
+        episode_count: 36
+        event_count: 8
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      planner_oscillation:
+        episode_count: 36
+        event_count: 11
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      semantic_corruption:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      wheel_slip:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+    by_map:
+      val_00:
+        episode_count: 108
+        event_count: 50
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      val_01:
+        episode_count: 108
+        event_count: 4
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      val_02:
+        episode_count: 108
+        event_count: 8
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+    by_severity:
+      medium:
+        episode_count: 252
+        event_count: 51
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+    prediction_table: /home/eao/failure-prediction/reports/predictions/final_v1/p2_reconstruction_ae.validation.calibrated.csv
+    prediction_table_sha256: 61f0c5c98f76d5ac2c1c88d63dca60b50fb550d314caa2cbe86a5e7b02ef051d
+    calibrated_input: true
+    latency:
+      source: /home/eao/failure-prediction/reports/latency/final_v1/p2_reconstruction_ae.json
+      source_sha256: 05e3a70f305ee1f27fd99fbda25100c98728bbf64169377992bfd11135595527
+      alarm_policy:
+        count: 480
+        max_ms: 0.009951
+        mean_ms: 0.00558206875
+        median_ms: 0.00551
+        p95_ms: 0.00594145
+      batch_size: 1
+      checkpoint_sha256: 2c0557e6fafb0577697331196579827a7558b9cc4078be93fc6ed34fcb38c236
+      cpu: x86_64
+      created_utc: '2026-09-04T13:58:54.524449+00:00'
+      device: cpu
+      end_to_end:
+        count: 480
+        max_ms: 0.223886
+        mean_ms: 0.21468246875
+        median_ms: 0.21419549999999998
+        p95_ms: 0.218618
+      feature_preparation:
+        count: 480
+        max_ms: 0.136254
+        mean_ms: 0.13139875208333332
+        median_ms: 0.131133
+        p95_ms: 0.13388745
+      model_dir: /home/eao/failure-prediction/models/final_v1/p2_reconstruction_ae__seed20260903
+      model_forward:
+        count: 480
+        max_ms: 0.086942
+        mean_ms: 0.07770164791666666
+        median_ms: 0.07744699999999999
+        p95_ms: 0.0799925
+      model_id: p2_reconstruction_ae
+      parameter_count: 466392
+      protected_test_used: false
+      schema_version: 1
+      threads: 1
+      timed_decisions: 480
+      torch_version: 2.13.0+rocm7.2
+      warmup_decisions: 20
+      windows_source: dataset:balanced_validation_v1-validation-324
+  p3_causal_tcn:
+    threshold_selection:
+      selection_split: validation
+      threshold: 0.21281503853831035
+      false_alert_budget_per_clean_mission: 0.1
+      persistence: 2-of-3
+      cooldown_seconds: 10.0
+      candidate_threshold_count: 1001
+      feasible_threshold_count: 95
+    episode_count: 324
+    clean_mission_count: 72
+    event_count: 62
+    detected_event_count: 11
+    undetected_event_count: 51
+    event_recall: 0.1774193548387097
+    false_alert_count: 75
+    false_alerts_per_clean_mission: 0.09722222222222222
+    false_alerts_per_non_event_mission: 0.21755725190839695
+    false_alerts_per_mission: 0.23148148148148148
+    lead_time:
+      event_count: 62
+      detected_event_count: 11
+      undetected_event_count: 51
+      median_seconds_detected: 5.823999999999998
+      q1_seconds_detected: 5.145999999999994
+      q3_seconds_detected: 8.078000000000003
+      min_seconds_detected: 3.2920000000000016
+      max_seconds_detected: 9.861999999999995
+      fraction_of_all_events_warned_at_least:
+        1s: 0.1774193548387097
+        2s: 0.1774193548387097
+        3s: 0.1774193548387097
+        5s: 0.12903225806451613
+        10s: 0.0
+    discrimination:
+      auprc: 0.20779232326021493
+      auroc: 0.8735446030297023
+      eligible_positive_count: 1098
+      eligible_negative_count: 31229
+      unit: eligible_decision_window
+      role: supporting_metric_only
+      auprc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.20779232326021493
+        confidence: 0.95
+        confidence_interval:
+        - 0.008809846165255562
+        - 0.6380382276277734
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+      auroc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.8735446030297023
+        confidence: 0.95
+        confidence_interval:
+        - 0.6213331539393259
+        - 0.9181066336766792
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+    calibration:
+      brier_score: 0.02942437790779176
+      ece: 0.013048303768671696
+      eligible_decision_count: 32327
+      bin_count: 10
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 191
+        alerts_per_mission: 0.5895061728395061
+        repeated_alerts_per_mission: 0.21296296296296297
+        time_under_alert_seconds_per_mission: 2.7623456790123457
+        fraction_of_decisions_under_alert: 0.039579003228231546
+      clean:
+        mission_count: 72
+        total_alerts: 9
+        alerts_per_mission: 0.125
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.3055555555555556
+        fraction_of_decisions_under_alert: 0.00542807796693807
+      faulted:
+        mission_count: 252
+        total_alerts: 182
+        alerts_per_mission: 0.7222222222222222
+        repeated_alerts_per_mission: 0.27380952380952384
+        time_under_alert_seconds_per_mission: 3.4642857142857144
+        fraction_of_decisions_under_alert: 0.047036637931034485
+    by_family:
+      camera_occlusion:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 2
+        event_recall: 0.3333333333333333
+        false_alerts_per_mission: 0.08333333333333333
+        median_useful_lead_seconds_detected: 5.323499999999996
+      dynamic_blockage:
+        episode_count: 36
+        event_count: 10
+        detected_event_count: 1
+        event_recall: 0.1
+        false_alerts_per_mission: 0.9444444444444444
+        median_useful_lead_seconds_detected: 8.91500000000002
+      lidar_dropout:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.08333333333333333
+        median_useful_lead_seconds_detected: null
+      localisation_perturbation:
+        episode_count: 36
+        event_count: 8
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.25
+        median_useful_lead_seconds_detected: null
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 2
+        event_recall: 0.18181818181818182
+        false_alerts_per_mission: 0.09722222222222222
+        median_useful_lead_seconds_detected: 4.419499999999999
+      planner_oscillation:
+        episode_count: 36
+        event_count: 11
+        detected_event_count: 3
+        event_recall: 0.2727272727272727
+        false_alerts_per_mission: 0.3055555555555556
+        median_useful_lead_seconds_detected: 8.341000000000008
+      semantic_corruption:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 2
+        event_recall: 0.4
+        false_alerts_per_mission: 0.027777777777777776
+        median_useful_lead_seconds_detected: 5.145999999999994
+      wheel_slip:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 1
+        event_recall: 0.2
+        false_alerts_per_mission: 0.19444444444444445
+        median_useful_lead_seconds_detected: 6.442000000000007
+    by_map:
+      val_00:
+        episode_count: 108
+        event_count: 50
+        detected_event_count: 8
+        event_recall: 0.16
+        false_alerts_per_mission: 0.24074074074074073
+        median_useful_lead_seconds_detected: 5.437999999999995
+      val_01:
+        episode_count: 108
+        event_count: 4
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.2777777777777778
+        median_useful_lead_seconds_detected: null
+      val_02:
+        episode_count: 108
+        event_count: 8
+        detected_event_count: 3
+        event_recall: 0.375
+        false_alerts_per_mission: 0.17592592592592593
+        median_useful_lead_seconds_detected: 8.341000000000008
+    by_severity:
+      medium:
+        episode_count: 252
+        event_count: 51
+        detected_event_count: 9
+        event_recall: 0.17647058823529413
+        false_alerts_per_mission: 0.2698412698412698
+        median_useful_lead_seconds_detected: 6.442000000000007
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 2
+        event_recall: 0.18181818181818182
+        false_alerts_per_mission: 0.09722222222222222
+        median_useful_lead_seconds_detected: 4.419499999999999
+    prediction_table: /home/eao/failure-prediction/reports/predictions/final_v1/p3_causal_tcn.validation.calibrated.csv
+    prediction_table_sha256: c3a949c60ac8c1caa48226dcfe8c8fc9e13801bab5088330a30653f1e727a259
+    calibrated_input: true
+    latency:
+      source: /home/eao/failure-prediction/reports/latency/final_v1/p3_causal_tcn.json
+      source_sha256: 925e0f473bc2d0c01289ec551360d154a6d3b8869690849cb3d352df4038868f
+      alarm_policy:
+        count: 480
+        max_ms: 0.00858
+        mean_ms: 0.005997304166666666
+        median_ms: 0.00592
+        p95_ms: 0.0065905
+      batch_size: 1
+      checkpoint_sha256: d955d56bffbeccbb04c5feebb8af1573234426bb9b55fc779a946806ce20a1c9
+      cpu: x86_64
+      created_utc: '2026-09-04T14:13:23.194962+00:00'
+      device: cpu
+      end_to_end:
+        count: 480
+        max_ms: 0.587411
+        mean_ms: 0.47246049375000004
+        median_ms: 0.4713935
+        p95_ms: 0.4797535
+      feature_preparation:
+        count: 480
+        max_ms: 0.173913
+        mean_ms: 0.13289826458333334
+        median_ms: 0.132342
+        p95_ms: 0.13609254999999998
+      model_dir: /home/eao/failure-prediction/models/final_v1/p3_causal_tcn__seed20260903
+      model_forward:
+        count: 480
+        max_ms: 0.405458
+        mean_ms: 0.333564925
+        median_ms: 0.332656
+        p95_ms: 0.339763
+      model_id: p3_causal_tcn
+      parameter_count: 83457
+      protected_test_used: false
+      schema_version: 1
+      threads: 1
+      timed_decisions: 480
+      torch_version: 2.13.0+rocm7.2
+      warmup_decisions: 20
+      windows_source: dataset:balanced_validation_v1-validation-324
+  p4_gru:
+    threshold_selection:
+      selection_split: validation
+      threshold: 0.28205128205128205
+      false_alert_budget_per_clean_mission: 0.1
+      persistence: 2-of-3
+      cooldown_seconds: 10.0
+      candidate_threshold_count: 86
+      feasible_threshold_count: 50
+    episode_count: 324
+    clean_mission_count: 72
+    event_count: 62
+    detected_event_count: 19
+    undetected_event_count: 43
+    event_recall: 0.3064516129032258
+    false_alert_count: 37
+    false_alerts_per_clean_mission: 0.09722222222222222
+    false_alerts_per_non_event_mission: 0.11450381679389313
+    false_alerts_per_mission: 0.11419753086419752
+    lead_time:
+      event_count: 62
+      detected_event_count: 19
+      undetected_event_count: 43
+      median_seconds_detected: 3.323999999999998
+      q1_seconds_detected: 2.866499999999995
+      q3_seconds_detected: 4.985999999999997
+      min_seconds_detected: 2.2579999999999956
+      max_seconds_detected: 7.813999999999993
+      fraction_of_all_events_warned_at_least:
+        1s: 0.3064516129032258
+        2s: 0.3064516129032258
+        3s: 0.1935483870967742
+        5s: 0.08064516129032258
+        10s: 0.0
+    discrimination:
+      auprc: 0.2111504537967928
+      auroc: 0.8434217302223815
+      eligible_positive_count: 1098
+      eligible_negative_count: 31229
+      unit: eligible_decision_window
+      role: supporting_metric_only
+      auprc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.2111504537967928
+        confidence: 0.95
+        confidence_interval:
+        - 0.011255642327674302
+        - 0.44049144781286004
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+      auroc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.8434217302223815
+        confidence: 0.95
+        confidence_interval:
+        - 0.7310382337791054
+        - 0.9334072486419068
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+    calibration:
+      brier_score: 0.028528399559311707
+      ece: 3.499604856909192e-18
+      eligible_decision_count: 32327
+      bin_count: 10
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 115
+        alerts_per_mission: 0.3549382716049383
+        repeated_alerts_per_mission: 0.08333333333333333
+        time_under_alert_seconds_per_mission: 1.691358024691358
+        fraction_of_decisions_under_alert: 0.024233847786671384
+      clean:
+        mission_count: 72
+        total_alerts: 11
+        alerts_per_mission: 0.1527777777777778
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.2986111111111111
+        fraction_of_decisions_under_alert: 0.005304712558598569
+      faulted:
+        mission_count: 252
+        total_alerts: 104
+        alerts_per_mission: 0.4126984126984127
+        repeated_alerts_per_mission: 0.10714285714285714
+        time_under_alert_seconds_per_mission: 2.0892857142857144
+        fraction_of_decisions_under_alert: 0.028367456896551724
+    by_family:
+      camera_occlusion:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 5
+        event_recall: 0.8333333333333334
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 3.323999999999998
+      dynamic_blockage:
+        episode_count: 36
+        event_count: 10
+        detected_event_count: 2
+        event_recall: 0.2
+        false_alerts_per_mission: 0.3888888888888889
+        median_useful_lead_seconds_detected: 2.8215000000000146
+      lidar_dropout:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.08333333333333333
+        median_useful_lead_seconds_detected: null
+      localisation_perturbation:
+        episode_count: 36
+        event_count: 8
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.19444444444444445
+        median_useful_lead_seconds_detected: null
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 4
+        event_recall: 0.36363636363636365
+        false_alerts_per_mission: 0.09722222222222222
+        median_useful_lead_seconds_detected: 2.9194999999999993
+      planner_oscillation:
+        episode_count: 36
+        event_count: 11
+        detected_event_count: 5
+        event_recall: 0.45454545454545453
+        false_alerts_per_mission: 0.05555555555555555
+        median_useful_lead_seconds_detected: 5.314999999999998
+      semantic_corruption:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 3
+        event_recall: 0.6
+        false_alerts_per_mission: 0.027777777777777776
+        median_useful_lead_seconds_detected: 4.962999999999994
+      wheel_slip:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.08333333333333333
+        median_useful_lead_seconds_detected: null
+    by_map:
+      val_00:
+        episode_count: 108
+        event_count: 50
+        detected_event_count: 14
+        event_recall: 0.28
+        false_alerts_per_mission: 0.07407407407407407
+        median_useful_lead_seconds_detected: 3.308
+      val_01:
+        episode_count: 108
+        event_count: 4
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.12037037037037036
+        median_useful_lead_seconds_detected: null
+      val_02:
+        episode_count: 108
+        event_count: 8
+        detected_event_count: 5
+        event_recall: 0.625
+        false_alerts_per_mission: 0.14814814814814814
+        median_useful_lead_seconds_detected: 5.314999999999998
+    by_severity:
+      medium:
+        episode_count: 252
+        event_count: 51
+        detected_event_count: 15
+        event_recall: 0.29411764705882354
+        false_alerts_per_mission: 0.11904761904761904
+        median_useful_lead_seconds_detected: 4.063000000000002
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 4
+        event_recall: 0.36363636363636365
+        false_alerts_per_mission: 0.09722222222222222
+        median_useful_lead_seconds_detected: 2.9194999999999993
+    prediction_table: /home/eao/failure-prediction/reports/predictions/final_v1/p4_gru.validation.calibrated.csv
+    prediction_table_sha256: 41119ef6bafd9d030b83fe5a3fcf1617feee311c8799dd2529d4d423445c73e9
+    calibrated_input: true
+    latency:
+      source: /home/eao/failure-prediction/reports/latency/final_v1/p4_gru.json
+      source_sha256: 2b3e8d56af9f359a858b3492da140dcb388ec504d41e8560aaf8add91fcfc3bf
+      alarm_policy:
+        count: 480
+        max_ms: 0.00809
+        mean_ms: 0.005544027083333334
+        median_ms: 0.0055
+        p95_ms: 0.005970499999999999
+      batch_size: 1
+      checkpoint_sha256: 86b367824b9a431eccca0096c3c1713ecce195723a1a7913485041a2ff8d389d
+      cpu: x86_64
+      created_utc: '2026-09-04T14:18:02.732935+00:00'
+      device: cpu
+      end_to_end:
+        count: 480
+        max_ms: 0.278074
+        mean_ms: 0.25398115625
+        median_ms: 0.2530945
+        p95_ms: 0.258374
+      feature_preparation:
+        count: 480
+        max_ms: 0.137332
+        mean_ms: 0.13187012291666667
+        median_ms: 0.1315325
+        p95_ms: 0.13457449999999999
+      model_dir: /home/eao/failure-prediction/models/final_v1/p4_gru__seed20260903
+      model_forward:
+        count: 480
+        max_ms: 0.140162
+        mean_ms: 0.11656700625
+        median_ms: 0.11595649999999999
+        p95_ms: 0.119597
+      model_id: p4_gru
+      parameter_count: 82305
+      protected_test_used: false
+      schema_version: 1
+      threads: 1
+      timed_decisions: 480
+      torch_version: 2.13.0+rocm7.2
+      warmup_decisions: 20
+      windows_source: dataset:balanced_validation_v1-validation-324
+  p5_compact_transformer:
+    threshold_selection:
+      selection_split: validation
+      threshold: 0.3214212377823412
+      false_alert_budget_per_clean_mission: 0.1
+      persistence: 2-of-3
+      cooldown_seconds: 10.0
+      candidate_threshold_count: 1001
+      feasible_threshold_count: 147
+    episode_count: 324
+    clean_mission_count: 72
+    event_count: 62
+    detected_event_count: 18
+    undetected_event_count: 44
+    event_recall: 0.2903225806451613
+    false_alert_count: 47
+    false_alerts_per_clean_mission: 0.09722222222222222
+    false_alerts_per_non_event_mission: 0.1297709923664122
+    false_alerts_per_mission: 0.14506172839506173
+    lead_time:
+      event_count: 62
+      detected_event_count: 18
+      undetected_event_count: 44
+      median_seconds_detected: 5.646000000000001
+      q1_seconds_detected: 4.846250000000001
+      q3_seconds_detected: 6.803249999999995
+      min_seconds_detected: 1.382000000000005
+      max_seconds_detected: 9.813999999999993
+      fraction_of_all_events_warned_at_least:
+        1s: 0.2903225806451613
+        2s: 0.25806451612903225
+        3s: 0.24193548387096775
+        5s: 0.20967741935483872
+        10s: 0.0
+    discrimination:
+      auprc: 0.23116127240788492
+      auroc: 0.8549384968119341
+      eligible_positive_count: 1098
+      eligible_negative_count: 31229
+      unit: eligible_decision_window
+      role: supporting_metric_only
+      auprc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.23116127240788492
+        confidence: 0.95
+        confidence_interval:
+        - 0.008473563259842276
+        - 0.6257163487012262
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+      auroc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 0.8549384968119341
+        confidence: 0.95
+        confidence_interval:
+        - 0.5755003269340239
+        - 0.910374116989959
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+    calibration:
+      brier_score: 0.029581848908329055
+      ece: 0.005495687304964923
+      eligible_decision_count: 32327
+      bin_count: 10
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 185
+        alerts_per_mission: 0.5709876543209876
+        repeated_alerts_per_mission: 0.21296296296296297
+        time_under_alert_seconds_per_mission: 3.4830246913580245
+        fraction_of_decisions_under_alert: 0.04990492194755229
+      clean:
+        mission_count: 72
+        total_alerts: 11
+        alerts_per_mission: 0.1527777777777778
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 0.4236111111111111
+        fraction_of_decisions_under_alert: 0.007525289908709598
+      faulted:
+        mission_count: 252
+        total_alerts: 174
+        alerts_per_mission: 0.6904761904761905
+        repeated_alerts_per_mission: 0.27380952380952384
+        time_under_alert_seconds_per_mission: 4.357142857142857
+        fraction_of_decisions_under_alert: 0.059159482758620686
+    by_family:
+      camera_occlusion:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 4
+        event_recall: 0.6666666666666666
+        false_alerts_per_mission: 0.027777777777777776
+        median_useful_lead_seconds_detected: 5.790999999999997
+      dynamic_blockage:
+        episode_count: 36
+        event_count: 10
+        detected_event_count: 1
+        event_recall: 0.1
+        false_alerts_per_mission: 0.7222222222222222
+        median_useful_lead_seconds_detected: 5.728000000000009
+      lidar_dropout:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: null
+      localisation_perturbation:
+        episode_count: 36
+        event_count: 8
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.1111111111111111
+        median_useful_lead_seconds_detected: null
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 4
+        event_recall: 0.36363636363636365
+        false_alerts_per_mission: 0.09722222222222222
+        median_useful_lead_seconds_detected: 5.169499999999999
+      planner_oscillation:
+        episode_count: 36
+        event_count: 11
+        detected_event_count: 6
+        event_recall: 0.5454545454545454
+        false_alerts_per_mission: 0.16666666666666666
+        median_useful_lead_seconds_detected: 6.578000000000003
+      semantic_corruption:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 3
+        event_recall: 0.6
+        false_alerts_per_mission: 0.027777777777777776
+        median_useful_lead_seconds_detected: 5.8289999999999935
+      wheel_slip:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.05555555555555555
+        median_useful_lead_seconds_detected: null
+    by_map:
+      val_00:
+        episode_count: 108
+        event_count: 50
+        detected_event_count: 14
+        event_recall: 0.28
+        false_alerts_per_mission: 0.16666666666666666
+        median_useful_lead_seconds_detected: 5.402499999999996
+      val_01:
+        episode_count: 108
+        event_count: 4
+        detected_event_count: 0
+        event_recall: 0.0
+        false_alerts_per_mission: 0.18518518518518517
+        median_useful_lead_seconds_detected: null
+      val_02:
+        episode_count: 108
+        event_count: 8
+        detected_event_count: 4
+        event_recall: 0.5
+        false_alerts_per_mission: 0.08333333333333333
+        median_useful_lead_seconds_detected: 7.3515000000000015
+    by_severity:
+      medium:
+        episode_count: 252
+        event_count: 51
+        detected_event_count: 14
+        event_recall: 0.27450980392156865
+        false_alerts_per_mission: 0.15873015873015872
+        median_useful_lead_seconds_detected: 5.821999999999996
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 4
+        event_recall: 0.36363636363636365
+        false_alerts_per_mission: 0.09722222222222222
+        median_useful_lead_seconds_detected: 5.169499999999999
+    prediction_table: /home/eao/failure-prediction/reports/predictions/final_v1/p5_compact_transformer.validation.calibrated.csv
+    prediction_table_sha256: ec379f3fbad30e0c628e5b932cdf31866f54fef8dbd979bfc9b748e7ead1014a
+    calibrated_input: true
+    latency:
+      source: /home/eao/failure-prediction/reports/latency/final_v1/p5_compact_transformer.json
+      source_sha256: 41dbcef10d4714217be51e6d94c9a573239faaf32db0e10cae7aa89fbd1dfa6e
+      alarm_policy:
+        count: 480
+        max_ms: 0.011661
+        mean_ms: 0.006432447916666667
+        median_ms: 0.00636
+        p95_ms: 0.00685
+      batch_size: 1
+      checkpoint_sha256: fc5b2ffe7ccf52e064c1b374aca581d2c9e0eb080ef106e3edeac4404e3626d5
+      cpu: x86_64
+      created_utc: '2026-09-04T14:21:28.673600+00:00'
+      device: cpu
+      end_to_end:
+        count: 480
+        max_ms: 0.330826
+        mean_ms: 0.28557258750000003
+        median_ms: 0.28408999999999995
+        p95_ms: 0.2929275
+      feature_preparation:
+        count: 480
+        max_ms: 0.149393
+        mean_ms: 0.13402460416666667
+        median_ms: 0.133442
+        p95_ms: 0.1375245
+      model_dir: /home/eao/failure-prediction/models/final_v1/p5_compact_transformer__seed20260903
+      model_forward:
+        count: 480
+        max_ms: 0.189673
+        mean_ms: 0.14511553541666666
+        median_ms: 0.14402199999999998
+        p95_ms: 0.15075745
+      model_id: p5_compact_transformer
+      parameter_count: 73217
+      protected_test_used: false
+      schema_version: 1
+      threads: 1
+      timed_decisions: 480
+      torch_version: 2.13.0+rocm7.2
+      warmup_decisions: 20
+      windows_source: dataset:balanced_validation_v1-validation-324
+  p6_oracle:
+    threshold_selection:
+      selection_split: validation
+      threshold: 1.0
+      false_alert_budget_per_clean_mission: 0.1
+      persistence: 2-of-3
+      cooldown_seconds: 10.0
+      candidate_threshold_count: 2
+      feasible_threshold_count: 1
+    episode_count: 324
+    clean_mission_count: 72
+    event_count: 62
+    detected_event_count: 62
+    undetected_event_count: 0
+    event_recall: 1.0
+    false_alert_count: 0
+    false_alerts_per_clean_mission: 0.0
+    false_alerts_per_non_event_mission: 0.0
+    false_alerts_per_mission: 0.0
+    lead_time:
+      event_count: 62
+      detected_event_count: 62
+      undetected_event_count: 0
+      median_seconds_detected: 9.263999999999996
+      q1_seconds_detected: 9.067999999999996
+      q3_seconds_detected: 9.368749999999995
+      min_seconds_detected: 4.1739999999999995
+      max_seconds_detected: 9.49199999999999
+      fraction_of_all_events_warned_at_least:
+        1s: 1.0
+        2s: 1.0
+        3s: 1.0
+        5s: 0.967741935483871
+        10s: 0.0
+    discrimination:
+      auprc: 1.0
+      auroc: 1.0
+      eligible_positive_count: 1098
+      eligible_negative_count: 31229
+      unit: eligible_decision_window
+      role: supporting_metric_only
+      auprc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 1.0
+        confidence: 0.95
+        confidence_interval:
+        - 1.0
+        - 1.0
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+      auroc_bootstrap:
+        analysis_unit: episode
+        hierarchy:
+        - map
+        - route
+        - episode
+        episode_count: 324
+        map_count: 3
+        point_estimate: 1.0
+        confidence: 0.95
+        confidence_interval:
+        - 1.0
+        - 1.0
+        bootstrap_replicates: 1000
+        undefined_replicates: 1
+        seed: 20260903
+    calibration:
+      brier_score: 0.0
+      ece: 0.0
+      eligible_decision_count: 32327
+      bin_count: 10
+    alert_burden:
+      all:
+        mission_count: 324
+        total_alerts: 62
+        alerts_per_mission: 0.19135802469135801
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 1.691358024691358
+        fraction_of_decisions_under_alert: 0.024233847786671384
+      clean:
+        mission_count: 72
+        total_alerts: 11
+        alerts_per_mission: 0.1527777777777778
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 1.375
+        fraction_of_decisions_under_alert: 0.02442635085122132
+      faulted:
+        mission_count: 252
+        total_alerts: 51
+        alerts_per_mission: 0.20238095238095238
+        repeated_alerts_per_mission: 0.0
+        time_under_alert_seconds_per_mission: 1.7817460317460319
+        fraction_of_decisions_under_alert: 0.024191810344827588
+    by_family:
+      camera_occlusion:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 6
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.229499999999994
+      dynamic_blockage:
+        episode_count: 36
+        event_count: 10
+        detected_event_count: 10
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.25500000000001
+      lidar_dropout:
+        episode_count: 36
+        event_count: 6
+        detected_event_count: 6
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.189999999999998
+      localisation_perturbation:
+        episode_count: 36
+        event_count: 8
+        detected_event_count: 8
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.162500000000005
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 11
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.111999999999995
+      planner_oscillation:
+        episode_count: 36
+        event_count: 11
+        detected_event_count: 11
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.341000000000008
+      semantic_corruption:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 5
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.328999999999994
+      wheel_slip:
+        episode_count: 36
+        event_count: 5
+        detected_event_count: 5
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.37100000000001
+    by_map:
+      val_00:
+        episode_count: 108
+        event_count: 50
+        detected_event_count: 50
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.263999999999996
+      val_01:
+        episode_count: 108
+        event_count: 4
+        detected_event_count: 4
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.156499999999994
+      val_02:
+        episode_count: 108
+        event_count: 8
+        detected_event_count: 8
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.314499999999995
+    by_severity:
+      medium:
+        episode_count: 252
+        event_count: 51
+        detected_event_count: 51
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.28200000000001
+      none:
+        episode_count: 72
+        event_count: 11
+        detected_event_count: 11
+        event_recall: 1.0
+        false_alerts_per_mission: 0.0
+        median_useful_lead_seconds_detected: 9.111999999999995
+    prediction_table: /home/eao/failure-prediction/reports/predictions/final_v1/p6_oracle.validation.raw.csv
+    prediction_table_sha256: 06851da1dba609b4f912b89a71a71810b7ed004cf97a7088b0e8670aa742ee3d
+    calibrated_input: false
+    latency: null
+paired_primary_minus_baseline:
+  primary: p3_causal_tcn
+  baseline: p1_threshold_rules
+  estimator: H1_rehearsal_validation
+  result:
+    analysis_unit: episode
+    hierarchy:
+    - map
+    - route
+    - episode
+    contrast: p3_causal_tcn_minus_p1_threshold_rules_event_recall
+    episode_count: 62
+    map_count: 3
+    point_estimate: 0.16129032258064516
+    confidence: 0.95
+    confidence_interval:
+    - 0.0
+    - 0.43333333333333335
+    bootstrap_replicates: 2000
+    seed: 20260903
+    event_recall_a: 0.1774193548387097
+    event_recall_b: 0.016129032258064516
+    event_episode_count: 62
+    total_episode_count: 324

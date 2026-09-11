@@ -1,0 +1,45 @@
+{
+  "alarm_policy": {
+    "count": 480,
+    "max_ms": 0.00963,
+    "mean_ms": 0.0059393812499999995,
+    "median_ms": 0.00587,
+    "p95_ms": 0.006480499999999999
+  },
+  "batch_size": 1,
+  "checkpoint_sha256": "12967969dd3d12c11a33ee01d8689a462e52ec83ed5b9edf8a48e84e3dc1f8a3",
+  "cpu": "x86_64",
+  "created_utc": "2026-09-04T16:51:44.664593+00:00",
+  "device": "cpu",
+  "end_to_end": {
+    "count": 480,
+    "max_ms": 0.588391,
+    "mean_ms": 0.47938753124999994,
+    "median_ms": 0.478881,
+    "p95_ms": 0.4865525
+  },
+  "feature_preparation": {
+    "count": 480,
+    "max_ms": 0.13902,
+    "mean_ms": 0.1332100375,
+    "median_ms": 0.1326055,
+    "p95_ms": 0.13608245
+  },
+  "model_dir": "/home/eao/failure-prediction/models/final_v1_seed20260905/p3_causal_tcn__seed20260905",
+  "model_forward": {
+    "count": 480,
+    "max_ms": 0.448241,
+    "mean_ms": 0.34023811249999997,
+    "median_ms": 0.3395905,
+    "p95_ms": 0.34749949999999996
+  },
+  "model_id": "p3_causal_tcn",
+  "parameter_count": 83457,
+  "protected_test_used": false,
+  "schema_version": 1,
+  "threads": 1,
+  "timed_decisions": 480,
+  "torch_version": "2.13.0+rocm7.2",
+  "warmup_decisions": 20,
+  "windows_source": "dataset:balanced_validation_v1-validation-324"
+}

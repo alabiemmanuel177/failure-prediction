@@ -1,0 +1,2 @@
+{"artifact_validation_returncode":0,"campaign_id":"route_placement_smoke_v1","episode_key":"dynamic_blockage-medium-401","episode_returncode":0,"finished_utc":"2026-08-31T00:07:21Z","returncode":0,"started_utc":"2026-08-31T00:03:41Z"}
+{"artifact_validation_returncode":0,"campaign_id":"route_placement_smoke_v1","episode_key":"planner_oscillation-medium-401","episode_returncode":0,"finished_utc":"2026-08-31T00:09:31Z","returncode":0,"started_utc":"2026-08-31T00:07:21Z"}

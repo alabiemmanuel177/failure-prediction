@@ -63,10 +63,30 @@ validation:
     - val_02_r4
     - val_02_r5
 held_out_map_test:
-  maps: []
-  routes: []
+  maps: [test_00, test_01, test_02]
+  routes:
+    - test_00_r0
+    - test_00_r1
+    - test_00_r2
+    - test_00_r3
+    - test_00_r4
+    - test_00_r5
+    - test_01_r0
+    - test_01_r1
+    - test_01_r2
+    - test_01_r3_repl1
+    - test_01_r4
+    - test_01_r5
+    - test_02_r0
+    - test_02_r1
+    - test_02_r2
+    - test_02_r3
+    - test_02_r4
+    - test_02_r5
   inspect_only_after_policy_freeze: true
-  status: deliberately_unassigned_until_research1_g7_and_research2_policy_freeze
+  status: assigned_after_model_freeze
+  assigned_utc: "2026-09-04T17:23:40Z"
+  model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
 natural_failure_audit:
   source_condition: no_injection
   merge_with_injected_results: false

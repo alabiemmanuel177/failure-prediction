@@ -1,0 +1,95 @@
+schema_version: 1
+campaign_id: targeted_development_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 1212
+  observed: 1164
+  usable: 1164
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 132
+  non_events: 1032
+event_prevalence: 0.1134020618556701
+duration_seconds:
+  total: 68722.713
+  median: 52.3745
+by_terminal_state:
+  false_arrival: 117
+  planner_failure: 14
+  success: 1032
+  timeout: 1
+by_attempt_terminal_state:
+  false_arrival: 117
+  invalid: 0
+  planner_failure: 14
+  success: 1032
+  timeout: 1
+by_fault_family:
+  camera_occlusion: 168
+  dynamic_blockage: 12
+  lidar_dropout: 240
+  localisation_perturbation: 360
+  semantic_corruption: 288
+  wheel_slip: 96
+by_map:
+  dev_00: 194
+  dev_01: 194
+  dev_02: 194
+  dev_03: 194
+  dev_04: 194
+  dev_05: 194
+integrity:
+  missing_episode_keys:
+  - dev_00-dev_00_r0-wheel-r18
+  - dev_00-dev_00_r0-wheel-r19
+  - dev_00-dev_00_r0-wheel-r20
+  - dev_00-dev_00_r0-wheel-r21
+  - dev_00-dev_00_r1-wheel-r18
+  - dev_00-dev_00_r1-wheel-r19
+  - dev_00-dev_00_r1-wheel-r20
+  - dev_00-dev_00_r1-wheel-r21
+  - dev_01-dev_01_r0-wheel-r18
+  - dev_01-dev_01_r0-wheel-r19
+  - dev_01-dev_01_r0-wheel-r20
+  - dev_01-dev_01_r0-wheel-r21
+  - dev_01-dev_01_r1-wheel-r18
+  - dev_01-dev_01_r1-wheel-r19
+  - dev_01-dev_01_r1-wheel-r20
+  - dev_01-dev_01_r1-wheel-r21
+  - dev_02-dev_02_r0-wheel-r18
+  - dev_02-dev_02_r0-wheel-r19
+  - dev_02-dev_02_r0-wheel-r20
+  - dev_02-dev_02_r0-wheel-r21
+  - dev_02-dev_02_r1-wheel-r18
+  - dev_02-dev_02_r1-wheel-r19
+  - dev_02-dev_02_r1-wheel-r20
+  - dev_02-dev_02_r1-wheel-r21
+  - dev_03-dev_03_r0-wheel-r18
+  - dev_03-dev_03_r0-wheel-r19
+  - dev_03-dev_03_r0-wheel-r20
+  - dev_03-dev_03_r0-wheel-r21
+  - dev_03-dev_03_r1-wheel-r18
+  - dev_03-dev_03_r1-wheel-r19
+  - dev_03-dev_03_r1-wheel-r20
+  - dev_03-dev_03_r1-wheel-r21
+  - dev_04-dev_04_r0-wheel-r18
+  - dev_04-dev_04_r0-wheel-r19
+  - dev_04-dev_04_r0-wheel-r20
+  - dev_04-dev_04_r0-wheel-r21
+  - dev_04-dev_04_r1-wheel-r18
+  - dev_04-dev_04_r1-wheel-r19
+  - dev_04-dev_04_r1-wheel-r20
+  - dev_04-dev_04_r1-wheel-r21
+  - dev_05-dev_05_r0-wheel-r18
+  - dev_05-dev_05_r0-wheel-r19
+  - dev_05-dev_05_r0-wheel-r20
+  - dev_05-dev_05_r0-wheel-r21
+  - dev_05-dev_05_r1-wheel-r18
+  - dev_05-dev_05_r1-wheel-r19
+  - dev_05-dev_05_r1-wheel-r20
+  - dev_05-dev_05_r1-wheel-r21
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

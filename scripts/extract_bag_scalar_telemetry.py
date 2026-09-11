@@ -19,6 +19,11 @@ MAX_AGE = {
     "/cmd_vel": 0.5, "/odom": 0.5, "/amcl_pose": 2.0, "/scan": 0.5,
     "/plan": 2.0, "/local_plan": 1.0, "/semantic/confidence": 1.0,
     "/semantic/uncertainty": 1.0, "/semantic/inference_latency_ms": 1.0,
+    "/research2/features/perception": 1.0,
+}
+
+PERCEPTION_SUMMARY_FIELDS = {
+    "confidence_mean", "uncertainty_mean", "inference_latency_ms",
 }
 
 
@@ -48,6 +53,15 @@ def feature_values(topic: str, message) -> dict[str, float]:
         return {"uncertainty_mean": float_image_mean(message)}
     if topic == "/semantic/inference_latency_ms":
         return {"inference_latency_ms": float_image_mean(message)}
+    if topic == "/research2/features/perception":
+        values = {}
+        for status in message.status:
+            if status.name != "research2/perception_summary":
+                continue
+            for item in status.values:
+                if item.key in PERCEPTION_SUMMARY_FIELDS:
+                    values[item.key] = float(item.value)
+        return values
     return {}
 
 
@@ -56,7 +70,20 @@ def main() -> int:
     parser.add_argument("bag", type=Path)
     parser.add_argument("run_id")
     parser.add_argument("output", type=Path)
+    parser.add_argument(
+        "--receive-clock-map", type=Path, default=None,
+        help="adapted Research 1 bags only: JSON receive-time -> simulation-time map "
+             "written by scripts/adapt_research1_episode.py; every availability "
+             "timestamp is mapped onto the simulation clock",
+    )
     args = parser.parse_args()
+    receive_clock = None
+    if args.receive_clock_map is not None:
+        from src.research1_adapter import ReceiveClockMap
+        import json
+        receive_clock = ReceiveClockMap.from_json(
+            json.loads(args.receive_clock_map.read_text(encoding="utf-8"))
+        )
     import rosbag2_py
     from rclpy.serialization import deserialize_message
     from rosidl_runtime_py.utilities import get_message
@@ -67,18 +94,29 @@ def main() -> int:
     )
     types = {item.name: item.type for item in reader.get_all_topics_and_types()}
     selected = set(MAX_AGE) & set(types)
+    if "/research2/features/perception" in selected:
+        # Never mix two transport representations for one feature in one episode.
+        # The compact_v2 scalar summary is numerically equivalent to these legacy
+        # image reductions and is the canonical source whenever present.
+        selected -= {
+            "/semantic/confidence", "/semantic/uncertainty",
+            "/semantic/inference_latency_ms",
+        }
     rows = []
     while reader.has_next():
         topic, data, receive_timestamp_ns = reader.read_next()
         if topic not in selected:
             continue
         message = deserialize_message(data, get_message(types[topic]))
+        # Recorder receive time is the availability time. Header time alone can
+        # make a late-arriving message look causally available too early.
+        availability = receive_timestamp_ns * 1e-9
+        if receive_clock is not None:
+            availability = receive_clock.to_sim(availability)
         for feature, value in feature_values(topic, message).items():
             rows.append({
                 "run_id": args.run_id,
-                # Recorder receive time is the availability time. Header time alone can
-                # make a late-arriving message look causally available too early.
-                "timestamp": receive_timestamp_ns * 1e-9,
+                "timestamp": availability,
                 "feature": feature, "source": topic, "value": value,
                 "max_age_seconds": MAX_AGE[topic],
             })

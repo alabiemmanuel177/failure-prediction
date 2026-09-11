@@ -1,0 +1,117 @@
+schema_version: 1
+kind: held_out_ablation
+ablation: no_localisation
+spec:
+  kind: feature
+  remove_groups:
+  - localisation
+  question: Are pose covariance and TF health carrying most of the signal?
+  retrain: true
+generated_utc: '2026-09-06T11:23:47.241695+00:00'
+scope: held_out_map_test
+protected_test_used: true
+confirmatory: false
+hypothesis: 'H4 (supporting): identical held-out test episodes, primary frozen threshold
+  rule'
+held_out_dataset: held_out_map_v1-held_out_map_test-1008
+model_dir: /home/eao/failure-prediction/models/ablations/no_localisation/p3_causal_tcn__abl-no_localisation__seed20260904
+checkpoint_sha256: 0cd7280c0087cff870c201157d58ba3d42c08ef37d399a04750c873d88111eab
+raw_prediction_table: /home/eao/failure-prediction/reports/predictions/held_out/ablations/no_localisation.raw.csv
+raw_prediction_table_sha256: 99195ad9efbe9de846a9da9bc60b14c9943024740068524d5e6c22dcfd0e7989
+calibrator:
+  method: platt_scaling
+  sha256: 19489564a08d758e64b2843dbf733e4f97dd7fac6038e0925b6153b1a301df38
+  refit_from: /home/eao/failure-prediction/reports/predictions/ablations/no_localisation.raw.csv
+calibration_mode: refit_on_validation
+metrics:
+  policy:
+    threshold: 0.23509196030026114
+    persistence: 2-of-3
+    cooldown_seconds: 10.0
+  episode_count: 1008
+  event_count: 163
+  detected_event_count: 54
+  event_recall: 0.3312883435582822
+  false_alerts_per_clean_mission: 0.25396825396825395
+  false_alerts_per_non_event_mission: 0.2733727810650888
+  lead_time:
+    event_count: 163
+    detected_event_count: 54
+    undetected_event_count: 109
+    median_seconds_detected: 3.8115000000000023
+    q1_seconds_detected: 2.262999999999998
+    q3_seconds_detected: 5.850499999999993
+    min_seconds_detected: 1.1540000000000106
+    max_seconds_detected: 9.837000000000003
+    fraction_of_all_events_warned_at_least:
+      1s: 0.3312883435582822
+      2s: 0.25766871165644173
+      3s: 0.22085889570552147
+      5s: 0.11042944785276074
+      10s: 0.0
+  discrimination:
+    auprc: 0.17228811138201036
+    auroc: 0.8002127653642814
+    eligible_positive_count: 2909
+    eligible_negative_count: 168682
+    unit: eligible_decision_window
+    role: supporting_metric_only
+  calibration:
+    brier_score: 0.015807224012692026
+    ece: 0.008408673348292546
+  alert_burden:
+    all:
+      mission_count: 1008
+      total_alerts: 458
+      alerts_per_mission: 0.45436507936507936
+      repeated_alerts_per_mission: 0.13690476190476192
+      time_under_alert_seconds_per_mission: 1.847718253968254
+      fraction_of_decisions_under_alert: 0.017135023989033583
+    clean:
+      mission_count: 126
+      total_alerts: 40
+      alerts_per_mission: 0.31746031746031744
+      repeated_alerts_per_mission: 0.06349206349206349
+      time_under_alert_seconds_per_mission: 0.9841269841269841
+      fraction_of_decisions_under_alert: 0.009633686827487083
+    faulted:
+      mission_count: 882
+      total_alerts: 418
+      alerts_per_mission: 0.47392290249433106
+      repeated_alerts_per_mission: 0.1473922902494331
+      time_under_alert_seconds_per_mission: 1.9710884353741496
+      fraction_of_decisions_under_alert: 0.01814263650025046
+  confidence_interval: &id001
+  - 0.0
+  - 0.22699534690732343
+  confidence_interval_meaning: 95% hierarchical bootstrap interval of the paired event-recall
+    difference (ablation minus primary) over identical held-out episodes
+delta_vs_primary:
+  analysis_unit: episode
+  hierarchy:
+  - map
+  - route
+  - episode
+  contrast: a_detected_minus_b_detected
+  episode_count: 163
+  map_count: 3
+  point_estimate: 0.11042944785276074
+  confidence: 0.95
+  confidence_interval: *id001
+  bootstrap_replicates: 2000
+  seed: 20260904
+  event_recall_a: 0.3312883435582822
+  event_recall_b: 0.22085889570552147
+  event_episode_count: 163
+  total_episode_count: 1008
+primary:
+  table: /home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.alarmed.csv
+  table_sha256: 3655fb69157819d176f29ab63e19724bc261d7db971a967f67754c8c0ad755b4
+  event_recall: 0.22085889570552147
+  false_alerts_per_clean_mission: 0.18253968253968253
+inputs:
+  validation_report: /home/eao/failure-prediction/reports/ablations/validation_ablations.yaml
+  validation_report_sha256: 774431815676398ca93a78115f3cf8269d62f27f9ab769d617b096ca9610728b
+  freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  alarm_policy_sha256: eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc
+  ablations_config_sha256: d153611cdecab5131024959fc6bd29182179c281d9e03ea46889eeb04e8a1e00

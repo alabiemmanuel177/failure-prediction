@@ -1,0 +1,30 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: balanced_validation_replacements_v1
+parent_campaign_id: balanced_validation_v1
+status: preregistered_treatment_delivery_replacement
+allowed_splits: [validation]
+protected_test_used: false
+replacement_policy:
+  original_invalid_kind: treatment_delivery_artifact_invalid
+  original_attempt_and_complete_bag_are_retained: true
+  original_scientific_admission: excluded_because_declared_treatment_was_not_delivered
+  replacement_uses_same_map_route_system_condition_and_seed: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+episodes:
+  - episode_key: val_02-val_02_r0-localisation-r1-infra-replacement-001
+    replaces_episode_key: val_02-val_02_r0-localisation-r1
+    replaces_run_id: 3db38360-e80f-4d6c-9c5c-97dff95a362a
+    map: val_02
+    route: val_02_r0
+    system: s0
+    family: localisation_perturbation
+    severity: medium
+    seed: 920105
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 8.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+    recording_profile: compact_v2

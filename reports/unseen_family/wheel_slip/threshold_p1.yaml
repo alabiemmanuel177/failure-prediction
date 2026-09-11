@@ -1,0 +1,11 @@
+model_id: p1_threshold_rules
+threshold: 0.5
+selection_split: validation
+protected_test_used: false
+selection: fixed decision threshold on the binary rule score; rules tuned by tune_threshold_rules.py
+  under the frozen clean-mission budget
+excluded_family: wheel_slip
+rules: /home/eao/failure-prediction/reports/unseen_family/wheel_slip/rules_p1.yaml
+rules_sha256: 9f7394a66f815dfacadbe27f2028eb9d5bcf3cf98fdd0e6f7df2cd96460959cd
+tuning_record: /home/eao/failure-prediction/reports/unseen_family/wheel_slip/tuning_p1.yaml
+tuning_record_sha256: fa0290682ba3af89cac0ee721483339cb05d79e3838076caa13896399eab4107

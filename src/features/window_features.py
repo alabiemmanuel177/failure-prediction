@@ -58,17 +58,32 @@ def derive_window_features(
             )
         emit("stopped_while_commanded", stopped)
 
+        velocity_points = [
+            (float(past["decision_time"]), float(past["measured_linear"]))
+            for past in history if _observed(past, "measured_linear")
+        ]
+        accelerations = []
+        for (first_t, first_v), (second_t, second_v) in zip(
+            velocity_points, velocity_points[1:]
+        ):
+            if second_t > first_t:
+                accelerations.append((second_t, (second_v - first_v) / (second_t - first_t)))
+        emit("jerk", _slope(accelerations))
+
+        # Goal context is map-frame: the frozen route goal is compared with the
+        # robot's own map-frame pose estimate (/amcl_pose). Odometry starts at the
+        # odom-frame origin and must never be compared with a map-frame goal.
         goal_distance = None
-        if _observed(row, "odom_x") and _observed(row, "odom_y"):
+        if _observed(row, "amcl_x") and _observed(row, "amcl_y"):
             goal_distance = math.dist(
-                (float(row["odom_x"]), float(row["odom_y"])), (goal_x, goal_y)
+                (float(row["amcl_x"]), float(row["amcl_y"])), (goal_x, goal_y)
             )
         emit("goal_distance", goal_distance)
         progress_points = []
         for past in history:
-            if _observed(past, "odom_x") and _observed(past, "odom_y"):
+            if _observed(past, "amcl_x") and _observed(past, "amcl_y"):
                 distance = math.dist(
-                    (float(past["odom_x"]), float(past["odom_y"])), (goal_x, goal_y)
+                    (float(past["amcl_x"]), float(past["amcl_y"])), (goal_x, goal_y)
                 )
                 progress_points.append((float(past["decision_time"]), distance))
         distance_slope = _slope(progress_points)
@@ -91,7 +106,30 @@ def derive_window_features(
         scan_points = [(float(past["decision_time"]), float(past["valid_return_fraction"]))
                        for past in history if _observed(past, "valid_return_fraction")]
         emit("valid_return_trend", _slope(scan_points))
+        near_points = [
+            (float(past["decision_time"]), float(past["minimum_front_range"]))
+            for past in history if _observed(past, "minimum_front_range")
+        ]
+        emit("near_obstacle_trend", _slope(near_points))
+        imbalance = None
+        if _observed(row, "minimum_left_range") and _observed(row, "minimum_right_range"):
+            imbalance = abs(
+                float(row["minimum_left_range"]) - float(row["minimum_right_range"])
+            )
+        emit("left_right_imbalance", imbalance)
+
+        path_ages = [
+            (float(past["decision_time"]), float(past["global_path_length__age_seconds"]))
+            for past in history if _observed(past, "global_path_length")
+        ]
+        replan_rate = None
+        if len(path_ages) >= 2 and path_ages[-1][0] > path_ages[0][0]:
+            resets = sum(
+                current_age < previous_age
+                for (_, previous_age), (_, current_age) in zip(path_ages, path_ages[1:])
+            )
+            replan_rate = resets / (path_ages[-1][0] - path_ages[0][0])
+        emit("replan_rate", replan_rate)
         output.append(row)
         previous_time = now
     return output
-

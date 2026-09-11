@@ -1,0 +1,62 @@
+schema_version: 1
+dataset_id: balanced_validation_v1-validation-324
+analysis_unit: episode
+status: validation_collection_complete_selection_admission_pending_human_gate
+protected_test_used: false
+counts:
+  scientific_episodes: 324
+  terminal_events: 60
+  non_events: 264
+  infrastructure_replacements: 4
+event_prevalence: 0.18518518518518517
+duration_seconds:
+  total: 24403.332
+  minimum: 11.113
+  maximum: 191.157
+storage:
+  bag_bytes: 1890814101
+  bag_gib: 1.7609578566625714
+distributions:
+  maps:
+    val_00: 108
+    val_01: 108
+    val_02: 108
+  routes:
+    val_00_r0: 54
+    val_00_r1: 54
+    val_01_r0: 54
+    val_01_r1: 54
+    val_02_r0: 54
+    val_02_r1: 54
+  systems:
+    S0: 216
+    S3: 108
+  fault_families:
+    camera_occlusion: 36
+    dynamic_blockage: 36
+    lidar_dropout: 36
+    localisation_perturbation: 36
+    none: 72
+    planner_oscillation: 36
+    semantic_corruption: 36
+    wheel_slip: 36
+  terminal_states:
+    false_arrival: 52
+    planner_failure: 8
+    success: 264
+  event_classes:
+    false_arrival: 52
+    navigation_abort: 8
+  recording_profiles:
+    compact_v2: 324
+source_hashes:
+  campaign_manifest_sha256: 105f73cc13b5c60fc82fe9a8fd96e77c21842f0ed23e3f2c47b0773758ec04c1
+  pilot_report_sha256: ecff630a4e9ec43ae12144bb5c3f8f466cb4367768e0f5bef6dadd468e548193
+episode_inventory:
+  path: data/manifests/balanced_validation_v1.episodes.jsonl
+  sha256: cf51b5d400f48f051d0426431025846ee12fd6f230714d25825d869a6cc2cae4
+  rows: 324
+label_status:
+  episode_outcomes: recorded_and_artifact_validated
+  causal_window_labels: not_admitted_pending_supervisor_and_second_review
+training_admission: forbidden_until_training_readiness_gate_passes

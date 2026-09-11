@@ -99,6 +99,76 @@ def common_parameters():
     }
 
 
+def recovery_arguments():
+    """Closed-loop recovery (work package Q). Defaults reproduce the R0 path exactly."""
+    return [
+        DeclareLaunchArgument("recovery_policy", default_value="R0"),
+        DeclareLaunchArgument("recovery_smoke_unfrozen", default_value="false"),
+        DeclareLaunchArgument("recovery_model_dir", default_value=""),
+        DeclareLaunchArgument("recovery_calibrator", default_value=""),
+        DeclareLaunchArgument("recovery_selector_model", default_value=""),
+        DeclareLaunchArgument("recovery_live_execution", default_value="false"),
+        DeclareLaunchArgument("recovery_relocalisation_available", default_value="false"),
+        # Empty => the manager reads the signed configs/recovery_live_evidence.yaml.
+        DeclareLaunchArgument("recovery_live_evidence", default_value=""),
+        DeclareLaunchArgument("goal_x", default_value="0.0"),
+        DeclareLaunchArgument("goal_y", default_value="0.0"),
+        DeclareLaunchArgument("goal_yaw", default_value="0.0"),
+    ]
+
+
+def recovery_nodes():
+    """Online failure monitor and recovery manager; launched only when policy != R0."""
+    from launch_ros.parameter_descriptions import ParameterValue
+
+    predictor_policy = IfCondition(PythonExpression([
+        "'", LaunchConfiguration("recovery_policy"), "' != 'R0'"
+    ]))
+
+    def text(name):
+        return ParameterValue(LaunchConfiguration(name), value_type=str)
+
+    # The monitor scores with torch, which only the project venv provides (the venv
+    # includes the system site-packages, so rclpy and the same numpy are available).
+    # The console script is a Python file, so the interpreter is a plain prefix.
+    venv_python = os.path.join(os.environ.get("RESEARCH2_ROOT", ""), ".venv", "bin", "python")
+    monitor_prefix = venv_python if os.path.isfile(venv_python) else ""
+
+    return [
+        Node(
+            package="failure_monitor", executable="failure_monitor", output="screen",
+            condition=predictor_policy, prefix=monitor_prefix,
+            parameters=[{
+                "use_sim_time": True,
+                "research2_root": text("research2_root"),
+                "run_id": text("run_id"),
+                "recovery_policy": text("recovery_policy"),
+                "smoke_unfrozen": LaunchConfiguration("recovery_smoke_unfrozen"),
+                "model_dir": text("recovery_model_dir"),
+                "calibrator": text("recovery_calibrator"),
+                "goal_x": LaunchConfiguration("goal_x"),
+                "goal_y": LaunchConfiguration("goal_y"),
+                "relocalisation_available": LaunchConfiguration("recovery_relocalisation_available"),
+            }],
+        ),
+        Node(
+            package="recovery_manager", executable="recovery_manager", output="screen",
+            condition=predictor_policy,
+            parameters=[{
+                "use_sim_time": True,
+                "run_id": text("run_id"),
+                "policy_id": text("recovery_policy"),
+                "selector_model": text("recovery_selector_model"),
+                "live_execution": LaunchConfiguration("recovery_live_execution"),
+                "live_evidence": text("recovery_live_evidence"),
+                "goal_x": LaunchConfiguration("goal_x"),
+                "goal_y": LaunchConfiguration("goal_y"),
+                "goal_yaw": LaunchConfiguration("goal_yaw"),
+            }],
+        ),
+    ]
+
+
 def generate_launch_description():
     environment_family = PythonExpression([
         "'", LaunchConfiguration("family"), "' in ['dynamic_blockage', 'planner_oscillation']"
@@ -123,6 +193,9 @@ def generate_launch_description():
         DeclareLaunchArgument("injection_x", default_value="0.0"),
         DeclareLaunchArgument("injection_y", default_value="0.0"),
         DeclareLaunchArgument("injection_yaw", default_value="0.0"),
+        DeclareLaunchArgument("placement_mode", default_value="explicit"),
+        DeclareLaunchArgument("route_fraction", default_value="0.55"),
+        *recovery_arguments(),
     ]
     return LaunchDescription([
         SetEnvironmentVariable(
@@ -143,6 +216,10 @@ def generate_launch_description():
             }],
         ),
         Node(
+            package="failure_experiment", executable="semantic_summary", output="screen",
+            parameters=[{"use_sim_time": True}],
+        ),
+        Node(
             package="failure_experiment", executable="environment_fault", output="screen",
             condition=IfCondition(environment_family),
             parameters=[{
@@ -150,6 +227,9 @@ def generate_launch_description():
                 "injection_x": LaunchConfiguration("injection_x"),
                 "injection_y": LaunchConfiguration("injection_y"),
                 "injection_yaw": LaunchConfiguration("injection_yaw"),
+                "placement_mode": LaunchConfiguration("placement_mode"),
+                "route_fraction": LaunchConfiguration("route_fraction"),
             }],
         ),
+        *recovery_nodes(),
     ])

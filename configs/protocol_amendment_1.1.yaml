@@ -1,0 +1,33 @@
+schema_version: 1
+protocol_version: "1.1"
+amendment_id: PA-2026-09-03-01
+status: approved
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: "2026-09-03"
+protected_outcomes_consulted: false
+scope: human_review_admission
+rationale: >-
+  No independent reviewer or supervisor was available. Protocol 1.0 requires twenty
+  hand-audited episodes but does not state that two independent human reviewers are
+  required for model-development admission. The researcher completed all twenty
+  reviews prospectively and approved the numerical event interpretations.
+decisions:
+  primary_manual_audit:
+    required_reviews: 1
+    required_episode_count: 20
+    exact_causal_signature_agreement_required: true
+  threshold_approval:
+    researcher_approval_is_admissible: true
+    approval_record: configs/event_threshold_review.2026-08-30.researcher.yaml
+  independent_review:
+    required_for_model_development: false
+    required_for_confirmatory_execution: false
+    status: optional_prepublication_quality_check
+  reporting:
+    claim_inter_rater_reliability: false
+    disclose_single_reviewer_design: true
+    disclose_ai_cross_check_as_nonhuman_support: true
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  protected_test_access_authorized: false

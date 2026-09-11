@@ -1,0 +1,36 @@
+schema_version: 1
+status: passed
+observed_utc: '2026-09-02T12:42:44Z'
+protected_test_used: false
+training_performed: false
+source:
+  run_id: fa1f82d2-b1a7-4ad7-86a7-d3f5f5772977
+  split: validation
+  campaign_id: balanced_validation_teardown_replacements_v1
+  recording_profile: compact_v2
+  mcap_sha256: 3412f2a6784d61e026f771275f14d38066dae3b897f3c6b8d878ea0719e3e513
+pipeline:
+  - extract_episode_annotation
+  - generate_labels
+  - extract_bag_scalar_telemetry
+  - extract_scalar_features
+  - derive_window_features
+counts:
+  scalar_observations: 17383
+  causal_decisions: 158
+  feature_rows: 158
+  output_columns: 99
+  primary_value_features: 28
+checks:
+  all_primary_value_age_missing_columns_present: true
+  one_run_id: true
+  decision_indices_unique: true
+  future_samples_rejected_by_extractor: true
+  output_is_not_a_model_fit: true
+configuration:
+  feature_schema_sha256: a52f62619b9c1048fc5126ebf0bbd5cdff9dbc9ccffcf6ecb04ba5d033ebacb5
+  leakage_denylist_sha256: a70d742ee566a082d20d5ba90d04e71a36aeb2b8181d03a82c16053de57e77b0
+interpretation: The complete offline path executes on one retained real episode and
+  emits a stable primary feature matrix. This smoke test establishes pipeline
+  readiness only; it does not admit validation data for fitting or replace the human
+  causal-label gate.

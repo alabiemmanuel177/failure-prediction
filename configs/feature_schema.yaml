@@ -4,6 +4,87 @@ decision_rate_hz: 2.0
 required_channels_per_feature: [value, age_seconds, missing]
 normalisation_fit_split: development
 
+# Executable scalar contract used before temporal derivation. Every episode emits
+# these columns even when an entire source topic is absent; in that case value=0,
+# age=max_age_seconds, and missing=1. Alternate perception sources preserve the
+# same feature name across full_v1/compact_v1 and compact_v2 recordings.
+raw_feature_contract:
+  command_linear: {sources: [/cmd_vel], max_age_seconds: 0.5}
+  command_angular: {sources: [/cmd_vel], max_age_seconds: 0.5}
+  measured_linear: {sources: [/odom], max_age_seconds: 0.5}
+  measured_angular: {sources: [/odom], max_age_seconds: 0.5}
+  odom_x: {sources: [/odom], max_age_seconds: 0.5}
+  odom_y: {sources: [/odom], max_age_seconds: 0.5}
+  pose_covariance_trace: {sources: [/amcl_pose], max_age_seconds: 2.0}
+  amcl_x: {sources: [/amcl_pose], max_age_seconds: 2.0}
+  amcl_y: {sources: [/amcl_pose], max_age_seconds: 2.0}
+  valid_return_fraction: {sources: [/scan], max_age_seconds: 0.5}
+  minimum_front_range: {sources: [/scan], max_age_seconds: 0.5}
+  minimum_left_range: {sources: [/scan], max_age_seconds: 0.5}
+  minimum_right_range: {sources: [/scan], max_age_seconds: 0.5}
+  global_path_length: {sources: [/plan], max_age_seconds: 2.0}
+  global_path_curvature: {sources: [/plan], max_age_seconds: 2.0}
+  local_path_length: {sources: [/local_plan], max_age_seconds: 1.0}
+  local_path_curvature: {sources: [/local_plan], max_age_seconds: 1.0}
+  confidence_mean:
+    sources: [/research2/features/perception, /semantic/confidence]
+    max_age_seconds: 1.0
+  uncertainty_mean:
+    sources: [/research2/features/perception, /semantic/uncertainty]
+    max_age_seconds: 1.0
+  inference_latency_ms:
+    sources: [/research2/features/perception, /semantic/inference_latency_ms]
+    max_age_seconds: 1.0
+
+derived_feature_contract:
+  - tracking_error
+  - stopped_while_commanded
+  - jerk
+  - goal_distance
+  - remaining_distance_slope
+  - progress_slope
+  - command_sign_changes
+  - pose_jump
+  - valid_return_trend
+  - near_obstacle_trend
+  - left_right_imbalance
+  - replan_rate
+
+# Exact deployable value columns for the primary comparison. The extractor also
+# emits `__age_seconds` and `__missing` companions for every listed value. Absolute
+# map coordinates and recording-profile identifiers are deliberately excluded.
+primary_feature_set:
+  include_companion_channels: [age_seconds, missing]
+  values:
+    - command_linear
+    - command_angular
+    - measured_linear
+    - measured_angular
+    - pose_covariance_trace
+    - valid_return_fraction
+    - minimum_front_range
+    - minimum_left_range
+    - minimum_right_range
+    - global_path_length
+    - global_path_curvature
+    - local_path_length
+    - local_path_curvature
+    - confidence_mean
+    - uncertainty_mean
+    - inference_latency_ms
+    - tracking_error
+    - stopped_while_commanded
+    - jerk
+    - goal_distance
+    - remaining_distance_slope
+    - progress_slope
+    - command_sign_changes
+    - pose_jump
+    - valid_return_trend
+    - near_obstacle_trend
+    - left_right_imbalance
+    - replan_rate
+
 groups:
   motion:
     enabled: true
@@ -20,8 +101,20 @@ groups:
   perception_confidence:
     enabled: true
     status: enabled_for_perception_systems_missing_mask_for_s0
-    sources: [/semantic/confidence, /semantic/uncertainty, /semantic/inference_latency_ms]
-    features: [confidence_mean, entropy, temporal_disagreement, missed_frame_rate, inference_latency]
+    sources:
+      - /semantic/confidence
+      - /semantic/uncertainty
+      - /semantic/inference_latency_ms
+      - /semantic/classes
+      - /research2/features/perception
+    features: [confidence_mean, uncertainty_mean, inference_latency_ms]
+    exploratory_not_primary_until_uniform_reconstruction:
+      - temporal_disagreement
+      - missed_frame_rate
+      - entropy_mean
+      - class_area_fractions
+    source_adapter_policy: full_v1_and_compact_v1_images_or_compact_v2_scalar_summary
+    cross_profile_feature_contract_required: true
   planning:
     enabled: true
     status: mapped_from_research1_g6
@@ -36,6 +129,11 @@ groups:
     enabled: true
     status: map_frame_goal_from_frozen_route_manifest
     sources: [/amcl_pose, /tf, route_manifest]
+    # Correction 2026-09-03 (before any model fit): goal_distance, remaining_distance_slope
+    # and progress_slope use the map-frame /amcl_pose estimate. The first derivation
+    # compared odom-frame coordinates with the map-frame goal; those derived artifacts
+    # were superseded and regenerated. Labels and raw telemetry were unaffected.
+    goal_distance_pose_source: /amcl_pose
     features: [goal_distance, goal_bearing, elapsed_time, route_budget_remaining, remaining_distance_slope]
 
 causality:
@@ -58,5 +156,6 @@ causality:
       /semantic/confidence: 1.0
       /semantic/uncertainty: 1.0
       /semantic/inference_latency_ms: 1.0
+      /research2/features/perception: 1.0
     expiry_rule: emit_missing_true_and_do_not_forward_fill_after_maximum_age
   future_interpolation: forbidden

@@ -1,0 +1,55 @@
+schema_version: 1
+observed_utc: '2026-09-11T21:32:26Z'
+campaign_id: held_out_map_v1
+state: fail_stopped_unresolved_invalid
+runner_lock_held: false
+counts:
+  expected_design_keys: 1008
+  attempted_design_keys: 1008
+  successful_parent_artifacts: 994
+  failed_parent_attempts: 14
+  valid_declared_replacements: 0
+  scientifically_resolved_design_keys: 994
+  remaining_design_keys: 0
+  unresolved_invalid_attempts: 14
+integrity:
+  duplicate_parent_episode_keys: []
+  unexpected_parent_episode_keys: []
+resolved_replacement_keys: []
+unresolved_invalid_keys:
+- test_00-test_00_r0-blockage-r4
+- test_00-test_00_r0-wheel-r1
+- test_00-test_00_r1-blockage-r4
+- test_00-test_00_r1-wheel-r1
+- test_00-test_00_r2-blockage-r4
+- test_00-test_00_r2-wheel-r1
+- test_00-test_00_r3-blockage-r2
+- test_00-test_00_r3-blockage-r4
+- test_00-test_00_r3-wheel-r1
+- test_00-test_00_r4-blockage-r4
+- test_00-test_00_r4-wheel-r1
+- test_01-test_01_r1-localisation-r4
+- test_02-test_02_r5-blockage-r3
+- test_02-test_02_r5-wheel-r0
+last_ledger_record:
+  artifact_validation_returncode: 0
+  campaign_id: held_out_map_v1
+  concurrency_workers: 4
+  dispatcher: run_campaign_parallel_v1
+  domain_base: 60
+  episode_key: test_02-test_02_r5-wheel-r6
+  episode_returncode: 0
+  finished_utc: '2026-09-05T21:55:17Z'
+  gz_partition: research2_w3
+  returncode: 0
+  ros_domain_id: 63
+  started_utc: '2026-09-05T21:52:29Z'
+  system: s0
+  system_concurrency:
+    s3: 1
+  systems_filter:
+  - s0
+  worker_slot: 3
+free_space_gib: 136.754
+protected_test_used: false
+monitor_policy: observe_only_no_restart_no_retry

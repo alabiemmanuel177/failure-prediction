@@ -1,0 +1,13 @@
+[Unit]
+Description=Research 2 manual audit review app (localhost:3002, published via Tailscale Funnel)
+After=network.target
+
+[Service]
+WorkingDirectory=/home/eao/failure-prediction
+EnvironmentFile=%h/.config/research2/review-app.env
+ExecStart=/usr/bin/python3 /home/eao/failure-prediction/scripts/manual_audit_app.py --port 3002 --no-browser
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

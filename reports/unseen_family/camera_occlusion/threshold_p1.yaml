@@ -1,0 +1,11 @@
+model_id: p1_threshold_rules
+threshold: 0.5
+selection_split: validation
+protected_test_used: false
+selection: fixed decision threshold on the binary rule score; rules tuned by tune_threshold_rules.py
+  under the frozen clean-mission budget
+excluded_family: camera_occlusion
+rules: /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/rules_p1.yaml
+rules_sha256: 43537dd8735b08ab253b0143c905e2be7a77402ac9c47d961d93789301da05ac
+tuning_record: /home/eao/failure-prediction/reports/unseen_family/camera_occlusion/tuning_p1.yaml
+tuning_record_sha256: b520081b94678db1fd8d6e65286a1b6373b5d96d40010abacff790ba66e0c836

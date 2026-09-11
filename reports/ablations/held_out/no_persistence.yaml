@@ -1,0 +1,113 @@
+schema_version: 1
+kind: held_out_ablation
+ablation: no_persistence
+spec:
+  kind: policy
+  persistence:
+    required_above_threshold: 1
+    decisions_considered: 1
+  cooldown_kept: true
+  question: How much alert stability comes from the decision rule rather than the
+    model?
+  retrain: false
+generated_utc: '2026-09-06T11:34:02.110103+00:00'
+scope: held_out_map_test
+protected_test_used: true
+confirmatory: false
+hypothesis: 'H4 (supporting): identical held-out test episodes, primary frozen threshold
+  rule'
+held_out_dataset: held_out_map_v1-held_out_map_test-1008
+source_table: /home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.calibrated.csv
+calibration_mode: frozen
+metrics:
+  policy:
+    threshold: 0.23509196030026114
+    persistence: 1-of-1
+    cooldown_seconds: 10.0
+  episode_count: 1008
+  event_count: 163
+  detected_event_count: 40
+  event_recall: 0.24539877300613497
+  false_alerts_per_clean_mission: 0.2619047619047619
+  false_alerts_per_non_event_mission: 0.2733727810650888
+  lead_time:
+    event_count: 163
+    detected_event_count: 40
+    undetected_event_count: 123
+    median_seconds_detected: 4.542999999999999
+    q1_seconds_detected: 2.385749999999998
+    q3_seconds_detected: 6.104249999999999
+    min_seconds_detected: 1.6670000000000016
+    max_seconds_detected: 9.617999999999995
+    fraction_of_all_events_warned_at_least:
+      1s: 0.24539877300613497
+      2s: 0.2331288343558282
+      3s: 0.147239263803681
+      5s: 0.11042944785276074
+      10s: 0.0
+  discrimination:
+    auprc: 0.15852879136910417
+    auroc: 0.8097374417230249
+    eligible_positive_count: 2909
+    eligible_negative_count: 168682
+    unit: eligible_decision_window
+    role: supporting_metric_only
+  calibration:
+    brier_score: 0.016036737531570006
+    ece: 0.008084453608610593
+  alert_burden:
+    all:
+      mission_count: 1008
+      total_alerts: 438
+      alerts_per_mission: 0.43452380952380953
+      repeated_alerts_per_mission: 0.15476190476190477
+      time_under_alert_seconds_per_mission: 1.6656746031746033
+      fraction_of_decisions_under_alert: 0.015446821625550276
+    clean:
+      mission_count: 126
+      total_alerts: 39
+      alerts_per_mission: 0.30952380952380953
+      repeated_alerts_per_mission: 0.10317460317460317
+      time_under_alert_seconds_per_mission: 0.9285714285714286
+      fraction_of_decisions_under_alert: 0.009089849667870877
+    faulted:
+      mission_count: 882
+      total_alerts: 399
+      alerts_per_mission: 0.4523809523809524
+      repeated_alerts_per_mission: 0.1621315192743764
+      time_under_alert_seconds_per_mission: 1.7709750566893423
+      fraction_of_decisions_under_alert: 0.016300717982968775
+  confidence_interval: &id001
+  - 0.0
+  - 0.09316901779134644
+  confidence_interval_meaning: 95% hierarchical bootstrap interval of the paired event-recall
+    difference (ablation minus primary) over identical held-out episodes
+delta_vs_primary:
+  analysis_unit: episode
+  hierarchy:
+  - map
+  - route
+  - episode
+  contrast: a_detected_minus_b_detected
+  episode_count: 163
+  map_count: 3
+  point_estimate: 0.024539877300613498
+  confidence: 0.95
+  confidence_interval: *id001
+  bootstrap_replicates: 2000
+  seed: 20260904
+  event_recall_a: 0.24539877300613497
+  event_recall_b: 0.22085889570552147
+  event_episode_count: 163
+  total_episode_count: 1008
+primary:
+  table: /home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.alarmed.csv
+  table_sha256: 3655fb69157819d176f29ab63e19724bc261d7db971a967f67754c8c0ad755b4
+  event_recall: 0.22085889570552147
+  false_alerts_per_clean_mission: 0.18253968253968253
+inputs:
+  validation_report: /home/eao/failure-prediction/reports/ablations/validation_ablations.yaml
+  validation_report_sha256: 774431815676398ca93a78115f3cf8269d62f27f9ab769d617b096ca9610728b
+  freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  alarm_policy_sha256: eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc
+  ablations_config_sha256: d153611cdecab5131024959fc6bd29182179c281d9e03ea46889eeb04e8a1e00

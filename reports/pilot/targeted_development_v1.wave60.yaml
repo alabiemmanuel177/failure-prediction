@@ -1,0 +1,41 @@
+schema_version: 1
+campaign_id: targeted_development_v1
+wave: 60
+recording_profiles:
+  compact_v2: 12
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 12
+  usable: 12
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 2
+  successes: 10
+  collisions: 0
+event_prevalence: 0.16666666666666666
+bag_gib: 0.04664061218500137
+duration_seconds:
+  total: 739.457
+  median: 62.911500000000004
+by_terminal_state:
+  false_arrival: 2
+  success: 10
+by_event_class:
+  false_arrival: 2
+perception_metric_summaries: 0
+episode_keys:
+- dev_00-dev_00_r0-localisation-r34
+- dev_00-dev_00_r1-localisation-r34
+- dev_01-dev_01_r0-localisation-r34
+- dev_01-dev_01_r1-localisation-r34
+- dev_02-dev_02_r0-localisation-r34
+- dev_02-dev_02_r1-localisation-r34
+- dev_03-dev_03_r0-localisation-r34
+- dev_03-dev_03_r1-localisation-r34
+- dev_04-dev_04_r0-localisation-r34
+- dev_04-dev_04_r1-localisation-r34
+- dev_05-dev_05_r0-localisation-r34
+- dev_05-dev_05_r1-localisation-r34
+training_admission: human_gate_passed_dataset_campaign_in_progress

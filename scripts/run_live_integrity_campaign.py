@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROS_PACKAGE))
 
 from failure_experiment.parameters import load_fault_parameters
 from src.platform_boundary import validate_platform
+from src.recovery.plumbing import recovery_cli_arguments
 
 
 SEVERITY_INDEX = {"low": 1, "medium": 2, "high": 3}
@@ -73,9 +74,14 @@ def episode_command(campaign_id: str, episode: dict, output_root: Path) -> list[
         "--maximum-wait-seconds", str(episode["maximum_wait_seconds"]),
         "--output-root", str(output_root),
     ]
-    for name in ("injection_x", "injection_y", "injection_yaw"):
+    for name in (
+        "injection_x", "injection_y", "injection_yaw", "placement_mode", "route_fraction",
+        "recording_profile",
+    ):
         if name in episode:
             command.extend(["--" + name.replace("_", "-"), str(episode[name])])
+    # Empty for every campaign without recovery_policies (byte-identical command line).
+    command.extend(recovery_cli_arguments(episode))
     return command
 
 
@@ -97,10 +103,14 @@ def append_ledger(ledger: Path, record: dict) -> None:
         os.fsync(stream.fileno())
 
 
-def validate_completed_artifact(campaign_id: str, episode_key: str, output_root: Path) -> int:
+def validate_completed_artifact(
+    campaign_id: str, episode_key: str, output_root: Path, extra_args: tuple[str, ...] = (),
+) -> int:
     matches = []
     for path in sorted((output_root / "summaries").glob("*.yaml")):
         summary = yaml.safe_load(path.read_text(encoding="utf-8"))
+        if not isinstance(summary, dict):
+            continue
         identity = summary.get("identity", {})
         if identity.get("campaign_id") == campaign_id and identity.get("episode_key") == episode_key:
             matches.append(path)
@@ -111,7 +121,8 @@ def validate_completed_artifact(campaign_id: str, episode_key: str, output_root:
         )
         return 1
     return subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "validate_episode_artifacts.py"), str(matches[0])],
+        [sys.executable, str(ROOT / "scripts" / "validate_episode_artifacts.py"),
+         str(matches[0]), *extra_args],
         check=False,
     ).returncode
 

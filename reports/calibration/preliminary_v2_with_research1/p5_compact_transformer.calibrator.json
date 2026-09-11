@@ -1,0 +1,1 @@
+{"fit_summary":{"fit_rows":32327,"nll_after":0.13192413572563927,"nll_before":0.1739770703968087,"positive_rows":1098,"ridge":0.0001},"method":"platt_scaling","params":{"intercept":-1.8534684710541338,"slope":0.41153214614193656},"schema_version":1}

@@ -1,0 +1,46 @@
+schema_version: 1
+purpose: 'phased execution admission: S0 episodes six-wide, S3 episodes strictly alone'
+derived_from:
+- reports/integrity/concurrency_shift_check_v1.yaml
+- reports/integrity/concurrency_shift_check_v2.yaml
+policy: configs/concurrency_shift_policy.yaml
+policy_sha256: b94c8236f247690a5f2be9c7991e232af56af7cdef75f37673b2b0344e25fdd1
+rule: admit only if every completed concurrency check shows clean S0 false alerts
+  per mission within budget and no S0-condition deployable feature beyond the SMD
+  bound; S3-alone is the sequential reference condition
+smd_bound: 0.5
+false_alert_budget_per_clean_mission: 0.1
+evidence:
+  reports/integrity/concurrency_shift_check_v1.yaml:
+    sha256: c2d6470102f3c9f10951bc7b6c521e06ee9a182de9a117182d6c078d18ed99c3
+    check_passed_overall: false
+    s0_findings:
+    - clean_s0 false alerts per mission 0.16666666666666666 exceed the 0.1 budget
+    clean_s0_false_alerts_per_mission: 0.16666666666666666
+    largest_s0_smd:
+      clean_s0:remaining_distance_slope__missing: 0.2745795747827497
+      clean_s0:progress_slope__missing: 0.2745795747827497
+      oscillation:command_sign_changes: 0.2573874270092363
+      clean_s0:command_sign_changes__missing: 0.23339074959663283
+      clean_s0:pose_covariance_trace__missing: 0.22214281517591686
+  reports/integrity/concurrency_shift_check_v2.yaml:
+    sha256: 6e1acabae204d45a9d031c46be8e97422bf4728bf031231f009b446c298e825c
+    check_passed_overall: false
+    s0_findings: []
+    clean_s0_false_alerts_per_mission: 0.0
+    largest_s0_smd:
+      oscillation:valid_return_fraction__age_seconds: -0.3424998445756359
+      oscillation:minimum_front_range__age_seconds: -0.3424998445756359
+      oscillation:minimum_left_range__age_seconds: -0.3424998445756359
+      oscillation:minimum_right_range__age_seconds: -0.3424998445756359
+      oscillation:global_path_length: -0.20512719851986347
+findings:
+- 'reports/integrity/concurrency_shift_check_v1.yaml: clean_s0 false alerts per mission
+  0.16666666666666666 exceed the 0.1 budget'
+passed: false
+phased_execution:
+  s0: 6
+  s3: 1
+generated_utc: '2026-09-04T15:51:17.102596+00:00'
+protected_test_used: false
+new_measurement_performed: false

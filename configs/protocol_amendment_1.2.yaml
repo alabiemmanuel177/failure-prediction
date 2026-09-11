@@ -1,0 +1,38 @@
+schema_version: 1
+protocol_version: "1.2"
+amendment_id: PA-2026-09-03-02
+status: approved
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: "2026-09-03"
+protected_outcomes_consulted: false
+protected_maps_inspected: false
+scope: confirmatory_design_route_count
+rationale: >-
+  Protocol 1.0 sizes the held-out, severity-stress and paired-recovery campaigns as
+  3 protected maps x 8 frozen routes. The content-locked Research 1 platform provides
+  six frozen routes per held-out map, and inventing routes on protected maps before the
+  model freeze is forbidden. The researcher therefore fixed six routes per map and kept
+  every campaign at or above its preregistered minimum episode count by adding seeds.
+  No protected map, route geometry or outcome was inspected to make this decision; it
+  follows from the Research 1 route README alone.
+decisions:
+  routes_per_held_out_map: 6
+  held_out_confirmatory:
+    design: 3 maps x 6 routes x 7 seeds x 8 conditions
+    episodes: 1008
+    protocol_minimum: 960
+  severity_stress:
+    design: 3 maps x 6 routes x 4 seeds x 7 families x 3 severities
+    episodes: 1512
+    protocol_minimum: 1512
+  paired_recovery:
+    design: 3 maps x 6 routes x 4 seeds x 7 families x policies {R0, R1, R2, R3}
+    r0_versus_r3_episodes: 1008
+    protocol_minimum_paired_episodes: 1008
+    total_episodes: 2016
+  hierarchical_bootstrap: unchanged (map -> route -> episode)
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  protected_test_access_authorized: false
+  applies_before_model_freeze: true

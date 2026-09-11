@@ -1,0 +1,40 @@
+schema_version: 1
+model_id: p3_causal_tcn
+role: primary learned predictor
+input:
+  time_steps: 10
+  channels: 84
+  history_seconds: 5.0
+  stride_seconds: 0.5
+architecture:
+  hidden_channels: 64
+  kernel_size: 3
+  dilations: [1, 2, 4]
+  dropout: 0.15
+  activation: gelu
+training:
+  device: cuda
+  batch_size: 256
+  max_epochs: 60
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  early_stopping:
+    metric: validation_auprc
+    patience: 10
+    minimum_delta: 0.0005
+  loss:
+    type: weighted_bce            # weighted_bce | focal
+    focal_gamma: 2.0
+    focal_alpha: 0.25
+  positive_weighting: class      # class (pos_weight = negatives/positives) | event (each event episode contributes equally)
+  negative_sampling:
+    cap_per_episode: 60
+    phase_bins: 4
+  seed_workers: 0
+selection:
+  metric: validation_auprc
+  event_recall_log:
+    enabled: true
+    purpose: information_only      # never used for selection inside training
+    score_grid: 0.01               # scores are rounded to this grid before the frozen-budget sweep

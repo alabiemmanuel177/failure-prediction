@@ -1,0 +1,109 @@
+schema_version: 1
+kind: held_out_ablation
+ablation: no_calibration
+spec:
+  kind: policy
+  effect: raw sigmoid output is used as risk_score (scripts/apply_calibration.py skipped)
+  question: Does calibration change the warning-cost tradeoff?
+  retrain: false
+generated_utc: '2026-09-06T11:33:58.555786+00:00'
+scope: held_out_map_test
+protected_test_used: true
+confirmatory: false
+hypothesis: 'H4 (supporting): identical held-out test episodes, primary frozen threshold
+  rule'
+held_out_dataset: held_out_map_v1-held_out_map_test-1008
+source_table: /home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.calibrated.csv
+calibration_mode: none
+metrics:
+  policy:
+    threshold: 0.23509196030026114
+    persistence: 2-of-3
+    cooldown_seconds: 10.0
+  episode_count: 1008
+  event_count: 163
+  detected_event_count: 74
+  event_recall: 0.4539877300613497
+  false_alerts_per_clean_mission: 0.9365079365079365
+  false_alerts_per_non_event_mission: 0.9656804733727811
+  lead_time:
+    event_count: 163
+    detected_event_count: 74
+    undetected_event_count: 89
+    median_seconds_detected: 4.965499999999999
+    q1_seconds_detected: 3.549249999999997
+    q3_seconds_detected: 6.540749999999992
+    min_seconds_detected: 1.0730000000000075
+    max_seconds_detected: 9.922000000000011
+    fraction_of_all_events_warned_at_least:
+      1s: 0.4539877300613497
+      2s: 0.4233128834355828
+      3s: 0.3803680981595092
+      5s: 0.22699386503067484
+      10s: 0.0
+  discrimination:
+    auprc: 0.15865512317023295
+    auroc: 0.8111133477530438
+    eligible_positive_count: 2909
+    eligible_negative_count: 168682
+    unit: eligible_decision_window
+    role: supporting_metric_only
+  calibration:
+    brier_score: 0.03411478069388913
+    ece: 0.040953054181163344
+  alert_burden:
+    all:
+      mission_count: 1008
+      total_alerts: 1196
+      alerts_per_mission: 1.1865079365079365
+      repeated_alerts_per_mission: 0.5426587301587301
+      time_under_alert_seconds_per_mission: 6.242559523809524
+      fraction_of_decisions_under_alert: 0.05789108104751347
+    clean:
+      mission_count: 126
+      total_alerts: 130
+      alerts_per_mission: 1.0317460317460319
+      repeated_alerts_per_mission: 0.3968253968253968
+      time_under_alert_seconds_per_mission: 5.428571428571429
+      fraction_of_decisions_under_alert: 0.053140659596783595
+    faulted:
+      mission_count: 882
+      total_alerts: 1066
+      alerts_per_mission: 1.2086167800453516
+      repeated_alerts_per_mission: 0.5634920634920635
+      time_under_alert_seconds_per_mission: 6.358843537414966
+      fraction_of_decisions_under_alert: 0.058529178493905494
+  confidence_interval: &id001
+  - 0.0
+  - 0.38835415249520744
+  confidence_interval_meaning: 95% hierarchical bootstrap interval of the paired event-recall
+    difference (ablation minus primary) over identical held-out episodes
+delta_vs_primary:
+  analysis_unit: episode
+  hierarchy:
+  - map
+  - route
+  - episode
+  contrast: a_detected_minus_b_detected
+  episode_count: 163
+  map_count: 3
+  point_estimate: 0.2331288343558282
+  confidence: 0.95
+  confidence_interval: *id001
+  bootstrap_replicates: 2000
+  seed: 20260904
+  event_recall_a: 0.4539877300613497
+  event_recall_b: 0.22085889570552147
+  event_episode_count: 163
+  total_episode_count: 1008
+primary:
+  table: /home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.alarmed.csv
+  table_sha256: 3655fb69157819d176f29ab63e19724bc261d7db971a967f67754c8c0ad755b4
+  event_recall: 0.22085889570552147
+  false_alerts_per_clean_mission: 0.18253968253968253
+inputs:
+  validation_report: /home/eao/failure-prediction/reports/ablations/validation_ablations.yaml
+  validation_report_sha256: 774431815676398ca93a78115f3cf8269d62f27f9ab769d617b096ca9610728b
+  freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  alarm_policy_sha256: eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc
+  ablations_config_sha256: d153611cdecab5131024959fc6bd29182179c281d9e03ea46889eeb04e8a1e00

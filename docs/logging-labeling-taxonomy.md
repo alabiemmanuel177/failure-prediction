@@ -19,7 +19,8 @@ Each episode therefore records:
 3. Record every observable event, even though only the first terminal event is primary.
 4. Cite confirmation topics and add a short evidence note.
 5. Use `confirmed` only when the operational rule is met; use `ambiguous` and retain the episode otherwise.
-6. Have a second reviewer adjudicate the initial 20 episodes.
+6. Have the researcher audit the initial 20 episodes. An independent second review is
+   an optional pre-publication quality check under PA-2026-09-03-01.
 7. Generate labels to a new path; the command refuses to overwrite an existing label file.
 
 Research 2 bags can be converted into a review-pending annotation without copying
@@ -33,8 +34,44 @@ python3 scripts/extract_episode_annotation.py \
 python3 scripts/validate_annotation.py data/annotations/<run_id>.yaml
 ```
 
-Automatic extraction is not adjudication. A person must inspect the timeline and set
-`review.adjudication_status` before the episode counts toward Gate G1.
+Automatic extraction is not human review. A person must inspect the timeline and record
+`review.first_reviewer` and `review.first_reviewed_utc` before the episode counts toward
+Gate G1. A pending adjudication status means optional independent review has not occurred;
+it does not invalidate the primary review.
+
+The action-result event is not always the first operational failure. Before review,
+derive the persistence-based localisation and immobilisation candidates directly from
+label-only bag evidence:
+
+```bash
+source scripts/env_research2.sh
+python3 scripts/derive_operational_events.py \
+  data/raw/summaries/<run_id>.yaml \
+  reports/manual-audit/operational-events/<run_id>.yaml
+```
+
+This derivation matches ground truth to AMCL by source timestamp, aligns fresh linear
+commands to odometry, applies the approved persistence rules, and resolves candidate
+ties by frozen event precedence. Missing evidence breaks continuity. Its output is
+review-pending and cannot modify a raw bag or annotation. Fault family and injection
+time are deliberately not inputs. Unsafe perception is not inferred from semantic
+fault identity: it requires explicit obstacle-miss and emergency-intervention evidence.
+
+For the frozen 20-episode audit, keep `data/annotations/<run_id>.yaml` unchanged as the
+automatic baseline. The researcher works from the bag and summary, then saves the
+reviewed copy as `data/annotations/reviewed/<run_id>.yaml` with `first_reviewer` and
+`first_reviewed_utc`. If an optional second review later occurs, its reviewer must be a
+different real person and any disagreements must be adjudicated. Run:
+
+```bash
+source scripts/env_research2.sh
+python3 scripts/check_manual_audit_gate.py
+```
+
+The gate compares only causal fields (episode bounds, injection timing, terminal event,
+and exclusion). Notes may improve without creating a false disagreement. Any causal
+disagreement must be investigated and logged; do not edit the automatic baseline. The
+study discloses its single-reviewer design and makes no inter-rater-agreement claim.
 
 ## Window semantics
 

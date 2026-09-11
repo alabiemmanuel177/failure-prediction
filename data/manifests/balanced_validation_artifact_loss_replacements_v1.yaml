@@ -1,0 +1,30 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: balanced_validation_artifact_loss_replacements_v1
+parent_campaign_id: balanced_validation_v1
+status: preregistered_post_validation_payload_loss_replacement
+allowed_splits: [validation]
+protected_test_used: false
+replacement_policy:
+  original_invalid_kind: post_validation_payload_loss
+  original_attempt_and_zero_length_artifacts_are_retained: true
+  original_scientific_admission: excluded_because_summary_and_bag_payloads_are_zero_length
+  replacement_uses_same_map_route_system_condition_and_seed: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+episodes:
+  - episode_key: val_01-val_01_r0-clean_s0-r4-infra-replacement-001
+    replaces_episode_key: val_01-val_01_r0-clean_s0-r4
+    replaces_run_id: 28de195f-7fbc-43f4-8677-e8d2d5923940
+    map: val_01
+    route: val_01_r0
+    system: s0
+    family: none
+    severity: none
+    seed: 910400
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 8.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+    recording_profile: compact_v2

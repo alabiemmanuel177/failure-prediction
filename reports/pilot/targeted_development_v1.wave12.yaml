@@ -1,0 +1,41 @@
+schema_version: 1
+campaign_id: targeted_development_v1
+wave: 12
+recording_profiles:
+  compact_v2: 12
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 12
+  usable: 12
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 1
+  successes: 11
+  collisions: 0
+event_prevalence: 0.08333333333333333
+bag_gib: 0.059400235302746296
+duration_seconds:
+  total: 769.982
+  median: 59.407
+by_terminal_state:
+  false_arrival: 1
+  success: 11
+by_event_class:
+  false_arrival: 1
+perception_metric_summaries: 12
+episode_keys:
+- dev_00-dev_00_r0-camera-r20
+- dev_00-dev_00_r1-camera-r20
+- dev_01-dev_01_r0-camera-r20
+- dev_01-dev_01_r1-camera-r20
+- dev_02-dev_02_r0-camera-r20
+- dev_02-dev_02_r1-camera-r20
+- dev_03-dev_03_r0-camera-r20
+- dev_03-dev_03_r1-camera-r20
+- dev_04-dev_04_r0-camera-r20
+- dev_04-dev_04_r1-camera-r20
+- dev_05-dev_05_r0-camera-r20
+- dev_05-dev_05_r1-camera-r20
+training_admission: blocked_pending_human_gate

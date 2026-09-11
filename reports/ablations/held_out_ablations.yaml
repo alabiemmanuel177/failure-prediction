@@ -1,0 +1,70 @@
+schema_version: 1
+kind: held_out_ablations_index
+generated_utc: '2026-09-06T11:34:05.572737+00:00'
+protected_test_used: true
+primary: 0.22085889570552147
+ablations:
+  no_localisation:
+    event_recall: 0.3312883435582822
+    false_alerts_per_clean_mission: 0.25396825396825395
+    delta_vs_primary: 0.11042944785276074
+    confidence_interval:
+    - 0.0
+    - 0.22699534690732343
+    report: /home/eao/failure-prediction/reports/ablations/held_out/no_localisation.yaml
+  no_planner_controller:
+    event_recall: 0.3558282208588957
+    false_alerts_per_clean_mission: 0.31746031746031744
+    delta_vs_primary: 0.13496932515337423
+    confidence_interval:
+    - -0.2839947089947089
+    - 0.3550308288317781
+    report: /home/eao/failure-prediction/reports/ablations/held_out/no_planner_controller.yaml
+  no_perception_confidence:
+    event_recall: 0.2883435582822086
+    false_alerts_per_clean_mission: 0.2222222222222222
+    delta_vs_primary: 0.06748466257668712
+    confidence_interval:
+    - -0.05095812440710123
+    - 0.22415246028671051
+    report: /home/eao/failure-prediction/reports/ablations/held_out/no_perception_confidence.yaml
+  no_raw_sensor:
+    event_recall: 0.06748466257668712
+    false_alerts_per_clean_mission: 0.0
+    delta_vs_primary: -0.15337423312883436
+    confidence_interval:
+    - -0.2857142857142857
+    - -0.03305558078285352
+    report: /home/eao/failure-prediction/reports/ablations/held_out/no_raw_sensor.yaml
+  no_motion_and_goal:
+    event_recall: 0.1656441717791411
+    false_alerts_per_clean_mission: 0.12698412698412698
+    delta_vs_primary: -0.05521472392638037
+    confidence_interval:
+    - -0.1849324966347296
+    - 0.054798283907872926
+    report: /home/eao/failure-prediction/reports/ablations/held_out/no_motion_and_goal.yaml
+  single_timestamp:
+    event_recall: 0.1901840490797546
+    false_alerts_per_clean_mission: 0.12698412698412698
+    delta_vs_primary: -0.03067484662576687
+    confidence_interval:
+    - -0.0763888888888889
+    - 0.007249040920716098
+    report: /home/eao/failure-prediction/reports/ablations/held_out/single_timestamp.yaml
+  no_calibration:
+    event_recall: 0.4539877300613497
+    false_alerts_per_clean_mission: 0.9365079365079365
+    delta_vs_primary: 0.2331288343558282
+    confidence_interval:
+    - 0.0
+    - 0.38835415249520744
+    report: /home/eao/failure-prediction/reports/ablations/held_out/no_calibration.yaml
+  no_persistence:
+    event_recall: 0.24539877300613497
+    false_alerts_per_clean_mission: 0.2619047619047619
+    delta_vs_primary: 0.024539877300613498
+    confidence_interval:
+    - 0.0
+    - 0.09316901779134644
+    report: /home/eao/failure-prediction/reports/ablations/held_out/no_persistence.yaml

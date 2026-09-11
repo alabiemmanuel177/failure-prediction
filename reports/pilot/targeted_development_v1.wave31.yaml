@@ -1,0 +1,41 @@
+schema_version: 1
+campaign_id: targeted_development_v1
+wave: 31
+recording_profiles:
+  compact_v2: 12
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 12
+  usable: 12
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 3
+  successes: 9
+  collisions: 0
+event_prevalence: 0.25
+bag_gib: 0.039096711203455925
+duration_seconds:
+  total: 619.226
+  median: 48.599000000000004
+by_terminal_state:
+  false_arrival: 3
+  success: 9
+by_event_class:
+  false_arrival: 3
+perception_metric_summaries: 0
+episode_keys:
+- dev_00-dev_00_r0-lidar-r25
+- dev_00-dev_00_r1-lidar-r25
+- dev_01-dev_01_r0-lidar-r25
+- dev_01-dev_01_r1-lidar-r25
+- dev_02-dev_02_r0-lidar-r25
+- dev_02-dev_02_r1-lidar-r25
+- dev_03-dev_03_r0-lidar-r25
+- dev_03-dev_03_r1-lidar-r25
+- dev_04-dev_04_r0-lidar-r25
+- dev_04-dev_04_r1-lidar-r25
+- dev_05-dev_05_r0-lidar-r25
+- dev_05-dev_05_r1-lidar-r25
+training_admission: blocked_pending_human_gate

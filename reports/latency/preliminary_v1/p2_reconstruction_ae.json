@@ -1,0 +1,45 @@
+{
+  "alarm_policy": {
+    "count": 480,
+    "max_ms": 0.01419,
+    "mean_ms": 0.0060957812500000005,
+    "median_ms": 0.00583,
+    "p95_ms": 0.008028499999999992
+  },
+  "batch_size": 1,
+  "checkpoint_sha256": "2159afda4852ddc6cdec428b67dbd17a86910597bc42af4049aa76c7f0046051",
+  "cpu": "x86_64",
+  "created_utc": "2026-09-03T01:55:52.431385+00:00",
+  "device": "cpu",
+  "end_to_end": {
+    "count": 480,
+    "max_ms": 0.374118,
+    "mean_ms": 0.22994786458333336,
+    "median_ms": 0.224314,
+    "p95_ms": 0.26244049999999997
+  },
+  "feature_preparation": {
+    "count": 480,
+    "max_ms": 0.210518,
+    "mean_ms": 0.1383235625,
+    "median_ms": 0.134774,
+    "p95_ms": 0.1532985
+  },
+  "model_dir": "/home/eao/failure-prediction/models/preliminary_v1/p2_reconstruction_ae__seed20260903",
+  "model_forward": {
+    "count": 480,
+    "max_ms": 0.15501,
+    "mean_ms": 0.08552852083333334,
+    "median_ms": 0.08194950000000001,
+    "p95_ms": 0.10475444999999996
+  },
+  "model_id": "p2_reconstruction_ae",
+  "parameter_count": 466392,
+  "protected_test_used": false,
+  "schema_version": 1,
+  "threads": 1,
+  "timed_decisions": 480,
+  "torch_version": "2.13.0+rocm7.2",
+  "warmup_decisions": 20,
+  "windows_source": "dataset:balanced_validation_v1-validation-324"
+}

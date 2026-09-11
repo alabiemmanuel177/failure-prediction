@@ -15,10 +15,10 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: exact deterministic reconstruction from raw images
-    raw_post_onset: 155
-    expected_and_realized_drops: 26
-    exact_output_matches: 129
-    expected_outputs: 129
+    raw_post_onset: 148
+    expected_and_realized_drops: 24
+    exact_output_matches: 124
+    expected_outputs: 124
     unexpected_missing_outputs: 0
     passed: true
   passed: true
@@ -31,11 +31,11 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: exact deterministic reconstruction from raw images
-    raw_post_onset: 137
+    raw_post_onset: 130
     expected_and_realized_drops: 0
-    exact_output_matches: 136
-    expected_outputs: 137
-    unexpected_missing_outputs: 1
+    exact_output_matches: 130
+    expected_outputs: 130
+    unexpected_missing_outputs: 0
     passed: true
   passed: true
 - episode_key: camera_occlusion-medium-201
@@ -47,10 +47,10 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: exact deterministic reconstruction from raw images
-    raw_post_onset: 135
+    raw_post_onset: 128
     expected_and_realized_drops: 6
-    exact_output_matches: 129
-    expected_outputs: 129
+    exact_output_matches: 122
+    expected_outputs: 122
     unexpected_missing_outputs: 0
     passed: true
   passed: true
@@ -63,8 +63,8 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: exact deterministic reconstruction from raw scans
-    matched_post_onset_scans: 136
-    exact_output_matches: 136
+    matched_post_onset_scans: 129
+    exact_output_matches: 129
     passed: true
   passed: true
 - episode_key: localisation_perturbation-medium-201
@@ -136,8 +136,8 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: exact deterministic reconstruction from raw scans
-    matched_post_onset_scans: 135
-    exact_output_matches: 135
+    matched_post_onset_scans: 128
+    exact_output_matches: 128
     passed: true
   passed: true
 - episode_key: semantic_corruption-low-201
@@ -161,9 +161,9 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: raw/deployed odometry comparison
-    matched_post_onset_odometry: 381
-    exact_twist_scale_matches: 381
-    altered_pose_messages: 381
+    matched_post_onset_odometry: 361
+    exact_twist_scale_matches: 361
+    altered_pose_messages: 361
     passed: true
   passed: true
 - episode_key: lidar_dropout-low-201
@@ -175,8 +175,8 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: exact deterministic reconstruction from raw scans
-    matched_post_onset_scans: 136
-    exact_output_matches: 136
+    matched_post_onset_scans: 129
+    exact_output_matches: 129
     passed: true
   passed: true
 - episode_key: dynamic_blockage-low-201
@@ -236,9 +236,9 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: raw/deployed odometry comparison
-    matched_post_onset_odometry: 372
-    exact_twist_scale_matches: 372
-    altered_pose_messages: 372
+    matched_post_onset_odometry: 353
+    exact_twist_scale_matches: 353
+    altered_pose_messages: 353
     passed: true
   passed: true
 - episode_key: dynamic_blockage-high-201
@@ -274,8 +274,8 @@ episodes:
   event_parameters_match_summary: true
   treatment:
     method: raw/deployed odometry comparison
-    matched_post_onset_odometry: 384
-    exact_twist_scale_matches: 384
-    altered_pose_messages: 384
+    matched_post_onset_odometry: 364
+    exact_twist_scale_matches: 364
+    altered_pose_messages: 364
     passed: true
   passed: true

@@ -1,5 +1,6 @@
 from src.recovery import (
     GuardConfig, RobotState, eligible_actions, rule_matched_action, select_lowest_cost,
+    RecoveryRequest, decide_recovery,
 )
 
 
@@ -8,7 +9,8 @@ def state(**changes):
         stopped=True, stop_allowed=True, localisation_poor=False,
         planning_stale_or_blocked=False, rear_clearance_m=1.0,
         rotation_clearance_m=1.0, immediate_collision_risk=False,
-        obstruction_may_be_transient=False, repeated_recovery_count=0,
+        obstruction_may_be_transient=False, relocalisation_available=False,
+        repeated_recovery_count=0,
     )
     values.update(changes)
     return RobotState(**values)
@@ -46,3 +48,40 @@ def test_guard_overrides_rule_and_cost_selectors():
         {"backup": 0.0, "controlled_stop": 2.0, "request_assistance": 5.0}, guards
     )
     assert action == "controlled_stop"
+
+
+def test_relocalisation_requires_an_explicit_available_procedure():
+    unavailable = eligible_actions(
+        state(localisation_poor=True, relocalisation_available=False), GuardConfig()
+    )
+    available = eligible_actions(
+        state(localisation_poor=True, relocalisation_available=True), GuardConfig()
+    )
+    assert unavailable["relocalise"][0] is False
+    assert available["relocalise"][0] is True
+
+
+def test_recovery_manager_supports_frozen_policy_variants_with_guard_authority():
+    request = RecoveryRequest("run", "warning", 0.9, "localisation", state(
+        localisation_poor=True, relocalisation_available=False,
+    ))
+    conservative = decide_recovery(request, GuardConfig(), "R1")
+    matched = decide_recovery(request, GuardConfig(), "R2")
+    learned = decide_recovery(
+        request, GuardConfig(), "R3",
+        {"relocalise": 0.0, "controlled_stop": 2.0, "request_assistance": 5.0},
+    )
+    assert conservative["recommended_action"] == "controlled_stop"
+    assert matched["recommended_action"] == "controlled_stop"
+    assert learned["recommended_action"] == "controlled_stop"
+    assert learned["guard_results"]["relocalise"]["eligible"] is False
+    assert all(not result["execution_performed"] for result in [conservative, matched, learned])
+
+
+def test_recovery_manager_abstains_when_recovery_budget_is_exhausted():
+    request = RecoveryRequest("run", "warning", 1.0, "planning", state(
+        repeated_recovery_count=2,
+    ))
+    result = decide_recovery(request, GuardConfig(), "R2")
+    assert result["recommended_action"] == "request_assistance"
+    assert result["abstained"] is True

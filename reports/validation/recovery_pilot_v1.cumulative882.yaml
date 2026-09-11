@@ -1,0 +1,46 @@
+schema_version: 1
+campaign_id: recovery_pilot_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 882
+  observed: 882
+  usable: 881
+  ledger_artifact_invalid_attempts: 34
+  infrastructure_invalid_attempts: 33
+  infrastructure_replacements: 33
+  terminal_events: 239
+  non_events: 642
+event_prevalence: 0.27128263337116915
+duration_seconds:
+  total: 118276.124
+  median: 134.127
+by_terminal_state:
+  false_arrival: 89
+  planner_failure: 42
+  success: 642
+  timeout: 108
+by_attempt_terminal_state:
+  false_arrival: 84
+  invalid: 27
+  planner_failure: 41
+  success: 623
+  timeout: 107
+by_fault_family:
+  camera_occlusion: 126
+  dynamic_blockage: 125
+  lidar_dropout: 126
+  localisation_perturbation: 126
+  planner_oscillation: 126
+  semantic_corruption: 126
+  wheel_slip: 126
+by_map:
+  val_00: 294
+  val_01: 293
+  val_02: 294
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

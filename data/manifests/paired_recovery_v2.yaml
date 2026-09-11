@@ -1,0 +1,159 @@
+schema_version: 1
+campaign_id: paired_recovery_v2
+campaign_kind: paired_recovery_confirmatory
+status: preregistered_post_freeze_held_out_only
+purpose: paired closed-loop comparison of recovery policies R0-R3 on identical map/route/seed/fault
+  episodes for confirmatory hypothesis H6
+analysis_plan: RESEARCH PROTOCOL - AUTONOMOUS ROBOT RELIABILITY.md
+allowed_splits:
+- held_out_map_test
+protected_test_used: true
+parallel_execution_admitted_by: PA-2026-09-10-01
+confirmatory_gate:
+  model_freeze: configs/model_freeze.yaml
+  model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  splits_manifest: data/manifests/splits.template.yaml
+  splits_manifest_sha256: 2b497d238f068b910cdd4e15cfa37f30c6f4f2b04b1d90a4c0867883dac7dcb1
+  frozen: true
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  require_confirmatory_readiness_gate: true
+  require_recovery_live_evidence: configs/recovery_live_evidence.yaml
+  recovery_live_execution: true
+  recovery_selector_model: models/recovery_selector/r3_cost_sensitive_ridge_v1.json
+  stop_on_first_invalid: true
+  concurrency: 1
+  maximum_episodes_per_invocation: 21
+  minimum_free_space_gib_before_episode: 100
+  wave_design: every_policy_of_one_pairing_cell_runs_consecutively
+  threshold_adaptation: forbidden_frozen_validation_threshold_only
+episode_defaults:
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+infrastructure_replacements: []
+design:
+  seed_base: 30000000
+  seed_layout: wide_v1
+  map_routes:
+    test_00:
+    - test_00_r0
+    - test_00_r1
+    - test_00_r2
+    - test_00_r3
+    - test_00_r4
+    - test_00_r5
+    test_01:
+    - test_01_r0
+    - test_01_r1
+    - test_01_r2
+    - test_01_r3_repl1
+    - test_01_r4
+    - test_01_r5
+    test_02:
+    - test_02_r0
+    - test_02_r1
+    - test_02_r2
+    - test_02_r3
+    - test_02_r4
+    - test_02_r5
+  conditions:
+  - id: camera
+    family: camera_occlusion
+    severity: medium
+    system: s3
+    replicates:
+    - 10
+    - 11
+    - 12
+    - 13
+  - id: lidar
+    family: lidar_dropout
+    severity: medium
+    system: s0
+    replicates:
+    - 10
+    - 11
+    - 12
+    - 13
+  - id: wheel
+    family: wheel_slip
+    severity: medium
+    system: s0
+    replicates:
+    - 10
+    - 11
+    - 12
+    - 13
+  - id: localisation
+    family: localisation_perturbation
+    severity: medium
+    system: s0
+    replicates:
+    - 10
+    - 11
+    - 12
+    - 13
+  - id: blockage
+    family: dynamic_blockage
+    severity: medium
+    system: s0
+    replicates:
+    - 10
+    - 11
+    - 12
+    - 13
+  - id: oscillation
+    family: planner_oscillation
+    severity: medium
+    system: s0
+    replicates:
+    - 10
+    - 11
+    - 12
+    - 13
+  - id: semantic
+    family: semantic_corruption
+    severity: medium
+    system: s3
+    replicates:
+    - 10
+    - 11
+    - 12
+    - 13
+  environment_placement:
+    placement_mode: path_fraction
+    route_fraction: 0.55
+recovery_policies:
+- R0
+- R2
+- R3
+pairing:
+  fields:
+  - map
+  - route
+  - seed
+  - family
+  - severity
+  policies_share_seed: true
+  episode_key_layout: <map>-<route>-<condition>-r<replicate>-<policy>
+  launch_argument: recovery_policy_id
+expected_base_episode_count: 504
+expected_episode_count: 1512
+expected_pair_counts:
+  R3_vs_R0: 504
+  R3_vs_R2: 504
+admission:
+  protected_outcomes_consulted: false
+  runs_only_after:
+  - configs/model_freeze.yaml frozen
+  - held_out_map_test split assigned
+  - scripts/check_readiness.py --stage confirmatory passes
+  - recovery live-execution evidence frozen
+  analysis_script: scripts/analyze_paired_recovery.py
+provenance:
+  re_execution_of: paired_recovery_v1
+  amendment: PA-2026-09-10-01

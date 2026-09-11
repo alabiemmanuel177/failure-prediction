@@ -70,3 +70,47 @@ def test_definitive_v3_manifest_has_early_causal_onset_and_fresh_keys():
     faulted = [item for item in episodes if item["family"] != "none"]
     assert all(item["clean_prefix_seconds"] == 5.0 for item in faulted)
     assert all(item["planned_onset_seconds"] == 5.0 for item in faulted)
+
+
+def test_development_supplement_manifest_validates_and_is_disjoint():
+    from src.experiments import (
+        expand_balanced_pilot, targeted_execution_order, validate_development_supplement,
+    )
+    manifest = ROOT / "data/manifests/development_supplement_v1.yaml"
+    if not manifest.exists():
+        import pytest
+        pytest.skip("supplement not yet preregistered")
+    document = yaml.safe_load(manifest.read_text(encoding="utf-8"))
+    splits = yaml.safe_load(
+        (ROOT / "data/manifests/splits.template.yaml").read_text(encoding="utf-8")
+    )
+    assert validate_development_supplement(document, splits) == []
+    episodes = targeted_execution_order(expand_balanced_pilot(document))
+    assert len(episodes) == document["expected_episode_count"] >= 324
+    keys = {item["episode_key"] for item in episodes}
+    seeds = {item["seed"] for item in episodes}
+    assert len(keys) == len(seeds) == len(episodes)
+    for other in ("balanced_pilot_v1.yaml", "targeted_development_v1.yaml"):
+        prior = expand_balanced_pilot(
+            yaml.safe_load((ROOT / "data/manifests" / other).read_text(encoding="utf-8"))
+        )
+        assert keys.isdisjoint(item["episode_key"] for item in prior)
+        assert seeds.isdisjoint(item["seed"] for item in prior)
+
+
+def test_development_supplement_validator_rejects_uneven_or_wrong_kind():
+    from src.experiments import validate_development_supplement
+    manifest = ROOT / "data/manifests/development_supplement_v1.yaml"
+    if not manifest.exists():
+        import pytest
+        pytest.skip("supplement not yet preregistered")
+    document = yaml.safe_load(manifest.read_text(encoding="utf-8"))
+    splits = yaml.safe_load(
+        (ROOT / "data/manifests/splits.template.yaml").read_text(encoding="utf-8")
+    )
+    wrong_kind = dict(document, campaign_kind="targeted_event_floor")
+    assert any("campaign_kind" in f for f in validate_development_supplement(wrong_kind, splits))
+    uneven = yaml.safe_load(manifest.read_text(encoding="utf-8"))
+    uneven["design"]["conditions"][0]["replicates"] = uneven["design"]["conditions"][0]["replicates"][:1]
+    assert any("at most one" in f or "expected_episode_count" in f
+               for f in validate_development_supplement(uneven, splits))

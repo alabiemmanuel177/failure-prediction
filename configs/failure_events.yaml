@@ -46,6 +46,7 @@ events:
     translation_error_m: 0.50
     yaw_error_rad: 0.50
     persistence_seconds: 2.0
+    maximum_evidence_gap_seconds: 2.5
     threshold_logic: either_translation_or_yaw_strictly_exceeds_continuously
     approval: researcher_approved_pending_supervisor_signoff
   immobilisation:
@@ -55,6 +56,7 @@ events:
     minimum_command_speed_mps: 0.05
     maximum_progress_m: 0.50
     persistence_seconds: 10.0
+    maximum_evidence_gap_seconds: 0.5
     angular_only_commands_count: false
     progress_measure: planar_odometry_displacement
     approval: researcher_approved_pending_supervisor_signoff

@@ -1,0 +1,365 @@
+schema_version: 1
+audit_type: research1_causal_adapter_admissibility
+adapter_version: 1
+status: complete
+protected_outcomes_consulted: false
+protected_test_used: false
+validation_rows_counted_only_never_opened: 364
+started_utc: '2026-09-03T01:40:16.704633+00:00'
+finished_utc: '2026-09-03T01:54:34.771378+00:00'
+wall_time_seconds: 858.0
+workers: 3
+niceness: 19
+research1_root: /home/eao/risk-calibrated-nav
+sources:
+  catalog: data/manifests/research1_temporal_catalog_v2.jsonl
+  catalog_sha256: a7ac45f0fc275f019989c92fa98c063fe335bb6cd8e8c51e8536553940114e80
+  failure_events_sha256: e0bfb726494a1bb933ad6faac9aa22808ccd6ae55edaad338c8b6fedd1bac3c2
+  feature_schema_sha256: 5dd95b520fe1d0d5562a5b98d91da8b5ed4d180ebff3b0e230caa63f2dd261d4
+  route_specs:
+    dev_01: 7f5d077cc504e48f27b9cde13cb910f242767d5bd4296fd011a22d5b9cb21ba3
+    dev_02: b392943da160e9806436d02fce7b9e509b15c29307e5df0cb3f586639306a929
+    dev_03: 408ed91549d2da8ea000099c5deb04e800be3014c377286a3b083f6d01482128
+    dev_04: 8d42c4343871f2f3ba0682a57e1a424d08ab53e6805a9d0c86788e16b8448c50
+    dev_05: d48cb8a8eeb78517a67fd810d3970bac86e9cf5eaf4d3caa136ebcfbe7b9376c
+counts:
+  catalog_rows: 1189
+  development_rows: 825
+  development_rows_audited: 825
+  admitted: 647
+  rejected: 178
+  audit_errors: 0
+  duplicate_run_ids: 0
+  missing_aggregates: 0
+rejection_reasons_all_occurrences:
+  aggregate_duration_inconsistent_with_bag: 7
+  aggregate_invalid: 4
+  episode_shorter_than_history_window: 88
+  route_spec_missing: 77
+  telemetry_ends_before_terminal: 6
+  terminal_beyond_bag_end: 6
+rejection_reasons_first_per_row:
+  aggregate_duration_inconsistent_with_bag: 7
+  aggregate_invalid: 4
+  episode_shorter_than_history_window: 85
+  route_spec_missing: 76
+  terminal_beyond_bag_end: 6
+by_map:
+  dev_01:
+    rows: 406
+    admitted: 388
+  dev_02:
+    rows: 168
+    admitted: 101
+  dev_03:
+    rows: 124
+    admitted: 99
+  dev_04:
+    rows: 63
+    admitted: 37
+  dev_05:
+    rows: 64
+    admitted: 22
+by_route:
+  dev_01_r0:
+    rows: 268
+    admitted: 261
+  dev_01_r1:
+    rows: 120
+    admitted: 110
+  dev_01_r2:
+    rows: 18
+    admitted: 17
+  dev_02_r0:
+    rows: 27
+    admitted: 19
+  dev_02_r1:
+    rows: 82
+    admitted: 82
+  dev_02_r2_repl1:
+    rows: 59
+    admitted: 0
+  dev_03_r0:
+    rows: 88
+    admitted: 65
+  dev_03_r1:
+    rows: 24
+    admitted: 22
+  dev_03_r2:
+    rows: 12
+    admitted: 12
+  dev_04_r0:
+    rows: 54
+    admitted: 30
+  dev_04_r1:
+    rows: 9
+    admitted: 7
+  dev_05_r0:
+    rows: 24
+    admitted: 0
+  dev_05_r1:
+    rows: 22
+    admitted: 22
+  dev_05_r2_repl1:
+    rows: 18
+    admitted: 0
+by_system:
+  S0:
+    rows: 198
+    admitted: 154
+  S1:
+    rows: 222
+    admitted: 163
+  S2:
+    rows: 205
+    admitted: 163
+  S3:
+    rows: 200
+    admitted: 167
+by_shift_family:
+  camera:
+    rows: 82
+    admitted: 72
+  clean:
+    rows: 17
+    admitted: 16
+  dynamic:
+    rows: 168
+    admitted: 149
+  layout:
+    rows: 90
+    admitted: 90
+  lighting:
+    rows: 55
+    admitted: 52
+  novelty:
+    rows: 335
+    admitted: 198
+  texture:
+    rows: 78
+    admitted: 70
+by_research1_campaign_directory:
+  g6_measurement_v3_smoke:
+    rows: 1
+    admitted: 1
+  lifecycle_shutdown_fix_verification:
+    rows: 1
+    admitted: 1
+  lifecycle_shutdown_settle_verification:
+    rows: 2
+    admitted: 2
+  paced_six_worker_verification_v1_21:
+    rows: 1
+    admitted: 1
+  parent_launch_signal_verification:
+    rows: 3
+    admitted: 3
+  pilot_top_level:
+    rows: 488
+    admitted: 433
+  pilot_v1_25:
+    rows: 327
+    admitted: 204
+  twelve_worker_concurrency_admission_v1_19:
+    rows: 2
+    admitted: 2
+by_aggregate_duration_time_base:
+  simulation:
+    rows: 329
+    admitted: 206
+  wall_clock:
+    rows: 496
+    admitted: 441
+by_research1_commit:
+  1fbe0b73f9a44c16157e9bc880a991c71303b082:
+    rows: 68
+    admitted: 43
+  2d807e6ca4ef9edb5c5bf552694c96c939ab2d5d:
+    rows: 180
+    admitted: 170
+  3f073f5d9d47a7d6d86eda0594ba3abc9bfb241d:
+    rows: 107
+    admitted: 104
+  48e40c662cacfbe5f95feebfd830394b7ed514cb:
+    rows: 2
+    admitted: 2
+  4c511929f12c012fea58723c70e6cfbb3388fc8f:
+    rows: 2
+    admitted: 2
+  75f84c382293c903ce640335df69d92bfddc92a8:
+    rows: 2
+    admitted: 2
+  865e64bdc95b50541aa823886018f3fa75a2539a:
+    rows: 1
+    admitted: 1
+  9655e1241f77baa315eaf742a6f8a4a2dd6c6d1e:
+    rows: 1
+    admitted: 1
+  a1f55e0141060238aa358f9c95806fe8b4255602:
+    rows: 2
+    admitted: 2
+  b5c78112efa7130b9da848e0e00dadaff002f8b9:
+    rows: 2
+    admitted: 1
+  c1a3944ef845eeaae8b9acc9ca4351dafd9a0160:
+    rows: 3
+    admitted: 3
+  dc477d148b59e038335b6747252423010a3d8651:
+    rows: 95
+    admitted: 85
+  dd935e66ca0740573c9f445a2276b24011670eef:
+    rows: 19
+    admitted: 18
+  eab34a46069c4bf84893dcd07e65a270db348071:
+    rows: 10
+    admitted: 6
+  f17982067d090bd3a09f16703ac80e570142961c:
+    rows: 1
+    admitted: 1
+  f38da4afeb019d69fa9605facb7395fd9e08993d:
+    rows: 2
+    admitted: 2
+  fd3c7872b0d667222a4355cc3712035cbe2e3ce3:
+    rows: 327
+    admitted: 204
+  ff95c3262282d22e1e237dd682a916a68a8a136b:
+    rows: 1
+    admitted: 0
+duration_time_base_rule: duration_s is simulated seconds for descendants of Research
+  1 commit 07c254b0b583 (protocol v1.21, 2026-08-26) and wall seconds before it; wall
+  durations are converted through the per-episode clock map
+mapped_event_class_all_rows:
+  None: 5
+  collision: 308
+  false_arrival: 187
+  mission_timeout: 31
+  navigation_abort: 294
+mapped_event_class_admitted:
+  None: 1
+  collision: 175
+  false_arrival: 186
+  mission_timeout: 27
+  navigation_abort: 258
+primary_event_class_admitted_after_operational_precedence:
+  None: 1
+  collision: 175
+  false_arrival: 186
+  mission_timeout: 27
+  navigation_abort: 258
+terminal_time_exactness_admitted:
+  bounded_upper: 472
+  exact: 175
+episode_start_method_admitted:
+  first_behavior_tree_tick_after_goal_acceptance: 647
+missing_channels_admitted:
+  /local_plan: 647
+  /research2/features/perception: 647
+  /semantic/confidence: 154
+  /semantic/inference_latency_ms: 295
+  /semantic/uncertainty: 154
+time_base: simulation_time_via_receive_clock_map
+episode_start_definition: first /behavior_tree_log message (Nav2 bt_navigator ticks
+  only after the NavigateToPose goal is accepted); receive time mapped to simulation
+  seconds. Research 1 stamps sim_t0 immediately before send_goal, so the true dispatch
+  precedes this by the acceptance latency (start_lag recorded per episode).
+event_time_derivation:
+  collision:
+    method: exact_first_collision_event_message
+    detail: first /collision_event message carrying at least one contact; Research
+      1 republishes only disqualifying full-body contacts on this topic. Cross-checked
+      against episode_start + aggregate duration_s (residual recorded).
+    exactness: exact
+  navigation_abort:
+    method: bounded_episode_start_plus_aggregate_duration
+    detail: 'Research 1 does not log the root NavigateToPose ABORTED transition; the
+      event time is episode_start + duration_s where duration_s is the Research 1
+      simulated-seconds duration from goal dispatch to the aborted action result.
+      Upper bound: overestimates by the dispatch-to-first-tick lag plus the 0.1 s
+      controller poll interval.'
+    exactness: bounded_upper
+  mission_timeout:
+    method: route_budget_boundary_via_aggregate_duration
+    detail: episode_start + duration_s, required to lie within tolerance of the frozen
+      route episode_timeout_s (simulated seconds). Wall-clock backstop timeouts that
+      fire before the simulated budget are rejected.
+    exactness: bounded_upper
+  false_arrival:
+    method: bounded_episode_start_plus_aggregate_duration
+    detail: episode_start + duration_s at the Nav2 SUCCEEDED result, with label-only
+      ground-truth goal distance required to exceed the frozen goal tolerance.
+    exactness: bounded_upper
+  none:
+    method: episode_end_at_episode_start_plus_aggregate_duration
+    detail: success has no event; the episode ends at the SUCCEEDED result.
+    exactness: bounded_upper
+terminal_state_mapping:
+  collision: collision
+  planner_failure: navigation_abort
+  timeout: mission_timeout
+  false_arrival: false_arrival
+  success: null
+fault_family_rule: none when shift_family == clean, otherwise research1_<shift_family>;
+  never a Research 2 family
+thresholds:
+  history_seconds: 5.0
+  duration_tolerance_seconds: 2.0
+  collision_residual_tolerance_seconds: 1.0
+  timeout_budget_tolerance_seconds: 1.0
+  telemetry_tail_tolerance_seconds: 0.5
+  minimum_clock_knots: 10
+  pose_match_gap_seconds: 0.5
+  command_freshness_seconds: 0.5
+distributions:
+  real_time_factor_sim_per_wall:
+    count: 825
+    minimum: 0.39206747865604497
+    median: 0.9334222351176089
+    maximum: 1.50467792609697
+    p05: 0.647311772255822
+    p95: 1.470193907673772
+  collision_contact_minus_aggregate_terminal_s:
+    count: 175
+    minimum: -0.1689150915759079
+    median: -0.06563456981306004
+    maximum: -0.00439324637823546
+    p05: -0.13738688978066732
+    p95: -0.014829489535866358
+  aggregate_terminal_minus_last_command_s:
+    count: 647
+    minimum: -1.0864596664691888
+    median: -0.0021957946015795926
+    maximum: 1.493358336611525
+    p05: -0.9299104689533664
+    p95: 0.06234916612832677
+  episode_start_after_bag_start_s:
+    count: 647
+    minimum: 0.05780313866998554
+    median: 1.5009740973877967
+    maximum: 2.6540398600872166
+    p05: 0.7514621000323164
+    p95: 2.511793615228869
+  first_plan_minus_episode_start_s:
+    count: 647
+    minimum: -0.010425435962950758
+    median: 0.001386178223214074
+    maximum: 0.846429213129694
+    p05: -1.597630353149526e-05
+    p95: 0.005186721536093231
+  bag_read_seconds:
+    count: 825
+    minimum: 0.049
+    median: 1.307
+    maximum: 23.995
+    p05: 0.185
+    p95: 14.0304
+admitted_manifest:
+  path: data/manifests/research1_development_adapter_v1.jsonl
+  sha256: 43613d81ea81cbf5822373d08261df443a940d52b55217e9e1b6b7c14be1e6b5
+  rows: 647
+admission_status: causal_adapter_admitted_pending_human_gate
+failures: {}
+interpretation: Mechanical admissibility only. Admitted rows are Research 1 development
+  episodes expressible on the Research 2 causal grid; they are natural/shift episodes,
+  not Research 2 fault injections, and enter fitting only after the human gate. Retained
+  Research 1 bags are outcome-selected (mostly failures), so their event prevalence
+  must be reported separately.

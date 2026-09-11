@@ -1,0 +1,82 @@
+schema_version: 1
+decision_type: post_pilot_pre_model_campaign_size
+protected_outcomes_consulted: false
+inputs:
+  development_pilot_episodes: 648
+  development_pilot_terminal_events: 125
+  research1_structurally_eligible_bags: 1189
+  protocol_predictor_dataset_target: 3000
+planning_rule: raise each injected family to at least 30 expected terminal events
+  using its medium-severity pilot prevalence, rounding totals to complete blocks of
+  12 development map-route pairs
+family_plan:
+  camera_occlusion:
+    pilot_episodes: 72
+    pilot_terminal_events: 9
+    observed_event_prevalence: 0.125
+    planning_event_floor: 30
+    route_balanced_total_episodes: 240
+    additional_episodes: 168
+    additional_replicates_per_map_route: 14
+  dynamic_blockage:
+    pilot_episodes: 72
+    pilot_terminal_events: 28
+    observed_event_prevalence: 0.3888888888888889
+    planning_event_floor: 30
+    route_balanced_total_episodes: 84
+    additional_episodes: 12
+    additional_replicates_per_map_route: 1
+  lidar_dropout:
+    pilot_episodes: 72
+    pilot_terminal_events: 7
+    observed_event_prevalence: 0.09722222222222222
+    planning_event_floor: 30
+    route_balanced_total_episodes: 312
+    additional_episodes: 240
+    additional_replicates_per_map_route: 20
+  localisation_perturbation:
+    pilot_episodes: 72
+    pilot_terminal_events: 5
+    observed_event_prevalence: 0.06944444444444445
+    planning_event_floor: 30
+    route_balanced_total_episodes: 432
+    additional_episodes: 360
+    additional_replicates_per_map_route: 30
+  planner_oscillation:
+    pilot_episodes: 72
+    pilot_terminal_events: 47
+    observed_event_prevalence: 0.6527777777777778
+    planning_event_floor: 30
+    route_balanced_total_episodes: 72
+    additional_episodes: 0
+    additional_replicates_per_map_route: 0
+  semantic_corruption:
+    pilot_episodes: 72
+    pilot_terminal_events: 6
+    observed_event_prevalence: 0.08333333333333333
+    planning_event_floor: 30
+    route_balanced_total_episodes: 360
+    additional_episodes: 288
+    additional_replicates_per_map_route: 24
+  wheel_slip:
+    pilot_episodes: 72
+    pilot_terminal_events: 10
+    observed_event_prevalence: 0.1388888888888889
+    planning_event_floor: 30
+    route_balanced_total_episodes: 216
+    additional_episodes: 144
+    additional_replicates_per_map_route: 12
+recommended_targeted_addition_episodes: 1212
+maximum_combined_if_research1_adapter_passes_human_admission: 3049
+storage_projection:
+  compact_v2_mean_bag_mib: 4.402290997297867
+  targeted_addition_gib: 5.210524110083023
+  operational_reserve_gib: 100
+  decision: execute only while the prospective 100 GiB reserve passes
+interpretation:
+  event_floor_is_campaign_planning_not_a_confirmatory_endpoint: true
+  research1_admission_is_contingent: true
+  if_research1_adapter_is_not_admitted: use post-admission learning curves and add
+    development episodes; do not count validation or protected episodes toward fitting
+    volume
+  planner_oscillation_addition: none because the pilot already exceeds the event floor

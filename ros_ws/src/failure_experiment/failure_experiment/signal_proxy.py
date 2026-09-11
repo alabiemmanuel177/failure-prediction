@@ -97,6 +97,7 @@ class SignalProxy(Node):
         self.create_subscription(Twist, "/cmd_vel", self.on_command, 10)
         self.create_subscription(PoseWithCovarianceStamped, "/amcl_pose", self.on_amcl, 10)
         self.create_subscription(BehaviorTreeLog, "/behavior_tree_log", self.on_bt, 10)
+        self.create_subscription(DiagnosticArray, EVENT_TOPIC, self.on_event, EVENT_QOS)
         self.create_subscription(
             OccupancyGrid, "/research2/raw/semantic/risk_grid", self.on_semantic,
             qos_profile_sensor_data,
@@ -129,6 +130,26 @@ class SignalProxy(Node):
         now = self.get_clock().now().to_msg()
         if self.schedule.arm(stamp_seconds(now)):
             self.publish_event("injection_planned", now)
+
+    def on_event(self, message: DiagnosticArray) -> None:
+        """Arm from the controller's retained goal marker; BT logging is a fallback.
+
+        One validation episode completed navigation without the transient BT callback
+        reaching this node.  The controller publishes goal_dispatched reliably after
+        recording starts, so it is the primary causal arm signal and also remains in
+        the bag.  Fault events published by this node are ignored by event type.
+        """
+        if self.passive:
+            return
+        for status in message.status:
+            values = {item.key: item.value for item in status.values}
+            if values.get("event_type") != "goal_dispatched":
+                continue
+            if values.get("run_id") != str(self.values["run_id"]):
+                continue
+            stamp = message.header.stamp
+            if self.schedule.arm(stamp_seconds(stamp)):
+                self.publish_event("injection_planned", stamp)
 
     def on_command(self, message: Twist) -> None:
         self.last_command_speed = abs(float(message.linear.x)) + abs(float(message.angular.z))

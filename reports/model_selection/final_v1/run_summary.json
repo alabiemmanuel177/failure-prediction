@@ -1,0 +1,30 @@
+{
+  "comparison": "reports/model_selection/final_v1/validation_comparison.yaml",
+  "finished_utc": "2026-09-04T14:38:01.466107+00:00",
+  "frozen": false,
+  "models": [
+    "p2_reconstruction_ae",
+    "p3_causal_tcn",
+    "p4_gru",
+    "p5_compact_transformer",
+    "p6_oracle"
+  ],
+  "protected_test_used": false,
+  "seed": 20260903,
+  "selection_dataset": "balanced_validation_v1-validation-324",
+  "started_utc": "2026-09-04T13:57:12.024780+00:00",
+  "tables": {
+    "p1_threshold_rules": "reports/predictions/final_v1/p1_threshold_rules.validation.csv",
+    "p2_reconstruction_ae": "reports/predictions/final_v1/p2_reconstruction_ae.validation.calibrated.csv",
+    "p3_causal_tcn": "reports/predictions/final_v1/p3_causal_tcn.validation.calibrated.csv",
+    "p4_gru": "reports/predictions/final_v1/p4_gru.validation.calibrated.csv",
+    "p5_compact_transformer": "reports/predictions/final_v1/p5_compact_transformer.validation.calibrated.csv",
+    "p6_oracle": "reports/predictions/final_v1/p6_oracle.validation.raw.csv"
+  },
+  "tag": "final_v1",
+  "train_datasets": [
+    "balanced_pilot_v1-development-648",
+    "targeted_development_v1-development-1212",
+    "development_supplement_v1-development-504"
+  ]
+}

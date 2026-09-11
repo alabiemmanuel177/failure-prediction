@@ -1,0 +1,37 @@
+schema_version: 1
+protocol_version: "1.0"
+status: automatic_review_pending
+protected_test_used: false
+audit_sample:
+  selection: frozen_pre_outcome_20_episode_development_sample
+  episodes: 20
+evidence_totals:
+  ground_truth_samples: 25822
+  amcl_samples: 407
+  matched_pose_error_samples: 387
+  unmatched_amcl_samples: 20
+  command_samples: 17613
+  odometry_samples: 25819
+  matched_motion_samples: 24475
+  odometry_without_fresh_command: 1344
+derived_candidates:
+  localisation_loss: 0
+  immobilisation: 0
+comparison_with_frozen_automatic_annotations:
+  same_primary_candidate: 20
+  different_primary_candidate: 0
+  agreement_fraction: 1.0
+interpretation:
+  - Persistence-based derivation found no earlier localisation-loss or immobilisation event in the frozen audit sample.
+  - This automatic agreement is an engineering integrity result, not independent human agreement.
+  - Unsafe perception remains unassigned unless explicit obstacle-miss and emergency-intervention evidence exists.
+human_gate:
+  supervisor_threshold_signoff: optional_prepublication_quality_check
+  model_admission_authority: configs/protocol_amendment_1.1.yaml
+  independent_reviewed_annotations: 0
+  required_reviewed_annotations: 20
+  model_training_admitted: false
+inputs:
+  evidence_directory: reports/manual-audit/operational-events
+  annotation_directory: data/annotations
+  detector: scripts/derive_operational_events.py

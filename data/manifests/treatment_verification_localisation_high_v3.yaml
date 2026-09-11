@@ -1,0 +1,27 @@
+schema_version: 1
+campaign_id: treatment_verification_localisation_high_v3
+purpose: high localisation verification after Research 2 ROS-domain isolation
+allowed_splits: [development]
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  stop_on_invalid: true
+  concurrency: 1
+controls: []
+fault_matrix:
+  episode_suffix: "304"
+  severities: [high]
+  defaults:
+    map: dev_00
+    route: dev_00_r1
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 5.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+  families:
+    localisation_perturbation: {system: s0, seed_base: 64400}
+audit_policy:
+  replacement_for: treatment_verification_localisation_high_v2/localisation_perturbation-high-303
+  ros_domain_id: 52
+  protected_test_used: false

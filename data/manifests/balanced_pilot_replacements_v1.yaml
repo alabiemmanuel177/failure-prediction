@@ -1,0 +1,43 @@
+schema_version: 1
+protocol_version: "1.0"
+campaign_id: balanced_pilot_replacements_v1
+parent_campaign_id: balanced_pilot_v1
+status: preregistered_infrastructure_replacement
+allowed_splits: [development]
+protected_test_used: false
+replacement_policy:
+  original_invalid_kind: pre_goal_zero_bag
+  original_attempt_must_be_infrastructure_invalid_before_goal: true
+  original_attempt_and_summary_are_retained: true
+  replacement_uses_same_map_route_system_condition_and_seed: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+episodes:
+  - episode_key: dev_02-dev_02_r1-clean_s3-r0-infra-replacement-001
+    replaces_episode_key: dev_02-dev_02_r1-clean_s3-r0
+    replaces_run_id: 93052846-118c-4332-8954-5ee632fbeb82
+    map: dev_02
+    route: dev_02_r1
+    system: s3
+    family: none
+    severity: none
+    seed: 821001
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 8.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+    recording_profile: compact_v2
+  - episode_key: dev_00-dev_00_r1-semantic-r1-infra-replacement-001
+    replaces_episode_key: dev_00-dev_00_r1-semantic-r1
+    replaces_run_id: ff40ee4c-fa98-4f60-9000-87542b2df68c
+    map: dev_00
+    route: dev_00_r1
+    system: s3
+    family: semantic_corruption
+    severity: medium
+    seed: 801108
+    clean_prefix_seconds: 5.0
+    planned_onset_seconds: 8.0
+    maximum_duration_seconds: 20.0
+    maximum_wait_seconds: 5.0
+    recording_profile: compact_v2

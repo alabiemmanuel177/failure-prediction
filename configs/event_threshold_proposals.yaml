@@ -1,7 +1,7 @@
 schema_version: 1
 protocol_version: "1.0"
-status: researcher_approved_supervisor_review_required
-purpose: numerical proposals awaiting approval before transfer into failure_events.yaml
+status: researcher_approved_under_protocol_1_1
+purpose: numerical proposals approved prospectively by the researcher before protected evaluation
 protected_data_used: false
 
 localisation_loss:

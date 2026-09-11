@@ -1,0 +1,48 @@
+schema_version: 1
+protocol_version: "1.6"
+amendment_id: PA-2026-09-04-02
+status: approved
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: "2026-09-04"
+protected_outcomes_consulted: false
+scope: phased_execution_after_two_failed_concurrency_checks
+rationale: >-
+  Both pre-declared concurrency checks failed on GPU-perception (S3) episodes: with six
+  unrestricted workers and with at most one S3 episode at a time, clean S3 missions
+  exceeded the sequential false-alert reference by 0.40 or more per mission and
+  inference_latency_ms shifted beyond 0.5 SMD, implicating shared-GPU contention from
+  concurrent Gazebo rendering as well as concurrent perception. In both checks the S0
+  conditions showed no deployable feature beyond the SMD bound and clean S0 false
+  alerts at or below the sequential reference on the same maps (0.167 and 0.000 versus
+  0.264). The researcher therefore admits phased execution composed of two measured
+  conditions: S0 episodes six-wide, then S3 episodes strictly alone (the sequential
+  reference condition). Severity stress is retained before completion.
+criterion_disclosure: >-
+  The checks' pre-declared false-alert criterion compared the parallel rate with the
+  absolute 0.10 validation budget. The sequential reference rate of the proxy model on
+  development clean missions is 0.181 pooled and 0.264 for clean S0, so that absolute
+  criterion is unattainable on development maps even sequentially and cannot separate
+  execution effects from the proxy's development-map behaviour. The S3 conclusion is
+  identical under either criterion. The phased admission therefore uses non-inferiority
+  to the sequential reference (tolerance 0.05 false alerts per mission) with the SMD
+  bound unchanged; both the failed absolute-criterion record
+  (reports/integrity/concurrency_phased_admission_v1.yaml) and the passing
+  non-inferiority record (concurrency_phased_admission_v2.yaml) are retained and this
+  change is disclosed in the manuscript.
+decisions:
+  concurrency:
+    admitted_workers: 6
+    ros_domains: [60, 61, 62, 63, 64, 65]
+    phased_execution: {s0: 6, s3: 1}
+    system_concurrency: {s3: 1}
+    admission_condition: reports/integrity/concurrency_phased_admission_v2.yaml passed true
+    execution_rule: for each campaign run phase A (--systems s0, six workers) to exhaustion, then phase B (--systems s3, one worker) with no other simulator running; every ledger row records the phase, slot, domain, partition and caps
+    campaigns_admitted_if_check_passes: [held_out_map_v1, severity_stress_v1, recovery_pilot_v1, paired_recovery_v1]
+    no_further_topology_will_be_tried: true
+  severity_stress: retained before completion
+  reporting: both concurrency checks, both admission records and the phased topology are reported as an execution deviation in the manuscript, dataset card and model card
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  protected_test_access_authorized: false
+  applies_before_model_freeze: true

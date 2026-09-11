@@ -48,6 +48,7 @@ def main() -> int:
             rotation_clearance_m=optional_float(row["rotation_clearance_m"]),
             immediate_collision_risk=boolean(row["immediate_collision_risk"]),
             obstruction_may_be_transient=boolean(row["obstruction_may_be_transient"]),
+            relocalisation_available=boolean(row.get("relocalisation_available", "false")),
             repeated_recovery_count=int(row["repeated_recovery_count"]),
         )
         guards = eligible_actions(state, config)

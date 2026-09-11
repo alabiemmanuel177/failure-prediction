@@ -1,0 +1,51 @@
+schema_version: 1
+frozen: true
+frozen_utc: '2026-09-06T07:11:05Z'
+frozen_by: Emmanuel Alabi Olasubomi
+guard_config_sha256: 04017b745d8dc81baa19b1b50d7a08a32dc3064b4af3dcb114b97d306000f12a
+smoke_run_ids:
+- a244fab2-7d8a-45b6-8e18-d03ab0198225
+- 804f94b7-d28f-49ad-bbc1-0fca7c4866e8
+engineering_smoke_run_ids:
+  recommendation_only: a244fab2-7d8a-45b6-8e18-d03ab0198225
+  refusal_without_evidence: da555be3-6026-4688-8241-00de78559a62
+  live_r2: 804f94b7-d28f-49ad-bbc1-0fca7c4866e8
+  spin_executed: 3936c2b5-9f53-49f8-a76c-6ced027110b4
+  spin_rejected: b6a52308-c07a-4267-af9f-b689abd3d493
+  relocalise_rejected: 34546989-ffc9-4be3-b683-a409becc6ed9
+  relocalise_executed: b482c289-80bb-4f9d-a178-4e6256797182
+  parked_clearance: parked-clearance-check3
+required_live_evidence_before_execution:
+  relocalisation_procedure_availability_is_explicit:
+    verified: true
+    verified_utc: '2026-09-05T23:43:51Z'
+    evidence: 'run b482c289: relocalise executed at w001/w002, /reinitialize_global_localization
+      responded in 0.003 s, no TimeoutError; AMCL covariance trace 0.46 -> 10.6 (global
+      reset) then falling 12.7 -> 8.8 and 9.9 -> 6.2 while driving, not below 0.5
+      before the episode ended; run 34546989: guard rejected relocalise with the availability
+      flag off'
+  rear_clearance_sensor_and_frame_validated:
+    verified: true
+    verified_utc: '2026-09-05T23:32:29Z'
+    evidence: 'parked-clearance-check3: rear_clearance_m 0.385 with a slab face at
+      0.40 m and 0.283 at 0.30 m (map wall only: 0.489); base_link->base_scan translation
+      [-0.064, 0, 0.122], RPY 0, x forward'
+  rotation_swept_volume_clearance_validated:
+    verified: true
+    verified_utc: '2026-09-05T23:38:01Z'
+    evidence: 'parked: rotation_clearance_m 0.284 with a side post at 0.30 m (rear
+      unchanged 0.488), 0.480 at 0.50 m; run b6a52308: spin rejected at 0.336/0.340
+      m; run 3936c2b5: spin executed at 0.588/0.599 m in 1.9 s, no /collision_event'
+  stop_command_and_nav2_cancel_order_validated:
+    verified: true
+    verified_utc: '2026-09-05T23:13:59Z'
+    evidence: 'run 804f94b7: recovery_safe_stop cancel_task -> zero_cmd_vel (0.063
+      s), measured_stop.stopped true in 0.20 s; /cmd_vel zeros after the cancel then
+      Nav2 BackUp -0.05 m/s; 16/16 live safe stops across 4 runs in that order, all
+      stopped within 2 s'
+  every_guard_rejection_logged:
+    verified: true
+    verified_utc: '2026-09-05T23:13:59Z'
+    evidence: 'runs 804f94b7, 3936c2b5, b6a52308, 34546989, b482c289: 22 warnings,
+      22 recovery_guard_rejection events, rejected_actions equal to the ineligible
+      set of guard_results for every decision'

@@ -1,0 +1,34 @@
+schema_version: 1
+status: retained_excluded_replacement_preregistered
+protected_test_used: false
+parent_campaign_id: balanced_validation_v1
+attempt_number: 84
+episode_key: val_02-val_02_r0-localisation-r1
+run_id: 3db38360-e80f-4d6c-9c5c-97dff95a362a
+declared_fault_family: localisation_perturbation
+declared_severity: medium
+seed: 920105
+observed:
+  episode_returncode: 0
+  artifact_validation_returncode: 1
+  retained_mcap_count: 1
+  terminal_state: success
+  injection_planned_in_mcap: false
+  injection_started_in_mcap: false
+  maximum_localisation_error_m: 0.1403
+interpretation: The navigation episode is internally complete, but the declared
+  localisation treatment was not delivered. It cannot represent its faulted design
+  cell and is retained as an infrastructure-invalid attempt, not silently recoded as
+  a clean control.
+root_cause: The signal proxy depended on a transient BehaviorTreeLog callback to arm
+  its schedule. That callback did not reach the proxy in this episode even though
+  navigation proceeded.
+repair: Arm signal faults primarily from the retained goal_dispatched research event,
+  while retaining BehaviorTreeLog as a fallback.
+replacement:
+  campaign_id: balanced_validation_replacements_v1
+  episode_key: val_02-val_02_r0-localisation-r1-infra-replacement-001
+  maximum_attempts: 1
+  same_map_route_system_condition_seed: true
+admission_effect: Original excluded; replacement may contribute exactly once only if
+  all artifact and treatment-delivery validation passes.

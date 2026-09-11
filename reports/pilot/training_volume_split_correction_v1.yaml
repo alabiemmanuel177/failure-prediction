@@ -1,0 +1,27 @@
+schema_version: 1
+status: prospective_split_correction_before_targeted_collection
+observed_utc: '2026-09-02T13:12:00Z'
+protected_outcomes_consulted: false
+source_report: reports/integrity/research1_reuse_compatibility_v2.yaml
+problem: The original 3,049 maximum combined count added all structurally compatible
+  Research 1 development and validation bags. Validation episodes are reserved for
+  selection and cannot count toward fitting volume.
+corrected_accounting:
+  research2_balanced_development: 648
+  research2_targeted_development_planned: 1212
+  research1_development_structurally_compatible_ceiling: 825
+  research1_validation_reserved_for_selection: 364
+  maximum_fitting_episodes_before_supplement: 2685
+  protocol_target_fitting_episodes: 3000
+  minimum_shortfall_if_all_825_research1_development_bags_are_admitted: 315
+supplement_rule:
+  status: preregistered_contingency_not_yet_materialized
+  routes_per_complete_block: 12
+  formula: ceil((3000 - 1860 - admitted_research1_development_episodes) / 12) * 12
+  minimum_complete_block_result_if_all_825_are_admitted: 324
+  timing: materialize_after_human_gate_and_research1_causal_adapter_audit
+  allowed_split: development
+  validation_or_test_episodes_may_count_toward_fitting: false
+interpretation: The 1,212-episode campaign remains justified by per-family event
+  floors. A separate development-only supplement will close the final fitting-volume
+  gap after the admissible Research 1 development count is known.

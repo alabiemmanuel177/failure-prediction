@@ -1,0 +1,39 @@
+schema_version: 1
+audit_scope: pre_model_machine_executable_work
+status: incomplete
+protected_outcomes_consulted: false
+checks:
+  seven_fault_families_frozen: true
+  fault_treatment_integrity_21_of_21: true
+  development_pilot_648_complete: true
+  development_inventory_hash_addressed: true
+  post_pilot_campaign_size_frozen: true
+  targeted_development_campaign_preregistered: true
+  targeted_development_1212_complete: false
+  targeted_development_inventory_hash_addressed: false
+  validation_collection_324_complete: true
+  validation_inventory_hash_addressed: true
+  recovery_guards_exhaustively_verified: true
+  research1_reuse_boundary_audited: true
+  research1_structural_catalog_minimized: true
+  literature_protocol_review_complete: true
+  research_log_hash_chain_valid: true
+  raw_payload_integrity_passes: true
+  protected_split_unassigned_and_unused: true
+  no_model_or_confirmatory_artifact_created: true
+incomplete_checks:
+- targeted_development_1212_complete
+- targeted_development_inventory_hash_addressed
+external_human_requirements:
+  first_reviewer_annotations: 20/20
+  second_distinct_reviewer_annotations: 0/20
+  researcher_threshold_approval: true
+  protocol_1_1_amendment_approved: true
+  admission_rule: model fitting requires 20/20 primary human reviews with exact causal
+    agreement and the prospectively recorded researcher threshold approval; independent
+    review is optional and no inter-rater agreement is claimed
+excluded_post_model_work:
+- model fitting and calibration
+- protected-map and unseen-family confirmatory evaluation
+- prediction-triggered paired recovery campaign
+- final model card, results, and release reproduction

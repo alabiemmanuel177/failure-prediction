@@ -1,0 +1,49 @@
+schema_version: 1
+campaign_id: balanced_pilot_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: true
+counts:
+  expected: 648
+  observed: 648
+  usable: 648
+  infrastructure_invalid_attempts: 2
+  infrastructure_replacements: 2
+  terminal_events: 125
+  non_events: 523
+event_prevalence: 0.19290123456790123
+duration_seconds:
+  total: 41701.374
+  median: 52.4675
+by_terminal_state:
+  false_arrival: 59
+  planner_failure: 53
+  success: 523
+  timeout: 13
+by_attempt_terminal_state:
+  false_arrival: 59
+  invalid: 2
+  planner_failure: 53
+  success: 521
+  timeout: 13
+by_fault_family:
+  camera_occlusion: 72
+  dynamic_blockage: 72
+  lidar_dropout: 72
+  localisation_perturbation: 72
+  none: 144
+  planner_oscillation: 72
+  semantic_corruption: 72
+  wheel_slip: 72
+by_map:
+  dev_00: 108
+  dev_01: 108
+  dev_02: 108
+  dev_03: 108
+  dev_04: 108
+  dev_05: 108
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

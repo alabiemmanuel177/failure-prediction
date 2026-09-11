@@ -1,0 +1,26 @@
+{
+  "comparison": "reports/model_selection/final_v1_seed20260905/validation_comparison.yaml",
+  "finished_utc": "2026-09-04T17:14:34.614004+00:00",
+  "frozen": false,
+  "models": [
+    "p3_causal_tcn",
+    "p4_gru",
+    "p5_compact_transformer"
+  ],
+  "protected_test_used": false,
+  "seed": 20260905,
+  "selection_dataset": "balanced_validation_v1-validation-324",
+  "started_utc": "2026-09-04T16:32:12.033074+00:00",
+  "tables": {
+    "p1_threshold_rules": "reports/predictions/final_v1_seed20260905/p1_threshold_rules.validation.csv",
+    "p3_causal_tcn": "reports/predictions/final_v1_seed20260905/p3_causal_tcn.validation.calibrated.csv",
+    "p4_gru": "reports/predictions/final_v1_seed20260905/p4_gru.validation.calibrated.csv",
+    "p5_compact_transformer": "reports/predictions/final_v1_seed20260905/p5_compact_transformer.validation.calibrated.csv"
+  },
+  "tag": "final_v1_seed20260905",
+  "train_datasets": [
+    "balanced_pilot_v1-development-648",
+    "targeted_development_v1-development-1212",
+    "development_supplement_v1-development-504"
+  ]
+}

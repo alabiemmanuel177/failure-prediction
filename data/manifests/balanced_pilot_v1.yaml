@@ -1,0 +1,91 @@
+schema_version: 1
+campaign_id: balanced_pilot_v1
+status: preregistered_ready_for_staged_extraction
+purpose: estimate event prevalence, lead-time support, runtime, exclusions, and feature completeness before predictor fitting
+allowed_splits: [development]
+protected_test_used: false
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  require_extraction_readiness_gate: true
+  stop_on_first_invalid: true
+  concurrency: 1
+  maximum_episodes_per_invocation: 18
+  minimum_free_space_gib_before_episode: 100
+  wave_design: each_wave_contains_all_nine_conditions_twice_across_two_map_route_pairs
+
+episode_defaults:
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+
+recording_profile_transition:
+  full_v1_episode_count: 54
+  full_v1_episode_keys_source: first_54_exact_once_ledger_records
+  compact_v1_begins_at_attempt_number: 55
+  compact_v1_ends_at_attempt_number: 97
+  compact_v1_valid_episode_count: 42
+  compact_v1_infrastructure_invalid_attempt_count: 1
+  compact_v2_begins_at_attempt_number: 98
+  reason_full_to_compact_v1: measured_full_profile_storage_would_exhaust_volume
+  reason_compact_v1_to_compact_v2: compact_v1_retained_full_semantic_scalar_images_and_projected_to_breach_100_gib_reserve
+  compact_v2_replacement: synchronized_causal_perception_summary_topic
+  deployable_feature_contract_changed: false
+  cross_profile_primary_perception_features: [confidence_mean, uncertainty_mean, inference_latency_ms]
+  label_evidence_change: full_images_replaced_by_live_ground_truth_perception_metrics
+
+infrastructure_replacements:
+  - original_episode_key: dev_02-dev_02_r1-clean_s3-r0
+    original_run_id: 93052846-118c-4332-8954-5ee632fbeb82
+    original_attempt_number: 97
+    invalid_reason: missing_mandatory_topic_before_goal
+    original_bag_mcap_count: 0
+    replacement_campaign_id: balanced_pilot_replacements_v1
+    replacement_episode_key: dev_02-dev_02_r1-clean_s3-r0-infra-replacement-001
+    replacement_profile: compact_v2
+    retain_original_attempt: true
+    scientific_episode_count_contribution: 1
+  - original_episode_key: dev_00-dev_00_r1-semantic-r1
+    original_run_id: ff40ee4c-fa98-4f60-9000-87542b2df68c
+    original_attempt_number: 141
+    invalid_reason: missing_mandatory_topic_before_goal
+    original_bag_mcap_count: 0
+    replacement_campaign_id: balanced_pilot_replacements_v1
+    replacement_episode_key: dev_00-dev_00_r1-semantic-r1-infra-replacement-001
+    replacement_profile: compact_v2
+    retain_original_attempt: true
+    scientific_episode_count_contribution: 1
+
+design:
+  seed_base: 800000
+  map_routes:
+    dev_00: [dev_00_r0, dev_00_r1]
+    dev_01: [dev_01_r0, dev_01_r1]
+    dev_02: [dev_02_r0, dev_02_r1]
+    dev_03: [dev_03_r0, dev_03_r1]
+    dev_04: [dev_04_r0, dev_04_r1]
+    dev_05: [dev_05_r0, dev_05_r1]
+  replicates: [0, 1, 2, 3, 4, 5]
+  conditions:
+    - {id: clean_s0, family: none, severity: none, system: s0}
+    - {id: clean_s3, family: none, severity: none, system: s3}
+    - {id: camera, family: camera_occlusion, severity: medium, system: s3}
+    - {id: lidar, family: lidar_dropout, severity: medium, system: s0}
+    - {id: wheel, family: wheel_slip, severity: medium, system: s0}
+    - {id: localisation, family: localisation_perturbation, severity: medium, system: s0}
+    - {id: blockage, family: dynamic_blockage, severity: medium, system: s0}
+    - {id: oscillation, family: planner_oscillation, severity: medium, system: s0}
+    - {id: semantic, family: semantic_corruption, severity: medium, system: s3}
+  environment_placement:
+    placement_mode: path_fraction
+    route_fraction: 0.55
+
+expected_episode_count: 648
+expected_per_condition: 72
+admission:
+  training_use: only_after_automatic_labels_match_independent_review
+  raw_collection_before_human_gate: permitted_under_approved_dependency_boundary
+  revision_after_pilot: campaign size may change transparently before protected evaluation

@@ -1,0 +1,389 @@
+schema_version: 1
+generated_utc: '2026-09-03T17:43:18.498716+00:00'
+scope: validation_only_fitting_pool_comparison
+protected_test_used: false
+frozen: false
+baseline:
+  tag: preliminary_v1
+  report: reports/model_selection/preliminary_v1/validation_comparison.yaml
+  report_sha256: 58a8b21e86e2d5ccffe292b47a88c7b1a6159914527213717b6f6ac3e1a290dd
+candidate:
+  tag: preliminary_v2_with_research1
+  report: reports/model_selection/preliminary_v2_with_research1/validation_comparison.yaml
+  report_sha256: bd7931e3dae9f960b3d51eeb624f463c7f9e90b1773318373831d53f5a9121c8
+per_model:
+  p1_threshold_rules:
+    event_recall:
+      baseline: 0.016129032258064516
+      candidate: 0.0
+      delta: -0.016129032258064516
+    false_alerts_per_clean_mission:
+      baseline: 0.013888888888888888
+      candidate: 0.0
+      delta: -0.013888888888888888
+    false_alerts_per_non_event_mission:
+      baseline: 0.08396946564885496
+      candidate: 0.0
+      delta: -0.08396946564885496
+    median_lead_seconds_detected:
+      baseline: 8.228000000000009
+      candidate: null
+      delta: null
+    auprc:
+      baseline: 0.03391194052513381
+      candidate: 0.033965415906208433
+      delta: 5.347538107462052e-05
+    auroc:
+      baseline: 0.4987545000003208
+      candidate: 0.5
+      delta: 0.0012454999996792115
+    brier_score:
+      baseline: 0.040616203173817554
+      candidate: 0.033965415906208433
+      delta: -0.006650787267609121
+    ece:
+      baseline: 0.040616203173817554
+      candidate: 0.033965415906208433
+      delta: -0.006650787267609121
+    threshold:
+      baseline: 1.0
+      candidate: 1.0
+      delta: 0.0
+  p2_reconstruction_ae:
+    event_recall:
+      baseline: 0.0
+      candidate: 0.0
+      delta: 0.0
+    false_alerts_per_clean_mission:
+      baseline: 0.0
+      candidate: 0.0
+      delta: 0.0
+    false_alerts_per_non_event_mission:
+      baseline: 0.0
+      candidate: 0.0
+      delta: 0.0
+    median_lead_seconds_detected:
+      baseline: null
+      candidate: null
+      delta: null
+    auprc:
+      baseline: 0.03854558581588932
+      candidate: 0.03744574042398975
+      delta: -0.0010998453918995704
+    auroc:
+      baseline: 0.5355548801289913
+      candidate: 0.5322686936696142
+      delta: -0.0032861864593771717
+    brier_score:
+      baseline: 0.032727576506501106
+      candidate: 0.03275954861203103
+      delta: 3.1972105529923245e-05
+    ece:
+      baseline: 5.551115123125783e-17
+      candidate: 5.551115123125783e-17
+      delta: 0.0
+    threshold:
+      baseline: 1.0
+      candidate: 1.0
+      delta: 0.0
+  p3_causal_tcn:
+    event_recall:
+      baseline: 0.2903225806451613
+      candidate: 0.16129032258064516
+      delta: -0.12903225806451615
+    false_alerts_per_clean_mission:
+      baseline: 0.06944444444444445
+      candidate: 0.06944444444444445
+      delta: 0.0
+    false_alerts_per_non_event_mission:
+      baseline: 0.1450381679389313
+      candidate: 0.09923664122137404
+      delta: -0.045801526717557245
+    median_lead_seconds_detected:
+      baseline: 5.368499999999997
+      candidate: 3.5450000000000017
+      delta: -1.8234999999999957
+    auprc:
+      baseline: 0.1950580996239291
+      candidate: 0.17741741168189307
+      delta: -0.01764068794203602
+    auroc:
+      baseline: 0.7604869306417993
+      candidate: 0.8110899850747061
+      delta: 0.0506030544329068
+    brier_score:
+      baseline: 0.029910767299770467
+      candidate: 0.029348776510696534
+      delta: -0.000561990789073933
+    ece:
+      baseline: 0.003139880969643288
+      candidate: 0.0
+      delta: -0.003139880969643288
+    threshold:
+      baseline: 0.2225612468715263
+      candidate: 0.21637426900584794
+      delta: -0.0061869778656783725
+  p4_gru:
+    event_recall:
+      baseline: 0.20967741935483872
+      candidate: 0.27419354838709675
+      delta: 0.06451612903225803
+    false_alerts_per_clean_mission:
+      baseline: 0.08333333333333333
+      candidate: 0.08333333333333333
+      delta: 0.0
+    false_alerts_per_non_event_mission:
+      baseline: 0.1297709923664122
+      candidate: 0.11450381679389313
+      delta: -0.015267175572519082
+    median_lead_seconds_detected:
+      baseline: 4.462999999999994
+      candidate: 3.2920000000000016
+      delta: -1.1709999999999923
+    auprc:
+      baseline: 0.17555258073222246
+      candidate: 0.1880240339408329
+      delta: 0.012471453208610428
+    auroc:
+      baseline: 0.8280065333229978
+      candidate: 0.7668444706682599
+      delta: -0.06116206265473789
+    brier_score:
+      baseline: 0.030514208537985036
+      candidate: 0.02948127921124319
+      delta: -0.0010329293267418473
+    ece:
+      baseline: 0.006552018966620522
+      candidate: 1.2776648644667735e-17
+      delta: -0.006552018966620509
+    threshold:
+      baseline: 0.24122073203510358
+      candidate: 0.2571428571428571
+      delta: 0.015922125107753538
+  p5_compact_transformer:
+    event_recall:
+      baseline: 0.3225806451612903
+      candidate: 0.11290322580645161
+      delta: -0.2096774193548387
+    false_alerts_per_clean_mission:
+      baseline: 0.05555555555555555
+      candidate: 0.08333333333333333
+      delta: 0.027777777777777776
+    false_alerts_per_non_event_mission:
+      baseline: 0.0648854961832061
+      candidate: 0.09923664122137404
+      delta: 0.03435114503816794
+    median_lead_seconds_detected:
+      baseline: 4.925000000000004
+      candidate: 3.8149999999999977
+      delta: -1.1100000000000065
+    auprc:
+      baseline: 0.21389322550366685
+      candidate: 0.14018906999300706
+      delta: -0.07370415551065979
+    auroc:
+      baseline: 0.8113107673201565
+      candidate: 0.770373676538685
+      delta: -0.04093709078147145
+    brier_score:
+      baseline: 0.028883625806911773
+      candidate: 0.03132175822744418
+      delta: 0.0024381324205324066
+    ece:
+      baseline: 3.3512837727504425e-18
+      candidate: 0.0052004972048279065
+      delta: 0.005200497204827903
+    threshold:
+      baseline: 0.375
+      candidate: 0.2656602597207783
+      delta: -0.10933974027922172
+  p6_oracle:
+    event_recall:
+      baseline: 1.0
+      candidate: 1.0
+      delta: 0.0
+    false_alerts_per_clean_mission:
+      baseline: 0.0
+      candidate: 0.0
+      delta: 0.0
+    false_alerts_per_non_event_mission:
+      baseline: 0.0
+      candidate: 0.0
+      delta: 0.0
+    median_lead_seconds_detected:
+      baseline: 9.263999999999996
+      candidate: 9.263999999999996
+      delta: 0.0
+    auprc:
+      baseline: 1.0
+      candidate: 1.0
+      delta: 0.0
+    auroc:
+      baseline: 1.0
+      candidate: 1.0
+      delta: 0.0
+    brier_score:
+      baseline: 0.0
+      candidate: 0.0
+      delta: 0.0
+    ece:
+      baseline: 0.0
+      candidate: 0.0
+      delta: 0.0
+    threshold:
+      baseline: 1.0
+      candidate: 1.0
+      delta: 0.0
+per_family_event_recall:
+  p1_threshold_rules:
+    camera_occlusion:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    dynamic_blockage:
+      baseline_recall: 0.1
+      candidate_recall: 0.0
+    lidar_dropout:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    localisation_perturbation:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    none:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    planner_oscillation:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    semantic_corruption:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    wheel_slip:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+  p2_reconstruction_ae:
+    camera_occlusion:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    dynamic_blockage:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    lidar_dropout:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    localisation_perturbation:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    none:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    planner_oscillation:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    semantic_corruption:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    wheel_slip:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+  p3_causal_tcn:
+    camera_occlusion:
+      baseline_recall: 0.3333333333333333
+      candidate_recall: 0.16666666666666666
+    dynamic_blockage:
+      baseline_recall: 0.7
+      candidate_recall: 0.2
+    lidar_dropout:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    localisation_perturbation:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    none:
+      baseline_recall: 0.09090909090909091
+      candidate_recall: 0.09090909090909091
+    planner_oscillation:
+      baseline_recall: 0.6363636363636364
+      candidate_recall: 0.45454545454545453
+    semantic_corruption:
+      baseline_recall: 0.2
+      candidate_recall: 0.2
+    wheel_slip:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+  p4_gru:
+    camera_occlusion:
+      baseline_recall: 0.3333333333333333
+      candidate_recall: 0.8333333333333334
+    dynamic_blockage:
+      baseline_recall: 0.3
+      candidate_recall: 0.1
+    lidar_dropout:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    localisation_perturbation:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    none:
+      baseline_recall: 0.18181818181818182
+      candidate_recall: 0.45454545454545453
+    planner_oscillation:
+      baseline_recall: 0.45454545454545453
+      candidate_recall: 0.2727272727272727
+    semantic_corruption:
+      baseline_recall: 0.2
+      candidate_recall: 0.6
+    wheel_slip:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+  p5_compact_transformer:
+    camera_occlusion:
+      baseline_recall: 1.0
+      candidate_recall: 0.0
+    dynamic_blockage:
+      baseline_recall: 0.1
+      candidate_recall: 0.1
+    lidar_dropout:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    localisation_perturbation:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+    none:
+      baseline_recall: 0.45454545454545453
+      candidate_recall: 0.0
+    planner_oscillation:
+      baseline_recall: 0.45454545454545453
+      candidate_recall: 0.5454545454545454
+    semantic_corruption:
+      baseline_recall: 0.6
+      candidate_recall: 0.0
+    wheel_slip:
+      baseline_recall: 0.0
+      candidate_recall: 0.0
+  p6_oracle:
+    camera_occlusion:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+    dynamic_blockage:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+    lidar_dropout:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+    localisation_perturbation:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+    none:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+    planner_oscillation:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+    semantic_corruption:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+    wheel_slip:
+      baseline_recall: 1.0
+      candidate_recall: 1.0
+interpretation: Deltas are validation-only rehearsal evidence for a fitting-pool decision;
+  they are not confirmatory results and select no threshold.

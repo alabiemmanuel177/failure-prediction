@@ -1,0 +1,49 @@
+schema_version: 1
+protocol_version: "1.0"
+status: passed
+protected_test_used: false
+policy: one_distinct_replacement_for_pre_goal_infrastructure_invalid_attempt
+supersedes: reports/integrity/balanced_pilot_infrastructure_replacement_v1.yaml
+original_attempt:
+  campaign_id: balanced_pilot_v1
+  episode_key: dev_00-dev_00_r1-semantic-r1
+  run_id: ff40ee4c-fa98-4f60-9000-87542b2df68c
+  attempt_number: 141
+  terminal_state: invalid
+  invalid_reason: missing_mandatory_topic_before_goal
+  bag_mcap_count: 0
+  goal_dispatched: false
+  fault_started: false
+  retained: true
+  root_cause: behavior_server_get_state_async_send_request_failed
+replacement_attempt:
+  campaign_id: balanced_pilot_replacements_v1
+  episode_key: dev_00-dev_00_r1-semantic-r1-infra-replacement-001
+  run_id: 48686e2d-f728-4205-9ccb-ec18f885410a
+  replacement_for_run_id: ff40ee4c-fa98-4f60-9000-87542b2df68c
+  map_id: dev_00
+  route_id: dev_00_r1
+  system_id: S3
+  fault_family: semantic_corruption
+  severity: medium
+  seed: 801108
+  recording_profile: compact_v2
+  terminal_state: success
+  artifact_validation_passed: true
+  bag_mcap_count: 1
+  bag_checksum_sha256: 96e964f34908e2bb37854b54dbbd7736f7281920fd8a4d33fe3f0a84d55f8d05
+  bag_bytes: 6020385
+  bag_duration_seconds: 107.901
+  bag_messages: 62343
+  perception_summary_messages: 1079
+accounting:
+  original_scientific_episode_contribution: 0
+  replacement_scientific_episode_contribution: 1
+  invalid_attempts_retained: 1
+  usable_design_cells_restored: 1
+  duplicate_scientific_episode_created: false
+cumulative_replacement_accounting:
+  original_infrastructure_invalid_attempts: 2
+  valid_linked_replacements: 2
+  usable_design_cells_restored: 2
+  duplicate_scientific_episodes_created: 0

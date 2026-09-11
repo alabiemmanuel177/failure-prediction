@@ -1,0 +1,38 @@
+schema_version: 1
+campaign_id: route_placement_smoke_v1
+purpose: label-only causal schedule and fault-treatment integrity audit
+deployable_feature_use: forbidden
+episode_count: 2
+passed_count: 2
+failed_count: 0
+episodes:
+- episode_key: dynamic_blockage-medium-401
+  run_id: 508ea3eb-f511-4e7f-9c1c-2107569e9fba
+  family: dynamic_blockage
+  severity: medium
+  terminal_state: planner_failure
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact arc-length reconstruction from last pre-onset global plan
+    route_fraction: 0.55
+    position_error_m: 0.0
+    yaw_error_rad: 0.0
+    spawn_success_event: true
+    passed: true
+  passed: true
+- episode_key: planner_oscillation-medium-401
+  run_id: 60d75771-8fb9-4185-bd94-0bf54cc69f05
+  family: planner_oscillation
+  severity: medium
+  terminal_state: planner_failure
+  causal_schedule_passed: true
+  event_parameters_match_summary: true
+  treatment:
+    method: exact arc-length reconstruction from last pre-onset global plan
+    route_fraction: 0.55
+    position_error_m: 0.0
+    yaw_error_rad: 0.0
+    spawn_success_event: true
+    passed: true
+  passed: true

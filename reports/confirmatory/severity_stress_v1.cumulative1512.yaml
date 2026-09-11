@@ -1,0 +1,27 @@
+schema_version: 1
+campaign_id: severity_stress_v1
+analysis_unit: episode
+kind: protected_confirmatory_completion_record
+protected_test_used: true
+protected_outcomes_consulted: false
+outcome_fields_omitted_by_design: true
+complete_and_artifact_valid: true
+counts:
+  expected: 1512
+  observed: 1512
+  usable: 1512
+  infrastructure_invalid_attempts: 12
+  infrastructure_replacements: 12
+episodes_by_map:
+  test_00: 504
+  test_01: 504
+  test_02: 504
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []
+campaign_manifest_sha256: f2ae7dad1ab481009c1565b99a095048cc7e67cc221879bcfc660104be029741
+replacement_manifests:
+- data/manifests/severity_stress_replacements_v1.yaml
+generated_utc: '2026-09-07T20:29:07.941875+00:00'

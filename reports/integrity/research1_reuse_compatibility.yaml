@@ -1,0 +1,102 @@
+schema_version: 1
+audit_type: research1_structural_reuse_compatibility
+protected_outcomes_consulted: false
+research1_root: /home/eao/risk-calibrated-nav
+sources:
+  pilot_manifest: /home/eao/risk-calibrated-nav/manifests/pilot.csv
+  pilot_manifest_sha256: 9978ee77f2df30eed78af63ebf66beee94d053702568ad415d901759bfaa9cf8
+  confirmatory_manifest_sha256: 6de6fb3a4538a57ab05e6dc1eeb63f2bd2e6e21e3660f1a4aa1fed205dec5dc5
+  development_aggregate_schema_example: /home/eao/risk-calibrated-nav/results/raw/6c110c1c-0d6f-4d47-91e0-3f62446c8ea0.csv
+  development_aggregate_header_sha256: f60acb2deb8cfa7871ac55c04ed09ecc8cbe26d6b54ddba9c31c6702acbb00dd
+counts:
+  research1_pilot_episode_rows: 3648
+  retained_bag_directories_all_research1_campaigns: 2454
+  retained_bags_with_metadata: 2453
+  retained_bags_by_split_identity:
+    development: 828
+    protected_test: 1179
+    unresolved: 77
+    validation: 370
+  development_or_validation_bags: 1198
+  development_or_validation_bags_with_core_temporal_topics: 1189
+  research2_development_episodes: 648
+  maximum_structurally_compatible_combined_episodes: 1837
+  protocol_target_fitting_episodes: 3000
+schema:
+  pilot_manifest_fields:
+  - system_id
+  - map_id
+  - route_id
+  - shortest_path_m
+  - shift_family
+  - severity
+  - seed
+  - shift_params_json
+  aggregate_episode_fields:
+  - run_id
+  - commit_sha
+  - container_digest
+  - timestamp
+  - system_id
+  - map_id
+  - route_id
+  - seed
+  - shift_family
+  - severity
+  - shift_params_json
+  - perception_ckpt
+  - calibration_ckpt
+  - risk_config_hash
+  - terminal_state
+  - success
+  - collision
+  - timeout
+  - invalid_reason
+  - duration_s
+  - path_length_m
+  - shortest_path_m
+  - spl
+  - minimum_clearance_m
+  - near_collision_count
+  - collision_count
+  - emergency_stop_count
+  - planning_failures
+  - replans
+  - recoveries
+  - recovery_time_s
+  - localisation_error_mean_m
+  - localisation_error_max_m
+  - goal_distance_gt_m
+  - host
+  - gpu
+  - ros_distro
+  - gazebo_version
+  - package_lock_hash
+  - manifest_hash
+  - miou
+  - ece
+  - nll
+  - brier
+  - mean_uncertainty
+  - p95_uncertainty
+  - inference_latency_ms_median
+  - inference_latency_ms_p95
+  - missed_frame_rate
+  aggregate_is_time_series: false
+  aggregate_has_decision_timestamp: false
+  aggregate_has_injection_onset: false
+  aggregate_has_research2_event_stream: false
+reuse_decision:
+  shared_platform_maps_routes_nav2_and_provenance: eligible_under_content_lock
+  episode_aggregate_rows_as_temporal_model_windows: forbidden
+  retained_development_or_validation_bags: structurally eligible only as natural or
+    non-Research-2-fault episodes; requires a causal adapter and label audit after
+    human admission
+  research1_confirmatory_or_test_bags: forbidden_for_fitting_and tuning
+  reason: episode aggregates cannot supply past-only five-second telemetry windows;
+    only split-safe bags with the complete temporal topic contract can be considered,
+    and they do not contain Research 2's seven deterministic fault families
+next_decision: after human admission, audit and adapt the structurally compatible
+  Research 1 development/validation bags as a separate natural-failure/control source;
+  keep Research 2 fault-family results stratified and evaluate learning curves before
+  additions

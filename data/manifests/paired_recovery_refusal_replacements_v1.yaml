@@ -1,0 +1,115 @@
+schema_version: 1
+protocol_version: '1.0'
+campaign_id: paired_recovery_refusal_replacements_v1
+parent_campaign_id: paired_recovery_v1
+campaign_kind: held_out_confirmatory_replacement
+status: preregistered_pre_goal_refusal_replacement
+allowed_splits:
+- held_out_map_test
+protected_test_used: true
+parallel_execution_admitted_by: PA-2026-09-04-02
+replacement_policy:
+  original_invalid_kind: pre_goal_refusal_before_launch
+  original_attempt_materialised_nothing: true
+  original_scientific_admission: excluded_because_the_runner_refused_before_launch_no_run_id_no_seed_consumed
+  replacement_uses_same_map_route_system_condition_seed_and_recovery_policy: true
+  replacement_has_distinct_episode_key_and_run_id: true
+  replacement_counts_once_as_the_original_scientific_design_cell: true
+  maximum_replacements_for_this_design_cell: 1
+  execution: sequential_alone_after_all_phases_no_other_simulator_running
+episodes:
+- episode_key: test_01-test_01_r2-blockage-r11-R0-infra-replacement-001
+  replaces_episode_key: test_01-test_01_r2-blockage-r11-R0
+  replaces_run_id: none
+  map: test_01
+  route: test_01_r2
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 31201104
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: R0
+  pair_key: test_01-test_01_r2-blockage-r11
+- episode_key: test_01-test_01_r2-blockage-r11-R2-infra-replacement-001
+  replaces_episode_key: test_01-test_01_r2-blockage-r11-R2
+  replaces_run_id: none
+  map: test_01
+  route: test_01_r2
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 31201104
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: R2
+  pair_key: test_01-test_01_r2-blockage-r11
+- episode_key: test_01-test_01_r2-blockage-r11-R3-infra-replacement-001
+  replaces_episode_key: test_01-test_01_r2-blockage-r11-R3
+  replaces_run_id: none
+  map: test_01
+  route: test_01_r2
+  system: s0
+  family: dynamic_blockage
+  severity: medium
+  seed: 31201104
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+  placement_mode: path_fraction
+  route_fraction: 0.55
+  recovery_policy_id: R3
+  pair_key: test_01-test_01_r2-blockage-r11
+  recovery_selector_model: models/recovery_selector/r3_cost_sensitive_ridge_v1.json
+infrastructure_replacements:
+- original_episode_key: test_01-test_01_r2-blockage-r11-R0
+  original_run_id: none
+  original_attempt_number: 74
+  invalid_reason: platform_boundary_refusal_before_launch
+  invalid_detail: 'episode runner refused before creating a run id: Research 1 had
+    uncommitted additions under pinned platform directories (follow-up work by the
+    researcher, 8 September 18:04Z); nothing launched, no seed consumed'
+  original_bag_mcap_count: 0
+  replacement_campaign_id: paired_recovery_refusal_replacements_v1
+  replacement_episode_key: test_01-test_01_r2-blockage-r11-R0-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1
+- original_episode_key: test_01-test_01_r2-blockage-r11-R2
+  original_run_id: none
+  original_attempt_number: 80
+  invalid_reason: platform_boundary_refusal_before_launch
+  invalid_detail: 'episode runner refused before creating a run id: Research 1 had
+    uncommitted additions under pinned platform directories (follow-up work by the
+    researcher, 8 September 18:04Z); nothing launched, no seed consumed'
+  original_bag_mcap_count: 0
+  replacement_campaign_id: paired_recovery_refusal_replacements_v1
+  replacement_episode_key: test_01-test_01_r2-blockage-r11-R2-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1
+- original_episode_key: test_01-test_01_r2-blockage-r11-R3
+  original_run_id: none
+  original_attempt_number: 81
+  invalid_reason: platform_boundary_refusal_before_launch
+  invalid_detail: 'episode runner refused before creating a run id: Research 1 had
+    uncommitted additions under pinned platform directories (follow-up work by the
+    researcher, 8 September 18:04Z); nothing launched, no seed consumed'
+  original_bag_mcap_count: 0
+  replacement_campaign_id: paired_recovery_refusal_replacements_v1
+  replacement_episode_key: test_01-test_01_r2-blockage-r11-R3-infra-replacement-001
+  replacement_profile: compact_v2
+  retain_original_attempt: true
+  scientific_episode_count_contribution: 1

@@ -1,0 +1,1648 @@
+selection_split: validation
+objective: maximum_event_recall_subject_to_false_alert_budget
+false_alert_budget_per_clean_mission: 0.1
+candidate_threshold_count: 2
+distinct_validation_scores: 2
+maximum_candidates: 1001
+feasible_threshold_count: 1
+threshold: 1.0
+false_alerts_per_clean_mission: 0.0
+event_recall: 1.0
+median_useful_lead_seconds_detected: 9.263999999999996
+metrics:
+  episode_count: 324
+  event_count: 62
+  detected_event_count: 62
+  undetected_event_count: 0
+  event_recall: 1.0
+  false_alert_count: 0
+  false_alerts_per_mission: 0.0
+  non_event_mission_count: 262
+  false_alerts_per_non_event_mission: 0.0
+  median_useful_lead_seconds_detected: 9.263999999999996
+  lead_time_denominator_detected: 62
+  per_episode:
+  - run_id: 00450c7d-6138-4d1b-a927-4168f5ccef8c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 00639e53-4ed8-4fcb-93dd-faab9473674b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 010dcf1f-ae2e-498d-acd2-8663c016e3c6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 045cea68-adf5-4ac4-8588-6f98c767e4a1
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.323999999999998
+    false_alerts: 0
+  - run_id: 0485cbb4-5692-4f3d-97c2-0773b69c9991
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0541ef80-e1bc-4d41-8b8c-fe02baf0c723
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 073a8154-80b3-4688-8b9a-39eb0338b8a4
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0ab227ae-c373-494a-8db7-5f0f14b010ad
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0adf6c2b-3c54-40b9-99a6-7695150419ed
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0bbc244d-e6f6-46fe-95bd-c9f134022166
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0c809d4f-eb56-4329-8239-ab946da78ed2
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0e0b3abf-7b7a-49ce-b3b6-d2c230840054
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0e32c28b-2334-4759-ac0b-ca0373e26c02
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0e357c56-b046-4167-aa1e-238642345363
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0e8d9097-33fc-40d9-9062-c8a9f8841aae
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0eb54f2c-9645-4b32-84d6-0b51dde9c563
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 0f768def-cb7b-4b17-bb52-d7b4232c07a1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 108be5d1-8af4-4822-a9cf-8b8b1713a38f
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.292000000000002
+    false_alerts: 0
+  - run_id: 126a79fa-9ef1-4607-ba61-755617bde3a9
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.058999999999997
+    false_alerts: 0
+  - run_id: 1394ac08-660e-4774-8bbf-c0a08d231135
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 1424b58a-6685-43f4-85c6-09c27e67c48c
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.071000000000005
+    false_alerts: 0
+  - run_id: 150def03-a76b-4ed6-a853-f5e3bcb01c53
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.314999999999998
+    false_alerts: 0
+  - run_id: 159947a2-670d-49b3-af96-9ba84d83385e
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.016999999999996
+    false_alerts: 0
+  - run_id: 15c01cff-a589-4027-ae47-e6ef185628af
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 15efa806-4c34-4af6-a814-eaa90fce2218
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 1647c382-ee6f-4451-9317-990e463f2b58
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 1727bcb9-4a90-4e17-b036-c092fea87e73
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 194d9622-86f7-444b-b292-3867ef245243
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 19932102-ca39-4415-b7f8-7bc6a3ae2634
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 1acf28f1-9291-4b8e-b220-55e368f53e79
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.41500000000002
+    false_alerts: 0
+  - run_id: 1b8be943-018d-4d54-afce-d23b57f082ef
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 1c3bae37-10a4-421a-9674-a35deb3e4958
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 1e363801-1536-44bb-b688-a39fb982fad8
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 1faba283-d007-46d5-9f08-925d3ed06275
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.49199999999999
+    false_alerts: 0
+  - run_id: 203fb539-74dc-4ac9-abc7-88373c434228
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.320999999999998
+    false_alerts: 0
+  - run_id: 20aacc3a-7b0f-402a-9dfa-919922988b35
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2108d3ce-c979-4af5-918e-388e0d0ac27f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 213a0484-1d7f-45c0-9a78-c9ebbd8161d1
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.025999999999982
+    false_alerts: 0
+  - run_id: 22ca288b-734c-4f70-a4ae-7a84f7e49d65
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.421000000000006
+    false_alerts: 0
+  - run_id: 22ff247b-873b-4a38-8c00-99ae6ee24b2f
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.28200000000001
+    false_alerts: 0
+  - run_id: 234a2202-8133-499c-a74d-cb061b0ec776
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 249731da-4868-401b-93f5-28c7ed5f4479
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 24a0eba0-e159-4edf-ac80-684e3d2ce71c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 24ce96f8-9aa5-4f1c-8c30-8c209c6296f1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2587850f-555c-457f-875b-948be6c5034b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 25df93af-578b-484a-bfc4-f32134f5b0dd
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2603cfdd-40fb-448c-bb27-957c20d8e991
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 27d3949d-449e-45c7-a60d-26fa4408bd0b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 286294de-c9e1-4cb7-9add-423a54d36b23
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 29d564b5-59f5-4da4-b0be-ca077693420a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2ad1f808-c9aa-40de-8408-db6224683f19
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2aea8cfe-32c4-4777-afde-84e504271230
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2d0fa4e3-2a8d-4513-9609-1e5f45816d8e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2d89af47-735a-4efa-b0fa-ec5582691c12
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2e5a4eb6-e7d6-447f-80a5-ccb4b84557a3
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 2f01a10d-2cd1-4def-aecf-8a7be5c2dfa3
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.439999999999998
+    false_alerts: 0
+  - run_id: 3064943b-4c93-452b-8770-cbaf4d3ad511
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.063999999999993
+    false_alerts: 0
+  - run_id: 30cbad21-f02a-4bda-8695-61b52fc3c201
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3223d24f-3e85-42e5-904e-3e6100dd5b69
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 322a6383-fab8-4ce5-a309-39232f831451
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.313999999999993
+    false_alerts: 0
+  - run_id: 329e1d0c-b795-4b3b-82e9-7d51a7e3f8b5
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 33563198-0e07-4c9b-ac2b-e5b6bdccca57
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 38b0d147-f86a-41c0-93ff-12e8a48ab17f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 38dc948c-ed3d-4d6a-a333-62f28b1601eb
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.111999999999995
+    false_alerts: 0
+  - run_id: 38f9944d-f721-450c-b264-58d3df637d41
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3956e3d3-6c91-4a88-9804-daf7ec7009e2
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 39e91ac0-caf5-4d2a-a43a-c635598a9caa
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.080000000000013
+    false_alerts: 0
+  - run_id: 3a9bc17b-876b-4d05-866d-30d68ca59373
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.361999999999995
+    false_alerts: 0
+  - run_id: 3ab4f4ee-bbed-41e7-aa45-7e5f6e753ac6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3c19013f-7eab-4452-850b-678d8a09c837
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3c5e603c-ba96-47d6-8e23-ffa691a46a9e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3c89f70e-60a1-4640-a251-2cfc328bd4d3
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3dc4bdcf-ecb9-452a-9d5e-7971326da6d9
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3dd46cf3-2fe7-4be1-829d-369b5b1d602b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 3f81097b-9983-4e70-bbff-93c0c0eca8fa
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 41f260a6-8762-4977-a629-8ed86ec0cc34
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.341000000000008
+    false_alerts: 0
+  - run_id: 42ae3ee0-7510-4c64-b91a-590633b10f7a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 42d565d0-3a69-4245-93de-46555454417c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 43b9d18b-1531-4e0e-8ff4-dd8e5f34af9b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 443f92ef-6ddd-48a7-921f-b0713489c554
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 466134b5-e7fd-48fd-b6ee-431749755c5e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 469b3cf6-f3ef-4d98-a6ca-de6916431b6c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 477436c3-fc55-4632-9e5a-7a4c95263d5f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 47ca68cf-4590-4cf3-b980-0473baef24c7
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 4911e316-353a-441e-ba10-a83eb19860f5
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 4bdeaee0-46e5-4d51-8c69-df9db7ba7fdd
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 4c2655a9-4ba7-4197-9f03-d20e900701ff
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.218999999999994
+    false_alerts: 0
+  - run_id: 4d5a2830-c8b2-4b35-a726-fdcb096edc54
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 4d71a81c-a51c-4391-b9b5-d0aa7cdbc5b2
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.378
+    false_alerts: 0
+  - run_id: 4dfaad63-c45a-4306-a48a-305e94ebf564
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 4e57d55b-58b6-470a-b203-bc10a2910b0b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 508728cd-c550-4b4d-8d59-dff172512404
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 50f271de-c6f1-4cad-8786-33a6619427a7
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 519244fe-eb08-4b13-b21c-0f11856406a1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 52cae812-3105-4740-a415-b3697562dab1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 531fe3ab-c29d-4bbc-8b99-495fc7429d60
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 4.1739999999999995
+    false_alerts: 0
+  - run_id: 534b21d8-2c75-4aaa-8745-e786174121c8
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 53ea9e3d-fd95-420e-b8aa-7a1cda66b639
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 53ed33b9-f734-4f2e-8e66-f384fbae1bd2
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.382000000000005
+    false_alerts: 0
+  - run_id: 54a65151-cf62-4430-8b40-2dc83f308124
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 54bd011d-3df5-45f8-a59c-50b3242d0ea2
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 55d44bee-ff4f-460b-9bc1-2ef088bb13c1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 561b9e66-0c6b-4db1-9fab-5f7043fcf398
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.349999999999994
+    false_alerts: 0
+  - run_id: 56289124-6a1b-438f-b3c0-d0224f682ad1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 56a6e7e0-1f1b-444f-8ef3-7dd4e9e213d3
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 56f863a8-3f27-4868-9db5-f9d601e04346
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 581f4160-d398-4c47-bcba-c9e3bd022b5f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 5bcd44bc-bbaf-4047-aa1b-43b597a0be77
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 5bd17a89-9669-4c26-b75a-fbfb83f69112
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.304000000000002
+    false_alerts: 0
+  - run_id: 5bd6c393-2670-4fea-b0a0-c34383c1fdb7
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.326999999999998
+    false_alerts: 0
+  - run_id: 5c1dbda0-a177-4023-a27c-ce129dddcda2
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 5c4cda6b-c602-4c5d-a8b6-dd8f83471f11
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 5fdee268-0d9c-40a8-acf5-6575a2a5a61f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 601c4fe3-6759-4a81-ae4d-058ffeee3b1b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 62b14ee2-20bb-431b-aaaa-8125ed0fdd18
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 63091218-2064-4682-936d-f63f4a4deb45
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 63180c64-c657-4e7e-a24a-eefe1f0ed120
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 65eb4819-81b6-4a77-963e-2923ff1ada1f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 6776d764-8546-4182-9eec-dd82bc6e51c9
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 67bfed96-c584-494b-8191-d6ff71c417ee
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 67e445e0-4ba7-40da-946a-541dd35e3fd9
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.066000000000003
+    false_alerts: 0
+  - run_id: 69a999a5-5692-4c92-9caa-abe5b8bdc697
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 4.334999999999997
+    false_alerts: 0
+  - run_id: 6bbf152f-e8cf-43fd-b42d-2ee7bdbeae42
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 6bc7d412-ee66-4e2b-b23a-a2074a8a7424
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.257999999999996
+    false_alerts: 0
+  - run_id: 6bef01b9-12bc-4615-8551-1e7ee435914b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 6c3e9dc0-3f23-4273-a3f7-c05c2796a83c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 6c59ad09-b361-4bc2-8155-3d769bc5a5ce
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 6cacd584-6903-425e-bdda-9b16e4b4a353
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 6fca15cf-7511-4b3a-b59d-f066f8c57cc7
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 703c1793-48fa-49d6-944c-f1b62642cc4d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 72f6a4f5-618a-4a4b-9688-e173e110c5cc
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 72faa3e0-4486-4f80-9bf7-52f6dae7b900
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 732629e3-635e-4b7f-90ce-7c3d1912c43c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 7335ee71-56ef-4893-821f-827855ae8d1c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 75ac260f-87fc-4270-b6e8-5659e0d8a86d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 77873006-3ed7-4aeb-a901-b90bae7a270f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 778b618f-f497-4870-bab3-a2f85ff42e97
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 77e853e2-3e83-4b08-82d7-bed9f774daa0
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 785d107b-a862-4a18-b1a7-77133fca030e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 7890882c-d763-4f91-a44d-f2be0c6de56c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 79d4977c-0497-435e-a30f-8f42ce9935af
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 7a0038b8-ca3c-4780-bdf8-a2e2a002dd63
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 7a2f6ba5-aeb6-4cbd-9671-838edede3fb9
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 7bed8dac-1cf2-4bb9-82ba-0f74688bed37
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 7f62d041-0e0b-4384-92b5-6661d89ae83a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8029f6fc-5bb3-48c1-82d6-fa860c126aae
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 802d4f99-0cd9-4fcf-b78f-0114091a3e5e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8069ed07-7b1d-4c39-bd2c-d66d5cd92e7d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8200ab05-2c7f-453f-a686-4560c393c481
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.102000000000004
+    false_alerts: 0
+  - run_id: 8294887e-9e77-4f89-bfc4-c4e371e98d5d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 83adc7be-99a3-4855-94d8-6c30d9b2acc0
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 83d7534c-cc0c-49ef-91b4-79a3d0b62439
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8430f20d-801a-4c71-a773-05609b9a80c7
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 84ca3de3-0b21-4dc8-bd42-ec6dc0515329
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.062999999999995
+    false_alerts: 0
+  - run_id: 853fc483-3206-43d9-b87e-940f38d20982
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8656b5f0-c3ca-46dc-ab43-25b0d3fa9586
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.125
+    false_alerts: 0
+  - run_id: 8773b6a1-c88b-4092-82e6-29df54b26c69
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.034000000000006
+    false_alerts: 0
+  - run_id: 878f6b13-fd19-4ab3-9612-7d9b96b94151
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 87be2cb8-ff05-4447-bd3f-95aac2040c0b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 88c17977-6fcd-4021-94d0-dd9bca105771
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 89dd513d-389d-4d17-b0ca-ed7f3bfbb40a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8a84ee6d-d940-423a-94ab-394a94dd8bfa
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.479
+    false_alerts: 0
+  - run_id: 8aba5b11-7ec1-4ab0-9422-85470438171c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8b3580b9-35d2-408f-9c34-87e4839449ba
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8c9591bd-306b-4d2a-b6de-cb7104ffc016
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8cad4934-c712-4ae6-beaa-d7a31444e0fd
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8ed44009-fca1-4fad-9af2-83e961e0fbf6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8ee66378-0a03-45c5-9c8d-79a93c8d61c3
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 8fa7fb40-788b-48f3-81b6-6cb2ea93f3c9
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9065dc50-bbde-4e40-852e-a8d96e5fe442
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.463000000000008
+    false_alerts: 0
+  - run_id: 909dec30-cea4-444d-b3e9-68e4b3c0b35e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 91d8a1f6-6072-4590-bd1f-97a9f6d151c6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 92086870-e7b5-4097-a40f-dca0736726c5
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 924c1e71-d1ea-4f32-b9d1-87fe22d2e628
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 928c7f21-d107-457e-9d17-af01dce3edb8
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 93014555-1551-4663-a82f-68c5df365398
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 93fd4157-8873-43bb-a07b-4b536d20f10a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 94bbfb9c-abb8-4124-9198-3efcbd30e1cf
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 958e4c4e-42b3-40a1-864e-0b2f861bc91a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 95ea2e58-994f-4dbe-84f2-27a054f75b6e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 95ee89e3-adc3-4d81-8364-b05ffdbb65d0
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.410999999999987
+    false_alerts: 0
+  - run_id: 976c63d9-4712-4bf0-a757-b983904054d8
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.009
+    false_alerts: 0
+  - run_id: 97a5361d-63eb-4c44-b4b4-5ea711801199
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 97f5df44-fd96-4beb-a373-4f685648d60e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 982d85e8-ea72-4a5c-b64a-a79acb37fa9b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 98a42c66-fb73-4f01-85ef-5a51bf0b05c8
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 98f10c79-ad5c-4555-b519-10c901b4efcf
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 98f98e04-a883-4e5d-8210-6d4732a78309
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 98fd475a-9ca7-4853-b195-20868555bd81
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9ad48c7d-d78f-4180-8f55-cf0080c1c4a0
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9b397aa6-f1cb-43f8-8f0e-eba636d110cf
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9bcfd576-5cf3-4b6a-9d8e-d5c33cad69bb
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9cb5d301-1155-468b-bd8f-e4a703d4995a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9d165c3d-e338-4a48-84ec-0a8f40efef4d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9d1b2808-d440-4971-b6fd-3c7957570ca6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9dac02ec-9fec-4749-8122-0a2a9aaff631
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9ea1f119-8cd8-4f5c-bce1-fe7202834a82
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: 9ecc2208-bdf5-4a22-8660-64bd72b9ad00
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.066999999999993
+    false_alerts: 0
+  - run_id: a120a350-2b5d-4b5c-87f1-1e122138b18c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a2c2e9a8-9737-4ddf-b6fe-80b63d572093
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a2de5ae7-886b-4aa0-8eed-f37a31a1adf5
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a42b2f42-cf64-4367-8f46-85f8bf24e454
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a4491a91-64dd-487f-9ed4-361d30b9eac9
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.277999999999992
+    false_alerts: 0
+  - run_id: a50555f7-444b-43b8-961e-13684104d5f9
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a5f95c53-0dd0-487b-bf49-b91d3aea1d96
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a65f7ccf-b2b1-4c93-ab83-11f13347fd4e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a7e10e1a-9633-419c-81e6-2e43caa2219a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a836273a-1d51-48b0-9e8e-9723c212af0e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: a97f7dd3-edff-48fc-9a4c-8aa46d038dc0
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.370999999999995
+    false_alerts: 0
+  - run_id: a9eaeeea-6abc-4c4b-a146-81b574cce347
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: af1b84ca-4e0b-4923-b4f3-12dd69596d82
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.093999999999994
+    false_alerts: 0
+  - run_id: af50b68a-4242-40ec-b0e0-cf21867b8f2f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b01d5732-cca5-4d5d-a169-e24e379638ce
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b03ecdd0-5235-4de4-b178-dfb4563a8e6f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b12b8ac3-0d42-4800-8e58-a781155693af
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b13b2218-b040-477b-ba30-6b85206a5d58
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b15b994b-81c7-44c0-ab4d-ec0800623e44
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b1678d46-ccf8-43af-aacd-7948652c5f7f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b16d6cad-ba02-4fe4-9819-83a3072b7c78
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b1bfda9e-ad7f-4a7c-9b57-b3558cfe4c2a
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.462999999999994
+    false_alerts: 0
+  - run_id: b1f197a9-9129-4923-85a6-3a1a2ee04f43
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b2c43037-4295-400a-82f3-d3176ea17de2
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.134999999999991
+    false_alerts: 0
+  - run_id: b4a5c1e0-ce41-4240-9ea1-736af4627e37
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b571caef-649f-4b1b-b6e7-009d0c3424a9
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b5866657-4379-49f0-8f4c-3782b21cf11f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b68b62fd-602f-4f9d-8ae1-7f4cc5744adc
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b6a44238-7801-4693-8073-5052a809281c
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.269999999999996
+    false_alerts: 0
+  - run_id: b7179ac7-c1f3-4bc2-be0a-add247ecca24
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b839262d-dc91-459c-8dd1-a44ca2fff306
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b849b6b5-4cff-4f9f-9166-71cee17ac9a6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: b9d0459b-bb1f-4148-88c4-056b85908c40
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ba2dc629-21c3-4364-9d0e-63c3772d1c41
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: baa30580-79b6-4395-92b6-e272fbebc79c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: bad6aa73-1861-4f3f-90be-064c0ba5d413
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: bb27f913-5ae7-4a79-8424-9d5acb9d38b2
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.167000000000002
+    false_alerts: 0
+  - run_id: bb32f862-1a0a-4a48-b1f7-1c77fa784935
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.236000000000018
+    false_alerts: 0
+  - run_id: bcab8514-5b8a-46a9-bee1-9e7a851279a6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c0316b24-54f8-4aff-8222-01b481ea3ed1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c062a190-364c-4713-ac36-0d8cdec2868b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c13d0a10-79e4-4ea9-b507-e6308fd842f9
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.158999999999992
+    false_alerts: 0
+  - run_id: c30f41a1-bb7e-40a4-bfcd-6f43d5fd469d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c423c118-d905-4c5d-bec8-470f99506c63
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c44bf987-ed22-476e-aece-f447959835a5
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c527ae73-f41a-44a5-83fa-77f1ef237a4d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c6d51e37-a932-4e4a-b9e2-2aa8c7a60083
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.244999999999997
+    false_alerts: 0
+  - run_id: c7076cd2-7575-49d9-b874-2ccac541eee6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c72662a6-f5d1-4715-a576-f4fb9dd696cb
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: c7469359-2a99-42fc-900e-dd2d6ea58783
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: caefd782-18dd-42be-b38c-399041f58d97
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: cb4ff856-d487-48a3-895e-2514e7e56f85
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.025000000000006
+    false_alerts: 0
+  - run_id: cb93b41d-7542-415b-bbbf-9d4750f0ef92
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ceae2150-1d7e-4ef8-8c14-efb602299b15
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: cf7a557a-2bfc-450f-bbd4-d25ddeba2730
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d0852bcf-6aff-4cd5-a220-3fc08959b1de
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d08a5df5-6ef3-45f7-a78b-30de8086de3b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d08f7140-41f3-4ef0-ab89-cb40ffa0128e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d15a1858-f47b-4eeb-aaa7-054d490d716e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d2510b7d-5767-4a66-82b4-cb5183d70c58
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d2b61204-dc18-4d38-bd81-61a9a07c5a8a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d30d4b8c-b0c2-41ec-b6f9-f0eef9425fdf
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d3641ef1-58a4-4fee-b38c-b343e646bd1d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d41a2f3c-24ac-49a4-a6ca-5bae6cbe3325
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d6fe8a66-c4f6-4014-8b04-ace11ff8adbf
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d8122039-40e4-4934-b999-30be72bbb298
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d8521743-3890-4b42-827b-f24915674ff4
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d8a7d0a4-7c7a-4f0c-af8b-c212f79752c3
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: d9a46baf-15c2-4add-b2cf-5fc4e592556c
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: da96f0c4-1f5b-4e6c-8f0e-5bacf791404d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: db01c47f-c80c-4338-91bf-635c8139c1cd
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: db6fadc3-6f9e-4d20-898f-760e368ac1c3
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.049000000000007
+    false_alerts: 0
+  - run_id: dbdeb6b7-1660-4a67-b641-26ce0dd922b6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: dc4f5ab8-e7a0-4337-838c-2246eb959869
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: dd20fb49-43e7-4b99-833b-8cc1bb0555c0
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ddc67a63-16f0-46b8-b50d-9cd982b91334
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ddd0269e-606a-4b0f-b2e0-8c0efa8c7c50
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: de4a856f-25ec-43eb-94ea-6257d80eae48
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e00aebbf-4f12-40aa-8425-d8277634264d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e0473baf-be96-4e7e-b6ff-77077ddc0928
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e15196ea-e176-40df-b08d-d8ea41fd3e03
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e2c5bf4a-889e-4341-b74e-6e17f37f8fc1
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.053999999999988
+    false_alerts: 0
+  - run_id: e4179cf4-6d8b-4ac4-89bc-468b7770f9b0
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e5012067-a734-404f-ab77-fa24c04ec466
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.228000000000009
+    false_alerts: 0
+  - run_id: e5613663-9649-4011-a354-32b0a8d04cff
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.37100000000001
+    false_alerts: 0
+  - run_id: e57a5fea-d62c-4294-a884-b7cf5f0ed827
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e5cb1991-ddf1-4541-b43d-dc876690dc41
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.322999999999993
+    false_alerts: 0
+  - run_id: e5e704dc-0713-44a6-997a-91ead45681d6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e69bee38-bba7-4ea1-a489-514cdcada93f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e6a625c5-e6b3-4680-b800-ef53757473ed
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.408999999999992
+    false_alerts: 0
+  - run_id: e7b80f66-8e33-4238-aecc-e673d542896b
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.442000000000007
+    false_alerts: 0
+  - run_id: e8129f9c-fc03-40b1-a446-dc68c5146351
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.063000000000002
+    false_alerts: 0
+  - run_id: e83ca73d-56d6-44a7-96e0-f5c7fa3effe5
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e9143d6d-02ac-4e5c-9363-f350b0269c8a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: e9edabdb-2878-4263-8287-ad920afb6399
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ec3f7934-6bc5-4d8c-ad7a-714e14aba503
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ed643ea2-18a5-4eaa-9ddc-e4d66eb3057e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ed6d5977-b8de-4b57-b19d-9a6b94caf953
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ed9e63f5-bbb6-4da5-b8cb-a604b289d5fc
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ee60a503-4456-405e-9d3a-b0233f677634
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: ef37a975-970b-40d0-85eb-64bc980ac00d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: effb6fac-8e9d-4e59-a31b-ea2bf55f79d3
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.046999999999997
+    false_alerts: 0
+  - run_id: f107a271-b41d-4573-b8b5-127939fd98e3
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f21c3903-c68b-477f-83c4-580c95101998
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f3031274-ddd6-48a0-9f7c-619dd5059f59
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f4866c9a-6353-4560-a8ff-b158fa4b39e0
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f488dfe6-2b62-4880-9829-68bfc79cfcfb
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f4ff3cef-b309-442a-b5b7-a969c01d2966
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f694b4a4-3f6c-4c79-af49-e5597763677e
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f6f593dc-2b6a-4f6b-961d-5d467df376e1
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f73f4f74-7819-49cd-a99f-3f2724eee4e3
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f75cecd8-58cf-49e4-b0a0-e7ff55c681a6
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: f81815b3-1e30-42c6-8d35-a309bdf55365
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.328999999999994
+    false_alerts: 0
+  - run_id: f8d0c659-ff74-4d16-abfb-96f4e0a4d05b
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fa1f82d2-b1a7-4ad7-86a7-d3f5f5772977
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fa34a4a6-ed27-4986-8d12-85264eff58dc
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fab6ca94-d89f-4e75-a7ae-18c67241b7cc
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fb4acf69-4f1e-4f46-b76b-13990334735a
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fbe31136-ef77-4c01-87b6-c78ca04a2e08
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fc324531-4c11-442f-a9ce-06ad94d9665f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fc763dc3-4adb-4c7b-b13a-61a9eba1b8a7
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.475999999999999
+    false_alerts: 0
+  - run_id: fcdf5336-41a1-4d01-a952-9c895f5b8671
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fd94e534-2273-4133-ad58-c61c206077ae
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.421999999999997
+    false_alerts: 0
+  - run_id: feca40ec-f244-461e-9874-3de5b619e12d
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+  - run_id: fef6883c-31ea-4a76-9b27-75522940f469
+    has_event: true
+    detected: true
+    first_useful_lead_seconds: 9.200999999999993
+    false_alerts: 0
+  - run_id: ff015c5c-88d7-4799-95ed-71a74bc1671f
+    has_event: false
+    detected: false
+    first_useful_lead_seconds: null
+    false_alerts: 0
+schema_version: 1
+protocol_version: '1.0'
+prediction_table: /home/eao/failure-prediction/reports/predictions/final_v1/p6_oracle.validation.raw.csv
+protected_test_used: false

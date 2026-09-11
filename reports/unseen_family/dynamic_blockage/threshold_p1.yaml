@@ -1,0 +1,11 @@
+model_id: p1_threshold_rules
+threshold: 0.5
+selection_split: validation
+protected_test_used: false
+selection: fixed decision threshold on the binary rule score; rules tuned by tune_threshold_rules.py
+  under the frozen clean-mission budget
+excluded_family: dynamic_blockage
+rules: /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/rules_p1.yaml
+rules_sha256: 616e1d145174d829f69001cc1e9a179d5eb6a1c2c61af4766e7d87bdc48e2043
+tuning_record: /home/eao/failure-prediction/reports/unseen_family/dynamic_blockage/tuning_p1.yaml
+tuning_record_sha256: 83586711a27ae494ad30d109529b0d42f6735b732680092a5d85a03cc2f3c9e9

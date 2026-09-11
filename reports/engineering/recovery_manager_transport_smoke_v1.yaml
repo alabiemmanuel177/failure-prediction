@@ -1,0 +1,20 @@
+schema_version: 1
+artifact_role: engineering_fixture_not_research_evidence
+timestamp_local: '2026-08-31T01:30:00+01:00'
+ros_domain_id: 52
+package: recovery_manager
+policy_id: R2
+request:
+  diagnosed_signal_group: planning
+  stopped: true
+  planning_stale_or_blocked: true
+  immediate_collision_risk: false
+observed_decision:
+  message: recommendation_only
+  recommended_action: replan_clear_costmaps
+  execution_performed: false
+live_lock_test:
+  execution_enabled: true
+  startup_refused: true
+  expected_reason: live recovery execution is locked until guard evidence and Nav2 cancel/order integration are frozen
+protected_test_used: false

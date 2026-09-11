@@ -14,7 +14,10 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from src.features import FeatureSpec, LeakagePolicy, ScalarSample, extract_decision_rows
+from src.features import (
+    LeakagePolicy, ScalarSample, extract_decision_rows, load_raw_feature_contract,
+    resolve_feature_specs,
+)
 
 
 def main() -> int:
@@ -31,23 +34,22 @@ def main() -> int:
         raise SystemExit("one extraction invocation must contain exactly one run_id")
     run_id = next(iter(run_ids))
     telemetry_rows = list(csv.DictReader(args.telemetry.open(newline="", encoding="utf-8")))
-    specs: dict[str, FeatureSpec] = {}
-    samples: dict[str, list[ScalarSample]] = {}
-    for row in telemetry_rows:
-        if row["run_id"] != run_id:
-            raise SystemExit("telemetry contains a different run_id")
-        spec = FeatureSpec(row["feature"], row["source"], float(row["max_age_seconds"]))
-        if row["feature"] in specs and specs[row["feature"]] != spec:
-            raise SystemExit(f"inconsistent feature specification: {row['feature']}")
-        specs[row["feature"]] = spec
-        samples.setdefault(row["feature"], []).append(
-            ScalarSample(float(row["timestamp"]), float(row["value"]))
-        )
+    if any(row["run_id"] != run_id for row in telemetry_rows):
+        raise SystemExit("telemetry contains a different run_id")
+    contract = load_raw_feature_contract(ROOT / "configs" / "feature_schema.yaml")
+    try:
+        specs, grouped = resolve_feature_specs(contract, telemetry_rows)
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
+    samples = {
+        name: [ScalarSample(float(row["timestamp"]), float(row["value"])) for row in rows]
+        for name, rows in grouped.items()
+    }
     policy = LeakagePolicy.from_yaml(ROOT / "configs" / "leakage_denylist.yaml")
     extracted = extract_decision_rows(
         run_id=run_id,
         decision_times=[float(row["decision_time"]) for row in decision_rows],
-        specs=list(specs.values()), samples_by_feature=samples, leakage_policy=policy,
+        specs=specs, samples_by_feature=samples, leakage_policy=policy,
     )
     for source_decision, row in zip(decision_rows, extracted):
         row["decision_index"] = int(source_decision["decision_index"])

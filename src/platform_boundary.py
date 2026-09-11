@@ -23,6 +23,35 @@ def path_is_locked(path: str, locked_paths: set[str]) -> bool:
                for item in locked_paths)
 
 
+def _is_tree(repo: Path, object_id: str) -> bool:
+    try:
+        return git_output(repo, "cat-file", "-t", object_id) == "tree"
+    except subprocess.CalledProcessError:
+        return False
+
+
+def _tree_blobs(repo: Path, tree: str) -> dict[str, str]:
+    blobs: dict[str, str] = {}
+    for line in git_output(repo, "ls-tree", "-r", tree).splitlines():
+        meta, _, path = line.partition("\t")
+        blobs[path] = meta.split()[2]
+    return blobs
+
+
+def tree_blob_changes(repo: Path, expected_tree: str, actual_tree: str) -> list[str]:
+    """Pinned blobs of ``expected_tree`` that are modified or missing in ``actual_tree``.
+
+    Additions in ``actual_tree`` are not reported: they cannot alter any content the
+    frozen platform serves, whereas a modified or deleted pinned blob can.
+    """
+    expected = _tree_blobs(repo, expected_tree)
+    actual = _tree_blobs(repo, actual_tree)
+    return sorted(
+        f"{path} ({'deleted' if path not in actual else 'modified'})"
+        for path, blob in expected.items() if actual.get(path) != blob
+    )
+
+
 def dirty_paths(repo: Path) -> set[str]:
     commands = (
         ("diff", "--name-only", "HEAD"),
@@ -67,8 +96,18 @@ def validate_platform(lock: dict[str, Any]) -> tuple[Path, str]:
             actual = git_output(research1, "rev-parse", f"HEAD:{path}")
         except subprocess.CalledProcessError:
             actual = "missing"
-        if actual != expected:
-            mismatches.append(f"{path}: expected {expected}, actual {actual}")
+        if actual == expected:
+            continue
+        # A pinned directory tree whose hash changed only because files were ADDED
+        # (Research 1 follow-up work, 8 September 2026) keeps every blob Research 2
+        # depends on byte-identical; a modified or deleted pinned blob still refuses.
+        if actual != "missing" and _is_tree(research1, expected):
+            changed = tree_blob_changes(research1, expected, actual)
+            if not changed:
+                continue
+            mismatches.append(f"{path}: pinned content changed or removed: " + ", ".join(changed[:10]))
+            continue
+        mismatches.append(f"{path}: expected {expected}, actual {actual}")
     if mismatches:
         raise BoundaryError("Research 1 shared-platform content changed:\n- " +
                             "\n- ".join(mismatches))

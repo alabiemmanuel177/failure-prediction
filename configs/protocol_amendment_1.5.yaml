@@ -1,0 +1,36 @@
+schema_version: 1
+protocol_version: "1.5"
+amendment_id: PA-2026-09-04-01
+status: approved
+approved_by: Emmanuel Alabi Olasubomi
+approved_utc: "2026-09-04"
+protected_outcomes_consulted: false
+scope: concurrency_topology_after_failed_first_shift_check
+rationale: >-
+  The PA-2026-09-03-04 concurrency shift check with six unrestricted workers failed:
+  clean S3 (GPU-perception) missions produced 15 false alerts in 12 missions under the
+  preliminary alarm policy and inference_latency_ms shifted beyond 0.5 SMD, while clean
+  S0 missions matched the sequential reference (0.17 versus 0.18 false alerts per clean
+  mission) with no deployable feature beyond bound. The shift is attributable to
+  concurrent perception nodes contending for the single GPU. The researcher therefore
+  admits a topology that serialises GPU-perception episodes while S0 episodes run six
+  wide, subject to a second pre-declared check of exactly that topology.
+decisions:
+  first_check_result: reports/integrity/concurrency_shift_check_v1.yaml (passed false; retained)
+  concurrency:
+    admitted_workers: 6
+    ros_domains: [60, 61, 62, 63, 64, 65]
+    system_concurrency: {s3: 1}
+    admission_condition: reports/integrity/concurrency_shift_check_v2.yaml passed true
+    shift_check_design: 36 development episodes (12 routes x clean_s0, clean_s3, planner_oscillation medium) with six workers and at most one S3 episode at a time
+    shift_check_policy: configs/concurrency_shift_policy.yaml (unchanged bounds)
+    shift_check_model_proxy: preliminary_v1 P3 with its validation-selected budget threshold, as in PA-2026-09-03-04
+    fallback: sequential execution for every remaining campaign if the second check fails; no third topology will be tried
+    campaigns_admitted_if_check_passes: [held_out_map_v1, severity_stress_v1, recovery_pilot_v1, paired_recovery_v1]
+    reporting: every episode records worker slot, domain, partition and system caps; both checks are reported in the manuscript
+  supplement: continues sequentially as already started; not re-run
+validity:
+  existing_development_data_invalidated: false
+  existing_validation_data_invalidated: false
+  protected_test_access_authorized: false
+  applies_before_model_freeze: true

@@ -1,0 +1,155 @@
+schema_version: 1
+campaign_id: development_supplement_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 504
+  observed: 396
+  usable: 396
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 79
+  non_events: 317
+event_prevalence: 0.1994949494949495
+duration_seconds:
+  total: 26155.531
+  median: 55.0075
+by_terminal_state:
+  false_arrival: 31
+  planner_failure: 41
+  success: 317
+  timeout: 7
+by_attempt_terminal_state:
+  false_arrival: 31
+  invalid: 0
+  planner_failure: 41
+  success: 317
+  timeout: 7
+by_fault_family:
+  camera_occlusion: 60
+  dynamic_blockage: 48
+  lidar_dropout: 60
+  localisation_perturbation: 60
+  none: 120
+  planner_oscillation: 48
+by_map:
+  dev_00: 66
+  dev_01: 66
+  dev_02: 66
+  dev_03: 66
+  dev_04: 66
+  dev_05: 66
+integrity:
+  missing_episode_keys:
+  - dev_00-dev_00_r0-semantic-r40
+  - dev_00-dev_00_r0-semantic-r41
+  - dev_00-dev_00_r0-semantic-r42
+  - dev_00-dev_00_r0-semantic-r43
+  - dev_00-dev_00_r0-wheel-r40
+  - dev_00-dev_00_r0-wheel-r41
+  - dev_00-dev_00_r0-wheel-r42
+  - dev_00-dev_00_r0-wheel-r43
+  - dev_00-dev_00_r0-wheel-r44
+  - dev_00-dev_00_r1-semantic-r40
+  - dev_00-dev_00_r1-semantic-r41
+  - dev_00-dev_00_r1-semantic-r42
+  - dev_00-dev_00_r1-semantic-r43
+  - dev_00-dev_00_r1-wheel-r40
+  - dev_00-dev_00_r1-wheel-r41
+  - dev_00-dev_00_r1-wheel-r42
+  - dev_00-dev_00_r1-wheel-r43
+  - dev_00-dev_00_r1-wheel-r44
+  - dev_01-dev_01_r0-semantic-r40
+  - dev_01-dev_01_r0-semantic-r41
+  - dev_01-dev_01_r0-semantic-r42
+  - dev_01-dev_01_r0-semantic-r43
+  - dev_01-dev_01_r0-wheel-r40
+  - dev_01-dev_01_r0-wheel-r41
+  - dev_01-dev_01_r0-wheel-r42
+  - dev_01-dev_01_r0-wheel-r43
+  - dev_01-dev_01_r0-wheel-r44
+  - dev_01-dev_01_r1-semantic-r40
+  - dev_01-dev_01_r1-semantic-r41
+  - dev_01-dev_01_r1-semantic-r42
+  - dev_01-dev_01_r1-semantic-r43
+  - dev_01-dev_01_r1-wheel-r40
+  - dev_01-dev_01_r1-wheel-r41
+  - dev_01-dev_01_r1-wheel-r42
+  - dev_01-dev_01_r1-wheel-r43
+  - dev_01-dev_01_r1-wheel-r44
+  - dev_02-dev_02_r0-semantic-r40
+  - dev_02-dev_02_r0-semantic-r41
+  - dev_02-dev_02_r0-semantic-r42
+  - dev_02-dev_02_r0-semantic-r43
+  - dev_02-dev_02_r0-wheel-r40
+  - dev_02-dev_02_r0-wheel-r41
+  - dev_02-dev_02_r0-wheel-r42
+  - dev_02-dev_02_r0-wheel-r43
+  - dev_02-dev_02_r0-wheel-r44
+  - dev_02-dev_02_r1-semantic-r40
+  - dev_02-dev_02_r1-semantic-r41
+  - dev_02-dev_02_r1-semantic-r42
+  - dev_02-dev_02_r1-semantic-r43
+  - dev_02-dev_02_r1-wheel-r40
+  - dev_02-dev_02_r1-wheel-r41
+  - dev_02-dev_02_r1-wheel-r42
+  - dev_02-dev_02_r1-wheel-r43
+  - dev_02-dev_02_r1-wheel-r44
+  - dev_03-dev_03_r0-semantic-r40
+  - dev_03-dev_03_r0-semantic-r41
+  - dev_03-dev_03_r0-semantic-r42
+  - dev_03-dev_03_r0-semantic-r43
+  - dev_03-dev_03_r0-wheel-r40
+  - dev_03-dev_03_r0-wheel-r41
+  - dev_03-dev_03_r0-wheel-r42
+  - dev_03-dev_03_r0-wheel-r43
+  - dev_03-dev_03_r0-wheel-r44
+  - dev_03-dev_03_r1-semantic-r40
+  - dev_03-dev_03_r1-semantic-r41
+  - dev_03-dev_03_r1-semantic-r42
+  - dev_03-dev_03_r1-semantic-r43
+  - dev_03-dev_03_r1-wheel-r40
+  - dev_03-dev_03_r1-wheel-r41
+  - dev_03-dev_03_r1-wheel-r42
+  - dev_03-dev_03_r1-wheel-r43
+  - dev_03-dev_03_r1-wheel-r44
+  - dev_04-dev_04_r0-semantic-r40
+  - dev_04-dev_04_r0-semantic-r41
+  - dev_04-dev_04_r0-semantic-r42
+  - dev_04-dev_04_r0-semantic-r43
+  - dev_04-dev_04_r0-wheel-r40
+  - dev_04-dev_04_r0-wheel-r41
+  - dev_04-dev_04_r0-wheel-r42
+  - dev_04-dev_04_r0-wheel-r43
+  - dev_04-dev_04_r0-wheel-r44
+  - dev_04-dev_04_r1-semantic-r40
+  - dev_04-dev_04_r1-semantic-r41
+  - dev_04-dev_04_r1-semantic-r42
+  - dev_04-dev_04_r1-semantic-r43
+  - dev_04-dev_04_r1-wheel-r40
+  - dev_04-dev_04_r1-wheel-r41
+  - dev_04-dev_04_r1-wheel-r42
+  - dev_04-dev_04_r1-wheel-r43
+  - dev_04-dev_04_r1-wheel-r44
+  - dev_05-dev_05_r0-semantic-r40
+  - dev_05-dev_05_r0-semantic-r41
+  - dev_05-dev_05_r0-semantic-r42
+  - dev_05-dev_05_r0-semantic-r43
+  - dev_05-dev_05_r0-wheel-r40
+  - dev_05-dev_05_r0-wheel-r41
+  - dev_05-dev_05_r0-wheel-r42
+  - dev_05-dev_05_r0-wheel-r43
+  - dev_05-dev_05_r0-wheel-r44
+  - dev_05-dev_05_r1-semantic-r40
+  - dev_05-dev_05_r1-semantic-r41
+  - dev_05-dev_05_r1-semantic-r42
+  - dev_05-dev_05_r1-semantic-r43
+  - dev_05-dev_05_r1-wheel-r40
+  - dev_05-dev_05_r1-wheel-r41
+  - dev_05-dev_05_r1-wheel-r42
+  - dev_05-dev_05_r1-wheel-r43
+  - dev_05-dev_05_r1-wheel-r44
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

@@ -8,8 +8,8 @@ minimum_rotation_clearance_m: 0.40
 maximum_repeated_recoveries: 2
 fallback_order: [controlled_stop, request_assistance]
 required_live_evidence_before_execution:
+  - relocalisation_procedure_availability_is_explicit
   - rear_clearance_sensor_and_frame_validated
   - rotation_swept_volume_clearance_validated
   - stop_command_and_nav2_cancel_order_validated
   - every_guard_rejection_logged
-

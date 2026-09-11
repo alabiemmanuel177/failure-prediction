@@ -1,0 +1,43 @@
+schema_version: 1
+model_id: p2_reconstruction_ae
+role: normal-only reconstruction baseline fitted on eligible-negative windows of clean development episodes
+input:
+  time_steps: 10
+  channels: 84
+  history_seconds: 5.0
+  stride_seconds: 0.5
+architecture:
+  hidden_sizes: [256, 64]
+  bottleneck: 16
+  dropout: 0.1
+training:
+  device: cuda
+  batch_size: 256
+  max_epochs: 60
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  early_stopping:
+    metric: validation_auprc
+    patience: 10
+    minimum_delta: 0.0005
+  loss:
+    type: mse
+  fit_episodes: clean_development_only    # fault_family == none
+  fit_windows: eligible_negative_only
+  negative_sampling:
+    cap_per_episode: 120
+    phase_bins: 4
+  seed_workers: 0
+scoring:
+  error: mean_squared_reconstruction_error
+  scaling: minmax_clipped            # monotone map of the error to [0, 1]
+  scaling_fit_split: development      # development eligible negatives of clean episodes
+  lower_quantile: 0.01
+  upper_quantile: 0.99
+selection:
+  metric: validation_auprc
+  event_recall_log:
+    enabled: true
+    purpose: information_only      # never used for selection inside training
+    score_grid: 0.01               # scores are rounded to this grid before the frozen-budget sweep

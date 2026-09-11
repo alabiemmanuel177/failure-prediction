@@ -1,0 +1,39 @@
+schema_version: 1
+campaign_id: development_supplement_v1
+wave: 15
+recording_profiles:
+  compact_v2: 12
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 12
+  usable: 12
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 0
+  successes: 12
+  collisions: 0
+event_prevalence: 0.0
+bag_gib: 0.0513518787920475
+duration_seconds:
+  total: 677.934
+  median: 47.0895
+by_terminal_state:
+  success: 12
+by_event_class: {}
+perception_metric_summaries: 12
+episode_keys:
+- dev_00-dev_00_r0-clean_s3-r40
+- dev_00-dev_00_r1-clean_s3-r40
+- dev_01-dev_01_r0-clean_s3-r40
+- dev_01-dev_01_r1-clean_s3-r40
+- dev_02-dev_02_r0-clean_s3-r40
+- dev_02-dev_02_r1-clean_s3-r40
+- dev_03-dev_03_r0-clean_s3-r40
+- dev_03-dev_03_r1-clean_s3-r40
+- dev_04-dev_04_r0-clean_s3-r40
+- dev_04-dev_04_r1-clean_s3-r40
+- dev_05-dev_05_r0-clean_s3-r40
+- dev_05-dev_05_r1-clean_s3-r40
+training_admission: human_gate_passed_dataset_campaign_in_progress

@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_type: supersession_notice
+superseded_artifact: reports/integrity/research1_temporal_catalog_v1.yaml
+replacement_artifact: reports/integrity/research1_temporal_catalog_v2.yaml
+protected_outcomes_consulted: false
+reason: >-
+  The v1 structural catalog exported names and counts for every recorded ROS topic.
+  It contained no outcome values and no protected-test rows, but this exceeded the
+  minimum adapter contract and exposed label-only topic names. V2 exports counts only
+  for the five approved deployable topics. V1 is retained for provenance and is not
+  admitted to any model pipeline.

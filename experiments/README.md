@@ -40,7 +40,7 @@ Do not put protected-test outcomes in development notebooks or tune thresholds f
 - Map actual topics to `configs/feature_schema.yaml`.
 - Extend `configs/leakage_denylist.yaml` from the simulator/fault-injector source.
 - Assign maps and routes in `data/manifests/splits.template.yaml` before extracting windows.
-- Have the researcher and supervisor sign off event precedence and the collision/localisation/immobilisation thresholds.
+- Have the researcher prospectively approve event precedence and the collision/localisation/immobilisation thresholds; retain optional external review as pre-publication evidence.
 
 Exit criterion: all thresholds have units and provenance; no placeholder is silently accepted by code.
 
@@ -81,7 +81,7 @@ Any change after step 7 creates a new protocol version; it does not overwrite th
 For each retained episode after the live gate opens:
 
 1. `extract_episode_annotation.py` creates a review-pending event annotation.
-2. Human reviewers complete and adjudicate the annotation.
+2. The primary human reviewer completes the annotation; any optional independent disagreement is adjudicated.
 3. `generate_labels.py` writes causal decision labels.
 4. `extract_bag_scalar_telemetry.py` writes observations using recorder receipt time as availability time.
 5. `extract_scalar_features.py` performs past-only synchronization with value, age and missingness channels.

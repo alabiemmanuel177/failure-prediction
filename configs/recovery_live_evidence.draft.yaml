@@ -1,0 +1,34 @@
+# PROVISIONAL engineering-smoke evidence file. NOT the signed configs/recovery_live_evidence.yaml.
+# Used only through run_research2_episode.py --recovery-evidence-override, which is refused unless
+# --campaign-id starts with recovery_smoke_ and --output-root is data/raw_engineering_smoke.
+# Every item below is marked verified so the manager's gate opens for the bring-up smokes that
+# gather the real evidence; the researcher signs the real file from docs/recovery-live-evidence-draft.md.
+schema_version: 1
+provisional: true
+engineering_smoke: true
+frozen: true
+frozen_utc: "2026-09-05T23:03:06Z"
+frozen_by: "engineering smoke draft (unsigned)"
+guard_config_sha256: 04017b745d8dc81baa19b1b50d7a08a32dc3064b4af3dcb114b97d306000f12a
+smoke_run_ids: []
+required_live_evidence_before_execution:
+  relocalisation_procedure_availability_is_explicit:
+    verified: true
+    verified_utc: "2026-09-05T23:03:06Z"
+    evidence: "PROVISIONAL: gathered by the bring-up smokes; see docs/recovery-live-evidence-draft.md"
+  rear_clearance_sensor_and_frame_validated:
+    verified: true
+    verified_utc: "2026-09-05T23:03:06Z"
+    evidence: "PROVISIONAL: gathered by the bring-up smokes; see docs/recovery-live-evidence-draft.md"
+  rotation_swept_volume_clearance_validated:
+    verified: true
+    verified_utc: "2026-09-05T23:03:06Z"
+    evidence: "PROVISIONAL: gathered by the bring-up smokes; see docs/recovery-live-evidence-draft.md"
+  stop_command_and_nav2_cancel_order_validated:
+    verified: true
+    verified_utc: "2026-09-05T23:03:06Z"
+    evidence: "PROVISIONAL: gathered by the bring-up smokes; see docs/recovery-live-evidence-draft.md"
+  every_guard_rejection_logged:
+    verified: true
+    verified_utc: "2026-09-05T23:03:06Z"
+    evidence: "PROVISIONAL: gathered by the bring-up smokes; see docs/recovery-live-evidence-draft.md"

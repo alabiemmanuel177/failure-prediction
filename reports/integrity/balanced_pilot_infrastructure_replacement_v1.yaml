@@ -1,0 +1,39 @@
+schema_version: 1
+protocol_version: "1.0"
+status: passed
+protected_test_used: false
+policy: one_distinct_replacement_for_pre_goal_infrastructure_invalid_attempt
+original_attempt:
+  campaign_id: balanced_pilot_v1
+  episode_key: dev_02-dev_02_r1-clean_s3-r0
+  run_id: 93052846-118c-4332-8954-5ee632fbeb82
+  attempt_number: 97
+  terminal_state: invalid
+  invalid_reason: missing_mandatory_topic_before_goal
+  bag_mcap_count: 0
+  goal_dispatched: false
+  retained: true
+  root_cause: symlink_launch_referenced_semantic_summary_before_console_entry_point_rebuild
+replacement_attempt:
+  campaign_id: balanced_pilot_replacements_v1
+  episode_key: dev_02-dev_02_r1-clean_s3-r0-infra-replacement-001
+  run_id: 43728c2b-ea68-4950-ad2b-cf998b6bbe8a
+  replacement_for_run_id: 93052846-118c-4332-8954-5ee632fbeb82
+  map_id: dev_02
+  route_id: dev_02_r1
+  system_id: S3
+  fault_family: none
+  seed: 821001
+  recording_profile: compact_v2
+  terminal_state: success
+  artifact_validation_passed: true
+  bag_mcap_count: 1
+  bag_checksum_sha256: 7b63a00ea3727ea593558bce1fab2b05e36a37f3b1fb2d79e67699fa289b7aca
+  bag_mib: 9.621591
+  perception_summary_messages: 1245
+accounting:
+  original_scientific_episode_contribution: 0
+  replacement_scientific_episode_contribution: 1
+  invalid_attempts_retained: 1
+  usable_design_cells_restored: 1
+  duplicate_scientific_episode_created: false

@@ -1,0 +1,163 @@
+schema_version: 1
+kind: hypothesis_table
+generated_utc: '2026-09-06T11:16:17Z'
+research_evidence: true
+engineering_fixture: false
+protected_test_used: true
+confirmatory_claims:
+- H1
+- H6
+supporting_hypotheses:
+- H2
+- H3
+- H4
+- H5
+multiplicity_note: H1 and H6 are the two confirmatory claims; H2-H5 are prespecified
+  supporting hypotheses; every other item is exploratory and not an independent significance
+  claim
+frozen_threshold: 0.23509196030026114
+model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+hypotheses:
+- id: H1
+  label: confirmatory
+  hypothesis: P3 event recall exceeds P1 at the validation-fixed false-alert budget
+  estimate: 0.19745222929936307
+  estimate_name: paired P3 - P1 event recall difference
+  confidence_interval:
+  - -0.00014204545454520425
+  - 0.44683232772308656
+  denominator: 157
+  status: not_supported
+  source: reports/confirmatory/held_out_map.yaml:h1
+- id: H2
+  label: supporting
+  hypothesis: median useful lead time of detected failures >= 3 s
+  estimate: 3.8175000000000026
+  estimate_name: median lead seconds (detected events)
+  confidence_interval:
+  - 1.7450000000000045
+  - 6.1200000000000045
+  denominator: 157
+  undetected_events: 121
+  status: supported
+  interval_lower_bound_meets_minimum: false
+  source: reports/confirmatory/held_out_map.yaml:h2
+- id: H3
+  label: supporting
+  hypothesis: calibration reduces Brier score and ECE on validation data
+  estimate: -0.018635752743937594
+  estimate_name: validation Brier delta (after - before)
+  ece_delta: -0.03940350889454301
+  held_out_brier_delta: -0.018078043162319125
+  held_out_ece_delta: -0.03286860057255275
+  confidence_interval: null
+  status: supported
+  source: reports/confirmatory/held_out_map.yaml:h3
+- id: H4
+  label: supporting
+  hypothesis: removing planner and localisation health features materially reduces
+    early warning
+  estimate: null
+  estimate_name: largest recall decline among planner/localisation ablations
+  ablation_deltas: {}
+  confidence_interval: null
+  status: pending
+  source: reports/confirmatory/held_out_map.yaml:h4 (reports/ablations)
+- id: H5
+  label: supporting
+  hypothesis: leave-one-family-out P3 recall exceeds P1 for at least five of seven
+    families
+  estimate: 4
+  estimate_name: families where P3 > P1 (of seven)
+  families:
+  - camera_occlusion
+  - wheel_slip
+  - localisation_perturbation
+  - dynamic_blockage
+  confidence_interval: null
+  pooled_claim: none
+  heterogeneity:
+    per_family_differences:
+      camera_occlusion: 0.25
+      lidar_dropout: 0.0
+      wheel_slip: 0.05
+      localisation_perturbation: 0.34782608695652173
+      dynamic_blockage: 0.12903225806451613
+      planner_oscillation: 0.0
+      semantic_corruption: 0.0
+    range:
+    - 0.0
+    - 0.34782608695652173
+  status: not_supported
+  source: reports/confirmatory/unseen_family.yaml:h5
+- id: H6
+  label: confirmatory
+  hypothesis: prediction-triggered recovery improves mission completion without more
+    collisions
+  estimate: null
+  estimate_name: paired completion difference (R3 - R0)
+  confidence_interval: null
+  status: pending
+  source: reports/recovery/paired_recovery.yaml:h6 (owned by the recovery work package)
+exploratory:
+- item: p4 versus P1 event recall
+  label: exploratory
+  estimate: 0.16560509554140126
+  confidence_interval:
+  - -0.03571428571428571
+  - 0.45768644067796577
+  source: reports/confirmatory/held_out_map.yaml:exploratory_models
+- item: p5 versus P1 event recall
+  label: exploratory
+  estimate: 0.2356687898089172
+  confidence_interval:
+  - 0.04253726589374445
+  - 0.42106848446417233
+  source: reports/confirmatory/held_out_map.yaml:exploratory_models
+- item: p3 recall by severity
+  label: exploratory
+  estimate:
+    medium: 0.22695035460992907
+    none: 0.25
+  source: reports/confirmatory/held_out_map.yaml:models
+- item: p1 recall by severity
+  label: exploratory
+  estimate:
+    medium: 0.03546099290780142
+    none: 0.0
+  source: reports/confirmatory/held_out_map.yaml:models
+- item: p4 recall by severity
+  label: exploratory
+  estimate:
+    medium: 0.19858156028368795
+    none: 0.1875
+  source: reports/confirmatory/held_out_map.yaml:models
+- item: p5 recall by severity
+  label: exploratory
+  estimate:
+    medium: 0.2624113475177305
+    none: 0.3125
+  source: reports/confirmatory/held_out_map.yaml:models
+- item: p3 mission-timeout recall (analysed separately)
+  label: exploratory
+  estimate: 0.0
+  denominator: 6
+  source: reports/confirmatory/held_out_map.yaml:timeouts
+- item: p1 mission-timeout recall (analysed separately)
+  label: exploratory
+  estimate: 0.0
+  denominator: 6
+  source: reports/confirmatory/held_out_map.yaml:timeouts
+- item: p4 mission-timeout recall (analysed separately)
+  label: exploratory
+  estimate: 0.0
+  denominator: 6
+  source: reports/confirmatory/held_out_map.yaml:timeouts
+- item: p5 mission-timeout recall (analysed separately)
+  label: exploratory
+  estimate: 0.16666666666666666
+  denominator: 6
+  source: reports/confirmatory/held_out_map.yaml:timeouts
+inputs_sha256:
+  /home/eao/failure-prediction/reports/confirmatory/held_out_map.yaml: 427af56955c9ae884b94cd43193e48ab78cf2699f2e88c6a0eccf07d20a3bef2
+  /home/eao/failure-prediction/reports/confirmatory/unseen_family.yaml: 025df205c01f7039e0746c658733238dd3e454218f039234fcfdb2e1644357ec

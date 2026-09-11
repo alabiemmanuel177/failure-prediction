@@ -1,0 +1,121 @@
+schema_version: 1
+model_id: p1_threshold_rules
+selection_split: validation
+protected_test_used: false
+tuned_utc: '2026-09-03T01:30:54.210254+00:00'
+objective: maximum_validation_event_recall_subject_to_false_alert_budget
+false_alert_budget_per_clean_mission: 0.1
+alarm_policy:
+  required_above: 2
+  decisions_considered: 3
+  cooldown_seconds: 10.0
+  score_threshold: 0.5
+candidate_source: development_feature_quantiles
+candidate_thresholds:
+  covariance_high:
+  - -0.9913419261574745
+  - 0.03821
+  - 0.04542
+  - 0.050124
+  - 0.054457
+  - 0.068334
+  - 0.080923
+  - 0.092539
+  - 0.103139
+  - 0.113001
+  - 0.123743
+  - 0.135012
+  - 0.144441
+  - 0.154738
+  - 0.164179
+  - 0.172871
+  - 0.180765
+  - 0.189583
+  - 0.198289
+  - 0.207413
+  - 0.218106
+  - 0.229452
+  - 0.243623
+  - 0.258485
+  - 0.274261
+  - 0.290081
+  - 0.308643
+  - 0.330831
+  - 0.391612
+  - 0.437957
+  - 0.47455
+  - 0.562734
+  - 2.0861894376575947
+  progress_low_while_commanded:
+  - -0.7932043969631195
+  - -0.21036
+  - -0.177736
+  - -0.171858
+  - -0.168622
+  - -0.151005
+  - -0.128462
+  - -0.112148
+  - -0.098865
+  - -0.086651
+  - -0.074484
+  - -0.062842
+  - -0.051681
+  - -0.03951
+  - -0.028114
+  - -0.017291
+  - -0.009015
+  - -0.004315
+  - -0.00152
+  - -0.000249
+  - 0.000148
+  - 0.001071
+  - 0.003557
+  - 0.008811
+  - 0.018223
+  - 0.03124
+  - 0.047414
+  - 0.070363
+  - 0.107309
+  - 0.119993
+  - 0.131792
+  - 0.152422
+  - 0.6500661671161652
+  scan_dropout_high:
+  - 0.2999999523162842
+  - 0.65
+  - 1.0
+  - 1.350000023841858
+  oscillation_high:
+  - -5.0
+  - 0.0
+  - 1.0
+  - 2.0
+  - 3.0
+  - 10.0
+selected_thresholds:
+  covariance_high: 2.0861894376575947
+  progress_low_while_commanded: -0.7932043969631195
+  scan_dropout_high: 0.2999999523162842
+  oscillation_high: 10.0
+validation_metrics:
+  event_recall: 0.0
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_mission: 0.0
+  median_useful_lead_seconds_detected: null
+  detected_event_count: 0
+  event_count: 62
+development_metrics_informational:
+  event_recall: 0.0
+  false_alerts_per_clean_mission: 0.0
+  false_alerts_per_mission: 0.0
+  median_useful_lead_seconds_detected: null
+  detected_event_count: 0
+  event_count: 136
+search_trace: []
+development_datasets:
+- balanced_pilot_v1-development-648
+validation_dataset: balanced_validation_v1-validation-324
+validation_predictions: reports/predictions/preliminary/p1_threshold_rules.validation.csv
+validation_predictions_sha256: e7e8f7cf79c24c466cdf2b5ee8e2c07cde4c1a1614d52256dd165ba584e76dd1
+note: P1 is a transparent baseline; these thresholds are frozen before any protected
+  evaluation.

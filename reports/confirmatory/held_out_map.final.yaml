@@ -1,0 +1,4800 @@
+schema_version: 1
+protocol_version: '1.0'
+kind: held_out_map_confirmatory_evaluation
+complete: true
+research_evidence: true
+engineering_fixture: false
+evidence_status: confirmatory_one_time
+protected_test_used: true
+generated_utc: '2026-09-06T11:34:26Z'
+analysis_unit: episode
+split: held_out_map_test
+frozen_threshold: 0.23509196030026114
+alarm_policy:
+  threshold: 0.23509196030026114
+  persistence:
+    required_above_threshold: 2
+    decisions_considered: 3
+  cooldown_seconds: 10.0
+  false_alert_budget_per_clean_mission: 0.1
+  test_threshold_adaptation: forbidden
+model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+inputs_sha256:
+  reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.alarmed.csv: 3655fb69157819d176f29ab63e19724bc261d7db971a967f67754c8c0ad755b4
+  reports/predictions/held_out/held_out_map_v1/p1_threshold_rules.alarmed.csv: d0b1ab01438f57f87d551e84ac06692528908ee0c2a3e982c6946834a854821f
+  reports/predictions/held_out/held_out_map_v1/p4_gru.alarmed.csv: fa0b024f269ba1d7df2b03e5c72ab40e463d80327e43c38ecae7d2d997baaea5
+  reports/predictions/held_out/held_out_map_v1/p5_compact_transformer.alarmed.csv: 06562eddc51ce0f9d4217386fa0bdd5e1a9e48e665864758462fa405aa5a048d
+  reports/predictions/final_v1_seed20260904/p3_causal_tcn.validation.calibrated.csv: 4b807df50f862306a0b564c91859e3e3e1aeb251c186e42f9e326934c3ee32ef
+  /home/eao/failure-prediction/configs/alarm_policy.yaml: eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc
+model_ids:
+  p3: p3_causal_tcn
+  p1: p1_threshold_rules
+  p4: p4_gru
+  p5: p5_compact_transformer
+episode_count: 1008
+event_time_convention: lead = primary_event_time - decision_time of the first alarm
+  on an eligible_positive decision; alarms outside the warning window count as false
+  alerts
+models:
+  p3:
+    primary_events_exclude_mission_timeout: true
+    episode_count: 1002
+    event_count: 157
+    detected_event_count: 36
+    undetected_event_count: 121
+    event_recall: 0.22929936305732485
+    non_event_mission_count: 845
+    false_alerts_per_non_event_mission: 0.21775147928994082
+    clean_mission_count: 126
+    false_alerts_per_clean_mission: 0.18253968253968253
+    false_alert_count_all_missions: 230
+    lead_time:
+      event_count_full_denominator: 157
+      detected_event_count: 36
+      undetected_event_count: 121
+      median_seconds_detected: 3.8175000000000026
+      quantiles_seconds_detected:
+        p10: 1.6415000000000077
+        p25: 1.885749999999998
+        p50: 3.8175000000000026
+        p75: 5.469749999999994
+        p90: 7.763000000000002
+      minimum_seconds_detected: 1.1670000000000016
+      maximum_seconds_detected: 9.117999999999995
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.22929936305732485
+        1s: 0.22929936305732485
+        2s: 0.15286624203821655
+        3s: 0.12101910828025478
+        5s: 0.07643312101910828
+        8s: 0.012738853503184714
+        10s: 0.0
+    by_family:
+      camera_occlusion:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 5
+        undetected_event_count: 11
+        event_recall: 0.3125
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.11818181818181818
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 13
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 5
+          undetected_event_count: 11
+          median_seconds_detected: 2.3359999999999843
+          quantiles_seconds_detected:
+            p10: 1.7938000000000045
+            p25: 1.8670000000000044
+            p50: 2.3359999999999843
+            p75: 2.407999999999987
+            p90: 4.036399999999995
+          minimum_seconds_detected: 1.7450000000000045
+          maximum_seconds_detected: 5.122
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.3125
+            1s: 0.3125
+            2s: 0.1875
+            3s: 0.0625
+            5s: 0.0625
+            8s: 0.0
+            10s: 0.0
+      dynamic_blockage:
+        episode_count: 125
+        event_count: 31
+        detected_event_count: 1
+        undetected_event_count: 30
+        event_recall: 0.03225806451612903
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.22340425531914893
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 37
+        lead_time:
+          event_count_full_denominator: 31
+          detected_event_count: 1
+          undetected_event_count: 30
+          median_seconds_detected: 2.6899999999999977
+          quantiles_seconds_detected:
+            p10: 2.6899999999999977
+            p25: 2.6899999999999977
+            p50: 2.6899999999999977
+            p75: 2.6899999999999977
+            p90: 2.6899999999999977
+          minimum_seconds_detected: 2.6899999999999977
+          maximum_seconds_detected: 2.6899999999999977
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.03225806451612903
+            1s: 0.03225806451612903
+            2s: 0.03225806451612903
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      lidar_dropout:
+        episode_count: 126
+        event_count: 15
+        detected_event_count: 0
+        undetected_event_count: 15
+        event_recall: 0.0
+        non_event_mission_count: 111
+        false_alerts_per_non_event_mission: 0.35135135135135137
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 40
+        lead_time:
+          event_count_full_denominator: 15
+          detected_event_count: 0
+          undetected_event_count: 15
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      localisation_perturbation:
+        episode_count: 126
+        event_count: 23
+        detected_event_count: 1
+        undetected_event_count: 22
+        event_recall: 0.043478260869565216
+        non_event_mission_count: 103
+        false_alerts_per_non_event_mission: 0.24271844660194175
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 32
+        lead_time:
+          event_count_full_denominator: 23
+          detected_event_count: 1
+          undetected_event_count: 22
+          median_seconds_detected: 1.1670000000000016
+          quantiles_seconds_detected:
+            p10: 1.1670000000000016
+            p25: 1.1670000000000016
+            p50: 1.1670000000000016
+            p75: 1.1670000000000016
+            p90: 1.1670000000000016
+          minimum_seconds_detected: 1.1670000000000016
+          maximum_seconds_detected: 1.1670000000000016
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.043478260869565216
+            1s: 0.043478260869565216
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 4
+        undetected_event_count: 12
+        event_recall: 0.25
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.19090909090909092
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.18253968253968253
+        false_alert_count_all_missions: 23
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 4
+          undetected_event_count: 12
+          median_seconds_detected: 3.138999999999996
+          quantiles_seconds_detected:
+            p10: 1.7590999999999979
+            p25: 1.9242499999999936
+            p50: 3.138999999999996
+            p75: 4.58475
+            p90: 5.165699999999998
+          minimum_seconds_detected: 1.649000000000001
+          maximum_seconds_detected: 5.552999999999997
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.25
+            1s: 0.25
+            2s: 0.1875
+            3s: 0.125
+            5s: 0.0625
+            8s: 0.0
+            10s: 0.0
+      planner_oscillation:
+        episode_count: 122
+        event_count: 28
+        detected_event_count: 19
+        undetected_event_count: 9
+        event_recall: 0.6785714285714286
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.1702127659574468
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 35
+        lead_time:
+          event_count_full_denominator: 28
+          detected_event_count: 19
+          undetected_event_count: 9
+          median_seconds_detected: 4.876999999999995
+          quantiles_seconds_detected:
+            p10: 1.9469999999999998
+            p25: 3.8175000000000026
+            p50: 4.876999999999995
+            p75: 7.577999999999999
+            p90: 8.007399999999999
+          minimum_seconds_detected: 1.7050000000000125
+          maximum_seconds_detected: 9.117999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.6785714285714286
+            1s: 0.6785714285714286
+            2s: 0.5714285714285714
+            3s: 0.5357142857142857
+            5s: 0.32142857142857145
+            8s: 0.07142857142857142
+            10s: 0.0
+      semantic_corruption:
+        episode_count: 126
+        event_count: 8
+        detected_event_count: 5
+        undetected_event_count: 3
+        event_recall: 0.625
+        non_event_mission_count: 118
+        false_alerts_per_non_event_mission: 0.17796610169491525
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 21
+        lead_time:
+          event_count_full_denominator: 8
+          detected_event_count: 5
+          undetected_event_count: 3
+          median_seconds_detected: 1.6340000000000146
+          quantiles_seconds_detected:
+            p10: 1.5493999999999941
+            p25: 1.5499999999999972
+            p50: 1.6340000000000146
+            p75: 1.891999999999996
+            p90: 4.428800000000002
+          minimum_seconds_detected: 1.5489999999999924
+          maximum_seconds_detected: 6.1200000000000045
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.625
+            1s: 0.625
+            2s: 0.125
+            3s: 0.125
+            5s: 0.125
+            8s: 0.0
+            10s: 0.0
+      wheel_slip:
+        episode_count: 125
+        event_count: 20
+        detected_event_count: 1
+        undetected_event_count: 19
+        event_recall: 0.05
+        non_event_mission_count: 105
+        false_alerts_per_non_event_mission: 0.26666666666666666
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 29
+        lead_time:
+          event_count_full_denominator: 20
+          detected_event_count: 1
+          undetected_event_count: 19
+          median_seconds_detected: 1.9309999999999974
+          quantiles_seconds_detected:
+            p10: 1.9309999999999974
+            p25: 1.9309999999999974
+            p50: 1.9309999999999974
+            p75: 1.9309999999999974
+            p90: 1.9309999999999974
+          minimum_seconds_detected: 1.9309999999999974
+          maximum_seconds_detected: 1.9309999999999974
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.05
+            1s: 0.05
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+    by_severity:
+      medium:
+        episode_count: 876
+        event_count: 141
+        detected_event_count: 32
+        undetected_event_count: 109
+        event_recall: 0.22695035460992907
+        non_event_mission_count: 735
+        false_alerts_per_non_event_mission: 0.2217687074829932
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 207
+        lead_time:
+          event_count_full_denominator: 141
+          detected_event_count: 32
+          undetected_event_count: 109
+          median_seconds_detected: 3.8175000000000026
+          quantiles_seconds_detected:
+            p10: 1.6411000000000144
+            p25: 1.885749999999998
+            p50: 3.8175000000000026
+            p75: 5.5209999999999955
+            p90: 7.810200000000003
+          minimum_seconds_detected: 1.1670000000000016
+          maximum_seconds_detected: 9.117999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.22695035460992907
+            1s: 0.22695035460992907
+            2s: 0.14893617021276595
+            3s: 0.12056737588652482
+            5s: 0.07801418439716312
+            8s: 0.014184397163120567
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 4
+        undetected_event_count: 12
+        event_recall: 0.25
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.19090909090909092
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.18253968253968253
+        false_alert_count_all_missions: 23
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 4
+          undetected_event_count: 12
+          median_seconds_detected: 3.138999999999996
+          quantiles_seconds_detected:
+            p10: 1.7590999999999979
+            p25: 1.9242499999999936
+            p50: 3.138999999999996
+            p75: 4.58475
+            p90: 5.165699999999998
+          minimum_seconds_detected: 1.649000000000001
+          maximum_seconds_detected: 5.552999999999997
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.25
+            1s: 0.25
+            2s: 0.1875
+            3s: 0.125
+            5s: 0.0625
+            8s: 0.0
+            10s: 0.0
+    by_map:
+      test_00:
+        episode_count: 336
+        event_count: 63
+        detected_event_count: 13
+        undetected_event_count: 50
+        event_recall: 0.20634920634920634
+        non_event_mission_count: 273
+        false_alerts_per_non_event_mission: 0.2673992673992674
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.23809523809523808
+        false_alert_count_all_missions: 83
+        lead_time:
+          event_count_full_denominator: 63
+          detected_event_count: 13
+          undetected_event_count: 50
+          median_seconds_detected: 5.758000000000003
+          quantiles_seconds_detected:
+            p10: 2.4456000000000007
+            p25: 4.829999999999998
+            p50: 5.758000000000003
+            p75: 7.704000000000001
+            p90: 7.904399999999998
+          minimum_seconds_detected: 1.8070000000000022
+          maximum_seconds_detected: 8.337000000000003
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.20634920634920634
+            1s: 0.20634920634920634
+            2s: 0.1746031746031746
+            3s: 0.1746031746031746
+            5s: 0.12698412698412698
+            8s: 0.015873015873015872
+            10s: 0.0
+      test_01:
+        episode_count: 333
+        event_count: 80
+        detected_event_count: 16
+        undetected_event_count: 64
+        event_recall: 0.2
+        non_event_mission_count: 253
+        false_alerts_per_non_event_mission: 0.2885375494071146
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.2619047619047619
+        false_alert_count_all_missions: 109
+        lead_time:
+          event_count_full_denominator: 80
+          detected_event_count: 16
+          undetected_event_count: 64
+          median_seconds_detected: 1.8795000000000002
+          quantiles_seconds_detected:
+            p10: 1.5494999999999948
+            p25: 1.6452500000000043
+            p50: 1.8795000000000002
+            p75: 2.353999999999985
+            p90: 3.475999999999999
+          minimum_seconds_detected: 1.1670000000000016
+          maximum_seconds_detected: 5.122
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.2
+            1s: 0.2
+            2s: 0.075
+            3s: 0.025
+            5s: 0.0125
+            8s: 0.0
+            10s: 0.0
+      test_02:
+        episode_count: 333
+        event_count: 14
+        detected_event_count: 7
+        undetected_event_count: 7
+        event_recall: 0.5
+        non_event_mission_count: 319
+        false_alerts_per_non_event_mission: 0.11912225705329153
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.047619047619047616
+        false_alert_count_all_missions: 38
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 7
+          undetected_event_count: 7
+          median_seconds_detected: 4.876999999999995
+          quantiles_seconds_detected:
+            p10: 3.379400000000004
+            p25: 3.8175000000000026
+            p50: 4.876999999999995
+            p75: 5.327500000000001
+            p90: 6.9123999999999945
+          minimum_seconds_detected: 2.7319999999999993
+          maximum_seconds_detected: 9.117999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.5
+            1s: 0.5
+            2s: 0.5
+            3s: 0.42857142857142855
+            5s: 0.21428571428571427
+            8s: 0.07142857142857142
+            10s: 0.0
+    by_route:
+      test_00_r0:
+        episode_count: 56
+        event_count: 4
+        detected_event_count: 2
+        undetected_event_count: 2
+        event_recall: 0.5
+        non_event_mission_count: 52
+        false_alerts_per_non_event_mission: 0.75
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 1.0
+        false_alert_count_all_missions: 39
+        lead_time:
+          event_count_full_denominator: 4
+          detected_event_count: 2
+          undetected_event_count: 2
+          median_seconds_detected: 5.836500000000001
+          quantiles_seconds_detected:
+            p10: 5.609699999999998
+            p25: 5.694749999999999
+            p50: 5.836500000000001
+            p75: 5.978250000000003
+            p90: 6.063300000000004
+          minimum_seconds_detected: 5.552999999999997
+          maximum_seconds_detected: 6.1200000000000045
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.5
+            1s: 0.5
+            2s: 0.5
+            3s: 0.5
+            5s: 0.5
+            8s: 0.0
+            10s: 0.0
+      test_00_r1:
+        episode_count: 56
+        event_count: 14
+        detected_event_count: 6
+        undetected_event_count: 8
+        event_recall: 0.42857142857142855
+        non_event_mission_count: 42
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 6
+          undetected_event_count: 8
+          median_seconds_detected: 5.306000000000001
+          quantiles_seconds_detected:
+            p10: 4.565000000000001
+            p25: 4.8359999999999985
+            p50: 5.306000000000001
+            p75: 7.217500000000001
+            p90: 7.814499999999999
+          minimum_seconds_detected: 4.300000000000004
+          maximum_seconds_detected: 7.924999999999997
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.42857142857142855
+            1s: 0.42857142857142855
+            2s: 0.42857142857142855
+            3s: 0.42857142857142855
+            5s: 0.21428571428571427
+            8s: 0.0
+            10s: 0.0
+      test_00_r2:
+        episode_count: 56
+        event_count: 5
+        detected_event_count: 0
+        undetected_event_count: 5
+        event_recall: 0.0
+        non_event_mission_count: 51
+        false_alerts_per_non_event_mission: 0.17647058823529413
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 9
+        lead_time:
+          event_count_full_denominator: 5
+          detected_event_count: 0
+          undetected_event_count: 5
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r3:
+        episode_count: 56
+        event_count: 3
+        detected_event_count: 0
+        undetected_event_count: 3
+        event_recall: 0.0
+        non_event_mission_count: 53
+        false_alerts_per_non_event_mission: 0.09433962264150944
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 5
+        lead_time:
+          event_count_full_denominator: 3
+          detected_event_count: 0
+          undetected_event_count: 3
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r4:
+        episode_count: 56
+        event_count: 37
+        detected_event_count: 5
+        undetected_event_count: 32
+        event_recall: 0.13513513513513514
+        non_event_mission_count: 19
+        false_alerts_per_non_event_mission: 0.10526315789473684
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 12
+        lead_time:
+          event_count_full_denominator: 37
+          detected_event_count: 5
+          undetected_event_count: 32
+          median_seconds_detected: 7.451999999999998
+          quantiles_seconds_detected:
+            p10: 1.877000000000001
+            p25: 1.9819999999999993
+            p50: 7.451999999999998
+            p75: 7.822000000000003
+            p90: 8.131000000000004
+          minimum_seconds_detected: 1.8070000000000022
+          maximum_seconds_detected: 8.337000000000003
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.13513513513513514
+            1s: 0.13513513513513514
+            2s: 0.08108108108108109
+            3s: 0.08108108108108109
+            5s: 0.08108108108108109
+            8s: 0.02702702702702703
+            10s: 0.0
+      test_00_r5:
+        episode_count: 56
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 56
+        false_alerts_per_non_event_mission: 0.32142857142857145
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.2857142857142857
+        false_alert_count_all_missions: 18
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+      test_01_r0:
+        episode_count: 56
+        event_count: 40
+        detected_event_count: 14
+        undetected_event_count: 26
+        event_recall: 0.35
+        non_event_mission_count: 16
+        false_alerts_per_non_event_mission: 0.625
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 15
+        lead_time:
+          event_count_full_denominator: 40
+          detected_event_count: 14
+          undetected_event_count: 26
+          median_seconds_detected: 1.9114999999999966
+          quantiles_seconds_detected:
+            p10: 1.5752000000000024
+            p25: 1.6730000000000018
+            p50: 1.9114999999999966
+            p75: 2.3899999999999864
+            p90: 3.7904000000000013
+          minimum_seconds_detected: 1.5489999999999924
+          maximum_seconds_detected: 5.122
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.35
+            1s: 0.35
+            2s: 0.15
+            3s: 0.05
+            5s: 0.025
+            8s: 0.0
+            10s: 0.0
+      test_01_r1:
+        episode_count: 53
+        event_count: 27
+        detected_event_count: 1
+        undetected_event_count: 26
+        event_recall: 0.037037037037037035
+        non_event_mission_count: 26
+        false_alerts_per_non_event_mission: 1.6153846153846154
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 1.1428571428571428
+        false_alert_count_all_missions: 70
+        lead_time:
+          event_count_full_denominator: 27
+          detected_event_count: 1
+          undetected_event_count: 26
+          median_seconds_detected: 1.1670000000000016
+          quantiles_seconds_detected:
+            p10: 1.1670000000000016
+            p25: 1.1670000000000016
+            p50: 1.1670000000000016
+            p75: 1.1670000000000016
+            p90: 1.1670000000000016
+          minimum_seconds_detected: 1.1670000000000016
+          maximum_seconds_detected: 1.1670000000000016
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.037037037037037035
+            1s: 0.037037037037037035
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r2:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.34545454545454546
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.42857142857142855
+        false_alert_count_all_missions: 19
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r3_repl1:
+        episode_count: 56
+        event_count: 10
+        detected_event_count: 1
+        undetected_event_count: 9
+        event_recall: 0.1
+        non_event_mission_count: 46
+        false_alerts_per_non_event_mission: 0.043478260869565216
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 5
+        lead_time:
+          event_count_full_denominator: 10
+          detected_event_count: 1
+          undetected_event_count: 9
+          median_seconds_detected: 1.7050000000000125
+          quantiles_seconds_detected:
+            p10: 1.7050000000000125
+            p25: 1.7050000000000125
+            p50: 1.7050000000000125
+            p75: 1.7050000000000125
+            p90: 1.7050000000000125
+          minimum_seconds_detected: 1.7050000000000125
+          maximum_seconds_detected: 1.7050000000000125
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.1
+            1s: 0.1
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r4:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r5:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r0:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.16363636363636364
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 9
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r1:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r2:
+        episode_count: 55
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.3333333333333333
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 18
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r3:
+        episode_count: 56
+        event_count: 9
+        detected_event_count: 7
+        undetected_event_count: 2
+        event_recall: 0.7777777777777778
+        non_event_mission_count: 47
+        false_alerts_per_non_event_mission: 0.10638297872340426
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 5
+        lead_time:
+          event_count_full_denominator: 9
+          detected_event_count: 7
+          undetected_event_count: 2
+          median_seconds_detected: 4.876999999999995
+          quantiles_seconds_detected:
+            p10: 3.379400000000004
+            p25: 3.8175000000000026
+            p50: 4.876999999999995
+            p75: 5.327500000000001
+            p90: 6.9123999999999945
+          minimum_seconds_detected: 2.7319999999999993
+          maximum_seconds_detected: 9.117999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.7777777777777778
+            1s: 0.7777777777777778
+            2s: 0.7777777777777778
+            3s: 0.6666666666666666
+            5s: 0.3333333333333333
+            8s: 0.1111111111111111
+            10s: 0.0
+      test_02_r4:
+        episode_count: 56
+        event_count: 2
+        detected_event_count: 0
+        undetected_event_count: 2
+        event_recall: 0.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 2
+          detected_event_count: 0
+          undetected_event_count: 2
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r5:
+        episode_count: 54
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.1111111111111111
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 6
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+    event_recall_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 157
+      map_count: 3
+      route_count: 16
+      point_estimate: 0.22929936305732485
+      confidence: 0.95
+      confidence_interval:
+      - 0.08508983451536645
+      - 0.5206294846705801
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+  p1:
+    primary_events_exclude_mission_timeout: true
+    episode_count: 1002
+    event_count: 157
+    detected_event_count: 5
+    undetected_event_count: 152
+    event_recall: 0.03184713375796178
+    non_event_mission_count: 845
+    false_alerts_per_non_event_mission: 0.378698224852071
+    clean_mission_count: 126
+    false_alerts_per_clean_mission: 0.46825396825396826
+    false_alert_count_all_missions: 333
+    lead_time:
+      event_count_full_denominator: 157
+      detected_event_count: 5
+      undetected_event_count: 152
+      median_seconds_detected: 7.10499999999999
+      quantiles_seconds_detected:
+        p10: 4.1720000000000015
+        p25: 6.407000000000011
+        p50: 7.10499999999999
+        p75: 7.545000000000016
+        p90: 8.931000000000008
+      minimum_seconds_detected: 2.681999999999995
+      maximum_seconds_detected: 9.855000000000004
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.03184713375796178
+        1s: 0.03184713375796178
+        2s: 0.03184713375796178
+        3s: 0.025477707006369428
+        5s: 0.025477707006369428
+        8s: 0.006369426751592357
+        10s: 0.0
+    by_family:
+      camera_occlusion:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 1
+        undetected_event_count: 15
+        event_recall: 0.0625
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.24545454545454545
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 27
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 1
+          undetected_event_count: 15
+          median_seconds_detected: 7.10499999999999
+          quantiles_seconds_detected:
+            p10: 7.10499999999999
+            p25: 7.10499999999999
+            p50: 7.10499999999999
+            p75: 7.10499999999999
+            p90: 7.10499999999999
+          minimum_seconds_detected: 7.10499999999999
+          maximum_seconds_detected: 7.10499999999999
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0625
+            1s: 0.0625
+            2s: 0.0625
+            3s: 0.0625
+            5s: 0.0625
+            8s: 0.0
+            10s: 0.0
+      dynamic_blockage:
+        episode_count: 125
+        event_count: 31
+        detected_event_count: 2
+        undetected_event_count: 29
+        event_recall: 0.06451612903225806
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.4148936170212766
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 43
+        lead_time:
+          event_count_full_denominator: 31
+          detected_event_count: 2
+          undetected_event_count: 29
+          median_seconds_detected: 8.70000000000001
+          quantiles_seconds_detected:
+            p10: 7.776000000000016
+            p25: 8.122500000000013
+            p50: 8.70000000000001
+            p75: 9.277500000000007
+            p90: 9.624000000000006
+          minimum_seconds_detected: 7.545000000000016
+          maximum_seconds_detected: 9.855000000000004
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.06451612903225806
+            1s: 0.06451612903225806
+            2s: 0.06451612903225806
+            3s: 0.06451612903225806
+            5s: 0.06451612903225806
+            8s: 0.03225806451612903
+            10s: 0.0
+      lidar_dropout:
+        episode_count: 126
+        event_count: 15
+        detected_event_count: 0
+        undetected_event_count: 15
+        event_recall: 0.0
+        non_event_mission_count: 111
+        false_alerts_per_non_event_mission: 0.25225225225225223
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 28
+        lead_time:
+          event_count_full_denominator: 15
+          detected_event_count: 0
+          undetected_event_count: 15
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      localisation_perturbation:
+        episode_count: 126
+        event_count: 23
+        detected_event_count: 0
+        undetected_event_count: 23
+        event_recall: 0.0
+        non_event_mission_count: 103
+        false_alerts_per_non_event_mission: 0.2912621359223301
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 30
+        lead_time:
+          event_count_full_denominator: 23
+          detected_event_count: 0
+          undetected_event_count: 23
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 0
+        undetected_event_count: 16
+        event_recall: 0.0
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.5272727272727272
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.46825396825396826
+        false_alert_count_all_missions: 59
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 0
+          undetected_event_count: 16
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      planner_oscillation:
+        episode_count: 122
+        event_count: 28
+        detected_event_count: 1
+        undetected_event_count: 27
+        event_recall: 0.03571428571428571
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.8936170212765957
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 92
+        lead_time:
+          event_count_full_denominator: 28
+          detected_event_count: 1
+          undetected_event_count: 27
+          median_seconds_detected: 6.407000000000011
+          quantiles_seconds_detected:
+            p10: 6.407000000000011
+            p25: 6.407000000000011
+            p50: 6.407000000000011
+            p75: 6.407000000000011
+            p90: 6.407000000000011
+          minimum_seconds_detected: 6.407000000000011
+          maximum_seconds_detected: 6.407000000000011
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.03571428571428571
+            1s: 0.03571428571428571
+            2s: 0.03571428571428571
+            3s: 0.03571428571428571
+            5s: 0.03571428571428571
+            8s: 0.0
+            10s: 0.0
+      semantic_corruption:
+        episode_count: 126
+        event_count: 8
+        detected_event_count: 0
+        undetected_event_count: 8
+        event_recall: 0.0
+        non_event_mission_count: 118
+        false_alerts_per_non_event_mission: 0.23728813559322035
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 28
+        lead_time:
+          event_count_full_denominator: 8
+          detected_event_count: 0
+          undetected_event_count: 8
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      wheel_slip:
+        episode_count: 125
+        event_count: 20
+        detected_event_count: 1
+        undetected_event_count: 19
+        event_recall: 0.05
+        non_event_mission_count: 105
+        false_alerts_per_non_event_mission: 0.24761904761904763
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 26
+        lead_time:
+          event_count_full_denominator: 20
+          detected_event_count: 1
+          undetected_event_count: 19
+          median_seconds_detected: 2.681999999999995
+          quantiles_seconds_detected:
+            p10: 2.681999999999995
+            p25: 2.681999999999995
+            p50: 2.681999999999995
+            p75: 2.681999999999995
+            p90: 2.681999999999995
+          minimum_seconds_detected: 2.681999999999995
+          maximum_seconds_detected: 2.681999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.05
+            1s: 0.05
+            2s: 0.05
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+    by_severity:
+      medium:
+        episode_count: 876
+        event_count: 141
+        detected_event_count: 5
+        undetected_event_count: 136
+        event_recall: 0.03546099290780142
+        non_event_mission_count: 735
+        false_alerts_per_non_event_mission: 0.3564625850340136
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 274
+        lead_time:
+          event_count_full_denominator: 141
+          detected_event_count: 5
+          undetected_event_count: 136
+          median_seconds_detected: 7.10499999999999
+          quantiles_seconds_detected:
+            p10: 4.1720000000000015
+            p25: 6.407000000000011
+            p50: 7.10499999999999
+            p75: 7.545000000000016
+            p90: 8.931000000000008
+          minimum_seconds_detected: 2.681999999999995
+          maximum_seconds_detected: 9.855000000000004
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.03546099290780142
+            1s: 0.03546099290780142
+            2s: 0.03546099290780142
+            3s: 0.028368794326241134
+            5s: 0.028368794326241134
+            8s: 0.0070921985815602835
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 0
+        undetected_event_count: 16
+        event_recall: 0.0
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.5272727272727272
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.46825396825396826
+        false_alert_count_all_missions: 59
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 0
+          undetected_event_count: 16
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+    by_map:
+      test_00:
+        episode_count: 336
+        event_count: 63
+        detected_event_count: 0
+        undetected_event_count: 63
+        event_recall: 0.0
+        non_event_mission_count: 273
+        false_alerts_per_non_event_mission: 0.02564102564102564
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 7
+        lead_time:
+          event_count_full_denominator: 63
+          detected_event_count: 0
+          undetected_event_count: 63
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01:
+        episode_count: 333
+        event_count: 80
+        detected_event_count: 3
+        undetected_event_count: 77
+        event_recall: 0.0375
+        non_event_mission_count: 253
+        false_alerts_per_non_event_mission: 0.4743083003952569
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.2619047619047619
+        false_alert_count_all_missions: 133
+        lead_time:
+          event_count_full_denominator: 80
+          detected_event_count: 3
+          undetected_event_count: 77
+          median_seconds_detected: 7.10499999999999
+          quantiles_seconds_detected:
+            p10: 6.546600000000007
+            p25: 6.756
+            p50: 7.10499999999999
+            p75: 7.325000000000003
+            p90: 7.4570000000000105
+          minimum_seconds_detected: 6.407000000000011
+          maximum_seconds_detected: 7.545000000000016
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0375
+            1s: 0.0375
+            2s: 0.0375
+            3s: 0.0375
+            5s: 0.0375
+            8s: 0.0
+            10s: 0.0
+      test_02:
+        episode_count: 333
+        event_count: 14
+        detected_event_count: 2
+        undetected_event_count: 12
+        event_recall: 0.14285714285714285
+        non_event_mission_count: 319
+        false_alerts_per_non_event_mission: 0.6050156739811913
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 1.1428571428571428
+        false_alert_count_all_missions: 193
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 2
+          undetected_event_count: 12
+          median_seconds_detected: 6.2684999999999995
+          quantiles_seconds_detected:
+            p10: 3.399299999999996
+            p25: 4.475249999999997
+            p50: 6.2684999999999995
+            p75: 8.061750000000002
+            p90: 9.137700000000004
+          minimum_seconds_detected: 2.681999999999995
+          maximum_seconds_detected: 9.855000000000004
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.14285714285714285
+            1s: 0.14285714285714285
+            2s: 0.14285714285714285
+            3s: 0.07142857142857142
+            5s: 0.07142857142857142
+            8s: 0.07142857142857142
+            10s: 0.0
+    by_route:
+      test_00_r0:
+        episode_count: 56
+        event_count: 4
+        detected_event_count: 0
+        undetected_event_count: 4
+        event_recall: 0.0
+        non_event_mission_count: 52
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 4
+          detected_event_count: 0
+          undetected_event_count: 4
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r1:
+        episode_count: 56
+        event_count: 14
+        detected_event_count: 0
+        undetected_event_count: 14
+        event_recall: 0.0
+        non_event_mission_count: 42
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 0
+          undetected_event_count: 14
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r2:
+        episode_count: 56
+        event_count: 5
+        detected_event_count: 0
+        undetected_event_count: 5
+        event_recall: 0.0
+        non_event_mission_count: 51
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 5
+          detected_event_count: 0
+          undetected_event_count: 5
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r3:
+        episode_count: 56
+        event_count: 3
+        detected_event_count: 0
+        undetected_event_count: 3
+        event_recall: 0.0
+        non_event_mission_count: 53
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 3
+          detected_event_count: 0
+          undetected_event_count: 3
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r4:
+        episode_count: 56
+        event_count: 37
+        detected_event_count: 0
+        undetected_event_count: 37
+        event_recall: 0.0
+        non_event_mission_count: 19
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 37
+          detected_event_count: 0
+          undetected_event_count: 37
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r5:
+        episode_count: 56
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 56
+        false_alerts_per_non_event_mission: 0.125
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 7
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+      test_01_r0:
+        episode_count: 56
+        event_count: 40
+        detected_event_count: 0
+        undetected_event_count: 40
+        event_recall: 0.0
+        non_event_mission_count: 16
+        false_alerts_per_non_event_mission: 0.25
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 5
+        lead_time:
+          event_count_full_denominator: 40
+          detected_event_count: 0
+          undetected_event_count: 40
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r1:
+        episode_count: 53
+        event_count: 27
+        detected_event_count: 3
+        undetected_event_count: 24
+        event_recall: 0.1111111111111111
+        non_event_mission_count: 26
+        false_alerts_per_non_event_mission: 0.5384615384615384
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.5714285714285714
+        false_alert_count_all_missions: 23
+        lead_time:
+          event_count_full_denominator: 27
+          detected_event_count: 3
+          undetected_event_count: 24
+          median_seconds_detected: 7.10499999999999
+          quantiles_seconds_detected:
+            p10: 6.546600000000007
+            p25: 6.756
+            p50: 7.10499999999999
+            p75: 7.325000000000003
+            p90: 7.4570000000000105
+          minimum_seconds_detected: 6.407000000000011
+          maximum_seconds_detected: 7.545000000000016
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.1111111111111111
+            1s: 0.1111111111111111
+            2s: 0.1111111111111111
+            3s: 0.1111111111111111
+            5s: 0.1111111111111111
+            8s: 0.0
+            10s: 0.0
+      test_01_r2:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.4909090909090909
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 28
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r3_repl1:
+        episode_count: 56
+        event_count: 10
+        detected_event_count: 0
+        undetected_event_count: 10
+        event_recall: 0.0
+        non_event_mission_count: 46
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 2
+        lead_time:
+          event_count_full_denominator: 10
+          detected_event_count: 0
+          undetected_event_count: 10
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r4:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.09090909090909091
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 5
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r5:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 1.2727272727272727
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 1.0
+        false_alert_count_all_missions: 70
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r0:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r1:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.12727272727272726
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 1.0
+        false_alert_count_all_missions: 7
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r2:
+        episode_count: 55
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.14814814814814814
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 1.0
+        false_alert_count_all_missions: 8
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r3:
+        episode_count: 56
+        event_count: 9
+        detected_event_count: 0
+        undetected_event_count: 9
+        event_recall: 0.0
+        non_event_mission_count: 47
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 9
+          detected_event_count: 0
+          undetected_event_count: 9
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r4:
+        episode_count: 56
+        event_count: 2
+        detected_event_count: 2
+        undetected_event_count: 0
+        event_recall: 1.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 2.314814814814815
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 3.0
+        false_alert_count_all_missions: 125
+        lead_time:
+          event_count_full_denominator: 2
+          detected_event_count: 2
+          undetected_event_count: 0
+          median_seconds_detected: 6.2684999999999995
+          quantiles_seconds_detected:
+            p10: 3.399299999999996
+            p25: 4.475249999999997
+            p50: 6.2684999999999995
+            p75: 8.061750000000002
+            p90: 9.137700000000004
+          minimum_seconds_detected: 2.681999999999995
+          maximum_seconds_detected: 9.855000000000004
+          warned_fraction_of_all_events_by_lead:
+            0s: 1.0
+            1s: 1.0
+            2s: 1.0
+            3s: 0.5
+            5s: 0.5
+            8s: 0.5
+            10s: 0.0
+      test_02_r5:
+        episode_count: 54
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.9814814814814815
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 1.8571428571428572
+        false_alert_count_all_missions: 53
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+    event_recall_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 157
+      map_count: 3
+      route_count: 16
+      point_estimate: 0.03184713375796178
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.1568627450980392
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+  p4:
+    primary_events_exclude_mission_timeout: true
+    episode_count: 1002
+    event_count: 157
+    detected_event_count: 31
+    undetected_event_count: 126
+    event_recall: 0.19745222929936307
+    non_event_mission_count: 845
+    false_alerts_per_non_event_mission: 0.07928994082840236
+    clean_mission_count: 126
+    false_alerts_per_clean_mission: 0.06349206349206349
+    false_alert_count_all_missions: 83
+    lead_time:
+      event_count_full_denominator: 157
+      detected_event_count: 31
+      undetected_event_count: 126
+      median_seconds_detected: 3.811000000000007
+      quantiles_seconds_detected:
+        p10: 1.3359999999999843
+        p25: 1.5915000000000035
+        p50: 3.811000000000007
+        p75: 5.708500000000004
+        p90: 8.525000000000006
+      minimum_seconds_detected: 1.0499999999999972
+      maximum_seconds_detected: 9.126999999999995
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.19745222929936307
+        1s: 0.19745222929936307
+        2s: 0.12738853503184713
+        3s: 0.10828025477707007
+        5s: 0.05732484076433121
+        8s: 0.025477707006369428
+        10s: 0.0
+    by_family:
+      camera_occlusion:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 3
+        undetected_event_count: 13
+        event_recall: 0.1875
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.05454545454545454
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 6
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 3
+          undetected_event_count: 13
+          median_seconds_detected: 1.3359999999999843
+          quantiles_seconds_detected:
+            p10: 1.164799999999997
+            p25: 1.228999999999992
+            p50: 1.3359999999999843
+            p75: 1.6219999999999857
+            p90: 1.7935999999999865
+          minimum_seconds_detected: 1.1219999999999999
+          maximum_seconds_detected: 1.907999999999987
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.1875
+            1s: 0.1875
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      dynamic_blockage:
+        episode_count: 125
+        event_count: 31
+        detected_event_count: 1
+        undetected_event_count: 30
+        event_recall: 0.03225806451612903
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.0851063829787234
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 11
+        lead_time:
+          event_count_full_denominator: 31
+          detected_event_count: 1
+          undetected_event_count: 30
+          median_seconds_detected: 4.250999999999998
+          quantiles_seconds_detected:
+            p10: 4.250999999999998
+            p25: 4.250999999999998
+            p50: 4.250999999999998
+            p75: 4.250999999999998
+            p90: 4.250999999999998
+          minimum_seconds_detected: 4.250999999999998
+          maximum_seconds_detected: 4.250999999999998
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.03225806451612903
+            1s: 0.03225806451612903
+            2s: 0.03225806451612903
+            3s: 0.03225806451612903
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      lidar_dropout:
+        episode_count: 126
+        event_count: 15
+        detected_event_count: 1
+        undetected_event_count: 14
+        event_recall: 0.06666666666666667
+        non_event_mission_count: 111
+        false_alerts_per_non_event_mission: 0.15315315315315314
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 17
+        lead_time:
+          event_count_full_denominator: 15
+          detected_event_count: 1
+          undetected_event_count: 14
+          median_seconds_detected: 9.126999999999995
+          quantiles_seconds_detected:
+            p10: 9.126999999999995
+            p25: 9.126999999999995
+            p50: 9.126999999999995
+            p75: 9.126999999999995
+            p90: 9.126999999999995
+          minimum_seconds_detected: 9.126999999999995
+          maximum_seconds_detected: 9.126999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.06666666666666667
+            1s: 0.06666666666666667
+            2s: 0.06666666666666667
+            3s: 0.06666666666666667
+            5s: 0.06666666666666667
+            8s: 0.06666666666666667
+            10s: 0.0
+      localisation_perturbation:
+        episode_count: 126
+        event_count: 23
+        detected_event_count: 0
+        undetected_event_count: 23
+        event_recall: 0.0
+        non_event_mission_count: 103
+        false_alerts_per_non_event_mission: 0.02912621359223301
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 6
+        lead_time:
+          event_count_full_denominator: 23
+          detected_event_count: 0
+          undetected_event_count: 23
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 3
+        undetected_event_count: 13
+        event_recall: 0.1875
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.07272727272727272
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.06349206349206349
+        false_alert_count_all_missions: 8
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 3
+          undetected_event_count: 13
+          median_seconds_detected: 1.649000000000001
+          quantiles_seconds_detected:
+            p10: 1.3394000000000008
+            p25: 1.4555000000000007
+            p50: 1.649000000000001
+            p75: 1.850999999999999
+            p90: 1.972199999999998
+          minimum_seconds_detected: 1.2620000000000005
+          maximum_seconds_detected: 2.0529999999999973
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.1875
+            1s: 0.1875
+            2s: 0.0625
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      planner_oscillation:
+        episode_count: 122
+        event_count: 28
+        detected_event_count: 18
+        undetected_event_count: 10
+        event_recall: 0.6428571428571429
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.0425531914893617
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 14
+        lead_time:
+          event_count_full_denominator: 28
+          detected_event_count: 18
+          undetected_event_count: 10
+          median_seconds_detected: 4.909499999999994
+          quantiles_seconds_detected:
+            p10: 2.629600000000003
+            p25: 3.821750000000005
+            p50: 4.909499999999994
+            p75: 6.820249999999998
+            p90: 8.552900000000003
+          minimum_seconds_detected: 1.4819999999999993
+          maximum_seconds_detected: 8.837000000000003
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.6428571428571429
+            1s: 0.6428571428571429
+            2s: 0.6071428571428571
+            3s: 0.5357142857142857
+            5s: 0.2857142857142857
+            8s: 0.10714285714285714
+            10s: 0.0
+      semantic_corruption:
+        episode_count: 126
+        event_count: 8
+        detected_event_count: 4
+        undetected_event_count: 4
+        event_recall: 0.5
+        non_event_mission_count: 118
+        false_alerts_per_non_event_mission: 0.059322033898305086
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 7
+        lead_time:
+          event_count_full_denominator: 8
+          detected_event_count: 4
+          undetected_event_count: 4
+          median_seconds_detected: 1.4704999999999941
+          quantiles_seconds_detected:
+            p10: 1.152599999999997
+            p25: 1.3064999999999962
+            p50: 1.4704999999999941
+            p75: 1.570249999999998
+            p90: 1.608500000000008
+          minimum_seconds_detected: 1.0499999999999972
+          maximum_seconds_detected: 1.6340000000000146
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.5
+            1s: 0.5
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      wheel_slip:
+        episode_count: 125
+        event_count: 20
+        detected_event_count: 1
+        undetected_event_count: 19
+        event_recall: 0.05
+        non_event_mission_count: 105
+        false_alerts_per_non_event_mission: 0.13333333333333333
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 14
+        lead_time:
+          event_count_full_denominator: 20
+          detected_event_count: 1
+          undetected_event_count: 19
+          median_seconds_detected: 1.4309999999999974
+          quantiles_seconds_detected:
+            p10: 1.4309999999999974
+            p25: 1.4309999999999974
+            p50: 1.4309999999999974
+            p75: 1.4309999999999974
+            p90: 1.4309999999999974
+          minimum_seconds_detected: 1.4309999999999974
+          maximum_seconds_detected: 1.4309999999999974
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.05
+            1s: 0.05
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+    by_severity:
+      medium:
+        episode_count: 876
+        event_count: 141
+        detected_event_count: 28
+        undetected_event_count: 113
+        event_recall: 0.19858156028368795
+        non_event_mission_count: 735
+        false_alerts_per_non_event_mission: 0.08027210884353742
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 75
+        lead_time:
+          event_count_full_denominator: 141
+          detected_event_count: 28
+          undetected_event_count: 113
+          median_seconds_detected: 4.052499999999998
+          quantiles_seconds_detected:
+            p10: 1.3751999999999924
+            p25: 1.612750000000009
+            p50: 4.052499999999998
+            p75: 6.25925
+            p90: 8.552900000000003
+          minimum_seconds_detected: 1.0499999999999972
+          maximum_seconds_detected: 9.126999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.19858156028368795
+            1s: 0.19858156028368795
+            2s: 0.1347517730496454
+            3s: 0.12056737588652482
+            5s: 0.06382978723404255
+            8s: 0.028368794326241134
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 3
+        undetected_event_count: 13
+        event_recall: 0.1875
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.07272727272727272
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.06349206349206349
+        false_alert_count_all_missions: 8
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 3
+          undetected_event_count: 13
+          median_seconds_detected: 1.649000000000001
+          quantiles_seconds_detected:
+            p10: 1.3394000000000008
+            p25: 1.4555000000000007
+            p50: 1.649000000000001
+            p75: 1.850999999999999
+            p90: 1.972199999999998
+          minimum_seconds_detected: 1.2620000000000005
+          maximum_seconds_detected: 2.0529999999999973
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.1875
+            1s: 0.1875
+            2s: 0.0625
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+    by_map:
+      test_00:
+        episode_count: 336
+        event_count: 63
+        detected_event_count: 14
+        undetected_event_count: 49
+        event_recall: 0.2222222222222222
+        non_event_mission_count: 273
+        false_alerts_per_non_event_mission: 0.10622710622710622
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.11904761904761904
+        false_alert_count_all_missions: 35
+        lead_time:
+          event_count_full_denominator: 63
+          detected_event_count: 14
+          undetected_event_count: 49
+          median_seconds_detected: 5.231000000000002
+          quantiles_seconds_detected:
+            p10: 2.2770999999999995
+            p25: 3.4609999999999985
+            p50: 5.231000000000002
+            p75: 7.229500000000002
+            p90: 8.743400000000005
+          minimum_seconds_detected: 1.4819999999999993
+          maximum_seconds_detected: 9.126999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.2222222222222222
+            1s: 0.2222222222222222
+            2s: 0.20634920634920634
+            3s: 0.1746031746031746
+            5s: 0.1111111111111111
+            8s: 0.047619047619047616
+            10s: 0.0
+      test_01:
+        episode_count: 333
+        event_count: 80
+        detected_event_count: 10
+        undetected_event_count: 70
+        event_recall: 0.125
+        non_event_mission_count: 253
+        false_alerts_per_non_event_mission: 0.07509881422924901
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.023809523809523808
+        false_alert_count_all_missions: 29
+        lead_time:
+          event_count_full_denominator: 80
+          detected_event_count: 10
+          undetected_event_count: 70
+          median_seconds_detected: 1.4114999999999966
+          quantiles_seconds_detected:
+            p10: 1.1147999999999998
+            p25: 1.2804999999999964
+            p50: 1.4114999999999966
+            p75: 1.612750000000009
+            p90: 1.6748999999999994
+          minimum_seconds_detected: 1.0499999999999972
+          maximum_seconds_detected: 1.907999999999987
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.125
+            1s: 0.125
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02:
+        episode_count: 333
+        event_count: 14
+        detected_event_count: 7
+        undetected_event_count: 7
+        event_recall: 0.5
+        non_event_mission_count: 319
+        false_alerts_per_non_event_mission: 0.05956112852664577
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.047619047619047616
+        false_alert_count_all_missions: 19
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 7
+          undetected_event_count: 7
+          median_seconds_detected: 4.876999999999995
+          quantiles_seconds_detected:
+            p10: 3.179400000000004
+            p25: 4.067500000000003
+            p50: 4.876999999999995
+            p75: 5.077500000000001
+            p90: 6.575000000000004
+          minimum_seconds_detected: 2.2319999999999993
+          maximum_seconds_detected: 8.617999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.5
+            1s: 0.5
+            2s: 0.5
+            3s: 0.42857142857142855
+            5s: 0.14285714285714285
+            8s: 0.07142857142857142
+            10s: 0.0
+    by_route:
+      test_00_r0:
+        episode_count: 56
+        event_count: 4
+        detected_event_count: 1
+        undetected_event_count: 3
+        event_recall: 0.25
+        non_event_mission_count: 52
+        false_alerts_per_non_event_mission: 0.40384615384615385
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.5714285714285714
+        false_alert_count_all_missions: 21
+        lead_time:
+          event_count_full_denominator: 4
+          detected_event_count: 1
+          undetected_event_count: 3
+          median_seconds_detected: 2.0529999999999973
+          quantiles_seconds_detected:
+            p10: 2.0529999999999973
+            p25: 2.0529999999999973
+            p50: 2.0529999999999973
+            p75: 2.0529999999999973
+            p90: 2.0529999999999973
+          minimum_seconds_detected: 2.0529999999999973
+          maximum_seconds_detected: 2.0529999999999973
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.25
+            1s: 0.25
+            2s: 0.25
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r1:
+        episode_count: 56
+        event_count: 14
+        detected_event_count: 8
+        undetected_event_count: 6
+        event_recall: 0.5714285714285714
+        non_event_mission_count: 42
+        false_alerts_per_non_event_mission: 0.023809523809523808
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 1
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 8
+          undetected_event_count: 6
+          median_seconds_detected: 4.2545
+          quantiles_seconds_detected:
+            p10: 3.1710000000000003
+            p25: 3.722999999999999
+            p50: 4.2545
+            p75: 6.25925
+            p90: 7.054999999999999
+          minimum_seconds_detected: 2.8000000000000043
+          maximum_seconds_detected: 8.525000000000006
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.5714285714285714
+            1s: 0.5714285714285714
+            2s: 0.5714285714285714
+            3s: 0.5
+            5s: 0.21428571428571427
+            8s: 0.07142857142857142
+            10s: 0.0
+      test_00_r2:
+        episode_count: 56
+        event_count: 5
+        detected_event_count: 0
+        undetected_event_count: 5
+        event_recall: 0.0
+        non_event_mission_count: 51
+        false_alerts_per_non_event_mission: 0.0392156862745098
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 2
+        lead_time:
+          event_count_full_denominator: 5
+          detected_event_count: 0
+          undetected_event_count: 5
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r3:
+        episode_count: 56
+        event_count: 3
+        detected_event_count: 0
+        undetected_event_count: 3
+        event_recall: 0.0
+        non_event_mission_count: 53
+        false_alerts_per_non_event_mission: 0.018867924528301886
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 1
+        lead_time:
+          event_count_full_denominator: 3
+          detected_event_count: 0
+          undetected_event_count: 3
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r4:
+        episode_count: 56
+        event_count: 37
+        detected_event_count: 5
+        undetected_event_count: 32
+        event_recall: 0.13513513513513514
+        non_event_mission_count: 19
+        false_alerts_per_non_event_mission: 0.15789473684210525
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 9
+        lead_time:
+          event_count_full_denominator: 37
+          detected_event_count: 5
+          undetected_event_count: 32
+          median_seconds_detected: 7.322000000000003
+          quantiles_seconds_detected:
+            p10: 3.669999999999999
+            p25: 6.951999999999998
+            p50: 7.322000000000003
+            p75: 8.837000000000003
+            p90: 9.011
+          minimum_seconds_detected: 1.4819999999999993
+          maximum_seconds_detected: 9.126999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.13513513513513514
+            1s: 0.13513513513513514
+            2s: 0.10810810810810811
+            3s: 0.10810810810810811
+            5s: 0.10810810810810811
+            8s: 0.05405405405405406
+            10s: 0.0
+      test_00_r5:
+        episode_count: 56
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 56
+        false_alerts_per_non_event_mission: 0.017857142857142856
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 1
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+      test_01_r0:
+        episode_count: 56
+        event_count: 40
+        detected_event_count: 10
+        undetected_event_count: 30
+        event_recall: 0.25
+        non_event_mission_count: 16
+        false_alerts_per_non_event_mission: 0.375
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 9
+        lead_time:
+          event_count_full_denominator: 40
+          detected_event_count: 10
+          undetected_event_count: 30
+          median_seconds_detected: 1.4114999999999966
+          quantiles_seconds_detected:
+            p10: 1.1147999999999998
+            p25: 1.2804999999999964
+            p50: 1.4114999999999966
+            p75: 1.612750000000009
+            p90: 1.6748999999999994
+          minimum_seconds_detected: 1.0499999999999972
+          maximum_seconds_detected: 1.907999999999987
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.25
+            1s: 0.25
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r1:
+        episode_count: 53
+        event_count: 27
+        detected_event_count: 0
+        undetected_event_count: 27
+        event_recall: 0.0
+        non_event_mission_count: 26
+        false_alerts_per_non_event_mission: 0.15384615384615385
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 10
+        lead_time:
+          event_count_full_denominator: 27
+          detected_event_count: 0
+          undetected_event_count: 27
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r2:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r3_repl1:
+        episode_count: 56
+        event_count: 10
+        detected_event_count: 0
+        undetected_event_count: 10
+        event_recall: 0.0
+        non_event_mission_count: 46
+        false_alerts_per_non_event_mission: 0.15217391304347827
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 8
+        lead_time:
+          event_count_full_denominator: 10
+          detected_event_count: 0
+          undetected_event_count: 10
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r4:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r5:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.03636363636363636
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 2
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r0:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r1:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r2:
+        episode_count: 55
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.3148148148148148
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.2857142857142857
+        false_alert_count_all_missions: 17
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r3:
+        episode_count: 56
+        event_count: 9
+        detected_event_count: 7
+        undetected_event_count: 2
+        event_recall: 0.7777777777777778
+        non_event_mission_count: 47
+        false_alerts_per_non_event_mission: 0.02127659574468085
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 1
+        lead_time:
+          event_count_full_denominator: 9
+          detected_event_count: 7
+          undetected_event_count: 2
+          median_seconds_detected: 4.876999999999995
+          quantiles_seconds_detected:
+            p10: 3.179400000000004
+            p25: 4.067500000000003
+            p50: 4.876999999999995
+            p75: 5.077500000000001
+            p90: 6.575000000000004
+          minimum_seconds_detected: 2.2319999999999993
+          maximum_seconds_detected: 8.617999999999995
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.7777777777777778
+            1s: 0.7777777777777778
+            2s: 0.7777777777777778
+            3s: 0.6666666666666666
+            5s: 0.2222222222222222
+            8s: 0.1111111111111111
+            10s: 0.0
+      test_02_r4:
+        episode_count: 56
+        event_count: 2
+        detected_event_count: 0
+        undetected_event_count: 2
+        event_recall: 0.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.018518518518518517
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 1
+        lead_time:
+          event_count_full_denominator: 2
+          detected_event_count: 0
+          undetected_event_count: 2
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r5:
+        episode_count: 54
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+    event_recall_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 157
+      map_count: 3
+      route_count: 16
+      point_estimate: 0.19745222929936307
+      confidence: 0.95
+      confidence_interval:
+      - 0.05092005888376857
+      - 0.5294417767106842
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+  p5:
+    primary_events_exclude_mission_timeout: true
+    episode_count: 1002
+    event_count: 157
+    detected_event_count: 42
+    undetected_event_count: 115
+    event_recall: 0.267515923566879
+    non_event_mission_count: 845
+    false_alerts_per_non_event_mission: 0.26627218934911245
+    clean_mission_count: 126
+    false_alerts_per_clean_mission: 0.25396825396825395
+    false_alert_count_all_missions: 265
+    lead_time:
+      event_count_full_denominator: 157
+      detected_event_count: 42
+      undetected_event_count: 115
+      median_seconds_detected: 5.841999999999999
+      quantiles_seconds_detected:
+        p10: 2.915399999999988
+        p25: 3.9209999999999923
+        p50: 5.841999999999999
+        p75: 7.130500000000012
+        p90: 8.449299999999997
+      minimum_seconds_detected: 1.5499999999999972
+      maximum_seconds_detected: 9.822999999999979
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.267515923566879
+        1s: 0.267515923566879
+        2s: 0.25477707006369427
+        3s: 0.22929936305732485
+        5s: 0.16560509554140126
+        8s: 0.03821656050955414
+        10s: 0.0
+    by_family:
+      camera_occlusion:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 3
+        undetected_event_count: 13
+        event_recall: 0.1875
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.21818181818181817
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 24
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 3
+          undetected_event_count: 13
+          median_seconds_detected: 4.335999999999984
+          quantiles_seconds_detected:
+            p10: 3.1935999999999867
+            p25: 3.6219999999999857
+            p50: 4.335999999999984
+            p75: 4.978999999999992
+            p90: 5.364799999999997
+          minimum_seconds_detected: 2.907999999999987
+          maximum_seconds_detected: 5.622
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.1875
+            1s: 0.1875
+            2s: 0.1875
+            3s: 0.125
+            5s: 0.0625
+            8s: 0.0
+            10s: 0.0
+      dynamic_blockage:
+        episode_count: 125
+        event_count: 31
+        detected_event_count: 9
+        undetected_event_count: 22
+        event_recall: 0.2903225806451613
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.23404255319148937
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 31
+        lead_time:
+          event_count_full_denominator: 31
+          detected_event_count: 9
+          undetected_event_count: 22
+          median_seconds_detected: 4.010999999999996
+          quantiles_seconds_detected:
+            p10: 3.095000000000004
+            p25: 3.6540000000000106
+            p50: 4.010999999999996
+            p75: 4.689999999999998
+            p90: 6.907400000000002
+          minimum_seconds_detected: 2.555000000000007
+          maximum_seconds_detected: 9.729000000000013
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.2903225806451613
+            1s: 0.2903225806451613
+            2s: 0.2903225806451613
+            3s: 0.25806451612903225
+            5s: 0.06451612903225806
+            8s: 0.03225806451612903
+            10s: 0.0
+      lidar_dropout:
+        episode_count: 126
+        event_count: 15
+        detected_event_count: 0
+        undetected_event_count: 15
+        event_recall: 0.0
+        non_event_mission_count: 111
+        false_alerts_per_non_event_mission: 0.36036036036036034
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 40
+        lead_time:
+          event_count_full_denominator: 15
+          detected_event_count: 0
+          undetected_event_count: 15
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      localisation_perturbation:
+        episode_count: 126
+        event_count: 23
+        detected_event_count: 0
+        undetected_event_count: 23
+        event_recall: 0.0
+        non_event_mission_count: 103
+        false_alerts_per_non_event_mission: 0.2815533980582524
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 32
+        lead_time:
+          event_count_full_denominator: 23
+          detected_event_count: 0
+          undetected_event_count: 23
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 5
+        undetected_event_count: 11
+        event_recall: 0.3125
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.2727272727272727
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.25396825396825395
+        false_alert_count_all_missions: 32
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 5
+          undetected_event_count: 11
+          median_seconds_detected: 6.052999999999997
+          quantiles_seconds_detected:
+            p10: 3.914399999999995
+            p25: 5.2620000000000005
+            p50: 6.052999999999997
+            p75: 7.149000000000001
+            p90: 8.753399999999989
+          minimum_seconds_detected: 3.015999999999991
+          maximum_seconds_detected: 9.822999999999979
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.3125
+            1s: 0.3125
+            2s: 0.3125
+            3s: 0.3125
+            5s: 0.25
+            8s: 0.0625
+            10s: 0.0
+      planner_oscillation:
+        episode_count: 122
+        event_count: 28
+        detected_event_count: 19
+        undetected_event_count: 9
+        event_recall: 0.6785714285714286
+        non_event_mission_count: 94
+        false_alerts_per_non_event_mission: 0.2127659574468085
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 45
+        lead_time:
+          event_count_full_denominator: 28
+          detected_event_count: 19
+          undetected_event_count: 9
+          median_seconds_detected: 6.376999999999995
+          quantiles_seconds_detected:
+            p10: 4.836400000000004
+            p25: 5.841999999999999
+            p50: 6.376999999999995
+            p75: 7.631999999999998
+            p90: 8.502399999999998
+          minimum_seconds_detected: 1.8070000000000022
+          maximum_seconds_detected: 9.205000000000013
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.6785714285714286
+            1s: 0.6785714285714286
+            2s: 0.6428571428571429
+            3s: 0.6071428571428571
+            5s: 0.6071428571428571
+            8s: 0.14285714285714285
+            10s: 0.0
+      semantic_corruption:
+        episode_count: 126
+        event_count: 8
+        detected_event_count: 5
+        undetected_event_count: 3
+        event_recall: 0.625
+        non_event_mission_count: 118
+        false_alerts_per_non_event_mission: 0.211864406779661
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 25
+        lead_time:
+          event_count_full_denominator: 8
+          detected_event_count: 5
+          undetected_event_count: 3
+          median_seconds_detected: 3.891999999999996
+          quantiles_seconds_detected:
+            p10: 1.7495999999999952
+            p25: 2.0489999999999924
+            p50: 3.891999999999996
+            p75: 7.1200000000000045
+            p90: 7.12840000000001
+          minimum_seconds_detected: 1.5499999999999972
+          maximum_seconds_detected: 7.1340000000000146
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.625
+            1s: 0.625
+            2s: 0.5
+            3s: 0.375
+            5s: 0.25
+            8s: 0.0
+            10s: 0.0
+      wheel_slip:
+        episode_count: 125
+        event_count: 20
+        detected_event_count: 1
+        undetected_event_count: 19
+        event_recall: 0.05
+        non_event_mission_count: 105
+        false_alerts_per_non_event_mission: 0.3333333333333333
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 36
+        lead_time:
+          event_count_full_denominator: 20
+          detected_event_count: 1
+          undetected_event_count: 19
+          median_seconds_detected: 3.5
+          quantiles_seconds_detected:
+            p10: 3.5
+            p25: 3.5
+            p50: 3.5
+            p75: 3.5
+            p90: 3.5
+          minimum_seconds_detected: 3.5
+          maximum_seconds_detected: 3.5
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.05
+            1s: 0.05
+            2s: 0.05
+            3s: 0.05
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+    by_severity:
+      medium:
+        episode_count: 876
+        event_count: 141
+        detected_event_count: 37
+        undetected_event_count: 104
+        event_recall: 0.2624113475177305
+        non_event_mission_count: 735
+        false_alerts_per_non_event_mission: 0.2653061224489796
+        clean_mission_count: 0
+        false_alerts_per_clean_mission: null
+        false_alert_count_all_missions: 233
+        lead_time:
+          event_count_full_denominator: 141
+          detected_event_count: 37
+          undetected_event_count: 104
+          median_seconds_detected: 5.829999999999998
+          quantiles_seconds_detected:
+            p10: 2.766799999999995
+            p25: 3.891999999999996
+            p50: 5.829999999999998
+            p75: 7.1200000000000045
+            p90: 8.435799999999997
+          minimum_seconds_detected: 1.5499999999999972
+          maximum_seconds_detected: 9.729000000000013
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.2624113475177305
+            1s: 0.2624113475177305
+            2s: 0.24822695035460993
+            3s: 0.2198581560283688
+            5s: 0.15602836879432624
+            8s: 0.03546099290780142
+            10s: 0.0
+      none:
+        episode_count: 126
+        event_count: 16
+        detected_event_count: 5
+        undetected_event_count: 11
+        event_recall: 0.3125
+        non_event_mission_count: 110
+        false_alerts_per_non_event_mission: 0.2727272727272727
+        clean_mission_count: 126
+        false_alerts_per_clean_mission: 0.25396825396825395
+        false_alert_count_all_missions: 32
+        lead_time:
+          event_count_full_denominator: 16
+          detected_event_count: 5
+          undetected_event_count: 11
+          median_seconds_detected: 6.052999999999997
+          quantiles_seconds_detected:
+            p10: 3.914399999999995
+            p25: 5.2620000000000005
+            p50: 6.052999999999997
+            p75: 7.149000000000001
+            p90: 8.753399999999989
+          minimum_seconds_detected: 3.015999999999991
+          maximum_seconds_detected: 9.822999999999979
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.3125
+            1s: 0.3125
+            2s: 0.3125
+            3s: 0.3125
+            5s: 0.25
+            8s: 0.0625
+            10s: 0.0
+    by_map:
+      test_00:
+        episode_count: 336
+        event_count: 63
+        detected_event_count: 15
+        undetected_event_count: 48
+        event_recall: 0.23809523809523808
+        non_event_mission_count: 273
+        false_alerts_per_non_event_mission: 0.42124542124542125
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.47619047619047616
+        false_alert_count_all_missions: 124
+        lead_time:
+          event_count_full_denominator: 63
+          detected_event_count: 15
+          undetected_event_count: 48
+          median_seconds_detected: 6.2450000000000045
+          quantiles_seconds_detected:
+            p10: 2.725800000000004
+            p25: 5.565000000000001
+            p50: 6.2450000000000045
+            p75: 8.1235
+            p90: 8.603200000000001
+          minimum_seconds_detected: 1.8070000000000022
+          maximum_seconds_detected: 9.729000000000013
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.23809523809523808
+            1s: 0.23809523809523808
+            2s: 0.2222222222222222
+            3s: 0.19047619047619047
+            5s: 0.19047619047619047
+            8s: 0.06349206349206349
+            10s: 0.0
+      test_01:
+        episode_count: 333
+        event_count: 80
+        detected_event_count: 21
+        undetected_event_count: 59
+        event_recall: 0.2625
+        non_event_mission_count: 253
+        false_alerts_per_non_event_mission: 0.2885375494071146
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.16666666666666666
+        false_alert_count_all_missions: 103
+        lead_time:
+          event_count_full_denominator: 80
+          detected_event_count: 21
+          undetected_event_count: 59
+          median_seconds_detected: 4.061000000000007
+          quantiles_seconds_detected:
+            p10: 2.907999999999987
+            p25: 3.5
+            p50: 4.061000000000007
+            p75: 6.201999999999998
+            p90: 7.149000000000001
+          minimum_seconds_detected: 1.5499999999999972
+          maximum_seconds_detected: 9.822999999999979
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.2625
+            1s: 0.2625
+            2s: 0.25
+            3s: 0.225
+            5s: 0.1
+            8s: 0.025
+            10s: 0.0
+      test_02:
+        episode_count: 333
+        event_count: 14
+        detected_event_count: 6
+        undetected_event_count: 8
+        event_recall: 0.42857142857142855
+        non_event_mission_count: 319
+        false_alerts_per_non_event_mission: 0.11598746081504702
+        clean_mission_count: 42
+        false_alerts_per_clean_mission: 0.11904761904761904
+        false_alert_count_all_missions: 38
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 6
+          undetected_event_count: 8
+          median_seconds_detected: 6.350499999999997
+          quantiles_seconds_detected:
+            p10: 5.771500000000003
+            p25: 6.254999999999999
+            p50: 6.350499999999997
+            p75: 7.004000000000005
+            p90: 7.327500000000001
+          minimum_seconds_detected: 5.311000000000007
+          maximum_seconds_detected: 7.441999999999993
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.42857142857142855
+            1s: 0.42857142857142855
+            2s: 0.42857142857142855
+            3s: 0.42857142857142855
+            5s: 0.42857142857142855
+            8s: 0.0
+            10s: 0.0
+    by_route:
+      test_00_r0:
+        episode_count: 56
+        event_count: 4
+        detected_event_count: 3
+        undetected_event_count: 1
+        event_recall: 0.75
+        non_event_mission_count: 52
+        false_alerts_per_non_event_mission: 1.4807692307692308
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 1.8571428571428572
+        false_alert_count_all_missions: 77
+        lead_time:
+          event_count_full_denominator: 4
+          detected_event_count: 3
+          undetected_event_count: 1
+          median_seconds_detected: 6.052999999999997
+          quantiles_seconds_detected:
+            p10: 3.254600000000005
+            p25: 4.304000000000002
+            p50: 6.052999999999997
+            p75: 6.586500000000001
+            p90: 6.906600000000004
+          minimum_seconds_detected: 2.555000000000007
+          maximum_seconds_detected: 7.1200000000000045
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.75
+            1s: 0.75
+            2s: 0.75
+            3s: 0.5
+            5s: 0.5
+            8s: 0.0
+            10s: 0.0
+      test_00_r1:
+        episode_count: 56
+        event_count: 14
+        detected_event_count: 6
+        undetected_event_count: 8
+        event_recall: 0.42857142857142855
+        non_event_mission_count: 42
+        false_alerts_per_non_event_mission: 0.023809523809523808
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 1
+        lead_time:
+          event_count_full_denominator: 14
+          detected_event_count: 6
+          undetected_event_count: 8
+          median_seconds_detected: 6.306000000000001
+          quantiles_seconds_detected:
+            p10: 5.565000000000001
+            p25: 5.8359999999999985
+            p50: 6.306000000000001
+            p75: 8.008249999999999
+            p90: 8.564499999999999
+          minimum_seconds_detected: 5.300000000000004
+          maximum_seconds_detected: 8.704
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.42857142857142855
+            1s: 0.42857142857142855
+            2s: 0.42857142857142855
+            3s: 0.42857142857142855
+            5s: 0.42857142857142855
+            8s: 0.14285714285714285
+            10s: 0.0
+      test_00_r2:
+        episode_count: 56
+        event_count: 5
+        detected_event_count: 0
+        undetected_event_count: 5
+        event_recall: 0.0
+        non_event_mission_count: 51
+        false_alerts_per_non_event_mission: 0.17647058823529413
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.2857142857142857
+        false_alert_count_all_missions: 9
+        lead_time:
+          event_count_full_denominator: 5
+          detected_event_count: 0
+          undetected_event_count: 5
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r3:
+        episode_count: 56
+        event_count: 3
+        detected_event_count: 0
+        undetected_event_count: 3
+        event_recall: 0.0
+        non_event_mission_count: 53
+        false_alerts_per_non_event_mission: 0.09433962264150944
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 5
+        lead_time:
+          event_count_full_denominator: 3
+          detected_event_count: 0
+          undetected_event_count: 3
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_00_r4:
+        episode_count: 56
+        event_count: 37
+        detected_event_count: 6
+        undetected_event_count: 31
+        event_recall: 0.16216216216216217
+        non_event_mission_count: 19
+        false_alerts_per_non_event_mission: 0.15789473684210525
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 12
+        lead_time:
+          event_count_full_denominator: 37
+          detected_event_count: 6
+          undetected_event_count: 31
+          median_seconds_detected: 7.033500000000004
+          quantiles_seconds_detected:
+            p10: 2.3945000000000007
+            p25: 3.7977500000000006
+            p50: 7.033500000000004
+            p75: 8.2945
+            p90: 9.090500000000006
+          minimum_seconds_detected: 1.8070000000000022
+          maximum_seconds_detected: 9.729000000000013
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.16216216216216217
+            1s: 0.16216216216216217
+            2s: 0.13513513513513514
+            3s: 0.10810810810810811
+            5s: 0.10810810810810811
+            8s: 0.05405405405405406
+            10s: 0.0
+      test_00_r5:
+        episode_count: 56
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 56
+        false_alerts_per_non_event_mission: 0.35714285714285715
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.42857142857142855
+        false_alert_count_all_missions: 20
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+      test_01_r0:
+        episode_count: 56
+        event_count: 40
+        detected_event_count: 16
+        undetected_event_count: 24
+        event_recall: 0.4
+        non_event_mission_count: 16
+        false_alerts_per_non_event_mission: 0.5625
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 13
+        lead_time:
+          event_count_full_denominator: 40
+          detected_event_count: 16
+          undetected_event_count: 24
+          median_seconds_detected: 4.0094999999999885
+          quantiles_seconds_detected:
+            p10: 2.4784999999999897
+            p25: 3.1765000000000008
+            p50: 4.0094999999999885
+            p75: 4.832999999999998
+            p90: 6.378000000000007
+          minimum_seconds_detected: 1.5499999999999972
+          maximum_seconds_detected: 7.149000000000001
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.4
+            1s: 0.4
+            2s: 0.375
+            3s: 0.325
+            5s: 0.1
+            8s: 0.0
+            10s: 0.0
+      test_01_r1:
+        episode_count: 53
+        event_count: 27
+        detected_event_count: 3
+        undetected_event_count: 24
+        event_recall: 0.1111111111111111
+        non_event_mission_count: 26
+        false_alerts_per_non_event_mission: 0.7692307692307693
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 43
+        lead_time:
+          event_count_full_denominator: 27
+          detected_event_count: 3
+          undetected_event_count: 24
+          median_seconds_detected: 6.201999999999998
+          quantiles_seconds_detected:
+            p10: 4.0404
+            p25: 4.850999999999999
+            p50: 6.201999999999998
+            p75: 8.012499999999989
+            p90: 9.098799999999983
+          minimum_seconds_detected: 3.5
+          maximum_seconds_detected: 9.822999999999979
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.1111111111111111
+            1s: 0.1111111111111111
+            2s: 0.1111111111111111
+            3s: 0.1111111111111111
+            5s: 0.07407407407407407
+            8s: 0.037037037037037035
+            10s: 0.0
+      test_01_r2:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.6
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.7142857142857143
+        false_alert_count_all_missions: 33
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r3_repl1:
+        episode_count: 56
+        event_count: 10
+        detected_event_count: 2
+        undetected_event_count: 8
+        event_recall: 0.2
+        non_event_mission_count: 46
+        false_alerts_per_non_event_mission: 0.10869565217391304
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 8
+        lead_time:
+          event_count_full_denominator: 10
+          detected_event_count: 2
+          undetected_event_count: 8
+          median_seconds_detected: 8.141500000000008
+          quantiles_seconds_detected:
+            p10: 7.290700000000005
+            p25: 7.609750000000005
+            p50: 8.141500000000008
+            p75: 8.67325000000001
+            p90: 8.992300000000013
+          minimum_seconds_detected: 7.078000000000003
+          maximum_seconds_detected: 9.205000000000013
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.2
+            1s: 0.2
+            2s: 0.2
+            3s: 0.2
+            5s: 0.2
+            8s: 0.1
+            10s: 0.0
+      test_01_r4:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.09090909090909091
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 5
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_01_r5:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.01818181818181818
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 1
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r0:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.14545454545454545
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.14285714285714285
+        false_alert_count_all_missions: 8
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r1:
+        episode_count: 56
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 55
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r2:
+        episode_count: 55
+        event_count: 1
+        detected_event_count: 0
+        undetected_event_count: 1
+        event_recall: 0.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.3333333333333333
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.2857142857142857
+        false_alert_count_all_missions: 18
+        lead_time:
+          event_count_full_denominator: 1
+          detected_event_count: 0
+          undetected_event_count: 1
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r3:
+        episode_count: 56
+        event_count: 9
+        detected_event_count: 6
+        undetected_event_count: 3
+        event_recall: 0.6666666666666666
+        non_event_mission_count: 47
+        false_alerts_per_non_event_mission: 0.23404255319148937
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.2857142857142857
+        false_alert_count_all_missions: 12
+        lead_time:
+          event_count_full_denominator: 9
+          detected_event_count: 6
+          undetected_event_count: 3
+          median_seconds_detected: 6.350499999999997
+          quantiles_seconds_detected:
+            p10: 5.771500000000003
+            p25: 6.254999999999999
+            p50: 6.350499999999997
+            p75: 7.004000000000005
+            p90: 7.327500000000001
+          minimum_seconds_detected: 5.311000000000007
+          maximum_seconds_detected: 7.441999999999993
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.6666666666666666
+            1s: 0.6666666666666666
+            2s: 0.6666666666666666
+            3s: 0.6666666666666666
+            5s: 0.6666666666666666
+            8s: 0.0
+            10s: 0.0
+      test_02_r4:
+        episode_count: 56
+        event_count: 2
+        detected_event_count: 0
+        undetected_event_count: 2
+        event_recall: 0.0
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 2
+          detected_event_count: 0
+          undetected_event_count: 2
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: 0.0
+            1s: 0.0
+            2s: 0.0
+            3s: 0.0
+            5s: 0.0
+            8s: 0.0
+            10s: 0.0
+      test_02_r5:
+        episode_count: 54
+        event_count: 0
+        detected_event_count: 0
+        undetected_event_count: 0
+        event_recall: null
+        non_event_mission_count: 54
+        false_alerts_per_non_event_mission: 0.0
+        clean_mission_count: 7
+        false_alerts_per_clean_mission: 0.0
+        false_alert_count_all_missions: 0
+        lead_time:
+          event_count_full_denominator: 0
+          detected_event_count: 0
+          undetected_event_count: 0
+          median_seconds_detected: null
+          quantiles_seconds_detected:
+            p10: null
+            p25: null
+            p50: null
+            p75: null
+            p90: null
+          minimum_seconds_detected: null
+          maximum_seconds_detected: null
+          warned_fraction_of_all_events_by_lead:
+            0s: null
+            1s: null
+            2s: null
+            3s: null
+            5s: null
+            8s: null
+            10s: null
+    event_recall_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      episode_count: 157
+      map_count: 3
+      route_count: 16
+      point_estimate: 0.267515923566879
+      confidence: 0.95
+      confidence_interval:
+      - 0.1345982142857143
+      - 0.47619047619047616
+      bootstrap_replicates: 2000
+      undefined_replicates: 0
+      seed: 20260903
+h1:
+  label: confirmatory
+  hypothesis: P3 event recall exceeds P1 at the validation-fixed false-alert budget
+  contrast: p3_recall_minus_p1_recall
+  denominator_events: 157
+  p3_recall: 0.22929936305732485
+  p1_recall: 0.03184713375796178
+  discordant_pairs:
+    p3_only: 36
+    p1_only: 5
+    both: 0
+    neither: 116
+  supported: false
+  criterion: 95% hierarchical bootstrap interval of the paired difference excludes
+    zero from below
+  analysis_unit: episode
+  hierarchy:
+  - map
+  - route
+  - episode
+  episode_count: 157
+  map_count: 3
+  route_count: 16
+  point_estimate: 0.19745222929936307
+  confidence: 0.95
+  confidence_interval:
+  - -0.00014204545454520425
+  - 0.44683232772308656
+  bootstrap_replicates: 2000
+  undefined_replicates: 0
+  seed: 20260903
+h2:
+  label: supporting
+  hypothesis: median useful lead time of detected failures >= 3 s
+  denominator_events: 157
+  detected_events: 36
+  undetected_events: 121
+  median_lead_seconds: 3.8175000000000026
+  point_estimate_meets_minimum: true
+  interval_lower_bound_meets_minimum: false
+  warned_fraction_of_all_events_at_least_3s: 0.12101910828025478
+  analysis_unit: episode
+  hierarchy:
+  - map
+  - route
+  - episode
+  episode_count: 157
+  map_count: 3
+  route_count: 16
+  point_estimate: 3.8175000000000026
+  confidence: 0.95
+  confidence_interval:
+  - 1.7450000000000045
+  - 6.1200000000000045
+  bootstrap_replicates: 2000
+  undefined_replicates: 8
+  seed: 20260903
+h3:
+  label: supporting
+  hypothesis: calibration reduces Brier score and ECE without reducing event recall
+    beyond tolerance
+  before: raw_score (uncalibrated sigmoid output)
+  after: risk_score (frozen calibrator applied)
+  held_out:
+    eligible_decision_count: 171591
+    brier_before: 0.03411478069388913
+    brier_after: 0.016036737531570006
+    ece_before: 0.040953054181163344
+    ece_after: 0.008084453608610593
+    brier_delta_after_minus_before: -0.018078043162319125
+    ece_delta_after_minus_before: -0.03286860057255275
+    reliability_bins_after:
+    - bin_index: 0
+      lower: 0.0
+      upper: 0.1
+      count: 160984
+      mean_predicted_risk: 0.010649390832767905
+      observed_event_frequency: 0.012218605575709387
+      absolute_gap: 0.001569214742941482
+    - bin_index: 1
+      lower: 0.1
+      upper: 0.2
+      count: 6901
+      mean_predicted_risk: 0.14146034513803002
+      observed_event_frequency: 0.06144037096073033
+      absolute_gap: 0.0800199741772997
+    - bin_index: 2
+      lower: 0.2
+      upper: 0.3
+      count: 3082
+      mean_predicted_risk: 0.2385530452742895
+      observed_event_frequency: 0.07138221933809215
+      absolute_gap: 0.16717082593619736
+    - bin_index: 3
+      lower: 0.3
+      upper: 0.4
+      count: 265
+      mean_predicted_risk: 0.3294340457418755
+      observed_event_frequency: 0.13962264150943396
+      absolute_gap: 0.18981140423244156
+    - bin_index: 4
+      lower: 0.4
+      upper: 0.5
+      count: 52
+      mean_predicted_risk: 0.4511320644106617
+      observed_event_frequency: 0.46153846153846156
+      absolute_gap: 0.010406397127799838
+    - bin_index: 5
+      lower: 0.5
+      upper: 0.6
+      count: 32
+      mean_predicted_risk: 0.5479900840006575
+      observed_event_frequency: 0.46875
+      absolute_gap: 0.07924008400065752
+    - bin_index: 6
+      lower: 0.6
+      upper: 0.7
+      count: 24
+      mean_predicted_risk: 0.6557510071229443
+      observed_event_frequency: 0.4583333333333333
+      absolute_gap: 0.197417673789611
+    - bin_index: 7
+      lower: 0.7
+      upper: 0.8
+      count: 112
+      mean_predicted_risk: 0.7624818217042001
+      observed_event_frequency: 0.7767857142857143
+      absolute_gap: 0.01430389258151421
+    - bin_index: 8
+      lower: 0.8
+      upper: 0.9
+      count: 139
+      mean_predicted_risk: 0.8385195104736735
+      observed_event_frequency: 0.8920863309352518
+      absolute_gap: 0.053566820461578346
+    - bin_index: 9
+      lower: 0.9
+      upper: 1.0
+      count: 0
+      mean_predicted_risk: null
+      observed_event_frequency: null
+      absolute_gap: null
+  held_out_brier_reduced: true
+  held_out_ece_reduced: true
+  recall_tolerance_note: event recall at the frozen threshold is the primary P3 result;
+    the declared tolerance is assessed against the validation selection record, not
+    here
+  validation:
+    eligible_decision_count: 32327
+    brier_before: 0.04821537898299292
+    brier_after: 0.029579626239055325
+    ece_before: 0.0447612892628453
+    ece_after: 0.005357780368302284
+    brier_delta_after_minus_before: -0.018635752743937594
+    ece_delta_after_minus_before: -0.03940350889454301
+    reliability_bins_after:
+    - bin_index: 0
+      lower: 0.0
+      upper: 0.1
+      count: 29352
+      mean_predicted_risk: 0.01796086629001919
+      observed_event_frequency: 0.01734123739438539
+      absolute_gap: 0.0006196288956338003
+    - bin_index: 1
+      lower: 0.1
+      upper: 0.2
+      count: 1887
+      mean_predicted_risk: 0.1431641313265887
+      observed_event_frequency: 0.18441971383147854
+      absolute_gap: 0.04125558250488984
+    - bin_index: 2
+      lower: 0.2
+      upper: 0.3
+      count: 823
+      mean_predicted_risk: 0.2381822078739573
+      observed_event_frequency: 0.212636695018226
+      absolute_gap: 0.02554551285573131
+    - bin_index: 3
+      lower: 0.3
+      upper: 0.4
+      count: 118
+      mean_predicted_risk: 0.3487685348032018
+      observed_event_frequency: 0.2288135593220339
+      absolute_gap: 0.1199549754811679
+    - bin_index: 4
+      lower: 0.4
+      upper: 0.5
+      count: 104
+      mean_predicted_risk: 0.43078525166084675
+      observed_event_frequency: 0.08653846153846154
+      absolute_gap: 0.34424679012238524
+    - bin_index: 5
+      lower: 0.5
+      upper: 0.6
+      count: 27
+      mean_predicted_risk: 0.5288317182585811
+      observed_event_frequency: 0.5185185185185185
+      absolute_gap: 0.010313199740062617
+    - bin_index: 6
+      lower: 0.6
+      upper: 0.7
+      count: 16
+      mean_predicted_risk: 0.6309020198760595
+      observed_event_frequency: 1.0
+      absolute_gap: 0.36909798012394046
+    - bin_index: 7
+      lower: 0.7
+      upper: 0.8
+      count: 0
+      mean_predicted_risk: null
+      observed_event_frequency: null
+      absolute_gap: null
+    - bin_index: 8
+      lower: 0.8
+      upper: 0.9
+      count: 0
+      mean_predicted_risk: null
+      observed_event_frequency: null
+      absolute_gap: null
+    - bin_index: 9
+      lower: 0.9
+      upper: 1.0
+      count: 0
+      mean_predicted_risk: null
+      observed_event_frequency: null
+      absolute_gap: null
+  supported: true
+h4:
+  label: supporting
+  hypothesis: removing planner and localisation health features materially reduces
+    early warning
+  primary_event_recall: 0.22929936305732485
+  ablations:
+    no_calibration:
+      source: reports/ablations/held_out/no_calibration.yaml
+      source_sha256: f6396f92c4f5ddff805fce4d584001f56d27529ec21ee02b77d01700779e33e7
+      event_recall: 0.4539877300613497
+      protected_test_used: true
+      recall_delta_vs_primary: 0.22468836700402484
+      confidence_interval:
+      - 0.0
+      - 0.38835415249520744
+    no_localisation: &id002
+      source: reports/ablations/held_out/no_localisation.yaml
+      source_sha256: f8356d1c987f6e4c4ef4649aa8b78a97d20c07c622a9f510a16c86f69dccb2bb
+      event_recall: 0.3312883435582822
+      protected_test_used: true
+      recall_delta_vs_primary: 0.10198898050095734
+      confidence_interval:
+      - 0.0
+      - 0.22699534690732343
+    no_motion_and_goal:
+      source: reports/ablations/held_out/no_motion_and_goal.yaml
+      source_sha256: 65fd328819273ae56ecd08bafe281723c7b011f7d6abf3b37b823aee10c5bf56
+      event_recall: 0.1656441717791411
+      protected_test_used: true
+      recall_delta_vs_primary: -0.06365519127818375
+      confidence_interval:
+      - -0.1849324966347296
+      - 0.054798283907872926
+    no_perception_confidence:
+      source: reports/ablations/held_out/no_perception_confidence.yaml
+      source_sha256: 1f9d5837b52b05b9973ed7916372864ec51737df3a05e3072ca0b5129334b3e9
+      event_recall: 0.2883435582822086
+      protected_test_used: true
+      recall_delta_vs_primary: 0.059044195224883744
+      confidence_interval:
+      - -0.05095812440710123
+      - 0.22415246028671051
+    no_persistence:
+      source: reports/ablations/held_out/no_persistence.yaml
+      source_sha256: aea036931c010edbbaafc8f2522ebdaa88c7815c21b81943bc172f9cf07fa740
+      event_recall: 0.24539877300613497
+      protected_test_used: true
+      recall_delta_vs_primary: 0.016099409948810123
+      confidence_interval:
+      - 0.0
+      - 0.09316901779134644
+    no_planner_controller: &id001
+      source: reports/ablations/held_out/no_planner_controller.yaml
+      source_sha256: b77ae6a4c1c1b89fc4a8a782b60c278b2efd16c35d45d030c0108c6ff1eb15fe
+      event_recall: 0.3558282208588957
+      protected_test_used: true
+      recall_delta_vs_primary: 0.12652885780157086
+      confidence_interval:
+      - -0.2839947089947089
+      - 0.3550308288317781
+    no_raw_sensor:
+      source: reports/ablations/held_out/no_raw_sensor.yaml
+      source_sha256: af9c3532c5790db4408b5fe0bc031c8e9b3128f239cc4e7bff98aecdfb91deaa
+      event_recall: 0.06748466257668712
+      protected_test_used: true
+      recall_delta_vs_primary: -0.16181470048063773
+      confidence_interval:
+      - -0.2857142857142857
+      - -0.03305558078285352
+    single_timestamp:
+      source: reports/ablations/held_out/single_timestamp.yaml
+      source_sha256: 7f6b49eab948ed3b6d495d04df2585a41e2db5230d03c51766162a6883631275
+      event_recall: 0.1901840490797546
+      protected_test_used: true
+      recall_delta_vs_primary: -0.03911531397757023
+      confidence_interval:
+      - -0.0763888888888889
+      - 0.007249040920716098
+  material_decline_threshold: not prespecified numerically; deltas and intervals reported
+  h4_groups:
+    no_planner_controller: *id001
+    no_localisation: *id002
+  status: evaluated
+timeouts:
+  analysed_separately: true
+  event_class: mission_timeout
+  p3:
+    timeout_episode_count: 6
+    timeout_recall: 0.0
+    lead_time_timeouts:
+      event_count_full_denominator: 6
+      detected_event_count: 0
+      undetected_event_count: 6
+      median_seconds_detected: null
+      quantiles_seconds_detected:
+        p10: null
+        p25: null
+        p50: null
+        p75: null
+        p90: null
+      minimum_seconds_detected: null
+      maximum_seconds_detected: null
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.0
+        1s: 0.0
+        2s: 0.0
+        3s: 0.0
+        5s: 0.0
+        8s: 0.0
+        10s: 0.0
+    all_events_including_timeouts:
+      episode_count: 1008
+      event_count: 163
+      detected_event_count: 36
+      undetected_event_count: 127
+      event_recall: 0.22085889570552147
+      non_event_mission_count: 845
+      false_alerts_per_non_event_mission: 0.21775147928994082
+      clean_mission_count: 126
+      false_alerts_per_clean_mission: 0.18253968253968253
+      false_alert_count_all_missions: 233
+      lead_time:
+        event_count_full_denominator: 163
+        detected_event_count: 36
+        undetected_event_count: 127
+        median_seconds_detected: 3.8175000000000026
+        quantiles_seconds_detected:
+          p10: 1.6415000000000077
+          p25: 1.885749999999998
+          p50: 3.8175000000000026
+          p75: 5.469749999999994
+          p90: 7.763000000000002
+        minimum_seconds_detected: 1.1670000000000016
+        maximum_seconds_detected: 9.117999999999995
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.22085889570552147
+          1s: 0.22085889570552147
+          2s: 0.147239263803681
+          3s: 0.1165644171779141
+          5s: 0.0736196319018405
+          8s: 0.012269938650306749
+          10s: 0.0
+  p1:
+    timeout_episode_count: 6
+    timeout_recall: 0.0
+    lead_time_timeouts:
+      event_count_full_denominator: 6
+      detected_event_count: 0
+      undetected_event_count: 6
+      median_seconds_detected: null
+      quantiles_seconds_detected:
+        p10: null
+        p25: null
+        p50: null
+        p75: null
+        p90: null
+      minimum_seconds_detected: null
+      maximum_seconds_detected: null
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.0
+        1s: 0.0
+        2s: 0.0
+        3s: 0.0
+        5s: 0.0
+        8s: 0.0
+        10s: 0.0
+    all_events_including_timeouts:
+      episode_count: 1008
+      event_count: 163
+      detected_event_count: 5
+      undetected_event_count: 158
+      event_recall: 0.03067484662576687
+      non_event_mission_count: 845
+      false_alerts_per_non_event_mission: 0.378698224852071
+      clean_mission_count: 126
+      false_alerts_per_clean_mission: 0.46825396825396826
+      false_alert_count_all_missions: 336
+      lead_time:
+        event_count_full_denominator: 163
+        detected_event_count: 5
+        undetected_event_count: 158
+        median_seconds_detected: 7.10499999999999
+        quantiles_seconds_detected:
+          p10: 4.1720000000000015
+          p25: 6.407000000000011
+          p50: 7.10499999999999
+          p75: 7.545000000000016
+          p90: 8.931000000000008
+        minimum_seconds_detected: 2.681999999999995
+        maximum_seconds_detected: 9.855000000000004
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.03067484662576687
+          1s: 0.03067484662576687
+          2s: 0.03067484662576687
+          3s: 0.024539877300613498
+          5s: 0.024539877300613498
+          8s: 0.006134969325153374
+          10s: 0.0
+  p4:
+    timeout_episode_count: 6
+    timeout_recall: 0.0
+    lead_time_timeouts:
+      event_count_full_denominator: 6
+      detected_event_count: 0
+      undetected_event_count: 6
+      median_seconds_detected: null
+      quantiles_seconds_detected:
+        p10: null
+        p25: null
+        p50: null
+        p75: null
+        p90: null
+      minimum_seconds_detected: null
+      maximum_seconds_detected: null
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.0
+        1s: 0.0
+        2s: 0.0
+        3s: 0.0
+        5s: 0.0
+        8s: 0.0
+        10s: 0.0
+    all_events_including_timeouts:
+      episode_count: 1008
+      event_count: 163
+      detected_event_count: 31
+      undetected_event_count: 132
+      event_recall: 0.1901840490797546
+      non_event_mission_count: 845
+      false_alerts_per_non_event_mission: 0.07928994082840236
+      clean_mission_count: 126
+      false_alerts_per_clean_mission: 0.06349206349206349
+      false_alert_count_all_missions: 85
+      lead_time:
+        event_count_full_denominator: 163
+        detected_event_count: 31
+        undetected_event_count: 132
+        median_seconds_detected: 3.811000000000007
+        quantiles_seconds_detected:
+          p10: 1.3359999999999843
+          p25: 1.5915000000000035
+          p50: 3.811000000000007
+          p75: 5.708500000000004
+          p90: 8.525000000000006
+        minimum_seconds_detected: 1.0499999999999972
+        maximum_seconds_detected: 9.126999999999995
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.1901840490797546
+          1s: 0.1901840490797546
+          2s: 0.12269938650306748
+          3s: 0.10429447852760736
+          5s: 0.05521472392638037
+          8s: 0.024539877300613498
+          10s: 0.0
+  p5:
+    timeout_episode_count: 6
+    timeout_recall: 0.16666666666666666
+    lead_time_timeouts:
+      event_count_full_denominator: 6
+      detected_event_count: 1
+      undetected_event_count: 5
+      median_seconds_detected: 6.177999999999997
+      quantiles_seconds_detected:
+        p10: 6.177999999999997
+        p25: 6.177999999999997
+        p50: 6.177999999999997
+        p75: 6.177999999999997
+        p90: 6.177999999999997
+      minimum_seconds_detected: 6.177999999999997
+      maximum_seconds_detected: 6.177999999999997
+      warned_fraction_of_all_events_by_lead:
+        0s: 0.16666666666666666
+        1s: 0.16666666666666666
+        2s: 0.16666666666666666
+        3s: 0.16666666666666666
+        5s: 0.16666666666666666
+        8s: 0.0
+        10s: 0.0
+    all_events_including_timeouts:
+      episode_count: 1008
+      event_count: 163
+      detected_event_count: 43
+      undetected_event_count: 120
+      event_recall: 0.26380368098159507
+      non_event_mission_count: 845
+      false_alerts_per_non_event_mission: 0.26627218934911245
+      clean_mission_count: 126
+      false_alerts_per_clean_mission: 0.25396825396825395
+      false_alert_count_all_missions: 267
+      lead_time:
+        event_count_full_denominator: 163
+        detected_event_count: 43
+        undetected_event_count: 120
+        median_seconds_detected: 5.853999999999999
+        quantiles_seconds_detected:
+          p10: 2.9227999999999894
+          p25: 3.9499999999999886
+          p50: 5.853999999999999
+          p75: 7.1270000000000095
+          p90: 8.446599999999998
+        minimum_seconds_detected: 1.5499999999999972
+        maximum_seconds_detected: 9.822999999999979
+        warned_fraction_of_all_events_by_lead:
+          0s: 0.26380368098159507
+          1s: 0.26380368098159507
+          2s: 0.25153374233128833
+          3s: 0.22699386503067484
+          5s: 0.1656441717791411
+          8s: 0.03680981595092025
+          10s: 0.0
+exploratory_models:
+  p4:
+    label: exploratory
+    not_a_confirmatory_claim: true
+    analysis_unit: episode
+    hierarchy:
+    - map
+    - route
+    - episode
+    episode_count: 157
+    map_count: 3
+    route_count: 16
+    point_estimate: 0.16560509554140126
+    confidence: 0.95
+    confidence_interval:
+    - -0.03571428571428571
+    - 0.45768644067796577
+    bootstrap_replicates: 2000
+    undefined_replicates: 0
+    seed: 20260903
+    contrast: p4_recall_minus_p1_recall
+  p5:
+    label: exploratory
+    not_a_confirmatory_claim: true
+    analysis_unit: episode
+    hierarchy:
+    - map
+    - route
+    - episode
+    episode_count: 157
+    map_count: 3
+    route_count: 16
+    point_estimate: 0.2356687898089172
+    confidence: 0.95
+    confidence_interval:
+    - 0.04253726589374445
+    - 0.42106848446417233
+    bootstrap_replicates: 2000
+    undefined_replicates: 0
+    seed: 20260903
+    contrast: p5_recall_minus_p1_recall

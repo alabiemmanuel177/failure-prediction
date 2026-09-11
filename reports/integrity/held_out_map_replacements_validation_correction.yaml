@@ -1,0 +1,21 @@
+schema_version: 1
+generated_utc: '2026-09-05T22:02:50.824305+00:00'
+campaign_id: held_out_map_replacements_v1
+episode_key: test_00-test_00_r3-blockage-r2-infra-replacement-001
+run_id: c5b3fd84-a6bc-47d2-ae7f-ae277ec97b93
+summary_sha256: 9095e5aafbe4c1642af24a54861597d33e98ada508ac12b140baadece11640d2
+ledger_row:
+  returncode: 1
+  artifact_validation_returncode: 1
+  cause: validator invoked without --allow-protected-after-freeze by run_balanced_pilot_replacements.py;
+    the two findings were the held-out split and protected flag themselves
+revalidation:
+  command: validate_episode_artifacts.py --allow-protected-after-freeze
+  returncode: 0
+  output: 'VALID: run=c5b3fd84-a6bc-47d2-ae7f-ae277ec97b93 messages=214105 duration_s=178.519'
+episode_terminal_state: success
+artifact_valid: true
+protected_test_used: true
+protected_outcomes_consulted: false
+note: The replacement episode is valid; the ledger row's failure code is a validator-invocation
+  defect fixed in the runner. Append-only ledger left unchanged.

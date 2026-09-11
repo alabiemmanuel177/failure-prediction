@@ -1,0 +1,22 @@
+schema_version: 1
+campaign_id: recovery_pilot_v1
+kind: documented_design_cell_exclusions
+purpose: Design cells of the validation-map recovery pilot whose scientific episode
+  could not be obtained after the single replacement the replacement policy allows.
+  The pilot is the R3 selector's training data (validation split, PA-2026-09-03-04),
+  not a confirmatory campaign; each exclusion is disclosed here and in the research
+  log, and the outcome table pairs the cell's other policies against no R0 reference
+  (they contribute no regret rows).
+exclusions:
+- episode_key: val_01-val_01_r5-blockage-r0-R0
+  original_run_id: a35aa37f-c35c-46f9-a764-5e0b54b6a541
+  replacement_episode_key: val_01-val_01_r5-blockage-r0-R0-infra-replacement-001
+  replacement_run_id: d48342a1-ecab-43ce-9302-dea925d48a3e
+  reason: treatment_not_deliverable_in_cell
+  detail: 'Under the default Nav2 recovery (R0) with this cell''s seed the robot never
+    reaches the dynamic-blockage placement at route fraction 0.55 on val_01_r5: both
+    the original attempt and its declared replacement ran to the 240 s mission timeout
+    with no injection_started event, so the artifact validator rejects them as faulted
+    episodes without a delivered treatment. The same pre-injection stall affected
+    the RP_wait and RP_backup attempts of this cell; the RP_relocalise and RP_spin_active_rescan
+    attempts delivered the treatment and are retained.'

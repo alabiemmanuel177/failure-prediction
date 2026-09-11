@@ -1,0 +1,26 @@
+schema_version: 1
+artifact_role: engineering_fixture_not_research_evidence
+campaign_id: compact_profile_smoke_v1
+run_id: 484b26ba-5291-483a-bf01-38818a016785
+recording_profile: compact_v1
+map_id: dev_00
+route_id: dev_00_r0
+system_id: S3
+terminal_state: success
+artifact_validator_passed: true
+message_count: 12222
+duration_seconds: 21.057
+bag_mib: 27.5
+perception_evidence:
+  perception_frame_count: 177
+  perception_pixel_count: 3398400
+  missed_frame_rate: 0.0056179775280898875
+  metrics_finite: true
+omitted_high_bandwidth_topics_verified_absent:
+  - /research2/raw/camera/image
+  - /camera/image
+  - /camera/depth_image
+  - /camera/segmentation
+  - /imu
+  - /particle_cloud
+protected_test_used: false

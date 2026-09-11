@@ -1,0 +1,191 @@
+schema_version: 1
+evidence_type: paired_closed_loop_recovery_confirmatory
+generated_utc: '2026-09-10T13:39:13Z'
+protected_test_used: true
+analysis_unit: paired_map_route_seed_fault_episode
+policies:
+- R0
+- R1
+- R2
+- R3
+episode_count: 1510
+inputs:
+  outcomes: /home/eao/failure-prediction/reports/recovery/paired_recovery_v1.outcomes.csv
+  outcomes_sha256: 968126078577aba9225197c650a52e9f06947e05c32a80d5b42198873958938c
+  model_freeze: /home/eao/failure-prediction/configs/model_freeze.yaml
+  model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  manifest: /home/eao/failure-prediction/data/manifests/paired_recovery_v1.yaml
+  manifest_sha256: e4f1e6ca0735ad9212dc15fe954eed3c41ccb6471e39ab69f4a9f593ce09dfb5
+comparisons:
+  R3_vs_R0:
+    status: computed
+    analysis_unit: paired_map_route_seed_fault_episode
+    pair_fields:
+    - map_id
+    - route_id
+    - seed
+    - fault_family
+    - severity
+    pair_count: 504
+    baseline_policy: R0
+    proposed_policy: R3
+    baseline:
+      episode_count: 504
+      mission_completion_count: 430
+      mission_completion_rate: 0.8531746031746031
+      collision_count: 0
+      collision_rate: 0.0
+      guard_violation_count: 0
+      guard_rejection_count: 0
+      median_added_time_seconds: 0.0
+      median_added_path_length_m: 0.0
+      mean_intervention_count: 0.0
+      action_counts:
+        none: 504
+    proposed:
+      episode_count: 504
+      mission_completion_count: 434
+      mission_completion_rate: 0.8611111111111112
+      collision_count: 0
+      collision_rate: 0.0
+      guard_violation_count: 0
+      guard_rejection_count: 0
+      median_added_time_seconds: 0.0
+      median_added_path_length_m: 0.0
+      mean_intervention_count: 0.0
+      action_counts:
+        none: 504
+    paired_completion_rate_difference: 0.00793650793650802
+    paired_collision_rate_difference: 0.0
+    safety_gate_passed: true
+    completion_difference_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: proposed_complete_minus_baseline_complete
+      episode_count: 504
+      map_count: 3
+      point_estimate: 0.007936507936507936
+      confidence: 0.95
+      confidence_interval: &id001
+      - -0.021825396825396824
+      - 0.03968253968253968
+      bootstrap_replicates: 2000
+      seed: 20260903
+    collision_difference_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: proposed_collision_minus_baseline_collision
+      episode_count: 504
+      map_count: 3
+      point_estimate: 0.0
+      confidence: 0.95
+      confidence_interval: &id002
+      - 0.0
+      - 0.0
+      bootstrap_replicates: 2000
+      seed: 20260903
+    mixed_effects_model:
+      method: mixed_effects_logistic_variational_bayes_statsmodels
+      fixed_effect: R3_vs_R0
+      policy_log_odds: 0.1316921034668861
+      policy_log_odds_sd: 0.16531596415159638
+      policy_log_odds_interval_95:
+      - -0.1923271862702428
+      - 0.455711393204015
+      random_intercepts:
+      - map_id
+      - route_id
+      episode_rows: 1008
+  R3_vs_R2:
+    status: unavailable
+    reason: unmatched recovery pairs; missing proposed=[], missing baseline=[('test_01',
+      'test_01_r0', '31001103', 'localisation_perturbation', 'medium'), ('test_02',
+      'test_02_r5', '32501300', 'camera_occlusion', 'medium')]
+h6:
+  hypothesis: prediction-triggered recovery (R3) improves mission completion over
+    default Nav2 recovery (R0) without increasing collision rate
+  decision_rule:
+    completion: hierarchical paired bootstrap 95% interval lower bound > 0
+    collision: paired collision-rate difference point estimate <= 0.0
+    safety: zero guard violations under every predictor policy
+  estimator: mixed_effects_logistic_variational_bayes_statsmodels
+  completion_rate_difference: 0.00793650793650802
+  completion_interval_95: *id001
+  collision_rate_difference: 0.0
+  collision_interval_95: *id002
+  supported: false
+guard:
+  R0:
+    episode_count: 504
+    guard_violation_count: 0
+    guard_rejection_count: 0
+  R1:
+    episode_count: 0
+    guard_violation_count: 0
+    guard_rejection_count: 0
+  R2:
+    episode_count: 502
+    guard_violation_count: 0
+    guard_rejection_count: 0
+  R3:
+    episode_count: 504
+    guard_violation_count: 0
+    guard_rejection_count: 0
+safety_gate_passed: true
+regret_vs_oracle:
+  R0:
+    episodes_with_regret: 504
+    mean_regret: 2.3852035714285713
+    median_regret: 0.0
+    zero_regret_fraction: 0.9325396825396826
+  R1:
+    episodes_with_regret: 0
+    mean_regret: null
+    median_regret: null
+    zero_regret_fraction: null
+  R2:
+    episodes_with_regret: 502
+    mean_regret: 4.170389043824701
+    median_regret: 0.12675000000000125
+    zero_regret_fraction: 0.37250996015936255
+  R3:
+    episodes_with_regret: 504
+    mean_regret: 4.21965119047619
+    median_regret: 0.07344999999999935
+    zero_regret_fraction: 0.39087301587301587
+action_confusion_vs_oracle:
+  R1: {}
+  R2:
+    none->none: 502
+  R3:
+    none->none: 504
+completeness:
+  duplicate_cells: []
+  expected_cells: 1512
+  observed_cells: 1510
+  missing_cells:
+  - - test_01
+    - test_01_r0
+    - '31001103'
+    - localisation_perturbation
+    - medium
+    - R2
+  - - test_02
+    - test_02_r5
+    - '32501300'
+    - camera_occlusion
+    - medium
+    - R2
+  missing_cell_count: 2
+  unexpected_cells: []
+  unexpected_cell_count: 0
+complete: false
+incomplete_reasons:
+- pairs missing, unexpected or duplicated
+- a prespecified comparison is unavailable

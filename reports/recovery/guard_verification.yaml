@@ -1,0 +1,21 @@
+schema_version: 1
+evidence_type: non_model_exhaustive_guard_verification
+protected_test_used: false
+live_execution_performed: false
+guard_config: configs/recovery_guards.yaml
+guard_config_sha256: 04017b745d8dc81baa19b1b50d7a08a32dc3064b4af3dcb114b97d306000f12a
+states_checked: 3456
+policy_decisions_checked: 51840
+eligibility_counts:
+  controlled_stop: 1152
+  relocalise: 288
+  replan_clear_costmaps: 576
+  backup: 384
+  spin_active_rescan: 384
+  wait: 576
+  request_assistance: 3456
+violation_count: 0
+violations: []
+passed: true
+admission_effect: guard_engineering_complete; paired closed-loop recovery remains
+  post-model

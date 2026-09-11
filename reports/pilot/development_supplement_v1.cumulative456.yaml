@@ -1,0 +1,97 @@
+schema_version: 1
+campaign_id: development_supplement_v1
+analysis_unit: episode
+protected_test_used: false
+complete_and_artifact_valid: false
+counts:
+  expected: 504
+  observed: 456
+  usable: 456
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 84
+  non_events: 372
+event_prevalence: 0.18421052631578946
+duration_seconds:
+  total: 29240.462
+  median: 53.3795
+by_terminal_state:
+  false_arrival: 36
+  planner_failure: 41
+  success: 372
+  timeout: 7
+by_attempt_terminal_state:
+  false_arrival: 36
+  invalid: 0
+  planner_failure: 41
+  success: 372
+  timeout: 7
+by_fault_family:
+  camera_occlusion: 60
+  dynamic_blockage: 48
+  lidar_dropout: 60
+  localisation_perturbation: 60
+  none: 120
+  planner_oscillation: 48
+  semantic_corruption: 48
+  wheel_slip: 12
+by_map:
+  dev_00: 76
+  dev_01: 76
+  dev_02: 76
+  dev_03: 76
+  dev_04: 76
+  dev_05: 76
+integrity:
+  missing_episode_keys:
+  - dev_00-dev_00_r0-wheel-r41
+  - dev_00-dev_00_r0-wheel-r42
+  - dev_00-dev_00_r0-wheel-r43
+  - dev_00-dev_00_r0-wheel-r44
+  - dev_00-dev_00_r1-wheel-r41
+  - dev_00-dev_00_r1-wheel-r42
+  - dev_00-dev_00_r1-wheel-r43
+  - dev_00-dev_00_r1-wheel-r44
+  - dev_01-dev_01_r0-wheel-r41
+  - dev_01-dev_01_r0-wheel-r42
+  - dev_01-dev_01_r0-wheel-r43
+  - dev_01-dev_01_r0-wheel-r44
+  - dev_01-dev_01_r1-wheel-r41
+  - dev_01-dev_01_r1-wheel-r42
+  - dev_01-dev_01_r1-wheel-r43
+  - dev_01-dev_01_r1-wheel-r44
+  - dev_02-dev_02_r0-wheel-r41
+  - dev_02-dev_02_r0-wheel-r42
+  - dev_02-dev_02_r0-wheel-r43
+  - dev_02-dev_02_r0-wheel-r44
+  - dev_02-dev_02_r1-wheel-r41
+  - dev_02-dev_02_r1-wheel-r42
+  - dev_02-dev_02_r1-wheel-r43
+  - dev_02-dev_02_r1-wheel-r44
+  - dev_03-dev_03_r0-wheel-r41
+  - dev_03-dev_03_r0-wheel-r42
+  - dev_03-dev_03_r0-wheel-r43
+  - dev_03-dev_03_r0-wheel-r44
+  - dev_03-dev_03_r1-wheel-r41
+  - dev_03-dev_03_r1-wheel-r42
+  - dev_03-dev_03_r1-wheel-r43
+  - dev_03-dev_03_r1-wheel-r44
+  - dev_04-dev_04_r0-wheel-r41
+  - dev_04-dev_04_r0-wheel-r42
+  - dev_04-dev_04_r0-wheel-r43
+  - dev_04-dev_04_r0-wheel-r44
+  - dev_04-dev_04_r1-wheel-r41
+  - dev_04-dev_04_r1-wheel-r42
+  - dev_04-dev_04_r1-wheel-r43
+  - dev_04-dev_04_r1-wheel-r44
+  - dev_05-dev_05_r0-wheel-r41
+  - dev_05-dev_05_r0-wheel-r42
+  - dev_05-dev_05_r0-wheel-r43
+  - dev_05-dev_05_r0-wheel-r44
+  - dev_05-dev_05_r1-wheel-r41
+  - dev_05-dev_05_r1-wheel-r42
+  - dev_05-dev_05_r1-wheel-r43
+  - dev_05-dev_05_r1-wheel-r44
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []

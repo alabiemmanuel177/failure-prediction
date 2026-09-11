@@ -1,0 +1,172 @@
+schema_version: 1
+campaign_id: held_out_map_v1
+campaign_kind: held_out_confirmatory
+status: preregistered_post_freeze_confirmatory
+purpose: 'one-time confirmatory held-out-map evaluation set: clean control plus seven
+  fault families at the frozen primary severity on the protected maps'
+protocol_reference: section 8 held-out confirmatory set (960 episodes)
+allowed_splits:
+- held_out_map_test
+protected_test_used: true
+parallel_execution_admitted_by: PA-2026-09-04-02
+provenance:
+  split_manifest: data/manifests/splits.template.yaml
+  split_manifest_sha256: 2b497d238f068b910cdd4e15cfa37f30c6f4f2b04b1d90a4c0867883dac7dcb1
+  split_assignment_record: /home/eao/failure-prediction/reports/confirmatory/protected_split_assignment.yaml
+  split_assignment_sha256: 653347c9cc86bb8d20de28805b5d6a2c5cd523d1afe4c76e3cf09ecaff2ed678
+  model_freeze: /home/eao/failure-prediction/configs/model_freeze.yaml
+  model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+execution_policy:
+  exact_once_per_episode_key: true
+  retain_all_bags: true
+  refuse_while_research1_confirmatory_active: true
+  require_confirmatory_readiness_gate: true
+  stop_on_first_invalid: true
+  concurrency: 1
+  maximum_episodes_per_invocation: 18
+  minimum_free_space_gib_before_episode: 100
+  wave_design: one_condition_and_replicate_across_all_held_out_routes
+episode_defaults:
+  clean_prefix_seconds: 5.0
+  planned_onset_seconds: 8.0
+  maximum_duration_seconds: 20.0
+  maximum_wait_seconds: 5.0
+  recording_profile: compact_v2
+design:
+  seed_base: 10000000
+  seed_layout: wide_v1
+  map_routes:
+    test_00:
+    - test_00_r0
+    - test_00_r1
+    - test_00_r2
+    - test_00_r3
+    - test_00_r4
+    - test_00_r5
+    test_01:
+    - test_01_r0
+    - test_01_r1
+    - test_01_r2
+    - test_01_r3_repl1
+    - test_01_r4
+    - test_01_r5
+    test_02:
+    - test_02_r0
+    - test_02_r1
+    - test_02_r2
+    - test_02_r3
+    - test_02_r4
+    - test_02_r5
+  clean_control_design: single_clean_slot_split_across_s0_and_s3_seeds
+  conditions:
+  - id: clean_s0
+    family: none
+    severity: none
+    system: s0
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+  - id: clean_s3
+    family: none
+    severity: none
+    system: s3
+    replicates:
+    - 4
+    - 5
+    - 6
+  - id: camera
+    family: camera_occlusion
+    severity: medium
+    system: s3
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  - id: lidar
+    family: lidar_dropout
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  - id: wheel
+    family: wheel_slip
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  - id: localisation
+    family: localisation_perturbation
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  - id: blockage
+    family: dynamic_blockage
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  - id: oscillation
+    family: planner_oscillation
+    severity: medium
+    system: s0
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  - id: semantic
+    family: semantic_corruption
+    severity: medium
+    system: s3
+    replicates:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  environment_placement:
+    placement_mode: path_fraction
+    route_fraction: 0.55
+expected_episode_count: 1008
+admission:
+  collection_only_after_model_freeze_and_split_assignment: true
+  fitting_or_selection_use: forbidden
+  evaluation_use: one_time_confirmatory_after_predictions_are_immutable
+  threshold_adaptation: forbidden
+  protected_outcomes_consulted_before_freeze: false

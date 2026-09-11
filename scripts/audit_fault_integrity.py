@@ -28,6 +28,7 @@ from failure_experiment.transforms import (  # noqa: E402
     lidar_dropout,
     semantic_risk_corruption,
 )
+from failure_experiment.environment_fault import point_along_path  # noqa: E402
 
 
 def stamp_ns(message) -> int:
@@ -60,6 +61,7 @@ def read_selected(bag: Path) -> tuple[dict[str, list], list[dict]]:
         "/research2/raw/scan", "/scan",
         "/research2/raw/odom", "/odom",
         "/amcl_pose", "/initialpose",
+        "/plan",
         "/research2/raw/semantic/risk_grid", "/semantic/risk_grid",
         "/research2/events",
     }
@@ -95,12 +97,12 @@ def by_stamp(messages: list) -> dict[int, object]:
     return {stamp_ns(message): message for message in messages}
 
 
-def exact_camera(messages: dict[str, list], onset: int, parameters: dict, seed: int) -> dict:
+def exact_camera(messages: dict[str, list], onset: int, end: int, parameters: dict, seed: int) -> dict:
     raw = by_stamp(messages["/research2/raw/camera/image"])
     deployed = by_stamp(messages["/camera/image"])
     checked = correct = expected_drop = realized_drop = unexpected_missing = 0
     for stamp, message in raw.items():
-        if stamp < onset:
+        if stamp < onset or stamp >= end:
             continue
         array = np.frombuffer(message.data, dtype=np.uint8).reshape(message.height, message.width, 3)
         expected = camera_occlusion(
@@ -143,12 +145,12 @@ def exact_camera(messages: dict[str, list], onset: int, parameters: dict, seed: 
     }
 
 
-def exact_lidar(messages: dict[str, list], onset: int, parameters: dict, seed: int) -> dict:
+def exact_lidar(messages: dict[str, list], onset: int, end: int, parameters: dict, seed: int) -> dict:
     raw = by_stamp(messages["/research2/raw/scan"])
     deployed = by_stamp(messages["/scan"])
     checked = correct = 0
     for stamp, message in raw.items():
-        if stamp < onset or stamp not in deployed:
+        if stamp < onset or stamp >= end or stamp not in deployed:
             continue
         expected = lidar_dropout(
             list(message.ranges),
@@ -170,13 +172,13 @@ def exact_lidar(messages: dict[str, list], onset: int, parameters: dict, seed: i
     }
 
 
-def wheel_effect(messages: dict[str, list], onset: int, parameters: dict) -> dict:
+def wheel_effect(messages: dict[str, list], onset: int, end: int, parameters: dict) -> dict:
     raw = by_stamp(messages["/research2/raw/odom"])
     deployed = by_stamp(messages["/odom"])
     scale = float(parameters["odometry_progress_scale"])
     checked = twist_matches = altered_poses = 0
     for stamp, source in raw.items():
-        if stamp < onset or stamp not in deployed:
+        if stamp < onset or stamp >= end or stamp not in deployed:
             continue
         target = deployed[stamp]
         checked += 1
@@ -195,8 +197,11 @@ def wheel_effect(messages: dict[str, list], onset: int, parameters: dict) -> dic
     }
 
 
-def localisation_effect(messages: dict[str, list], onset: int, parameters: dict) -> dict:
-    initial = [message for message in messages["/initialpose"] if stamp_ns(message) >= onset]
+def localisation_effect(messages: dict[str, list], onset: int, end: int, parameters: dict) -> dict:
+    initial = [
+        message for message in messages["/initialpose"]
+        if onset <= stamp_ns(message) < end
+    ]
     amcl = messages["/amcl_pose"]
     if not initial:
         return {
@@ -221,12 +226,12 @@ def localisation_effect(messages: dict[str, list], onset: int, parameters: dict)
     }
 
 
-def exact_semantic(messages: dict[str, list], onset: int, parameters: dict, seed: int) -> dict:
+def exact_semantic(messages: dict[str, list], onset: int, end: int, parameters: dict, seed: int) -> dict:
     raw = by_stamp(messages["/research2/raw/semantic/risk_grid"])
     deployed = by_stamp(messages["/semantic/risk_grid"])
     checked = correct = 0
     for stamp, message in raw.items():
-        if stamp < onset or stamp not in deployed:
+        if stamp < onset or stamp >= end or stamp not in deployed:
             continue
         expected = semantic_risk_corruption(
             list(message.data),
@@ -251,6 +256,44 @@ def exact_semantic(messages: dict[str, list], onset: int, parameters: dict, seed
     }
 
 
+def path_placement_effect(messages: dict[str, list], started: dict) -> dict:
+    placement = started.get("parameters", {}).get("placement")
+    if not placement:
+        return {
+            "method": "injection_started is emitted only after ros_gz_sim create succeeds",
+            "spawn_success_event": True,
+            "passed": True,
+        }
+    candidates = [
+        plan for plan in messages["/plan"] if stamp_ns(plan) <= started["time_ns"]
+        and len(plan.poses) >= 2
+    ]
+    if not candidates:
+        return {
+            "method": "path-relative placement reconstruction",
+            "passed": False,
+            "reason": "no eligible global plan precedes injection_started",
+        }
+    plan = max(candidates, key=stamp_ns)
+    points = [
+        (float(pose.pose.position.x), float(pose.pose.position.y))
+        for pose in plan.poses
+    ]
+    expected = point_along_path(points, float(placement["route_fraction"]))
+    position_error = math.hypot(
+        expected[0] - float(placement["x"]), expected[1] - float(placement["y"])
+    )
+    yaw_error = angle_distance(expected[2], float(placement["yaw"]))
+    return {
+        "method": "exact arc-length reconstruction from last pre-onset global plan",
+        "route_fraction": float(placement["route_fraction"]),
+        "position_error_m": round(position_error, 9),
+        "yaw_error_rad": round(yaw_error, 9),
+        "spawn_success_event": True,
+        "passed": position_error <= 1e-6 and yaw_error <= 1e-6,
+    }
+
+
 def audit_episode(summary: dict) -> dict:
     identity = summary["identity"]
     label = summary["label_only"]
@@ -259,6 +302,7 @@ def audit_episode(summary: dict) -> dict:
     run_events = [event for event in events if event.get("run_id") == identity["run_id"]]
     planned = next((event for event in run_events if event["event_type"] == "injection_planned"), None)
     started = next((event for event in run_events if event["event_type"] == "injection_started"), None)
+    ended = next((event for event in run_events if event["event_type"] == "injection_ended"), None)
     terminal = next((event for event in run_events if event["event_type"] == "terminal_event"), None)
     bad = [event["event_type"] for event in run_events if event["event_type"] in {
         "injection_error", "injection_ineligible"
@@ -267,10 +311,14 @@ def audit_episode(summary: dict) -> dict:
         started["time_ns"] - planned["time_ns"] + 50_000_000
         >= int(float(label["clean_prefix_seconds"]) * 1e9)
     ) and started["time_ns"] < terminal["time_ns"] and not bad
-    parameter_match = bool(started) and started["parameters"] == label["parameters"]
+    parameter_match = bool(started) and all(
+        started["parameters"].get(key) == value
+        for key, value in label["parameters"].items()
+    )
     treatment = {"method": "not evaluated", "passed": False}
     if started:
-        arguments = (messages, started["time_ns"], label["parameters"])
+        treatment_end = ended["time_ns"] if ended else terminal["time_ns"]
+        arguments = (messages, started["time_ns"], treatment_end, label["parameters"])
         seed = int(summary["environment"]["seed"])
         if family == "camera_occlusion":
             treatment = exact_camera(*arguments, seed)
@@ -283,11 +331,7 @@ def audit_episode(summary: dict) -> dict:
         elif family == "semantic_corruption":
             treatment = exact_semantic(*arguments, seed)
         elif family in {"dynamic_blockage", "planner_oscillation"}:
-            treatment = {
-                "method": "injection_started is emitted only after ros_gz_sim create succeeds",
-                "spawn_success_event": True,
-                "passed": True,
-            }
+            treatment = path_placement_effect(messages, started)
     return {
         "episode_key": identity["episode_key"],
         "run_id": identity["run_id"],

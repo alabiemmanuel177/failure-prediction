@@ -1,0 +1,73 @@
+schema_version: 1
+dataset_id: development_supplement_v1-development-504
+analysis_unit: episode
+status: development_supplement_complete
+protected_test_used: false
+counts:
+  scientific_episodes: 504
+  terminal_events: 89
+  non_events: 415
+  infrastructure_replacements: 0
+event_prevalence: 0.1765873015873016
+duration_seconds:
+  total: 31804.745
+  minimum: 17.418
+  maximum: 195.41
+storage:
+  bag_bytes: 2259962510
+  bag_gib: 2.104754103347659
+distributions:
+  maps:
+    dev_00: 84
+    dev_01: 84
+    dev_02: 84
+    dev_03: 84
+    dev_04: 84
+    dev_05: 84
+  routes:
+    dev_00_r0: 42
+    dev_00_r1: 42
+    dev_01_r0: 42
+    dev_01_r1: 42
+    dev_02_r0: 42
+    dev_02_r1: 42
+    dev_03_r0: 42
+    dev_03_r1: 42
+    dev_04_r0: 42
+    dev_04_r1: 42
+    dev_05_r0: 42
+    dev_05_r1: 42
+  systems:
+    S0: 336
+    S3: 168
+  fault_families:
+    camera_occlusion: 60
+    dynamic_blockage: 48
+    lidar_dropout: 60
+    localisation_perturbation: 60
+    none: 120
+    planner_oscillation: 48
+    semantic_corruption: 48
+    wheel_slip: 60
+  terminal_states:
+    false_arrival: 41
+    planner_failure: 41
+    success: 415
+    timeout: 7
+  event_classes:
+    false_arrival: 41
+    mission_timeout: 7
+    navigation_abort: 41
+  recording_profiles:
+    compact_v2: 504
+source_hashes:
+  campaign_manifest_sha256: 32ba8222a9bf79a3ced373981cfafa7c13b991d7960f2f31afd0633dc6c87e5d
+  pilot_report_sha256: 23b915a09bc7ee7891e14e7d5cb06b7ade85b6f8a2ddd22d9a901fe35839f2c1
+episode_inventory:
+  path: data/manifests/development_supplement_v1.episodes.jsonl
+  sha256: 371aaba9332ebd0b5adfc8df956b84dd36aca0d5507101a91cbe3704b2621ca0
+  rows: 504
+label_status:
+  episode_outcomes: recorded_and_artifact_validated
+  causal_window_labels: not_admitted_pending_supervisor_and_second_review
+training_admission: forbidden_until_training_readiness_gate_passes

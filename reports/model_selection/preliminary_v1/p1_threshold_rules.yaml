@@ -1,0 +1,129 @@
+schema_version: 1
+model_id: p1_threshold_rules
+selection_split: validation
+protected_test_used: false
+tuned_utc: '2026-09-03T01:52:05.858289+00:00'
+objective: maximum_validation_event_recall_subject_to_false_alert_budget
+false_alert_budget_per_clean_mission: 0.1
+alarm_policy:
+  required_above: 2
+  decisions_considered: 3
+  cooldown_seconds: 10.0
+  score_threshold: 0.5
+candidate_source: development_feature_quantiles
+candidate_thresholds:
+  covariance_high:
+  - -0.9913419261574745
+  - 0.03821
+  - 0.04542
+  - 0.050124
+  - 0.054457
+  - 0.068334
+  - 0.080923
+  - 0.092539
+  - 0.103139
+  - 0.113001
+  - 0.123743
+  - 0.135012
+  - 0.144441
+  - 0.154738
+  - 0.164179
+  - 0.172871
+  - 0.180765
+  - 0.189583
+  - 0.198289
+  - 0.207413
+  - 0.218106
+  - 0.229452
+  - 0.243623
+  - 0.258485
+  - 0.274261
+  - 0.290081
+  - 0.308643
+  - 0.330831
+  - 0.391612
+  - 0.437957
+  - 0.47455
+  - 0.562734
+  - 2.0861894376575947
+  progress_low_while_commanded:
+  - -0.57795849442482
+  - -0.088595
+  - -0.046297
+  - -0.024871
+  - -0.01407
+  - -0.001798
+  - -0.0
+  - 0.001145
+  - 0.006894
+  - 0.012836
+  - 0.02014
+  - 0.028169
+  - 0.036543
+  - 0.044189
+  - 0.05235
+  - 0.061828
+  - 0.072336
+  - 0.082409
+  - 0.090903
+  - 0.099643
+  - 0.107838
+  - 0.116308
+  - 0.125847
+  - 0.137214
+  - 0.146289
+  - 0.154554
+  - 0.16333
+  - 0.173753
+  - 0.179247
+  - 0.185672
+  - 0.197115
+  - 0.6505012363195419
+  scan_dropout_high:
+  - 0.2999999523162842
+  - 0.65
+  - 1.0
+  - 1.350000023841858
+  oscillation_high:
+  - -5.0
+  - 0.0
+  - 1.0
+  - 2.0
+  - 3.0
+  - 10.0
+selected_thresholds:
+  covariance_high: 2.0861894376575947
+  progress_low_while_commanded: -0.024871
+  scan_dropout_high: 0.2999999523162842
+  oscillation_high: 10.0
+validation_metrics:
+  event_recall: 0.016129032258064516
+  false_alerts_per_clean_mission: 0.013888888888888888
+  false_alerts_per_mission: 0.06790123456790123
+  median_useful_lead_seconds_detected: 8.228000000000009
+  detected_event_count: 1
+  event_count: 62
+development_metrics_informational:
+  event_recall: 0.022058823529411766
+  false_alerts_per_clean_mission: 0.0390625
+  false_alerts_per_mission: 0.05864197530864197
+  median_useful_lead_seconds_detected: 5.045999999999999
+  detected_event_count: 3
+  event_count: 136
+search_trace:
+- sweep: 0
+  rule: progress_low_while_commanded
+  threshold: -0.024871
+  event_recall: 0.016129032258064516
+  false_alerts_per_clean_mission: 0.013888888888888888
+  false_alerts_per_mission: 0.06790123456790123
+  median_useful_lead_seconds_detected: 8.228000000000009
+  detected_event_count: 1
+  event_count: 62
+development_datasets:
+- balanced_pilot_v1-development-648
+validation_dataset: balanced_validation_v1-validation-324
+validation_predictions: reports/predictions/preliminary/p1_threshold_rules.validation.csv
+validation_predictions_sha256: 62aa8a77b8eed89602519726ab7f01749a233bcbc35ba492ed17a710184e797a
+note: P1 is a transparent baseline; these thresholds are frozen before any protected
+  evaluation.

@@ -22,8 +22,33 @@ data/engineering/
 # logs/ ARE kept.
 logs/ros/
 logs/gazebo/
+logs/campaigns/*.lock
+logs/campaigns/*.pause
 
 # colcon workspace build artefacts
 ros_ws/build/
 ros_ws/install/
 ros_ws/log/
+.venv/
+
+# Research 2 execution residue (evidence stays in data/raw, mirrored to the HDD, released by manifest)
+logs/failure-monitor/
+logs/topic-health/
+logs/recovery/
+logs/campaigns/*.parallel/
+logs/campaigns/*.drain
+logs/campaigns/*.hold
+logs/*.log
+logs/*.out
+logs/model_development/*.log
+logs/analysis/*.log
+logs/research-log.jsonl.corrupt-*
+data/raw_unrecorded_attempts/
+data/raw_engineering_smoke/
+data/adapted/
+# Prediction tables are regenerated from the frozen models and derived datasets; too large for git
+reports/predictions/
+reports/unseen_family/**/*.csv
+reports/unseen_family/**/*.provenance.json
+models/_incomplete_runs/
+models/*/_superseded*/

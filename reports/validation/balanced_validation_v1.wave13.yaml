@@ -1,0 +1,47 @@
+schema_version: 1
+campaign_id: balanced_validation_v1
+wave: 13
+recording_profiles:
+  compact_v2: 18
+analysis_unit: episode
+protected_test_used: false
+counts:
+  episodes: 18
+  usable: 18
+  invalid: 0
+  infrastructure_invalid_attempts: 0
+  infrastructure_replacements: 0
+  terminal_events: 8
+  successes: 10
+  collisions: 0
+event_prevalence: 0.4444444444444444
+bag_gib: 0.09583971370011568
+duration_seconds:
+  total: 1325.397
+  median: 65.22200000000001
+by_terminal_state:
+  false_arrival: 8
+  success: 10
+by_event_class:
+  false_arrival: 8
+perception_metric_summaries: 6
+episode_keys:
+- val_00-val_00_r0-blockage-r4
+- val_01-val_01_r1-blockage-r4
+- val_00-val_00_r0-camera-r4
+- val_01-val_01_r1-camera-r4
+- val_00-val_00_r0-clean_s0-r4
+- val_01-val_01_r1-clean_s0-r4
+- val_00-val_00_r0-clean_s3-r4
+- val_01-val_01_r1-clean_s3-r4
+- val_00-val_00_r0-lidar-r4
+- val_01-val_01_r1-lidar-r4
+- val_00-val_00_r0-localisation-r4
+- val_01-val_01_r1-localisation-r4
+- val_00-val_00_r0-oscillation-r4
+- val_01-val_01_r1-oscillation-r4
+- val_00-val_00_r0-semantic-r4
+- val_01-val_01_r1-semantic-r4
+- val_00-val_00_r0-wheel-r4
+- val_01-val_01_r1-wheel-r4
+training_admission: blocked_pending_human_gate
