@@ -66,7 +66,7 @@ def test_reproduce_release_dry_run_prints_the_clean_room_plan():
     ids = [step["id"] for step in plan["steps"]]
     assert ids[:5] == ["tests", "development_inventory", "validation_inventory", "targeted_inventory", "raw_payload_audit"]
     assert "predict_held_out_map" in ids and ids[-1] == "tables"
-    assert plan["shared_inputs_symlinked"] == ["data/raw", "data/derived", "models"]
+    assert plan["shared_inputs_symlinked"] == ["data/raw", "data/derived", "models", "reports/unseen_family", "reports/predictions/ablations"]
     assert not (ROOT / "reports/reproduction").exists()
 
 
