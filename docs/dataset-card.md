@@ -1,9 +1,6 @@
 # Dataset card: Research 2 navigation failure forecasting
 
-Status: development and validation collection complete and derived; targeted collection
-and the preregistered 504-episode supplement in progress; training admission passed
-under Protocol Amendment PA-2026-09-03-01; no model frozen. Independent review remains optional and no inter-rater reliability is
-claimed.
+Status: final (2026-09-12T07:54:53Z, release commit 4e6d2d3a45a1).
 
 ## Intended use
 
@@ -106,3 +103,13 @@ python3 scripts/validate_development_dataset_inventory.py
 The command recomputes every source and episode-artifact hash and fails on any mismatch.
 Run `make raw-payload-check` first to reconcile zero-length artifact evidence against
 the frozen replacement declarations.
+
+## Final record (generated 2026-09-12T07:54:53Z)
+
+- Release commit: `4e6d2d3a45a1c93a8ce33bb984080fbf49d393e0`.
+- `balanced_pilot_v1-development-648`: 648 episodes; inventory sha256 `4b0812acef2da291ecc83113e1e251ecb1dab1b4c4c88e0b46159242d0b1100a`.
+- `balanced_validation_v1-validation-324`: 324 episodes; inventory sha256 `cf51b5d400f48f051d0426431025846ee12fd6f230714d25825d869a6cc2cae4`.
+- `targeted_development_v1-development-1212`: 1212 episodes; inventory sha256 `d853600a37534ed9e5e7cd99d9375e3f58104d8e8961071ed6e06363d4ccab9d`.
+- Held-out map dataset: `pending`; result complete: True.
+- Independent clean rerun passed: pending (commit `pending`).
+- Software: Ubuntu 24.04, ROS 2 Jazzy, Gazebo Harmonic, Nav2; exact package versions are recorded per episode in the immutable summaries (`provenance` block).

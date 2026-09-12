@@ -1,0 +1,36 @@
+{
+  "fabricated_inputs": false,
+  "generated_utc": "2026-09-12T07:57:57Z",
+  "rows": 6,
+  "sources": {
+    "alarm_policy": {
+      "path": "/home/eao/failure-prediction/configs/alarm_policy.yaml",
+      "sha256": "eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc"
+    },
+    "predictions_ablation:no_localisation.calibrated.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/ablations/no_localisation.calibrated.csv",
+      "sha256": "2e26f81358c049e29c62bc208090ecff6f85d0082c00a68c7de2474c2694a120"
+    },
+    "predictions_ablation:no_motion_and_goal.calibrated.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/ablations/no_motion_and_goal.calibrated.csv",
+      "sha256": "16b25d01d7afb0ec86d74a72d01a58bbed87fe628821c984dfe9b580552081cc"
+    },
+    "predictions_ablation:no_perception_confidence.calibrated.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/ablations/no_perception_confidence.calibrated.csv",
+      "sha256": "ff5451e1cd6f546e2335e649f3627417ddfaef29ed55a310c84474214d5ee2db"
+    },
+    "predictions_ablation:no_planner_controller.calibrated.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/ablations/no_planner_controller.calibrated.csv",
+      "sha256": "a69258a949543bbd4c84d272fbce91d9a105566af43f3f8b345dd9509b8058a4"
+    },
+    "predictions_ablation:no_raw_sensor.calibrated.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/ablations/no_raw_sensor.calibrated.csv",
+      "sha256": "81cbd5a79eea0ab0c189a4b2d2563bffa7557429f76e78fbab2465c5bc6aeae8"
+    },
+    "predictions_ablation:single_timestamp.calibrated.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/ablations/single_timestamp.calibrated.csv",
+      "sha256": "a4d743ed0fe661d17552fab93ae48670c8c3a94c7518fa8b1bf67c27318849f0"
+    }
+  },
+  "table": "tab04_ablations"
+}

@@ -1,5 +1,5 @@
 schema_version: 1
-observed_utc: '2026-09-11T21:32:26Z'
+observed_utc: '2026-09-12T07:47:51Z'
 campaign_id: held_out_map_v1
 state: fail_stopped_unresolved_invalid
 runner_lock_held: false
@@ -50,6 +50,6 @@ last_ledger_record:
   systems_filter:
   - s0
   worker_slot: 3
-free_space_gib: 136.754
+free_space_gib: 135.715
 protected_test_used: false
 monitor_policy: observe_only_no_restart_no_retry

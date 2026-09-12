@@ -1,0 +1,15 @@
+model_id,excluded_family,episodes,events,detected,event_recall,false_alerts_per_mission
+p1_threshold_rules,camera_occlusion,126,16,1,0.0625,0.20634920634920634
+p1_threshold_rules,dynamic_blockage,125,31,0,0.0,0.0
+p1_threshold_rules,lidar_dropout,126,15,0,0.0,0.2222222222222222
+p1_threshold_rules,localisation_perturbation,126,23,0,0.0,0.20634920634920634
+p1_threshold_rules,planner_oscillation,122,28,0,0.0,0.0
+p1_threshold_rules,semantic_corruption,126,8,0,0.0,0.2222222222222222
+p1_threshold_rules,wheel_slip,125,20,1,0.05,0.208
+p3_causal_tcn,camera_occlusion,126,16,5,0.3125,0.18253968253968253
+p3_causal_tcn,dynamic_blockage,125,31,4,0.12903225806451613,0.392
+p3_causal_tcn,lidar_dropout,126,15,0,0.0,0.23015873015873015
+p3_causal_tcn,localisation_perturbation,126,23,8,0.34782608695652173,0.4444444444444444
+p3_causal_tcn,planner_oscillation,122,28,0,0.0,0.0
+p3_causal_tcn,semantic_corruption,126,8,0,0.0,0.023809523809523808
+p3_causal_tcn,wheel_slip,125,20,2,0.1,0.296

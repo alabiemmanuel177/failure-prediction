@@ -1,0 +1,28 @@
+{
+  "fabricated_inputs": false,
+  "figure": "fig02_risk_traces",
+  "file": "fig02_risk_trace_useful_warning.svg",
+  "generated_utc": "2026-09-12T07:56:10Z",
+  "sources": {
+    "model_freeze": {
+      "path": "/home/eao/failure-prediction/configs/model_freeze.yaml",
+      "sha256": "b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4"
+    },
+    "predictions_held_out:p1_threshold_rules.alarmed.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p1_threshold_rules.alarmed.csv",
+      "sha256": "d0b1ab01438f57f87d551e84ac06692528908ee0c2a3e982c6946834a854821f"
+    },
+    "predictions_held_out:p3_causal_tcn.alarmed.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.alarmed.csv",
+      "sha256": "3655fb69157819d176f29ab63e19724bc261d7db971a967f67754c8c0ad755b4"
+    },
+    "predictions_held_out:p4_gru.alarmed.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p4_gru.alarmed.csv",
+      "sha256": "fa0b024f269ba1d7df2b03e5c72ab40e463d80327e43c38ecae7d2d997baaea5"
+    },
+    "predictions_held_out:p5_compact_transformer.alarmed.csv": {
+      "path": "/home/eao/failure-prediction/reports/predictions/held_out/held_out_map_v1/p5_compact_transformer.alarmed.csv",
+      "sha256": "06562eddc51ce0f9d4217386fa0bdd5e1a9e48e665864758462fa405aa5a048d"
+    }
+  }
+}

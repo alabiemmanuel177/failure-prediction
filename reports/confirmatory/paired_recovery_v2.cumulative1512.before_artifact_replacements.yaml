@@ -1,0 +1,27 @@
+schema_version: 1
+campaign_id: paired_recovery_v2
+analysis_unit: episode
+kind: protected_confirmatory_completion_record
+protected_test_used: true
+protected_outcomes_consulted: false
+outcome_fields_omitted_by_design: true
+complete_and_artifact_valid: false
+counts:
+  expected: 1512
+  observed: 1512
+  usable: 1509
+  infrastructure_invalid_attempts: 11
+  infrastructure_replacements: 11
+episodes_by_map:
+  test_00: 503
+  test_01: 503
+  test_02: 503
+integrity:
+  missing_episode_keys: []
+  unexpected_episode_keys: []
+  duplicate_episode_keys: []
+  replacement_errors: []
+campaign_manifest_sha256: e2564517b2d9000ec7c35ccee401d4478f196d6987053a190365aaaa6081295e
+replacement_manifests:
+- data/manifests/paired_recovery_v2_replacements_v1.yaml
+generated_utc: '2026-09-12T00:32:17.994797+00:00'

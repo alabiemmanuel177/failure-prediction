@@ -1,0 +1,35 @@
+{
+  "generated_utc": "2026-09-12T07:56:10Z",
+  "pending": {},
+  "produced": {
+    "fig01_architecture_causal_timeline": [
+      "fig01_architecture_causal_timeline.svg"
+    ],
+    "fig02_risk_traces": [
+      "fig02_risk_trace_useful_warning.svg",
+      "fig02_risk_trace_false_alarm.svg",
+      "fig02_risk_trace_missed_failure.svg"
+    ],
+    "fig03_recall_vs_false_alerts": [
+      "fig03_recall_vs_false_alerts.svg"
+    ],
+    "fig04_lead_time_by_family": [
+      "fig04_lead_time_by_family.svg"
+    ],
+    "fig05_reliability_diagrams": [
+      "fig05_reliability_diagrams.svg"
+    ],
+    "fig06_generalisation_matrix": [
+      "fig06_generalisation_matrix.svg"
+    ],
+    "fig07_feature_group_ablation": [
+      "fig07_feature_group_ablation.svg"
+    ],
+    "fig08_recovery_outcomes": [
+      "fig08_recovery_outcomes.svg"
+    ],
+    "fig09_action_confusion": [
+      "fig09_action_confusion.svg"
+    ]
+  }
+}

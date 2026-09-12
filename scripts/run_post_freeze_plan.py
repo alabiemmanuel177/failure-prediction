@@ -188,6 +188,12 @@ def phased_campaign(manifest: Path, expected: int, workers: int) -> None:
     # refuses to call a protected campaign complete and would expose outcomes).
     if not report_complete(cumulative, expected):
         wait_idle()
+        if cumulative.exists():
+            # An earlier, incomplete record (written before later replacements) is
+            # immutable; keep it aside so the finaliser can publish the complete one.
+            stale = cumulative.with_name(cumulative.stem + f".incomplete_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}.yaml")
+            cumulative.rename(stale)
+            log(f"moved incomplete completion record aside: {stale}")
         run([sys.executable, str(ROOT / "scripts/finalize_confirmatory_campaign.py"), "--manifest", str(manifest),
              "--output", str(cumulative)], check=False)
     if not report_complete(cumulative, expected):

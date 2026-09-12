@@ -9,7 +9,7 @@ Frozen threshold: 0.235; model freeze sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e
 | H3 | supporting | calibration reduces Brier score and ECE on validation data | -0.019 (validation Brier delta (after - before)) | n/a | supported | reports/confirmatory/held_out_map.final.yaml:h3 |
 | H4 | supporting | removing planner and localisation health features materially reduces early warning | 0.102 (largest recall decline among planner/localisation ablations) | n/a | reported_no_numeric_threshold | reports/confirmatory/held_out_map.final.yaml:h4 (reports/ablations) |
 | H5 | supporting | leave-one-family-out P3 recall exceeds P1 for at least five of seven families | 4 (families where P3 > P1 (of seven)) | n/a | not_supported | reports/confirmatory/unseen_family.yaml:h5 |
-| H6 | confirmatory | prediction-triggered recovery improves mission completion without more collisions | n/a (paired completion difference (R3 - R0)) | n/a | pending | reports/recovery/paired_recovery.yaml:h6 (owned by the recovery work package) |
+| H6 | confirmatory | prediction-triggered recovery improves mission completion without more collisions | n/a (paired completion difference (R3 - R0)) | n/a | not_supported | reports/recovery/paired_recovery.yaml:h6 (owned by the recovery work package) |
 
 H1 and H6 are the two confirmatory claims; H2-H5 are prespecified supporting hypotheses; every other item is exploratory and not an independent significance claim
 

@@ -37,7 +37,38 @@ def _pct(value: Any) -> str:
     return "n/a" if value in (None, "") else f"{100 * float(value):.1f}%"
 
 
+def h1_from_report(registry: ArtifactRegistry) -> str | None:
+    """The preregistered H1 estimate as written by scripts/evaluate_confirmatory.py."""
+    if not registry.available("held_out_report"):
+        return None
+    report = registry.yaml("held_out_report")
+    h1, models = report.get("h1") or {}, report.get("models") or {}
+    p3, p1 = models.get("p3") or {}, models.get("p1") or {}
+    if not h1.get("confidence_interval") or "event_recall" not in p3 or "event_recall" not in p1:
+        return None
+    ci = h1["confidence_interval"]
+    timeouts = (report.get("timeouts") or {})
+    t3 = (timeouts.get("p3") or {})
+    timeout_text = ""
+    if t3.get("timeout_episode_count"):
+        timeout_text = (f" Mission timeouts ({t3['timeout_episode_count']} episodes) were analysed separately, as "
+                        f"preregistered: the TCN warned before {_pct(t3.get('timeout_recall') or 0.0)} of them.")
+    return (f"On {len(report.get('maps') or []) or 3} held-out maps ({p3['event_count']} terminal events, "
+            f"{p3['episode_count']} episodes) the causal TCN reached event recall {_pct(p3['event_recall'])} "
+            f"against {_pct(p1['event_recall'])} for the threshold rules at the frozen validation threshold "
+            f"({p3['false_alerts_per_clean_mission']:.3f} false alerts per clean mission), a paired difference of "
+            f"{100 * h1['point_estimate']:+.1f} percentage points (95% hierarchical bootstrap interval "
+            f"{100 * ci[0]:+.1f} to {100 * ci[1]:+.1f}; preregistered criterion "
+            f"{'met' if h1.get('supported') else 'not met'}); median useful lead time "
+            f"{float(p3.get('lead_time', {}).get('median_seconds_detected', p3.get('median_useful_lead_seconds_detected')) or 0.0):.1f} s "
+            f"over {p3.get('detected_event_count')} detected events with {p3.get('undetected_event_count')} undetected."
+            + timeout_text)
+
+
 def h1_statement(registry: ArtifactRegistry) -> str:
+    from_report = h1_from_report(registry)
+    if from_report:
+        return from_report
     if not registry.available("predictions_held_out"):
         return "RESULT_PENDING"  # keeps the marker so the audit still fails
     rows = registry.prediction_rows("predictions_held_out")

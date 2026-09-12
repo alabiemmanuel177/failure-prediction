@@ -90,7 +90,7 @@ def model_card_section(facts: dict[str, Any]) -> str:
         f"- Normalisation bundle sha256 `{predictor.get('normalization_bundle_sha256', 'pending')}`; "
         f"training config sha256 `{predictor.get('training_config_sha256', 'pending')}`.",
         f"- Training seed {training.get('seed', 'pending')}; parameters {training.get('parameter_count', 'pending')}; "
-        f"epochs {training.get('epochs', 'pending')}; early stopping on validation AUPRC.",
+        f"epochs {training.get('epochs_run', training.get('epochs', 'pending'))}; early stopping on validation AUPRC.",
         f"- Calibration `{facts['freeze'].get('calibration', {}).get('calibration_id', 'pending')}`; "
         f"frozen threshold {alarm.get('threshold', 'pending')} with "
         f"{alarm.get('persistence', {}).get('required_above_threshold', 2)}-of-"

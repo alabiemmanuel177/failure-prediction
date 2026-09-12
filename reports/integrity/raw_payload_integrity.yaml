@@ -3,9 +3,9 @@ passed: true
 scope: research2_preprotected_raw_artifact_file_metadata
 protected_outcomes_consulted: false
 counts:
-  summary_paths: 2816
-  mcap_paths: 2816
-  bag_metadata_paths: 2814
+  summary_paths: 9365
+  mcap_paths: 9289
+  bag_metadata_paths: 9288
   zero_length_paths: 4
   zero_length_runs: 2
   declared_payload_loss_runs: 2

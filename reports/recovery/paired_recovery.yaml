@@ -1,0 +1,293 @@
+schema_version: 1
+evidence_type: paired_closed_loop_recovery_confirmatory
+generated_utc: '2026-09-12T07:41:00Z'
+protected_test_used: true
+analysis_unit: paired_map_route_seed_fault_episode
+policies:
+- R0
+- R1
+- R2
+- R3
+episode_count: 1512
+inputs:
+  outcomes: /home/eao/failure-prediction/reports/recovery/paired_recovery_v2.outcomes.csv
+  outcomes_sha256: 734783c9aa4ab6405e4b22b0c42492caed7d6378d2186f24dde4bff65912360c
+  model_freeze: /home/eao/failure-prediction/configs/model_freeze.yaml
+  model_freeze_sha256: b80b4e8ba92cef6bc6b9d55e0d9949622e244f2eb710b418cddfb645196117c4
+  manifest: /home/eao/failure-prediction/data/manifests/paired_recovery_v2.yaml
+  manifest_sha256: e2564517b2d9000ec7c35ccee401d4478f196d6987053a190365aaaa6081295e
+comparisons:
+  R3_vs_R0:
+    status: computed
+    analysis_unit: paired_map_route_seed_fault_episode
+    pair_fields:
+    - map_id
+    - route_id
+    - seed
+    - fault_family
+    - severity
+    pair_count: 504
+    baseline_policy: R0
+    proposed_policy: R3
+    baseline:
+      episode_count: 504
+      mission_completion_count: 434
+      mission_completion_rate: 0.8611111111111112
+      collision_count: 0
+      collision_rate: 0.0
+      guard_violation_count: 0
+      guard_rejection_count: 0
+      median_added_time_seconds: 0.0
+      median_added_path_length_m: 0.0
+      mean_intervention_count: 0.0
+      action_counts:
+        none: 504
+    proposed:
+      episode_count: 504
+      mission_completion_count: 425
+      mission_completion_rate: 0.8432539682539683
+      collision_count: 0
+      collision_rate: 0.0
+      guard_violation_count: 0
+      guard_rejection_count: 0
+      median_added_time_seconds: 0.0
+      median_added_path_length_m: 0.0
+      mean_intervention_count: 0.5099206349206349
+      action_counts:
+        backup: 10
+        controlled_stop: 17
+        none: 389
+        replan_clear_costmaps: 61
+        spin_active_rescan: 27
+    paired_completion_rate_difference: -0.017857142857142905
+    paired_collision_rate_difference: 0.0
+    safety_gate_passed: true
+    completion_difference_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: proposed_complete_minus_baseline_complete
+      episode_count: 504
+      map_count: 3
+      point_estimate: -0.017857142857142856
+      confidence: 0.95
+      confidence_interval: &id001
+      - -0.07738095238095238
+      - 0.031746031746031744
+      bootstrap_replicates: 2000
+      seed: 20260903
+    collision_difference_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: proposed_collision_minus_baseline_collision
+      episode_count: 504
+      map_count: 3
+      point_estimate: 0.0
+      confidence: 0.95
+      confidence_interval: &id002
+      - 0.0
+      - 0.0
+      bootstrap_replicates: 2000
+      seed: 20260903
+    mixed_effects_model:
+      method: mixed_effects_logistic_variational_bayes_statsmodels
+      fixed_effect: R3_vs_R0
+      policy_log_odds: -0.20097279008425278
+      policy_log_odds_sd: 0.15527630765883813
+      policy_log_odds_interval_95:
+      - -0.5053143530955755
+      - 0.10336877292706992
+      random_intercepts:
+      - map_id
+      - route_id
+      episode_rows: 1008
+  R3_vs_R2:
+    status: computed
+    analysis_unit: paired_map_route_seed_fault_episode
+    pair_fields:
+    - map_id
+    - route_id
+    - seed
+    - fault_family
+    - severity
+    pair_count: 504
+    baseline_policy: R2
+    proposed_policy: R3
+    baseline:
+      episode_count: 504
+      mission_completion_count: 420
+      mission_completion_rate: 0.8333333333333334
+      collision_count: 0
+      collision_rate: 0.0
+      guard_violation_count: 0
+      guard_rejection_count: 0
+      median_added_time_seconds: 0.09499999999999886
+      median_added_path_length_m: 0.0
+      mean_intervention_count: 0.5297619047619048
+      action_counts:
+        backup: 26
+        controlled_stop: 54
+        none: 378
+        replan_clear_costmaps: 39
+        spin_active_rescan: 7
+    proposed:
+      episode_count: 504
+      mission_completion_count: 425
+      mission_completion_rate: 0.8432539682539683
+      collision_count: 0
+      collision_rate: 0.0
+      guard_violation_count: 0
+      guard_rejection_count: 0
+      median_added_time_seconds: 0.0
+      median_added_path_length_m: 0.0
+      mean_intervention_count: 0.5099206349206349
+      action_counts:
+        backup: 10
+        controlled_stop: 17
+        none: 389
+        replan_clear_costmaps: 61
+        spin_active_rescan: 27
+    paired_completion_rate_difference: 0.009920634920634885
+    paired_collision_rate_difference: 0.0
+    safety_gate_passed: true
+    completion_difference_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: proposed_complete_minus_baseline_complete
+      episode_count: 504
+      map_count: 3
+      point_estimate: 0.00992063492063492
+      confidence: 0.95
+      confidence_interval:
+      - -0.027827380952380864
+      - 0.05357142857142857
+      bootstrap_replicates: 2000
+      seed: 20260903
+    collision_difference_bootstrap:
+      analysis_unit: episode
+      hierarchy:
+      - map
+      - route
+      - episode
+      contrast: proposed_collision_minus_baseline_collision
+      episode_count: 504
+      map_count: 3
+      point_estimate: 0.0
+      confidence: 0.95
+      confidence_interval:
+      - 0.0
+      - 0.0
+      bootstrap_replicates: 2000
+      seed: 20260903
+    mixed_effects_model:
+      method: mixed_effects_logistic_variational_bayes_statsmodels
+      fixed_effect: R3_vs_R2
+      policy_log_odds: 0.13486785336716373
+      policy_log_odds_sd: 0.15317294987318755
+      policy_log_odds_interval_95:
+      - -0.1653511283842839
+      - 0.43508683511861135
+      random_intercepts:
+      - map_id
+      - route_id
+      episode_rows: 1008
+h6:
+  hypothesis: prediction-triggered recovery (R3) improves mission completion over
+    default Nav2 recovery (R0) without increasing collision rate
+  decision_rule:
+    completion: hierarchical paired bootstrap 95% interval lower bound > 0
+    collision: paired collision-rate difference point estimate <= 0.0
+    safety: zero guard violations under every predictor policy
+  estimator: mixed_effects_logistic_variational_bayes_statsmodels
+  completion_rate_difference: -0.017857142857142905
+  completion_interval_95: *id001
+  collision_rate_difference: 0.0
+  collision_interval_95: *id002
+  supported: false
+guard:
+  R0:
+    episode_count: 504
+    guard_violation_count: 0
+    guard_rejection_count: 0
+  R1:
+    episode_count: 0
+    guard_violation_count: 0
+    guard_rejection_count: 0
+  R2:
+    episode_count: 504
+    guard_violation_count: 0
+    guard_rejection_count: 0
+  R3:
+    episode_count: 504
+    guard_violation_count: 0
+    guard_rejection_count: 0
+safety_gate_passed: true
+regret_vs_oracle:
+  R0:
+    episodes_with_regret: 504
+    mean_regret: 2.4790380952380953
+    median_regret: 0.0
+    zero_regret_fraction: 0.9305555555555556
+  R1:
+    episodes_with_regret: 0
+    mean_regret: null
+    median_regret: null
+    zero_regret_fraction: null
+  R2:
+    episodes_with_regret: 504
+    mean_regret: 6.9955807539682535
+    median_regret: 0.5285500000000001
+    zero_regret_fraction: 0.2857142857142857
+  R3:
+    episodes_with_regret: 504
+    mean_regret: 6.644669444444444
+    median_regret: 0.43294999999999906
+    zero_regret_fraction: 0.3253968253968254
+action_confusion_vs_oracle:
+  R1: {}
+  R2:
+    controlled_stop->controlled_stop: 4
+    none->backup: 26
+    none->controlled_stop: 46
+    none->none: 377
+    none->replan_clear_costmaps: 35
+    none->spin_active_rescan: 4
+    replan_clear_costmaps->controlled_stop: 3
+    replan_clear_costmaps->none: 1
+    replan_clear_costmaps->replan_clear_costmaps: 3
+    spin_active_rescan->controlled_stop: 1
+    spin_active_rescan->replan_clear_costmaps: 1
+    spin_active_rescan->spin_active_rescan: 3
+  R3:
+    controlled_stop->controlled_stop: 1
+    controlled_stop->none: 1
+    controlled_stop->replan_clear_costmaps: 1
+    controlled_stop->spin_active_rescan: 1
+    none->backup: 9
+    none->controlled_stop: 16
+    none->none: 386
+    none->replan_clear_costmaps: 54
+    none->spin_active_rescan: 23
+    replan_clear_costmaps->none: 2
+    replan_clear_costmaps->replan_clear_costmaps: 5
+    spin_active_rescan->backup: 1
+    spin_active_rescan->replan_clear_costmaps: 1
+    spin_active_rescan->spin_active_rescan: 3
+completeness:
+  duplicate_cells: []
+  expected_cells: 1512
+  observed_cells: 1512
+  missing_cells: []
+  missing_cell_count: 0
+  unexpected_cells: []
+  unexpected_cell_count: 0
+complete: true
+incomplete_reasons: []

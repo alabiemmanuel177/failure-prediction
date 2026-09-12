@@ -1,0 +1,32 @@
+# tab06_action_confusion
+
+Generated 2026-09-12T07:57:57Z from immutable artifacts.
+
+| policy | oracle_action | executed_action | count |
+|---|---|---|---|
+| R2 | controlled_stop | controlled_stop | 4 |
+| R2 | none | backup | 26 |
+| R2 | none | controlled_stop | 46 |
+| R2 | none | none | 377 |
+| R2 | none | replan_clear_costmaps | 35 |
+| R2 | none | spin_active_rescan | 4 |
+| R2 | replan_clear_costmaps | controlled_stop | 3 |
+| R2 | replan_clear_costmaps | none | 1 |
+| R2 | replan_clear_costmaps | replan_clear_costmaps | 3 |
+| R2 | spin_active_rescan | controlled_stop | 1 |
+| R2 | spin_active_rescan | replan_clear_costmaps | 1 |
+| R2 | spin_active_rescan | spin_active_rescan | 3 |
+| R3 | controlled_stop | controlled_stop | 1 |
+| R3 | controlled_stop | none | 1 |
+| R3 | controlled_stop | replan_clear_costmaps | 1 |
+| R3 | controlled_stop | spin_active_rescan | 1 |
+| R3 | none | backup | 9 |
+| R3 | none | controlled_stop | 16 |
+| R3 | none | none | 386 |
+| R3 | none | replan_clear_costmaps | 54 |
+| R3 | none | spin_active_rescan | 23 |
+| R3 | replan_clear_costmaps | none | 2 |
+| R3 | replan_clear_costmaps | replan_clear_costmaps | 5 |
+| R3 | spin_active_rescan | backup | 1 |
+| R3 | spin_active_rescan | replan_clear_costmaps | 1 |
+| R3 | spin_active_rescan | spin_active_rescan | 3 |

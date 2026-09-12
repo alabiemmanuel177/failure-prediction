@@ -201,9 +201,14 @@ def test_all_tables_are_produced_as_csv_and_markdown(artifact_root):
     assert "paired_recovery" in sidecar["sources"]
 
 
-def test_table_cli_reports_pending_on_the_real_repository_without_writing_evidence(tmp_path):
+def test_table_cli_never_writes_into_the_repository_when_given_another_output_dir(tmp_path):
+    """Running against the real repository with a temporary output directory must leave
+    reports/tables untouched (whether or not the released tables already exist)."""
+    released = ROOT / "reports/tables"
+    before = {p: p.stat().st_mtime_ns for p in released.rglob("*")} if released.exists() else {}
     result = subprocess.run([sys.executable, str(ROOT / "scripts/build_tables.py"), "--output-dir", str(tmp_path / "t")],
                             capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
-    assert "PENDING" in result.stdout
-    assert not (ROOT / "reports/tables").exists()
+    after = {p: p.stat().st_mtime_ns for p in released.rglob("*")} if released.exists() else {}
+    assert after == before
+    assert (tmp_path / "t" / "table_index.json").exists()

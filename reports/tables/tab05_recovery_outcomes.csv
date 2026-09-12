@@ -1,0 +1,5 @@
+comparison,policy,episodes,mission_completion_rate,collision_rate,guard_violations,guard_rejections,median_added_time_seconds,median_added_path_length_m,mean_intervention_count,completion_difference,completion_ci_low,completion_ci_high,estimator
+R3_vs_R0,R0,504,0.8611111111111112,0.0,0,0,0.0,0.0,0.0,,,,
+R3_vs_R0,R3,504,0.8432539682539683,0.0,0,0,0.0,0.0,0.5099206349206349,-0.017857142857142905,-0.07738095238095238,0.031746031746031744,mixed_effects_logistic_variational_bayes_statsmodels
+R3_vs_R2,R2,504,0.8333333333333334,0.0,0,0,0.09499999999999886,0.0,0.5297619047619048,,,,
+R3_vs_R2,R3,504,0.8432539682539683,0.0,0,0,0.0,0.0,0.5099206349206349,0.009920634920634885,-0.027827380952380864,0.05357142857142857,mixed_effects_logistic_variational_bayes_statsmodels

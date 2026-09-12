@@ -1,0 +1,32 @@
+{
+  "generated_utc": "2026-09-12T07:57:57Z",
+  "pending": {
+    "tab07_latency": "latency_report (/home/eao/failure-prediction/reports/latency)"
+  },
+  "produced": {
+    "tab01_predictor_summary": [
+      "tab01_predictor_summary.csv",
+      "tab01_predictor_summary.md"
+    ],
+    "tab02_recall_by_family": [
+      "tab02_recall_by_family.csv",
+      "tab02_recall_by_family.md"
+    ],
+    "tab03_unseen_family": [
+      "tab03_unseen_family.csv",
+      "tab03_unseen_family.md"
+    ],
+    "tab04_ablations": [
+      "tab04_ablations.csv",
+      "tab04_ablations.md"
+    ],
+    "tab05_recovery_outcomes": [
+      "tab05_recovery_outcomes.csv",
+      "tab05_recovery_outcomes.md"
+    ],
+    "tab06_action_confusion": [
+      "tab06_action_confusion.csv",
+      "tab06_action_confusion.md"
+    ]
+  }
+}

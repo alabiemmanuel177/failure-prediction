@@ -1,0 +1,16 @@
+{
+  "fabricated_inputs": false,
+  "generated_utc": "2026-09-12T07:57:57Z",
+  "rows": 14,
+  "sources": {
+    "predictions_unseen_family:held_out_p1_alarmed.csv": {
+      "path": "/home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p1_alarmed.csv",
+      "sha256": "ea1e57aa0065245b537c4901d857ca8e61af185010a587c8b33c982ed5e79dae"
+    },
+    "predictions_unseen_family:held_out_p3_alarmed.csv": {
+      "path": "/home/eao/failure-prediction/reports/unseen_family/wheel_slip/held_out_p3_alarmed.csv",
+      "sha256": "a6af91f88105fe0a63e84b3098686a3dbb5d55d14e356c912331a2f0487b3abe"
+    }
+  },
+  "table": "tab03_unseen_family"
+}

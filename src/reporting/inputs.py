@@ -80,15 +80,36 @@ class ArtifactRegistry:
             return self.overrides[name]
         if name not in ARTIFACT_DEFAULTS:
             raise KeyError(f"unknown artifact name: {name}")
-        return self.root / ARTIFACT_DEFAULTS[name]
+        default = self.root / ARTIFACT_DEFAULTS[name]
+        # Released inputs: the final confirmatory report (held-out ablations evaluated,
+        # written after the first report) and the frozen model's latency directory.
+        if name == "held_out_report":
+            final = default.with_name("held_out_map.final.yaml")
+            if final.is_file():
+                return final
+        if name == "latency_report" and default.is_dir() and not any(default.glob("*.json")):
+            freeze = self.root / "configs/model_freeze.yaml"
+            if freeze.is_file():
+                document = yaml.safe_load(freeze.read_text(encoding="utf-8")) or {}
+                predictor = document.get("predictor") if isinstance(document.get("predictor"), dict) else {}
+                model_dir = str(predictor.get("model_dir") or (document.get("model") or {}).get("model_dir") or document.get("model_dir") or "")
+                tag = Path(model_dir).parent.name if model_dir else ""
+                if tag and (default / tag).is_dir():
+                    return default / tag
+        return default
 
     def available(self, name: str) -> bool:
         path = self.path(name)
         if path.is_file():
             return True
-        if path.is_dir():
-            return any(self._table_files(name, path))
-        return bool(self._discovered_tables(name))
+        if path.is_dir() and self._table_files(name, path):
+            return True
+        # Held-out/validation tables may live under campaign sub-directories; the
+        # confirmatory report names them, so discovery decides availability.
+        try:
+            return bool(self._discovered_tables(name))
+        except (FileNotFoundError, OSError, yaml.YAMLError):
+            return False
 
     def record(self, name: str) -> Path:
         path = self.path(name)
@@ -138,7 +159,9 @@ class ArtifactRegistry:
         if path.is_file():
             files = [path]
         elif path.is_dir():
-            files = self._table_files(name, path)
+            # A directory that holds only campaign sub-directories (reports/predictions/held_out/<campaign>/)
+            # falls back to the tables the confirmatory report names.
+            files = self._table_files(name, path) or self._discovered_tables(name)
         else:
             files = self._discovered_tables(name)
         if not files:
@@ -242,9 +265,28 @@ def _is_clean(rows: Sequence[Mapping[str, str]]) -> bool:
     return all(str(row.get("fault_family", "none")) in {"none", ""} for row in rows)
 
 
+TIMEOUT_EVENT_CLASS = "mission_timeout"
+
+
+def split_timeout_episodes(episodes: Mapping[str, Sequence[Mapping[str, str]]]) -> tuple[dict, dict]:
+    """Mission timeouts are analysed separately from the primary event set, exactly as
+    scripts/evaluate_confirmatory.py does (protocol: timeouts analysed separately)."""
+    primary, timeouts = {}, {}
+    for run_id, items in episodes.items():
+        if any(str(row.get("primary_event_class") or "") == TIMEOUT_EVENT_CLASS for row in items):
+            timeouts[run_id] = items
+        else:
+            primary[run_id] = items
+    return primary, timeouts
+
+
 def predictor_metrics(rows: Sequence[Mapping[str, str]]) -> dict[str, Any]:
-    """Event-level metrics for one model's alarmed rows plus per-family recall."""
-    episodes = group_episodes(rows)
+    """Event-level metrics for one model's alarmed rows plus per-family recall.
+
+    Mission-timeout episodes are excluded from the primary denominators and reported
+    under ``timeouts`` (count and recall), matching the confirmatory evaluator."""
+    episodes, timeout_episodes = split_timeout_episodes(group_episodes(rows))
+    timeout_metrics = evaluate_event_warnings(timeout_episodes) if timeout_episodes else None
     metrics = evaluate_event_warnings(episodes)
     clean_ids = {run_id for run_id, items in episodes.items() if _is_clean(items)}
     clean_false = sum(
@@ -272,6 +314,11 @@ def predictor_metrics(rows: Sequence[Mapping[str, str]]) -> dict[str, Any]:
         "clean_mission_count": len(clean_ids),
         "false_alerts_per_clean_mission": clean_false / len(clean_ids) if clean_ids else None,
         "by_family": dict(sorted(by_family.items())),
+        "timeouts": {
+            "analysed_separately": True,
+            "timeout_episode_count": len(timeout_episodes),
+            "timeout_recall": timeout_metrics["event_recall"] if timeout_metrics else None,
+        },
     }
 
 
@@ -289,7 +336,7 @@ def recall_false_alert_curve(
     rows: Sequence[Mapping[str, str]], policy_config: Mapping[str, Any], thresholds: Sequence[float],
 ) -> list[dict[str, float | None]]:
     """Recall and clean-mission false-alert burden when the frozen policy sweeps tau."""
-    episodes = group_episodes(rows)
+    episodes, _timeouts = split_timeout_episodes(group_episodes(rows))
     clean_ids = {run_id for run_id, items in episodes.items() if _is_clean(items)}
     curve = []
     for threshold in thresholds:

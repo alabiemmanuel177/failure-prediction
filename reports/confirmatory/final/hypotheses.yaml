@@ -1,6 +1,6 @@
 schema_version: 1
 kind: hypothesis_table
-generated_utc: '2026-09-10T13:43:59Z'
+generated_utc: '2026-09-12T07:41:00Z'
 research_evidence: true
 engineering_fixture: false
 protected_test_used: true
@@ -99,7 +99,7 @@ hypotheses:
   estimate: null
   estimate_name: paired completion difference (R3 - R0)
   confidence_interval: null
-  status: pending
+  status: not_supported
   source: reports/recovery/paired_recovery.yaml:h6 (owned by the recovery work package)
 exploratory:
 - item: p4 versus P1 event recall
@@ -167,6 +167,7 @@ exploratory:
   denominator: 11
   source: reports/confirmatory/natural_failure_audit.yaml
 inputs_sha256:
-  reports/confirmatory/held_out_map.final.yaml: 2ee301fdd9d1bcf0294e413e900ea3d8fada9ca9dbe6fd18ebca42568762a636
+  /home/eao/failure-prediction/reports/confirmatory/held_out_map.final.yaml: 2ee301fdd9d1bcf0294e413e900ea3d8fada9ca9dbe6fd18ebca42568762a636
   /home/eao/failure-prediction/reports/confirmatory/unseen_family.yaml: 025df205c01f7039e0746c658733238dd3e454218f039234fcfdb2e1644357ec
   /home/eao/failure-prediction/reports/confirmatory/natural_failure_audit.yaml: 214ed480aab75ec76ea59533ad4f4c9edcb952f2ccebe3039b5d33672cf77fd8
+  /home/eao/failure-prediction/reports/recovery/paired_recovery.yaml: 668acec9147eacdb26736a719fb3be5be40f2c3ef9617a6a155336e83b10948b

@@ -1,0 +1,12 @@
+{
+  "fabricated_inputs": false,
+  "generated_utc": "2026-09-12T07:57:57Z",
+  "rows": 4,
+  "sources": {
+    "paired_recovery": {
+      "path": "/home/eao/failure-prediction/reports/recovery/paired_recovery.yaml",
+      "sha256": "668acec9147eacdb26736a719fb3be5be40f2c3ef9617a6a155336e83b10948b"
+    }
+  },
+  "table": "tab05_recovery_outcomes"
+}

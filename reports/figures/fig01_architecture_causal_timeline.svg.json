@@ -1,0 +1,20 @@
+{
+  "fabricated_inputs": false,
+  "figure": "fig01_architecture_causal_timeline",
+  "file": "fig01_architecture_causal_timeline.svg",
+  "generated_utc": "2026-09-12T07:56:10Z",
+  "sources": {
+    "alarm_policy": {
+      "path": "/home/eao/failure-prediction/configs/alarm_policy.yaml",
+      "sha256": "eda4b514d7edfb75fccbdd5705ec172c9576a9e4e282e0a0aec2c60774353ccc"
+    },
+    "failure_events": {
+      "path": "/home/eao/failure-prediction/configs/failure_events.yaml",
+      "sha256": "e0bfb726494a1bb933ad6faac9aa22808ccd6ae55edaad338c8b6fedd1bac3c2"
+    },
+    "recovery_guards": {
+      "path": "/home/eao/failure-prediction/configs/recovery_guards.yaml",
+      "sha256": "04017b745d8dc81baa19b1b50d7a08a32dc3064b4af3dcb114b97d306000f12a"
+    }
+  }
+}
