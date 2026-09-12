@@ -147,3 +147,9 @@ protected/unseen-family evaluation, paired recovery, final cards and independent
 reproduction evidence all exist. The audit also reruns all three dataset hash validators,
 the raw-payload audit, the recovery-guard verifier, the Research 1 boundary and the
 tamper-evident research-log check; artifact presence alone cannot satisfy completion.
+
+## Results and disclosures
+
+- Final hypothesis table: `reports/confirmatory/final/hypotheses.md` (H1-H6 against the preregistered criteria).
+- Deviations, amendments, incidents and disclosures: `docs/deviations-and-disclosures.md`.
+- Independent clean-room reproduction record: `reports/reproduction/independent_rerun.yaml`; release record: `reports/reproduction/release.yaml`.

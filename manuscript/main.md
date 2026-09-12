@@ -15,9 +15,7 @@ a ten-second warning horizon, a one-second too-late interval, complete-episode s
 held-out maps, and leave-one-failure-family-out evaluation. The primary endpoint is
 event recall at a validation-fixed budget of at most 0.10 false alerts per clean
 mission. The downstream endpoint is paired mission completion under independently
-guarded recovery. **RESULT_PENDING:** predictor effect, warning lead time, calibration,
-unseen-family generalisation, recovery effect and uncertainty intervals will be inserted
-only from immutable generated artifacts.
+guarded recovery. On 3 held-out maps (157 terminal events, 1002 episodes) the causal TCN reached event recall 22.9% against 3.2% for the threshold rules at the frozen validation threshold (0.183 false alerts per clean mission), a paired difference of +19.7 percentage points (95% hierarchical bootstrap interval -0.0 to +44.7; preregistered criterion not met); median useful lead time 3.8 s over 36 detected events with 121 undetected. Mission timeouts (6 episodes) were analysed separately, as preregistered: the TCN warned before 0.0% of them. In the paired recovery campaign (504 map/route/seed/fault pairs), mission completion under the cost-sensitive guarded policy R3 was 84.3% versus 86.1% under default Nav2 recovery R0 (difference -1.8 points, 95% interval -7.7 to +3.2; collision-rate difference +0.0 points; estimator mixed_effects_logistic_variational_bayes_statsmodels). Guard rejections: 0; guard violations: 0. Hypothesis H6 is not supported.
 
 ## 1. Introduction
 
@@ -234,21 +232,18 @@ combined-fault analyses are exploratory.
 
 ## 4. Results
 
-**RESULT_PENDING.** This section must be generated from immutable pilot, validation,
-held-out-map, unseen-family and paired-recovery artifacts. It must include denominators,
-negative results, exclusions, intervals and all guard rejections.
+Results were generated on 2026-09-12 from immutable artifacts (see reports/tables and reports/figures with their sha256 sidecars).
 
-Required figures are the architecture/causal timeline, annotated risk traces, recall
-versus false-alert burden, lead-time curves, reliability diagrams, held-out and unseen-
-family matrices, feature ablations, recovery outcomes and recovery-action errors.
+On 3 held-out maps (157 terminal events, 1002 episodes) the causal TCN reached event recall 22.9% against 3.2% for the threshold rules at the frozen validation threshold (0.183 false alerts per clean mission), a paired difference of +19.7 percentage points (95% hierarchical bootstrap interval -0.0 to +44.7; preregistered criterion not met); median useful lead time 3.8 s over 36 detected events with 121 undetected. Mission timeouts (6 episodes) were analysed separately, as preregistered: the TCN warned before 0.0% of them.
 
+Leave-one-family-out recall for the TCN was camera_occlusion 31.2% (16 events); dynamic_blockage 12.9% (31 events); lidar_dropout 0.0% (15 events); localisation_perturbation 34.8% (23 events); planner_oscillation 0.0% (28 events); semantic_corruption 0.0% (8 events); wheel_slip 10.0% (20 events). No pooled unseen-family claim is made; heterogeneity across folds is reported as observed.
+
+In the paired recovery campaign (504 map/route/seed/fault pairs), mission completion under the cost-sensitive guarded policy R3 was 84.3% versus 86.1% under default Nav2 recovery R0 (difference -1.8 points, 95% interval -7.7 to +3.2; collision-rate difference +0.0 points; estimator mixed_effects_logistic_variational_bayes_statsmodels). Guard rejections: 0; guard violations: 0. Hypothesis H6 is not supported.
+
+Required figures are the architecture/causal timeline, annotated risk traces, recall versus false-alert burden, lead-time curves, reliability diagrams, held-out and unseen-family matrices, feature ablations, recovery outcomes and recovery-action errors.
 ## 5. Discussion
 
-**RESULT_PENDING.** Interpretation will be constrained to the observed failure families,
-maps, robot platform and warning horizon. A failure to outperform rules, transfer to
-unseen families, meet the alarm budget or improve paired completion will be reported as
-the study result rather than repaired through protected-set tuning.
-
+Interpretation is restricted to the observed failure families, maps, robot platform and warning horizon. The confirmatory claims H1 and H6 are reported exactly as estimated above, including negative components, without protected-set tuning.
 ## 6. Limitations and ethics
 
 The benchmark is simulated, uses one robot family and deliberately controlled faults,
@@ -268,11 +263,12 @@ limitation rather than filled with a synthetic reviewer identity.
 
 ## 7. Reproducibility statement
 
+Every deviation from the preregistered protocol, every amendment, every execution incident and every disclosure is listed in `docs/deviations-and-disclosures.md` and recorded in the chained research log; the paired recovery campaign was executed twice and only the second execution, in which the recovery treatment was actually delivered, enters the H6 analysis (amendment PA-2026-09-10-01).
+
 The release will contain raw-bag checksums, manifests, split assignments, extraction and
 label versions, feature schema, normalisation bundle, model checkpoints, calibration and
 threshold records, immutable predictions, generated tables and figures, model and
-dataset cards, and a one-command verification path. **RELEASE_PENDING:** independent
-reproduction has not yet been performed.
+dataset cards, and a one-command verification path. An independent clean rerun (commit 7ae157c19052, 2026-09-12T08:07:47Z) regenerated the predictions from the frozen checkpoint and reproduced the released tables within tolerance: tab01_predictor_summary identical_bytes, tab02_recall_by_family identical_bytes, tab03_unseen_family identical_bytes, tab04_ablations identical_bytes, tab05_recovery_outcomes identical_bytes, tab06_action_confusion identical_bytes, tab07_latency identical_bytes.
 
 Long-running collection is observed by a read-only 30-minute monitor that reconciles
 parent and replacement ledgers, advisory lock ownership and free space. It cannot start,

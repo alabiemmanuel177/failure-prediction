@@ -1,0 +1,181 @@
+schema_version: 1
+evidence_type: independent_clean_rerun
+protected_test_used: true
+started_utc: '2026-09-12T08:06:37Z'
+git_commit: 7ae157c190529dc87aba32f4bd6eb2f55398ffe9
+worktree: /tmp/research2-rerun-1789200396
+frozen_checkpoint_sha256: 171451f0fa21036a05a5b9eb2181568976e65131fa30f74ad3d0c88f6fea57a6
+steps:
+- id: tests
+  command: /home/eao/failure-prediction/.venv/bin/python -m pytest -q
+  returncode: 0
+  seconds: 44.4
+  stdout_tail: "........................................................................\
+    \ [ 17%]\n........................................................................\
+    \ [ 35%]\n........................................................................\
+    \ [ 52%]\n........................................................................\
+    \ [ 70%]\n........................................................................\
+    \ [ 87%]\n...................................................                \
+    \      [100%]\n=============================== warnings summary ===============================\n\
+    tests/test_build_figures_tables.py::test_all_minimum_figures_are_produced_with_sha256_sidecars\n\
+    \  /home/eao/.local/lib/python3.12/site-packages/matplotlib/projections/__init__.py:63:\
+    \ UserWarning: Unable to import Axes3D. This may be due to multiple versions of\
+    \ Matplotlib being installed (e.g. as a system package and as a pip package).\
+    \ As a result, the 3D projection is not available.\n    warnings.warn(\"Unable\
+    \ to import Axes3D. This may be due to multiple versions of \"\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n\
+    411 passed, 1 warning in 43.64s\n"
+  stderr_tail: ''
+- id: development_inventory
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/validate_development_dataset_inventory.py
+  returncode: 0
+  seconds: 1.0
+  stdout_tail: 'DEVELOPMENT DATASET VALID: 648 unique development episodes; hashes
+    and sidecars agree
+
+    training admission remains governed by scripts/check_readiness.py --stage training
+
+    '
+  stderr_tail: ''
+- id: validation_inventory
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/validate_validation_dataset_inventory.py
+  returncode: 0
+  seconds: 0.5
+  stdout_tail: 'VALIDATION DATASET VALID: 324 unique validation episodes; hashes and
+    sidecars agree
+
+    selection admission remains governed by scripts/check_readiness.py --stage training
+
+    '
+  stderr_tail: ''
+- id: targeted_inventory
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/validate_targeted_dataset_inventory.py
+  returncode: 0
+  seconds: 2.0
+  stdout_tail: 'TARGETED DATASET VALID: 1,212 unique development episodes; hashes
+    and sidecars agree
+
+    '
+  stderr_tail: ''
+- id: raw_payload_audit
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/audit_raw_artifact_payloads.py
+  returncode: 0
+  seconds: 0.4
+  stdout_tail: 'RAW PAYLOAD INTEGRITY PASS: 2 declared excluded loss run(s), 0 unexpected;
+    report: /tmp/research2-rerun-1789200396/reports/integrity/raw_payload_integrity.yaml
+
+    '
+  stderr_tail: ''
+- id: predict_validation
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/predict_decisions.py
+    --model-dir models/final_v1_seed20260904/p3_causal_tcn__seed20260904 --dataset
+    balanced_validation_v1-validation-324 --output /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation.csv
+  returncode: 0
+  seconds: 2.3
+  stdout_tail: '{"decisions": 45226, "eligible_negative": 31229, "eligible_positive":
+    1098, "excluded": 12899, "model_id": "p3_causal_tcn", "output": "/tmp/research2-rerun-1789200396/reports/predictions/rerun_validation.csv",
+    "rows": 45226}
+
+    '
+  stderr_tail: ''
+- id: calibrate_validation
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/apply_calibration.py
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation.csv reports/calibration/final_v1_seed20260904/p3_causal_tcn.calibrator.json
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation_calibrated.csv
+  returncode: 0
+  seconds: 0.4
+  stdout_tail: 'applied platt_scaling (sha256 6810746b3671) to /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation.csv
+    (sha256 7ce54188bbc9) -> /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation_calibrated.csv
+    (sha256 4b807df50f86, protected_test_used=false)
+
+    '
+  stderr_tail: ''
+- id: alarm_validation
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/apply_alarm_policy.py
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation_calibrated.csv
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation_alarmed.csv
+  returncode: 0
+  seconds: 0.4
+  stdout_tail: 'threshold=0.23509196030026114 persistence=2-of-3 cooldown=10.0s alarms=172
+    protected=false -> /tmp/research2-rerun-1789200396/reports/predictions/rerun_validation_alarmed.csv
+    (sha256 423d8f65612a)
+
+    '
+  stderr_tail: ''
+- id: predict_held_out_map
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/predict_decisions.py
+    --model-dir models/final_v1_seed20260904/p3_causal_tcn__seed20260904 --dataset
+    held_out_map_v1-held_out_map_test-1008 --output /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map.csv
+    --allow-protected-after-freeze
+  returncode: 0
+  seconds: 5.9
+  stdout_tail: '{"decisions": 217391, "eligible_negative": 168682, "eligible_positive":
+    2909, "excluded": 45800, "model_id": "p3_causal_tcn", "output": "/tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map.csv",
+    "rows": 217391}
+
+    '
+  stderr_tail: ''
+- id: calibrate_held_out_map
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/apply_calibration.py
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map.csv reports/calibration/final_v1_seed20260904/p3_causal_tcn.calibrator.json
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map_calibrated.csv
+    --allow-protected-after-freeze
+  returncode: 0
+  seconds: 1.6
+  stdout_tail: 'applied platt_scaling (sha256 6810746b3671) to /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map.csv
+    (sha256 a4b6d7a95b6c) -> /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map_calibrated.csv
+    (sha256 bd24ca4a4a43, protected_test_used=true)
+
+    '
+  stderr_tail: ''
+- id: alarm_held_out_map
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/apply_alarm_policy.py
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map_calibrated.csv
+    /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map_alarmed.csv
+    --allow-protected-after-freeze
+  returncode: 0
+  seconds: 1.7
+  stdout_tail: 'threshold=0.23509196030026114 persistence=2-of-3 cooldown=10.0s alarms=375
+    protected=true -> /tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out_map_alarmed.csv
+    (sha256 3655fb691578)
+
+    '
+  stderr_tail: ''
+- id: tables
+  command: /home/eao/failure-prediction/.venv/bin/python scripts/build_tables.py --root
+    /tmp/research2-rerun-1789200396 --output-dir /tmp/research2-rerun-1789200396/reports/tables_rerun
+    --input predictions_validation=/tmp/research2-rerun-1789200396/reports/predictions/rerun_validation_alarmed.csv
+    --input predictions_held_out=/tmp/research2-rerun-1789200396/reports/predictions/rerun_held_out
+  returncode: 0
+  seconds: 9.8
+  stdout_tail: 'produced: [''tab01_predictor_summary'', ''tab02_recall_by_family'',
+    ''tab03_unseen_family'', ''tab04_ablations'', ''tab05_recovery_outcomes'', ''tab06_action_confusion'',
+    ''tab07_latency'']
+
+    PENDING: none
+
+    '
+  stderr_tail: ''
+diffs:
+  tab01_predictor_summary:
+    status: identical_bytes
+  tab02_recall_by_family:
+    status: identical_bytes
+  tab03_unseen_family:
+    status: identical_bytes
+  tab04_ablations:
+    status: identical_bytes
+  tab05_recovery_outcomes:
+    status: identical_bytes
+  tab06_action_confusion:
+    status: identical_bytes
+  tab07_latency:
+    status: identical_bytes
+released_secondary_tables_reused_sha256:
+  p1_threshold_rules.alarmed.csv: d0b1ab01438f57f87d551e84ac06692528908ee0c2a3e982c6946834a854821f
+  p4_gru.alarmed.csv: fa0b024f269ba1d7df2b03e5c72ab40e463d80327e43c38ecae7d2d997baaea5
+  p5_compact_transformer.alarmed.csv: 06562eddc51ce0f9d4217386fa0bdd5e1a9e48e665864758462fa405aa5a048d
+rerun_prediction_sha256:
+  rerun_validation_alarmed.csv: 423d8f65612aa8d3f30370c3afb110f351118e55c2c143b9df14b588dbdaf0da
+  rerun_held_out_map_alarmed.csv: 3655fb69157819d176f29ab63e19724bc261d7db971a967f67754c8c0ad755b4
+passed: true
+finished_utc: '2026-09-12T08:07:47Z'
