@@ -60,3 +60,7 @@ reports/storyboard/*/*_card.png
 reports/storyboard/*/*_card.mp4
 reports/storyboard/*/concat.txt
 reports/storyboard/*/demo_core.mp4
+reports/storyboard/*/storyboard/frames/*.png
+reports/storyboard/*/preview_*.png
+reports/storyboard/*/clock_logger.log
+reports/storyboard/*/ffmpeg.log

@@ -1,0 +1,8 @@
+{
+  "run_id": "a75e4a6c-71b2-472a-9445-3edd06bcee14",
+  "summary": "/home/eao/failure-prediction/data/raw_engineering_smoke/summaries/a75e4a6c-71b2-472a-9445-3edd06bcee14.yaml",
+  "bag": "/home/eao/failure-prediction/data/raw_engineering_smoke/bags/a75e4a6c-71b2-472a-9445-3edd06bcee14",
+  "events": "/home/eao/failure-prediction/data/raw_engineering_smoke/events/a75e4a6c-71b2-472a-9445-3edd06bcee14.json",
+  "terminal_state": "planner_failure",
+  "success": false
+}
