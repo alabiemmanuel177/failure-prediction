@@ -38,8 +38,13 @@ from src.dataset_inventory import publish_new_bytes  # noqa: E402
 from src.release import git_head, sha256_file  # noqa: E402
 
 
-SHARED_INPUTS = ("data/raw", "data/derived", "models")
-TABLE_NAMES = ("tab01_predictor_summary", "tab02_recall_by_family", "tab03_unseen_family", "tab04_ablations")
+SHARED_INPUTS = ("data/raw", "data/derived", "models", "reports/unseen_family", "reports/predictions/ablations")
+# Released alarmed held-out tables of the comparison models; the rerun regenerates the
+# frozen primary predictor (P3) and reuses these read-only (they are not regenerated).
+SECONDARY_HELD_OUT_TABLES = ("p1_threshold_rules.alarmed.csv", "p4_gru.alarmed.csv", "p5_compact_transformer.alarmed.csv")
+RELEASED_HELD_OUT_DIR = "reports/predictions/held_out/held_out_map_v1"
+TABLE_NAMES = ("tab01_predictor_summary", "tab02_recall_by_family", "tab03_unseen_family", "tab04_ablations",
+               "tab05_recovery_outcomes", "tab06_action_confusion", "tab07_latency")
 
 
 def plan(root: Path, worktree: Path, *, venv_python: str, validation_dataset: str,
@@ -71,10 +76,25 @@ def plan(root: Path, worktree: Path, *, venv_python: str, validation_dataset: st
         "id": "tables", "command": [
             py, "scripts/build_tables.py", "--root", str(worktree), "--output-dir", str(worktree / "reports/tables_rerun"),
             "--input", f"predictions_validation={predictions / 'rerun_validation_alarmed.csv'}",
-            "--input", f"predictions_held_out={predictions / 'rerun_held_out_map_alarmed.csv'}",
+            "--input", f"predictions_held_out={predictions / 'rerun_held_out'}",
         ], "cwd": str(worktree),
     })
     return steps
+
+
+def stage_held_out_tables(root: Path, worktree: Path) -> dict[str, str]:
+    """reports/predictions/rerun_held_out/: the regenerated P3 table (created by the alarm
+    step) beside read-only links to the released comparison-model tables."""
+    staging = worktree / "reports/predictions/rerun_held_out"
+    staging.mkdir(parents=True, exist_ok=True)
+    (staging / "p3_causal_tcn.alarmed.csv").symlink_to(worktree / "reports/predictions/rerun_held_out_map_alarmed.csv")
+    shared: dict[str, str] = {}
+    for name in SECONDARY_HELD_OUT_TABLES:
+        source = root / RELEASED_HELD_OUT_DIR / name
+        if source.is_file():
+            (staging / name).symlink_to(source.resolve())
+            shared[name] = sha256_file(source)
+    return shared
 
 
 def numeric_diff(released: Path, rerun: Path, tolerance: float) -> dict[str, Any]:
@@ -170,6 +190,7 @@ def main() -> int:
                     shutil.rmtree(target) if target.is_dir() and not target.is_symlink() else target.unlink()
                 target.symlink_to(source.resolve())
         (worktree / "reports/predictions").mkdir(parents=True, exist_ok=True)
+        record["released_secondary_tables_reused_sha256"] = stage_held_out_tables(root, worktree)
         ok = True
         for step in steps:
             if not ok:

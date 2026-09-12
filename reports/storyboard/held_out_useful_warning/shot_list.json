@@ -1,0 +1,54 @@
+{
+  "demo_seconds": 90.0,
+  "episode_time_span_s": [
+    18.508,
+    43.508
+  ],
+  "event_time_s": 43.933,
+  "ffmpeg_available": false,
+  "ffmpeg_path": null,
+  "fps": 2.0,
+  "frame_count": 161,
+  "generated_utc": "2026-09-12T08:01:51Z",
+  "recovery_actions": [],
+  "run_id": "f99d2bf0-48dd-4853-89b1-2077b02af73b",
+  "shots": [
+    {
+      "demo_end_s": 5.0,
+      "demo_start_s": 0.0,
+      "shot": "title",
+      "text": "The robot forecasts a navigation failure seconds early, then recovers."
+    },
+    {
+      "demo_end_s": 61.0,
+      "demo_start_s": 5.0,
+      "shot": "approach",
+      "text": "Synchronized video with the live risk trace."
+    },
+    {
+      "demo_start_s": 61.0,
+      "episode_time_s": 36.008,
+      "lead_seconds_before_event": 7.924999999999997,
+      "shot": "warning",
+      "text": "Calibrated risk crosses the frozen threshold with 2-of-3 persistence."
+    },
+    {
+      "demo_start_s": 86.36,
+      "episode_time_s": 43.933,
+      "event_class": "navigation_abort",
+      "shot": "terminal_event"
+    },
+    {
+      "demo_end_s": 90.0,
+      "demo_start_s": 85.0,
+      "shot": "closing",
+      "text": "Preprint, code, dataset card, one-command reproduction and limitations."
+    }
+  ],
+  "sources": {
+    "predictions": "reports/predictions/held_out/held_out_map_v1/p3_causal_tcn.alarmed.csv",
+    "predictions_sha256": "3655fb69157819d176f29ab63e19724bc261d7db971a967f67754c8c0ad755b4"
+  },
+  "video_assembled": false,
+  "warning_time_s": 36.008
+}
