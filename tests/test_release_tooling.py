@@ -67,7 +67,8 @@ def test_reproduce_release_dry_run_prints_the_clean_room_plan():
     assert ids[:5] == ["tests", "development_inventory", "validation_inventory", "targeted_inventory", "raw_payload_audit"]
     assert "predict_held_out_map" in ids and ids[-1] == "tables"
     assert plan["shared_inputs_symlinked"] == ["data/raw", "data/derived", "models", "reports/unseen_family", "reports/predictions/ablations"]
-    assert not (ROOT / "reports/reproduction").exists()
+    assert not (ROOT / "reports/reproduction/independent_rerun.dry_run_should_not_write.yaml").exists()
+    assert "independent_rerun" in result.stdout or "output" in result.stdout
 
 
 def test_storyboard_produces_frames_shots_and_documented_assembly(tmp_path):

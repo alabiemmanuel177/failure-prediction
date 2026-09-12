@@ -1,0 +1,65 @@
+schema_version: 1
+evidence_type: independent_clean_rerun
+protected_test_used: true
+started_utc: '2026-09-12T08:04:54Z'
+git_commit: 77f777f320b4dc5e8549d51332c13e1719038001
+worktree: /tmp/research2-rerun-1789200293
+frozen_checkpoint_sha256: 171451f0fa21036a05a5b9eb2181568976e65131fa30f74ad3d0c88f6fea57a6
+steps:
+- id: tests
+  command: /home/eao/failure-prediction/.venv/bin/python -m pytest -q
+  returncode: 1
+  seconds: 44.7
+  stdout_tail: "_the_clean_room_plan():\n        result = subprocess.run([sys.executable,\
+    \ str(ROOT / \"scripts/reproduce_release.py\"), \"--dry-run\"],\n            \
+    \                    capture_output=True, text=True)\n        assert result.returncode\
+    \ == 0, result.stderr\n        plan = json.loads(result.stdout)\n        ids =\
+    \ [step[\"id\"] for step in plan[\"steps\"]]\n        assert ids[:5] == [\"tests\"\
+    , \"development_inventory\", \"validation_inventory\", \"targeted_inventory\"\
+    , \"raw_payload_audit\"]\n        assert \"predict_held_out_map\" in ids and ids[-1]\
+    \ == \"tables\"\n        assert plan[\"shared_inputs_symlinked\"] == [\"data/raw\"\
+    , \"data/derived\", \"models\", \"reports/unseen_family\", \"reports/predictions/ablations\"\
+    ]\n>       assert not (ROOT / \"reports/reproduction\").exists()\nE       AssertionError:\
+    \ assert not True\nE        +  where True = <bound method Path.exists of PosixPath('/tmp/research2-rerun-1789200293/reports/reproduction')>()\n\
+    E        +    where <bound method Path.exists of PosixPath('/tmp/research2-rerun-1789200293/reports/reproduction')>\
+    \ = (PosixPath('/tmp/research2-rerun-1789200293') / 'reports/reproduction').exists\n\
+    \ntests/test_release_tooling.py:70: AssertionError\n===============================\
+    \ warnings summary ===============================\ntests/test_build_figures_tables.py::test_all_minimum_figures_are_produced_with_sha256_sidecars\n\
+    \  /home/eao/.local/lib/python3.12/site-packages/matplotlib/projections/__init__.py:63:\
+    \ UserWarning: Unable to import Axes3D. This may be due to multiple versions of\
+    \ Matplotlib being installed (e.g. as a system package and as a pip package).\
+    \ As a result, the 3D projection is not available.\n    warnings.warn(\"Unable\
+    \ to import Axes3D. This may be due to multiple versions of \"\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n\
+    =========================== short test summary info ============================\n\
+    FAILED tests/test_release_tooling.py::test_reproduce_release_dry_run_prints_the_clean_room_plan\n\
+    1 failed, 410 passed, 1 warning in 43.94s\n"
+  stderr_tail: ''
+- id: development_inventory
+  status: skipped
+- id: validation_inventory
+  status: skipped
+- id: targeted_inventory
+  status: skipped
+- id: raw_payload_audit
+  status: skipped
+- id: predict_validation
+  status: skipped
+- id: calibrate_validation
+  status: skipped
+- id: alarm_validation
+  status: skipped
+- id: predict_held_out_map
+  status: skipped
+- id: calibrate_held_out_map
+  status: skipped
+- id: alarm_held_out_map
+  status: skipped
+- id: tables
+  status: skipped
+diffs: {}
+released_secondary_tables_reused_sha256:
+  p1_threshold_rules.alarmed.csv: d0b1ab01438f57f87d551e84ac06692528908ee0c2a3e982c6946834a854821f
+  p4_gru.alarmed.csv: fa0b024f269ba1d7df2b03e5c72ab40e463d80327e43c38ecae7d2d997baaea5
+  p5_compact_transformer.alarmed.csv: 06562eddc51ce0f9d4217386fa0bdd5e1a9e48e665864758462fa405aa5a048d
+passed: false
+finished_utc: '2026-09-12T08:05:38Z'
