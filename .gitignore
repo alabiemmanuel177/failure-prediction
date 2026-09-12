@@ -55,3 +55,8 @@ models/*/_superseded*/
 
 # Rasterised storyboard frames are derived from the SVG frames
 reports/storyboard/*/frames/*.png
+reports/storyboard/*/frames_sim/*.png
+reports/storyboard/*/*_card.png
+reports/storyboard/*/*_card.mp4
+reports/storyboard/*/concat.txt
+reports/storyboard/*/demo_core.mp4
