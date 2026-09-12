@@ -153,3 +153,9 @@ tamper-evident research-log check; artifact presence alone cannot satisfy comple
 - Final hypothesis table: `reports/confirmatory/final/hypotheses.md` (H1-H6 against the preregistered criteria).
 - Deviations, amendments, incidents and disclosures: `docs/deviations-and-disclosures.md`.
 - Independent clean-room reproduction record: `reports/reproduction/independent_rerun.yaml`; release record: `reports/reproduction/release.yaml`.
+
+## Licence
+
+Code is MIT (`LICENSE`). Research data, results, figures, model checkpoints and
+documentation are CC BY 4.0 (`LICENSE-DATA`). The archived core evidence deposit
+carries CC BY 4.0.

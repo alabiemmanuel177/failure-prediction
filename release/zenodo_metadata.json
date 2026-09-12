@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "upload_type": "dataset",
+    "title": "Early Failure Prediction and Recovery for Mobile Robot Navigation: Core Evidence",
+    "description": "<p>Core evidence for a preregistered ROS 2/Gazebo/Nav2 study of whether mobile robot navigation failure can be predicted early enough to act on, and whether a guarded recovery benefits from that prediction. The archive contains the confirmatory results, calibration and threshold records, ablations, integrity audits, figures with provenance sidecars, every immutable campaign manifest, the frozen configurations, and all trained model checkpoints with their normalisation and training records.</p><p>Six hypotheses were evaluated against a decision threshold of 0.235 and a checkpoint frozen before the protected split was touched. Both confirmatory hypotheses were not supported: the learned predictor could not be shown to beat a transparent threshold baseline at the validation-fixed false-alert budget (0.197, 95% CI -0.000 to 0.447), and prediction-triggered recovery did not improve mission completion. Median useful lead time of detected failures was 3.818 s (95% CI 1.745 to 6.120) against a 3 s bar set in advance, and calibration reduced Brier score on validation. Leave-one-family-out generalisation beat the baseline in four of seven folds against a preregistered five.</p><p>Per-window prediction tables (about 3 GB), derived model-input sequences (about 13 GB) and raw recordings (about 175 GB) are registered by manifest but not deposited. This archive supports full verification of every reported number and inspection of every trained model; regenerating predictions from scratch additionally requires the derived sequences.</p><p>Scope is simulation only. It does not establish real-world safety. No inter-rater reliability is claimed for the label audit.</p>",
+    "creators": [
+      {
+        "name": "Alabi Olasubomi, Emmanuel"
+      }
+    ],
+    "publication_date": "2026-09-12",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "version": "1.0.0",
+    "language": "eng",
+    "keywords": [
+      "robotics",
+      "failure prediction",
+      "early warning",
+      "uncertainty calibration",
+      "ROS 2",
+      "Gazebo",
+      "Nav2",
+      "preregistration",
+      "reproducibility"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/alabiemmanuel177/failure-prediction",
+        "relation": "isSupplementTo"
+      },
+      {
+        "identifier": "10.5281/zenodo.22181941",
+        "relation": "isDerivedFrom"
+      }
+    ],
+    "notes": "Verify the archive against CORE_SHA256SUMS before extraction. The full hypothesis table with a source file for every row is inside the archive at reports/confirmatory/final/hypotheses.md.",
+    "prereserve_doi": true
+  }
+}

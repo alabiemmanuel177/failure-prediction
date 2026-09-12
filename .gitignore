@@ -64,3 +64,6 @@ reports/storyboard/*/storyboard/frames/*.png
 reports/storyboard/*/preview_*.png
 reports/storyboard/*/clock_logger.log
 reports/storyboard/*/ffmpeg.log
+
+release/artifacts/
+release/.zenodo-deposition-state.json
