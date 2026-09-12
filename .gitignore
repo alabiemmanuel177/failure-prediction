@@ -52,3 +52,6 @@ reports/unseen_family/**/*.csv
 reports/unseen_family/**/*.provenance.json
 models/_incomplete_runs/
 models/*/_superseded*/
+
+# Rasterised storyboard frames are derived from the SVG frames
+reports/storyboard/*/frames/*.png
