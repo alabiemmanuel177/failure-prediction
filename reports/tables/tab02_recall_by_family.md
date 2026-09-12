@@ -1,6 +1,6 @@
 # tab02_recall_by_family
 
-Generated 2026-09-12T07:57:57Z from immutable artifacts.
+Generated 2026-09-12T07:59:19Z from immutable artifacts.
 
 | model_id | fault_family | episodes | events | detected | event_recall | false_alerts_per_mission |
 |---|---|---|---|---|---|---|

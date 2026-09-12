@@ -1,6 +1,6 @@
 # tab05_recovery_outcomes
 
-Generated 2026-09-12T07:57:57Z from immutable artifacts.
+Generated 2026-09-12T07:59:19Z from immutable artifacts.
 
 | comparison | policy | episodes | mission_completion_rate | collision_rate | guard_violations | guard_rejections | median_added_time_seconds | median_added_path_length_m | mean_intervention_count | completion_difference | completion_ci_low | completion_ci_high | estimator |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|

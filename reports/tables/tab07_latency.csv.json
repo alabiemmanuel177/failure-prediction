@@ -1,0 +1,20 @@
+{
+  "fabricated_inputs": false,
+  "generated_utc": "2026-09-12T07:59:19Z",
+  "rows": 3,
+  "sources": {
+    "latency_report:p3_causal_tcn.json": {
+      "path": "/home/eao/failure-prediction/reports/latency/final_v1_seed20260904/p3_causal_tcn.json",
+      "sha256": "85c0c1ff3a3e2a8c7ff6c7029b59c43e482e31a2b15dfcc3993f9b8cee7a25f4"
+    },
+    "latency_report:p4_gru.json": {
+      "path": "/home/eao/failure-prediction/reports/latency/final_v1_seed20260904/p4_gru.json",
+      "sha256": "45b4cc40c3217c41eb0a1aee745df8ae66437e41736ffbfcd7c458dad8939c04"
+    },
+    "latency_report:p5_compact_transformer.json": {
+      "path": "/home/eao/failure-prediction/reports/latency/final_v1_seed20260904/p5_compact_transformer.json",
+      "sha256": "00ddd0240ec33c8a2d2a3be771fe4965f423e2b412c50464e424383cec9fdaf4"
+    }
+  },
+  "table": "tab07_latency"
+}

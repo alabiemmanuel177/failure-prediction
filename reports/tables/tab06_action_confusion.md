@@ -1,6 +1,6 @@
 # tab06_action_confusion
 
-Generated 2026-09-12T07:57:57Z from immutable artifacts.
+Generated 2026-09-12T07:59:19Z from immutable artifacts.
 
 | policy | oracle_action | executed_action | count |
 |---|---|---|---|

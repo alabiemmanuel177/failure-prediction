@@ -1,6 +1,6 @@
 # tab04_ablations
 
-Generated 2026-09-12T07:57:57Z from immutable artifacts.
+Generated 2026-09-12T07:59:19Z from immutable artifacts.
 
 | ablation | episodes | events | event_recall | false_alerts_per_clean_mission | median_useful_lead_seconds |
 |---|---|---|---|---|---|

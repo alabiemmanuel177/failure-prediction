@@ -92,7 +92,8 @@ class ArtifactRegistry:
             if freeze.is_file():
                 document = yaml.safe_load(freeze.read_text(encoding="utf-8")) or {}
                 predictor = document.get("predictor") if isinstance(document.get("predictor"), dict) else {}
-                model_dir = str(predictor.get("model_dir") or (document.get("model") or {}).get("model_dir") or document.get("model_dir") or "")
+                checkpoint = str(predictor.get("checkpoint") or "")
+                model_dir = str(predictor.get("model_dir") or (Path(checkpoint).parent if checkpoint else "") or "")
                 tag = Path(model_dir).parent.name if model_dir else ""
                 if tag and (default / tag).is_dir():
                     return default / tag

@@ -1,8 +1,6 @@
 {
-  "generated_utc": "2026-09-12T07:57:57Z",
-  "pending": {
-    "tab07_latency": "latency_report (/home/eao/failure-prediction/reports/latency)"
-  },
+  "generated_utc": "2026-09-12T07:59:19Z",
+  "pending": {},
   "produced": {
     "tab01_predictor_summary": [
       "tab01_predictor_summary.csv",
@@ -27,6 +25,10 @@
     "tab06_action_confusion": [
       "tab06_action_confusion.csv",
       "tab06_action_confusion.md"
+    ],
+    "tab07_latency": [
+      "tab07_latency.csv",
+      "tab07_latency.md"
     ]
   }
 }

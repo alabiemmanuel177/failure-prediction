@@ -1,6 +1,7 @@
 import csv
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -98,15 +99,22 @@ def test_storyboard_cli_rejects_unknown_run(tmp_path):
     assert result.returncode != 0 and "run_id not found" in result.stderr
 
 
+def _draft_card(text: str) -> str:
+    """Reset a (possibly already finalised) card to its pre-training contract state."""
+    text = re.sub(r"^Status: .*$", "Status: pre-training contract", text, count=1, flags=re.M)
+    marker = "\n## Final record"
+    return text.split(marker)[0].rstrip() + "\n" if marker in text else text
+
+
 def test_finalize_cards_flips_status_once_and_appends_generated_record(tmp_path):
     facts = collect(ROOT)
-    text = (ROOT / "docs/model-card.md").read_text()
+    text = _draft_card((ROOT / "docs/model-card.md").read_text())
     final = finalize_text(text, model_card_section(facts), facts)
     assert "Status: final" in final and "## Final record" in final and "pending" in final
     assert "Status: pre-training contract" not in final
     with pytest.raises(ValueError, match="already final"):
         finalize_text(final, model_card_section(facts), facts)
-    dataset = finalize_text((ROOT / "docs/dataset-card.md").read_text(), dataset_card_section(facts), facts)
+    dataset = finalize_text(_draft_card((ROOT / "docs/dataset-card.md").read_text()), dataset_card_section(facts), facts)
     assert dataset.count("Status:") == 1 and "Status: final" in dataset
 
 
@@ -114,8 +122,8 @@ def test_finalize_cards_real_run_is_blocked_by_the_completion_audit(tmp_path):
     root = tmp_path / "repo"
     (root / "docs").mkdir(parents=True)
     (root / "scripts").mkdir()
-    shutil.copy(ROOT / "docs/model-card.md", root / "docs/model-card.md")
-    shutil.copy(ROOT / "docs/dataset-card.md", root / "docs/dataset-card.md")
+    (root / "docs/model-card.md").write_text(_draft_card((ROOT / "docs/model-card.md").read_text()))
+    (root / "docs/dataset-card.md").write_text(_draft_card((ROOT / "docs/dataset-card.md").read_text()))
     shutil.copy(ROOT / "scripts/audit_project_completion.py", root / "scripts/audit_project_completion.py")
     shutil.copytree(ROOT / "src", root / "src", ignore=shutil.ignore_patterns("__pycache__"))
     before = (root / "docs/model-card.md").read_text()

@@ -1,6 +1,6 @@
 # tab01_predictor_summary
 
-Generated 2026-09-12T07:57:57Z from immutable artifacts.
+Generated 2026-09-12T07:59:19Z from immutable artifacts.
 
 | split | model_id | episodes | events | detected_events | event_recall | false_alerts_per_clean_mission | false_alerts_per_mission | median_useful_lead_seconds | brier_raw | ece_raw | brier_calibrated | ece_calibrated |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
